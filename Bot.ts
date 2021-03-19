@@ -44,14 +44,16 @@ class Bot extends Client {
     ["client", "server"].forEach((e) => load_dir(e));
 
     const mufasa = new WebhookClient(
-      "mufasa",
-      "https://canary.discord.com/api/webhooks/693295402555801611/GFZ0XiChiDX5aIcT8oeWFioguAJQghviDAo5e8lrjvJPfcwdLAdGKvtx6iKQ_CSH2l-W"
+      "693295402555801611",
+      "GFZ0XiChiDX5aIcT8oeWFioguAJQghviDAo5e8lrjvJPfcwdLAdGKvtx6iKQ_CSH2l-W"
     );
 
-    let scheduledMessage = new cron.CronJob("00 30 11 * * 5", () => {
+    let scheduledMessage = new cron.CronJob("00 00 11 * * 5", () => {
       // This runs every day at 10:30:00, you can do anything you want
 
-      mufasa.send("It's friday! https://www.youtube.com/watch?v=1AnG04qnLqI");
+      mufasa
+        .send("It's friday! https://www.youtube.com/watch?v=1AnG04qnLqI")
+        .catch(console.error);
     });
 
     scheduledMessage.start();
