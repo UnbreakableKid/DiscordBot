@@ -49,10 +49,16 @@ class Bot extends Client {
     );
 
     let scheduledMessage = new cron.CronJob("00 00 11 * * 5", () => {
+      const fridays = [
+        "https://www.youtube.com/watch?v=kL62pCZ4I3k", //yakuza
+        " https://www.youtube.com/watch?v=1AnG04qnLqI", //mufasa
+      ];
       // This runs every day at 10:30:00, you can do anything you want
 
       mufasa
-        .send("It's friday! https://www.youtube.com/watch?v=1AnG04qnLqI")
+        .send(
+          `It's friday! ${fridays[Math.floor(Math.random() * fridays.length)]}`
+        )
         .catch(console.error);
     });
 
