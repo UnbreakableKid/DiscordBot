@@ -23,13 +23,18 @@ export const execute: IExecute = async (client, message, args) => {
     return videoResult.videos.length > 1 ? videoResult.videos[0] : null;
   };
 
-  const video = await videoFinder(args.join(" "));
+  const isLink = (link: string) => {
+    var pattern = new RegExp("^(https?://)?(www.)?(youtube.com|youtu.?be)/.+$"); // fragment locator
 
-  if (video) {
-    // console.log(video.url);
+    return !!pattern.test(link);
+  };
+
+  const query = args.join(" ");
+
+  if (isLink(query)) {
     const connection = await voiceChannel.join();
     connection
-      .play(ytdl(video.url, { filter: "audioonly" }), {
+      .play(ytdl(query, { filter: "audioonly" }), {
         seek: 0,
         volume: 1,
         bitrate: "auto",
@@ -37,7 +42,23 @@ export const execute: IExecute = async (client, message, args) => {
       .on("finish", () => {
         voiceChannel.leave();
       });
+  } else {
+    const video = await videoFinder(query);
 
-    await message.reply(`${video.title} is playing`);
-  } else message.channel.send("Couldn't play vid");
+    if (video) {
+      // console.log(video.url);
+      const connection = await voiceChannel.join();
+      connection
+        .play(ytdl(video.url, { filter: "audioonly" }), {
+          seek: 0,
+          volume: 1,
+          bitrate: "auto",
+        })
+        .on("finish", () => {
+          voiceChannel.leave();
+        });
+
+      await message.reply(`${video.title} is playing`);
+    } else message.channel.send("Couldn't play vid");
+  }
 };
