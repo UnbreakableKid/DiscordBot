@@ -52,6 +52,7 @@ class Bot extends Client {
       const fridays = [
         "https://www.youtube.com/watch?v=kL62pCZ4I3k", //yakuza
         " https://www.youtube.com/watch?v=1AnG04qnLqI", //mufasa
+        "https://cdn.discordapp.com/attachments/381520882608373761/824981469591634020/friday.mp4", //big boi tommy
       ];
       // This runs every day at 10:30:00, you can do anything you want
 
