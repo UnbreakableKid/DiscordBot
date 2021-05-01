@@ -44,16 +44,15 @@ class Bot extends Client {
     ["client", "server"].forEach((e) => load_dir(e));
 
     const mufasa = new WebhookClient(
-      "693295402555801611",
-      "GFZ0XiChiDX5aIcT8oeWFioguAJQghviDAo5e8lrjvJPfcwdLAdGKvtx6iKQ_CSH2l-W"
+      process.env.MUFASA_ID,
+      process.env.MUFASA_TOKEN
     );
-
     let scheduledMessage = new cron.CronJob("00 00 11 * * 5", () => {
       const fridays = [
         "https://www.youtube.com/watch?v=kL62pCZ4I3k", //yakuza
         " https://www.youtube.com/watch?v=1AnG04qnLqI", //mufasa
+        "https://www.youtube.com/watch?v=UjJY8X7d9ZY", // mufasa
         "https://cdn.discordapp.com/attachments/381520882608373761/824981469591634020/friday.mp4", //big boi tommy
-        "https://www.youtube.com/watch?v=UjJY8X7d9ZY",
       ];
       // This runs every day at 10:30:00, you can do anything you want
 
