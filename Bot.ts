@@ -3,7 +3,23 @@ import { readdirSync } from "fs";
 import { ICommand } from "./interfaces/ICommands";
 import { IEvent } from "./interfaces/IEvents";
 import cron from "cron";
+import axios from "axios";
 
+export interface albumOfTheDay {
+  artists: artists[];
+  name: string;
+  releaseDate: string;
+  youtubeSearchQuery: string;
+}
+
+interface artists {
+  external_urls: external_urls;
+  name: string;
+}
+
+interface external_urls {
+  spotify: string;
+}
 class Bot extends Client {
   public prefix: string;
   public commands: Collection<string, ICommand> = new Collection();
@@ -47,6 +63,12 @@ class Bot extends Client {
       process.env.MUFASA_ID,
       process.env.MUFASA_TOKEN
     );
+
+    const albumOfTheDayBot = new WebhookClient(
+      process.env.AOTD_ID,
+      process.env.AOTD_TOKEN
+    );
+
     let scheduledMessage = new cron.CronJob("00 00 11 * * 5", () => {
       const fridays = [
         "https://www.youtube.com/watch?v=kL62pCZ4I3k", //yakuza
@@ -54,7 +76,6 @@ class Bot extends Client {
         "https://www.youtube.com/watch?v=UjJY8X7d9ZY", // mufasa
         "https://cdn.discordapp.com/attachments/381520882608373761/824981469591634020/friday.mp4", //big boi tommy
       ];
-      // This runs every day at 10:30:00, you can do anything you want
 
       mufasa
         .send(
@@ -63,6 +84,21 @@ class Bot extends Client {
         .catch(console.error);
     });
 
+    let albumOfTheDay = new cron.CronJob("00 00 8 * * *", async () => {
+      const { data } = await axios.get(
+        "https://1001albumsgenerator.com/api/v1/groups/pepegas-do-preco-certo"
+      );
+
+      let stuff: albumOfTheDay = data.currentAlbum;
+
+      albumOfTheDayBot
+        .send(
+          `Today's album of the day is ${stuff.name} by ${stuff.artists[0].name}! ${stuff.artists[0].external_urls.spotify}`
+        )
+        .catch(console.error);
+    });
+
+    albumOfTheDay.start();
     scheduledMessage.start();
   };
 }
