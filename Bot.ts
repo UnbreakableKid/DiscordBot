@@ -10,6 +10,7 @@ export interface albumOfTheDay {
   name: string;
   releaseDate: string;
   youtubeSearchQuery: string;
+  spotifyId: string;
 }
 
 interface artists {
@@ -90,10 +91,11 @@ class Bot extends Client {
       );
 
       let stuff: albumOfTheDay = data.currentAlbum;
+      let album: string = `https://open.spotify.com/album/${stuff.spotifyId}`;
 
       albumOfTheDayBot
         .send(
-          `Today's album of the day is ${stuff.name} by ${stuff.artists[0].name}! ${stuff.artists[0].external_urls.spotify}`
+          `Today's album of the day is ${stuff.name} by ${stuff.artists[0].name}! ${album}`
         )
         .catch(console.error);
     });
