@@ -98,6 +98,8 @@ class Bot extends Client {
           `@here Today's album of the day is ${stuff.name} by ${stuff.artists[0].name}! ${album}`
         )
         .catch(console.error);
+
+        albumOfTheDayBot.send("Don't forget to rate the previous one!")
     });
 
     albumOfTheDay.start();
