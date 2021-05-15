@@ -1,5 +1,4 @@
 import { Command, CommandMessage } from '@typeit/discord';
-import { IExecute } from '../interfaces/ICommands';
 
 // export const name = 'ping';
 // export const description = 'ping pong';

@@ -1,4 +1,3 @@
-import { IExecute } from '../interfaces/ICommands';
 import { readFile } from 'fs';
 import data from '../../radios.json';
 import { Command, CommandMessage } from '@typeit/discord';

@@ -1,6 +1,5 @@
 import { Command, CommandMessage } from '@typeit/discord';
 import { MessageAttachment } from 'discord.js';
-import { IExecute } from '../interfaces/ICommands';
 
 // export const name = 'leave';
 // export const description = 'leave the channel';

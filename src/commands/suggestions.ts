@@ -1,6 +1,5 @@
 import { Client, Command, CommandMessage } from '@typeit/discord';
 import { MessageEmbed, TextChannel } from 'discord.js';
-import { IExecute } from '../interfaces/ICommands';
 
 export abstract class Suggestion {
     @Command('suggest')

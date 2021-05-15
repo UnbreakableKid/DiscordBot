@@ -1,5 +1,4 @@
 import ytdl from 'ytdl-core';
-import { IExecute } from '../interfaces/ICommands';
 import data from '../../radios.json';
 
 import { IRadio } from './radios';
