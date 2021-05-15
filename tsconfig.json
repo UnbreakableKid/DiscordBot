@@ -1,20 +1,19 @@
 {
     "compilerOptions": {
-        "lib": ["ESNext"],
         "module": "commonjs",
-        "moduleResolution": "node",
-        "target": "ESNext",
-        "outDir": "dist",
+        "target": "es2020",
+        "noImplicitAny": false,
         "sourceMap": true,
-        "esModuleInterop": true,
-        "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "allowSyntheticDefaultImports": true,
-        "skipLibCheck": true,
-        "skipDefaultLibCheck": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "forceConsistentCasingInFileNames": true,
+        "lib": ["es2020", "esnext.asynciterable"],
+        "moduleResolution": "node",
+        "outDir": "./build",
         "resolveJsonModule": true,
-        "importHelpers": true
+        "esModuleInterop": true
     },
-    "include": ["*.ts"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules"],
+    "indent": [true, "spaces", 2]
 }
