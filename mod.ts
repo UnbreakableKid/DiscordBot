@@ -4,6 +4,8 @@ import { startBot } from "./deps.ts";
 import { fileLoader, importDirectory } from "./src/utils/helpers.ts";
 import { loadLanguages } from "./src/utils/i18next.ts";
 import { log } from "./src/utils/logger.ts";
+import { config } from "https://deno.land/x/dotenv/mod.ts";
+import "https://deno.land/x/dotenv/load.ts";
 
 log.info(
   "Beginning Bot Startup Process. This can take a little bit depending on your system. Loading now..."
@@ -29,7 +31,7 @@ await loadLanguages();
 await import("./src/database/database.ts");
 
 startBot({
-  token: configs.token,
+  token: Deno.env.get("TOKEN")!,
   // Pick the intents you wish to have for your bot.
   // For instance, to work with guild message reactions, you will have to pass the "GuildMessageReactions" intent to the array.
   intents: ["Guilds", "GuildMessages", "GuildVoiceStates"],
