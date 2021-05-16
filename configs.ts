@@ -4,7 +4,7 @@
 
 export const configs = {
   // Your bot token goes here
-  token: "ODQzNDg1MzgzMjI0MTk3MTQw.YKEi-g.OR47igiUCZv3X66CDisj7cSO3UQ",
+  token: "ODQzNDg1MzgzMjI0MTk3MTQw.YKEi-g.VYb2EPUR-oMGFMEon3uhoi5pMeM",
   // The default prefix for your bot. Don't worry guilds can change this later.
   prefix: "-",
   // This isn't required but you can add bot list api keys here.
