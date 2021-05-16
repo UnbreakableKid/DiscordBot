@@ -6,6 +6,7 @@ import { loadLanguages } from "./src/utils/i18next.ts";
 import { log } from "./src/utils/logger.ts";
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 import "https://deno.land/x/dotenv/load.ts";
+import keepAlive from "./server.ts";
 
 log.info(
   "Beginning Bot Startup Process. This can take a little bit depending on your system. Loading now..."
@@ -38,6 +39,8 @@ startBot({
   // These are all your event handler functions. Imported from the events folder
   eventHandlers: bot.eventHandlers,
 });
+
+keepAlive();
 
 // const interaction = new DiscordInteractions({
 //   applicationId: "843485383224197140",
