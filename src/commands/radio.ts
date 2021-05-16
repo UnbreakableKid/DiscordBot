@@ -14,6 +14,7 @@ export abstract class Radio {
     @Command('radio')
     async radio(message: CommandMessage) {
         const voiceChannel = message.member.voice.channel;
+        const args = message.commandContent.split(' ').splice(1);
 
         if (!voiceChannel)
             return message.channel.send('Join a voice channel you dweeb');
@@ -23,20 +24,19 @@ export abstract class Radio {
         if (!permissions.has('CONNECT') || !permissions.has('SPEAK'))
             return message.channel.send("you don't have permissions");
 
-        if (!message.args.length)
-            return message.channel.send('Wrong number of args');
+        if (!args.length) return message.channel.send('Wrong number of args');
 
         // console.log(video.url);
 
         let radio: IRadio;
 
-        let closestMatch: string = message.args.join(' ').toUpperCase();
+        let closestMatch: string = args.join(' ').toUpperCase();
 
         var radiolink: string;
 
-        if (isLink(message.args[0]))
+        if (isLink(args[0]))
             // Let user radio for links
-            radiolink = message.args[0];
+            radiolink = args[0];
         else {
             var keys = [];
             for (var k in data) keys.push(k);

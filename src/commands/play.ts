@@ -10,6 +10,7 @@ export abstract class Play {
     @Command('play')
     async play(message: CommandMessage) {
         const voiceChannel = message.member.voice.channel;
+        const args = message.commandContent.split(' ').splice(1).join(' ');
 
         if (!voiceChannel)
             return message.channel.send('Join a voice channel you dweeb');
@@ -19,8 +20,7 @@ export abstract class Play {
         if (!permissions.has('CONNECT') || !permissions.has('SPEAK'))
             return message.channel.send("you don't have permissions");
 
-        if (!message.args.length)
-            return message.channel.send('Wrong number of args');
+        if (!args.length) return message.channel.send('Wrong number of args');
 
         const videoFinder = async (query) => {
             const videoResult = await ytSearch(query);
@@ -35,7 +35,7 @@ export abstract class Play {
             return !!pattern.test(link);
         };
 
-        const query = message.args.join(' ');
+        const query = args;
 
         if (isLink(query)) {
             const connection = await voiceChannel.join();

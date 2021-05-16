@@ -15,8 +15,10 @@ export abstract class NowPlaying {
     }
 
     async logic(message: CommandMessage) {
-        let closestMatch = message.args.join(' ').toUpperCase();
-
+        let closestMatch = message.commandContent
+            .split(' ')
+            .splice(1)
+            .join(' ');
         var keys = [];
         for (var k in data) keys.push(k);
 

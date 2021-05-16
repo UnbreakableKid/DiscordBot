@@ -86,8 +86,6 @@ export class Main {
     }
 }
 
-
-
 require('dotenv').config();
 
 Main.start();
