@@ -1,9 +1,9 @@
-import { createCommand } from '../../utils/helpers.ts';
+import { createCommand } from "../../utils/helpers.ts";
 
 createCommand({
-    name: 'burro',
-    guildOnly: false,
-    execute(message) {
-        return message.reply('burro és tu');
-    },
+  name: "burro",
+  guildOnly: false,
+  execute(message) {
+    return message.reply("burro és tu");
+  },
 });
