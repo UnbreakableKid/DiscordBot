@@ -19,5 +19,6 @@
     },
     "[typescript]": {
         "editor.defaultFormatter": "ms-vsliveshare.vsliveshare"
-    }
+    },
+    "cSpell.words": ["Discordeno", "lavadeno"]
 }
