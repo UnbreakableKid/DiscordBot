@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-timer": "S1621180221.784234,VS0,VE105",
+    "x-xss-protection": "1; mode=block",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "source-age": "0",
+    "x-frame-options": "deny",
+    "access-control-allow-origin": "*",
+    "vary": "Authorization,Accept-Encoding",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "accept-ranges": "bytes",
+    "x-fastly-request-id": "61a4f0a0c6bcb70391638f3977cdbdb133ace517",
+    "etag": "W/\"cf550c00de29262caca9152db3199fb4cd7fa2918f1f56c0384e2cde624c49e7\"",
+    "x-served-by": "cache-pwk4944-PWK",
+    "content-type": "text/plain; charset=utf-8",
+    "via": "1.1 varnish",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-github-request-id": "CC84:4F5F:2FC5F1:3D8CC8:60A13F3C",
+    "cache-control": "max-age=300",
+    "x-cache-hits": "0",
+    "x-content-type-options": "nosniff",
+    "x-cache": "MISS",
+    "strict-transport-security": "max-age=31536000"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/members/send_direct_message.ts"
+}

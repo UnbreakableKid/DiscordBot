@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "vary": "Authorization,Accept-Encoding",
+    "x-frame-options": "deny",
+    "access-control-allow-origin": "*",
+    "via": "1.1 varnish",
+    "etag": "W/\"8417664aef412e005d05c7318f07ad56b696772a3dbf354396f6ed393cfce933\"",
+    "source-age": "0",
+    "accept-ranges": "bytes",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-content-type-options": "nosniff",
+    "x-cache-hits": "0",
+    "content-type": "text/plain; charset=utf-8",
+    "cache-control": "max-age=300",
+    "strict-transport-security": "max-age=31536000",
+    "x-github-request-id": "34F4:78EE:2E9671:3C7768:60A13F3C",
+    "x-xss-protection": "1; mode=block",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-cache": "MISS",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-fastly-request-id": "9ec13fd678903b2aea3c04a97ba440436c065ab5",
+    "x-timer": "S1621180220.335130,VS0,VE86"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/emojis/delete_emoji.ts"
+}

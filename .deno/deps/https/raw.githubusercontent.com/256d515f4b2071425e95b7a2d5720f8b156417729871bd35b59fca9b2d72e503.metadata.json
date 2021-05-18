@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-cache-hits": "0",
+    "content-type": "text/plain; charset=utf-8",
+    "x-xss-protection": "1; mode=block",
+    "x-frame-options": "deny",
+    "source-age": "0",
+    "x-cache": "MISS",
+    "access-control-allow-origin": "*",
+    "via": "1.1 varnish",
+    "x-content-type-options": "nosniff",
+    "x-timer": "S1621180221.784951,VS0,VE104",
+    "accept-ranges": "bytes",
+    "etag": "W/\"72de0fd1de6f044cb597212369edd948481344e9b25173b01710ca1039dff6b9\"",
+    "x-github-request-id": "3452:42C9:3121E7:3EEC38:60A13F3C",
+    "vary": "Authorization,Accept-Encoding",
+    "x-fastly-request-id": "4a2ecdf827588cfd24769b18f8fdd9e4cc0bebd9",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "cache-control": "max-age=300",
+    "x-served-by": "cache-pwk4944-PWK",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "strict-transport-security": "max-age=31536000"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/integrations/get_integrations.ts"
+}

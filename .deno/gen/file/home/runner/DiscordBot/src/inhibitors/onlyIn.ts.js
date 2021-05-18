@@ -1,0 +1,10 @@
+import { bot } from "../../cache.ts";
+bot.inhibitors.set("onlyIn", function(message, command) {
+    // If the command is guildOnly and does not have a guild, inhibit the command
+    if (command.guildOnly && !message.guildId) return true;
+    // If the command is dmOnly and there is a guild, inhibit the command
+    if (command.dmOnly && message.guildId) return true;
+    // The command should be allowed to run because it meets the requirements
+    return false;
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxmaWxlOi8vL2hvbWUvcnVubmVyL0Rpc2NvcmRCb3Qvc3JjL2luaGliaXRvcnMvb25seUluLnRzIzE+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGJvdCB9IGZyb20gXCIuLi8uLi9jYWNoZS50c1wiO1xuXG5ib3QuaW5oaWJpdG9ycy5zZXQoXCJvbmx5SW5cIiwgZnVuY3Rpb24gKG1lc3NhZ2UsIGNvbW1hbmQpIHtcbiAgLy8gSWYgdGhlIGNvbW1hbmQgaXMgZ3VpbGRPbmx5IGFuZCBkb2VzIG5vdCBoYXZlIGEgZ3VpbGQsIGluaGliaXQgdGhlIGNvbW1hbmRcbiAgaWYgKGNvbW1hbmQuZ3VpbGRPbmx5ICYmICFtZXNzYWdlLmd1aWxkSWQpIHJldHVybiB0cnVlO1xuICAvLyBJZiB0aGUgY29tbWFuZCBpcyBkbU9ubHkgYW5kIHRoZXJlIGlzIGEgZ3VpbGQsIGluaGliaXQgdGhlIGNvbW1hbmRcbiAgaWYgKGNvbW1hbmQuZG1Pbmx5ICYmIG1lc3NhZ2UuZ3VpbGRJZCkgcmV0dXJuIHRydWU7XG5cbiAgLy8gVGhlIGNvbW1hbmQgc2hvdWxkIGJlIGFsbG93ZWQgdG8gcnVuIGJlY2F1c2UgaXQgbWVldHMgdGhlIHJlcXVpcmVtZW50c1xuICByZXR1cm4gZmFsc2U7XG59KTtcbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxHQUFHLFNBQVEsY0FBZ0I7QUFFcEMsR0FBRyxDQUFDLFVBQVUsQ0FBQyxHQUFHLEVBQUMsTUFBUSxZQUFZLE9BQU8sRUFBRSxPQUFPO0lBQ3JELEVBQTZFLEFBQTdFLDJFQUE2RTtRQUN6RSxPQUFPLENBQUMsU0FBUyxLQUFLLE9BQU8sQ0FBQyxPQUFPLFNBQVMsSUFBSTtJQUN0RCxFQUFxRSxBQUFyRSxtRUFBcUU7UUFDakUsT0FBTyxDQUFDLE1BQU0sSUFBSSxPQUFPLENBQUMsT0FBTyxTQUFTLElBQUk7SUFFbEQsRUFBeUUsQUFBekUsdUVBQXlFO1dBQ2xFLEtBQUsifQ==

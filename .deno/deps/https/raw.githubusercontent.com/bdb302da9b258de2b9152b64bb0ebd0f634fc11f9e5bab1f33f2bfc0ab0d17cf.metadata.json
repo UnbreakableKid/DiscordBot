@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-content-type-options": "nosniff",
+    "x-xss-protection": "1; mode=block",
+    "x-github-request-id": "D9C0:0C6B:152FA6:28FDF5:60A13F3C",
+    "source-age": "0",
+    "x-cache-hits": "0",
+    "accept-ranges": "bytes",
+    "x-timer": "S1621180221.783515,VS0,VE106",
+    "x-fastly-request-id": "674a2e60c15a0d9de05183a030d8152e83909ee0",
+    "via": "1.1 varnish",
+    "x-served-by": "cache-pwk4944-PWK",
+    "content-type": "text/plain; charset=utf-8",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-cache": "MISS",
+    "x-frame-options": "deny",
+    "vary": "Authorization,Accept-Encoding",
+    "strict-transport-security": "max-age=31536000",
+    "etag": "W/\"927c53478629e63d741248534e1424d837c9535507ee809d5a730367804fe3bc\"",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "cache-control": "max-age=300",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "access-control-allow-origin": "*"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/codes/gateway_close_event_codes.ts"
+}

@@ -1,0 +1,3 @@
+/* esm.sh - ipaddr.js@2.0.0 */
+export * from "https://cdn.esm.sh/v41/ipaddr.js@2.0.0/deno/ipaddr.js.js";
+export { default } from "https://cdn.esm.sh/v41/ipaddr.js@2.0.0/deno/ipaddr.js.js";

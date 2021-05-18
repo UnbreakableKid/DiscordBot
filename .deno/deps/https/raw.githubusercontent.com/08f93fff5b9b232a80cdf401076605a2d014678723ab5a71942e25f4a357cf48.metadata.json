@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-xss-protection": "1; mode=block",
+    "x-content-type-options": "nosniff",
+    "source-age": "0",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-cache": "MISS",
+    "x-fastly-request-id": "65a084c65bea8235570764d385fa03ef008e6679",
+    "content-type": "text/plain; charset=utf-8",
+    "cache-control": "max-age=300",
+    "vary": "Authorization,Accept-Encoding",
+    "x-timer": "S1621180221.574388,VS0,VE132",
+    "via": "1.1 varnish",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-frame-options": "deny",
+    "accept-ranges": "bytes",
+    "etag": "W/\"bce6859a54d405d02dae0cee007d37f76f4b9bf959712ceea6877d71a157647f\"",
+    "x-cache-hits": "0",
+    "access-control-allow-origin": "*",
+    "x-github-request-id": "D710:2D17:45D26D:5D8D22:60A13F3C"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/interactions/commands/delete_slash_response.ts"
+}

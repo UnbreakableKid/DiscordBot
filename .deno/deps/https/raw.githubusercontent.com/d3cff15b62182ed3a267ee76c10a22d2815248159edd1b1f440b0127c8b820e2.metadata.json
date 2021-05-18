@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "strict-transport-security": "max-age=31536000",
+    "x-served-by": "cache-pwk4944-PWK",
+    "accept-ranges": "bytes",
+    "x-timer": "S1621180221.573681,VS0,VE93",
+    "x-xss-protection": "1; mode=block",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "via": "1.1 varnish",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "vary": "Authorization,Accept-Encoding",
+    "x-github-request-id": "2DB2:42C9:3121D8:3EEC29:60A13F3C",
+    "x-cache": "MISS",
+    "source-age": "0",
+    "etag": "W/\"15d5a0ad990f8a3c970db365d0404bb102135b8cb92c86253cb6bb71896998c4\"",
+    "x-fastly-request-id": "152eb2602ff82618826cf855b29e2a081dee29be",
+    "content-type": "text/plain; charset=utf-8",
+    "x-cache-hits": "0",
+    "cache-control": "max-age=300",
+    "access-control-allow-origin": "*",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/channels/get_pins.ts"
+}

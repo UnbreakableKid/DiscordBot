@@ -1,0 +1,6 @@
+import { bot } from "../../cache.ts";
+import { log } from "../utils/logger.ts";
+bot.eventHandlers.guildCreate = function(guild) {
+    log.info(`[EVENT=GuildCreate]: ${guild.name} with ${guild.memberCount} members.`);
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxmaWxlOi8vL2hvbWUvcnVubmVyL0Rpc2NvcmRCb3Qvc3JjL2V2ZW50cy9ndWlsZF9jcmVhdGUudHMjMj4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgYm90IH0gZnJvbSBcIi4uLy4uL2NhY2hlLnRzXCI7XG5pbXBvcnQgeyBsb2cgfSBmcm9tIFwiLi4vdXRpbHMvbG9nZ2VyLnRzXCI7XG5cbmJvdC5ldmVudEhhbmRsZXJzLmd1aWxkQ3JlYXRlID0gZnVuY3Rpb24gKGd1aWxkKSB7XG4gIGxvZy5pbmZvKFxuICAgIGBbRVZFTlQ9R3VpbGRDcmVhdGVdOiAke2d1aWxkLm5hbWV9IHdpdGggJHtndWlsZC5tZW1iZXJDb3VudH0gbWVtYmVycy5gLFxuICApO1xufTtcbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxHQUFHLFNBQVEsY0FBZ0I7U0FDM0IsR0FBRyxTQUFRLGtCQUFvQjtBQUV4QyxHQUFHLENBQUMsYUFBYSxDQUFDLFdBQVcsWUFBYSxLQUFLO0lBQzdDLEdBQUcsQ0FBQyxJQUFJLEVBQ0wscUJBQXFCLEVBQUUsS0FBSyxDQUFDLElBQUksQ0FBQyxNQUFNLEVBQUUsS0FBSyxDQUFDLFdBQVcsQ0FBQyxTQUFTIn0=

@@ -1,0 +1,24 @@
+{
+  "headers": {
+    "content-length": "766",
+    "cache-control": "public, max-age=31536000, immutable",
+    "server": "cloudflare",
+    "last-modified": "Thu, 06 May 2021 14:14:15 GMT",
+    "cf-request-id": "0a178afad6000030feb23e3000000001",
+    "x-amz-id-2": "9+UZEIwHICH6A7Gan+qr8gKOsit3aE9+5PiyRulPSI9soJuAxv3CAJWj/g5Bb7o6TlW0AR4vDnA=",
+    "date": "Sun, 16 May 2021 16:10:57 GMT",
+    "access-control-allow-origin": "*",
+    "content-type": "application/typescript; charset=utf-8",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "age": "844381",
+    "etag": "\"3ace798fb05ffa84d6c801bafded935f\"",
+    "x-amz-version-id": "QAQ5oHBbY8vNzU2Yodbr1VEdZsuyPmho",
+    "x-amz-request-id": "W669A3DD9NGYMFZH",
+    "accept-ranges": "bytes",
+    "cf-cache-status": "HIT",
+    "vary": "Accept-Encoding",
+    "cf-ray": "6505e10ae92f30fe-ORD"
+  },
+  "url": "https://deno.land/x/opine@1.3.4/src/utils/compileTrust.ts"
+}

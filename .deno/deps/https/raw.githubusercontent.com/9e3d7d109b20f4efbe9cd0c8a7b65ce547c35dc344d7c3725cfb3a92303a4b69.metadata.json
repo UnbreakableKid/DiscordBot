@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "source-age": "0",
+    "via": "1.1 varnish",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "x-cache": "MISS",
+    "etag": "W/\"50b4442bdbed84e86bc4927b4f8dbe41564862f61148887e9c63321d5aff50e3\"",
+    "x-frame-options": "deny",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "cache-control": "max-age=300",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "x-fastly-request-id": "885d1b7b5f9cd6799d6bfb4c69b1d30cdc36beb3",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-content-type-options": "nosniff",
+    "accept-ranges": "bytes",
+    "strict-transport-security": "max-age=31536000",
+    "x-xss-protection": "1; mode=block",
+    "x-github-request-id": "B78A:4C9C:438ACA:5B1DB9:60A13F3C",
+    "vary": "Authorization,Accept-Encoding",
+    "x-cache-hits": "0",
+    "x-timer": "S1621180221.910113,VS0,VE90",
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "*"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/permissions/bitwise_permission_flags.ts"
+}

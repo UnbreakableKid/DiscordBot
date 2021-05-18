@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-fastly-request-id": "c8e75875b60ccfe191416353a7b78fff1789aafd",
+    "strict-transport-security": "max-age=31536000",
+    "source-age": "0",
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "x-cache-hits": "0",
+    "x-github-request-id": "B7F2:1E48:C1D66:170CE7:60A13F3C",
+    "cache-control": "max-age=300",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-timer": "S1621180221.725422,VS0,VE101",
+    "etag": "W/\"198be4a482bde730cd8ca3862dbe8a66afb9bf9bfaf2292e0185ddf705906230\"",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "vary": "Authorization,Accept-Encoding",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "content-type": "text/plain; charset=utf-8",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "x-cache": "MISS",
+    "x-xss-protection": "1; mode=block",
+    "via": "1.1 varnish",
+    "date": "Sun, 16 May 2021 15:50:20 GMT"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/guilds/get_widget_image_url.ts"
+}

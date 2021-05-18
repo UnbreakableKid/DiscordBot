@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "vary": "Authorization,Accept-Encoding",
+    "accept-ranges": "bytes",
+    "source-age": "0",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-fastly-request-id": "f51dc3ae58222dfb3a9dec4d48eb814e4235e775",
+    "x-xss-protection": "1; mode=block",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "cache-control": "max-age=300",
+    "x-github-request-id": "B3B8:7AB6:2CE1C7:3A969D:60A13F3C",
+    "x-cache-hits": "0",
+    "x-content-type-options": "nosniff",
+    "content-type": "text/plain; charset=utf-8",
+    "x-frame-options": "deny",
+    "x-timer": "S1621180221.876876,VS0,VE100",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=31536000",
+    "access-control-allow-origin": "*",
+    "x-cache": "MISS",
+    "etag": "W/\"8699aec1d24be4a049d996264f016f97060cfcc20fa68731f93673f813d84f36\""
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/members/guild_members_chunk.ts"
+}

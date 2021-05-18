@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "vary": "Accept-Encoding",
+    "server": "cloudflare",
+    "date": "Tue, 18 May 2021 18:34:12 GMT",
+    "content-length": "0",
+    "cf-ray": "65172da0cd65a2a3-ORD",
+    "location": "/x/sabr@1.1.4/mod.ts",
+    "cf-request-id": "0a225ad8790000a2a342299000000001",
+    "x-deno-warning": "Implicitly using latest version (1.1.4) for https://deno.land/x/sabr/mod.ts",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+  },
+  "url": "https://deno.land/x/sabr/mod.ts"
+}

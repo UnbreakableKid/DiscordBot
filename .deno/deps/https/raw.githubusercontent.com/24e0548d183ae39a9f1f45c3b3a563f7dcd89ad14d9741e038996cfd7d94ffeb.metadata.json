@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "cache-control": "max-age=300",
+    "source-age": "0",
+    "x-content-type-options": "nosniff",
+    "x-served-by": "cache-pwk4944-PWK",
+    "etag": "W/\"17d5d6be81e2d3082b462abd765b0df330130462c9276c4f012f8bcc4868d13e\"",
+    "accept-ranges": "bytes",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-github-request-id": "134A:3B48:4555C6:5CCA47:60A13F3C",
+    "x-timer": "S1621180221.784169,VS0,VE93",
+    "vary": "Authorization,Accept-Encoding",
+    "strict-transport-security": "max-age=31536000",
+    "x-cache-hits": "0",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "access-control-allow-origin": "*",
+    "content-type": "text/plain; charset=utf-8",
+    "via": "1.1 varnish",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "x-cache": "MISS",
+    "x-fastly-request-id": "53956525f59717141813cff4efc6b354966c7924"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/discordeno/guild_update_change.ts"
+}

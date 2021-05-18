@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "content-type": "text/plain; charset=utf-8",
+    "x-github-request-id": "D5F2:6DE0:F7E9B:1ABE4D:60A13F3C",
+    "via": "1.1 varnish",
+    "x-fastly-request-id": "6416c77ab8cd004930cb85c4573b0f6f88d71d9c",
+    "cache-control": "max-age=300",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff",
+    "x-cache": "MISS",
+    "x-xss-protection": "1; mode=block",
+    "x-cache-hits": "0",
+    "access-control-allow-origin": "*",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "strict-transport-security": "max-age=31536000",
+    "etag": "W/\"1e674333733fa79fc9cb176272478e3538ea901f1c5cd826bdb9f38826c0dfbe\"",
+    "accept-ranges": "bytes",
+    "x-served-by": "cache-pwk4944-PWK",
+    "vary": "Authorization,Accept-Encoding",
+    "x-timer": "S1621180221.573350,VS0,VE91",
+    "source-age": "0",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/members/ban_member.ts"
+}

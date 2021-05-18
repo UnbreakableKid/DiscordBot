@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "vary": "Authorization,Accept-Encoding",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-fastly-request-id": "72f097338f843761e1dc610acde177ffcadfaf86",
+    "strict-transport-security": "max-age=31536000",
+    "access-control-allow-origin": "*",
+    "accept-ranges": "bytes",
+    "source-age": "0",
+    "etag": "W/\"182922faee67174b5f3840093c48d041954ebb8084ee44871a129ff281cfe5a8\"",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "via": "1.1 varnish",
+    "x-cache-hits": "0",
+    "x-xss-protection": "1; mode=block",
+    "x-timer": "S1621180220.211836,VS0,VE158",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-cache": "MISS",
+    "x-content-type-options": "nosniff",
+    "cache-control": "max-age=300",
+    "x-frame-options": "deny",
+    "x-github-request-id": "1046:4F5E:104D3A:1B8DEE:60A13F3C"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/handlers/members/GUILD_MEMBER_REMOVE.ts"
+}

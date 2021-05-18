@@ -1,0 +1,4 @@
+export { lookup } from "https://deno.land/x/media_types/mod.ts";
+export { parse } from "https://deno.land/x/content_type/mod.ts";
+export { test } from "https://deno.land/x/media_typer/mod.ts";
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL2Rlbm8ubGFuZC94L3R5cGVfaXNAMS4wLjEvZGVwcy50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IHsgbG9va3VwIH0gZnJvbSBcImh0dHBzOi8vZGVuby5sYW5kL3gvbWVkaWFfdHlwZXMvbW9kLnRzXCI7XG5leHBvcnQgeyBwYXJzZSB9IGZyb20gXCJodHRwczovL2Rlbm8ubGFuZC94L2NvbnRlbnRfdHlwZS9tb2QudHNcIjtcbmV4cG9ydCB7IHRlc3QgfSBmcm9tIFwiaHR0cHM6Ly9kZW5vLmxhbmQveC9tZWRpYV90eXBlci9tb2QudHNcIjtcbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxNQUFNLFNBQVEsc0NBQXdDO1NBQ3RELEtBQUssU0FBUSx1Q0FBeUM7U0FDdEQsSUFBSSxTQUFRLHNDQUF3QyJ9

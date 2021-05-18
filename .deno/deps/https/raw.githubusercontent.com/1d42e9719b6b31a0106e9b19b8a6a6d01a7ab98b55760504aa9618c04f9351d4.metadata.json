@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "access-control-allow-origin": "*",
+    "x-frame-options": "deny",
+    "x-served-by": "cache-pwk4944-PWK",
+    "via": "1.1 varnish",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "vary": "Authorization,Accept-Encoding",
+    "x-cache": "MISS",
+    "x-xss-protection": "1; mode=block",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-timer": "S1621180220.228270,VS0,VE148",
+    "x-content-type-options": "nosniff",
+    "cache-control": "max-age=300",
+    "content-type": "text/plain; charset=utf-8",
+    "source-age": "0",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "etag": "W/\"ff3d6327d6500ee884f8654771f8b213221e4f1721e9e2e30c12cc096b4cc117\"",
+    "accept-ranges": "bytes",
+    "x-cache-hits": "0",
+    "strict-transport-security": "max-age=31536000",
+    "x-github-request-id": "4D86:60D8:4B25AE:63155B:60A13F3C",
+    "x-fastly-request-id": "650b059d9690f954c143d3e05832ae5645438ca7"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/discordeno/eventHandlers.ts"
+}

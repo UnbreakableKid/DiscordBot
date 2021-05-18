@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-served-by": "cache-pwk4944-PWK",
+    "content-type": "text/plain; charset=utf-8",
+    "x-timer": "S1621180220.210518,VS0,VE89",
+    "via": "1.1 varnish",
+    "x-github-request-id": "EF0C:4EF1:1611E7:29E3F7:60A13F3C",
+    "cache-control": "max-age=300",
+    "x-content-type-options": "nosniff",
+    "etag": "W/\"fefaa3dc53afba5009b0084ff22b502c4038a0e8d711bdbc4ed6e3fa1d604a61\"",
+    "source-age": "0",
+    "accept-ranges": "bytes",
+    "x-cache": "MISS",
+    "vary": "Authorization,Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "x-frame-options": "deny",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-xss-protection": "1; mode=block",
+    "x-cache-hits": "0",
+    "x-fastly-request-id": "2a06b88de7f811d7ee570f58949e3a77a935c255",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/handlers/guilds/GUILD_BAN_ADD.ts"
+}

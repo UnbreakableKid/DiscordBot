@@ -1,0 +1,12 @@
+{
+  "headers": {
+    "cache-control": "private, max-age=600",
+    "server": "esm.sh",
+    "content-length": "154",
+    "vary": "Origin",
+    "date": "Sun, 16 May 2021 16:10:57 GMT",
+    "x-typescript-types": "https://cdn.esm.sh/v41/@types/qs@6.9.6/index.d.ts",
+    "content-type": "application/javascript; charset=utf-8"
+  },
+  "url": "https://esm.sh/qs@6.9.4"
+}

@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-github-request-id": "B280:4BA5:2EC6D8:3C9455:60A13F3D",
+    "access-control-allow-origin": "*",
+    "etag": "W/\"8c6907989474fb288c7fcbd8a53ec6f6a6344bc411eed02c890ec4f3b5d705f8\"",
+    "x-content-type-options": "nosniff",
+    "source-age": "0",
+    "x-fastly-request-id": "e59cc9775f5c6f250cf66d6cc6ad1d37f6ecea9c",
+    "accept-ranges": "bytes",
+    "x-cache": "MISS",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "via": "1.1 varnish",
+    "x-timer": "S1621180221.023519,VS0,VE98",
+    "strict-transport-security": "max-age=31536000",
+    "x-frame-options": "deny",
+    "cache-control": "max-age=300",
+    "x-cache-hits": "0",
+    "vary": "Authorization,Accept-Encoding",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-xss-protection": "1; mode=block",
+    "content-type": "text/plain; charset=utf-8"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/guilds/begin_guild_prune.ts"
+}

@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "cf-ray": "65172da0cd68a2a3-ORD",
+    "content-length": "0",
+    "cf-request-id": "0a225ad8790000a2a3999ea000000001",
+    "vary": "Accept-Encoding",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "server": "cloudflare",
+    "location": "/std@0.97.0/fmt/colors.ts",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "x-deno-warning": "Implicitly using latest version (0.97.0) for https://deno.land/std/fmt/colors.ts",
+    "date": "Tue, 18 May 2021 18:34:12 GMT"
+  },
+  "url": "https://deno.land/std/fmt/colors.ts"
+}

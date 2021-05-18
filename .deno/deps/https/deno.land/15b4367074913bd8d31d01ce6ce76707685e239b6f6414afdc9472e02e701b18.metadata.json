@@ -1,0 +1,23 @@
+{
+  "headers": {
+    "cache-control": "public, max-age=31536000, immutable",
+    "vary": "Accept-Encoding",
+    "cf-request-id": "0a225ae2d70000a2a369392000000001",
+    "content-type": "application/typescript; charset=utf-8",
+    "accept-ranges": "bytes",
+    "last-modified": "Sat, 29 Aug 2020 19:30:09 GMT",
+    "x-amz-request-id": "HAK7HGKAC3MPSB7M",
+    "cf-ray": "65172db15f37a2a3-ORD",
+    "content-length": "3319",
+    "date": "Tue, 18 May 2021 18:34:14 GMT",
+    "etag": "\"d1e03f07859f83776e86047205b7acf5\"",
+    "cf-cache-status": "MISS",
+    "x-amz-id-2": "mKAcp3+XDc1tUzYlF2H+w8/ztcADl7IsllXLt/m+dIKnftbIF7sXY2xWKlDEHRRqzEMi9UC4dPU=",
+    "x-amz-version-id": "null",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "server": "cloudflare",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "access-control-allow-origin": "*"
+  },
+  "url": "https://deno.land/x/damerau_levenshtein@v0.1.0/mod.ts"
+}

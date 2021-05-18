@@ -1,0 +1,21 @@
+{
+  "headers": {
+    "cache-control": "public, max-age=31536000, immutable",
+    "cf-request-id": "0a17781b8d0000c550e3377000000001",
+    "cf-ray": "6505c2d8e9ecc550-ORD",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "vary": "Accept-Encoding",
+    "x-amz-request-id": "X1F7ZBXGPY4XWXVX",
+    "server": "cloudflare",
+    "x-amz-id-2": "R2k0vraEFLuDF4KUzqlXKEuJlJ/M3LqG0fYP8OSmfoU2QEbGIWS2xl0Bmd3hNhcplXgRQkPfq58=",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "etag": "W/\"77f83ab36ffda38b3f11b94a4294865a\"",
+    "last-modified": "Mon, 29 Mar 2021 12:17:06 GMT",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-amz-version-id": "s9YjTWkKvlvKqZ8cGrqWWmractsds8Lb",
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "cf-cache-status": "MISS"
+  },
+  "url": "https://deno.land/x/i18next_fs_backend@v1.1.1/lib/writeFile.js"
+}

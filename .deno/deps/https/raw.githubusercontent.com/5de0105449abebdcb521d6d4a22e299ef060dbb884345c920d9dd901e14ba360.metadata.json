@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "cache-control": "max-age=300",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-xss-protection": "1; mode=block",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-github-request-id": "B18E:1014:401F49:577F87:60A13F3D",
+    "source-age": "0",
+    "content-type": "text/plain; charset=utf-8",
+    "x-cache": "MISS",
+    "x-fastly-request-id": "ecda60c270012a98c86bc6d878704f2910d0ed05",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "etag": "W/\"718e9088242f8784bb2a7c42b27c4c7cc41a70450c559e6d403a2732406ac353\"",
+    "x-cache-hits": "0",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "accept-ranges": "bytes",
+    "x-timer": "S1621180221.014117,VS0,VE139",
+    "vary": "Authorization,Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=31536000"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/activity/activity_types.ts"
+}

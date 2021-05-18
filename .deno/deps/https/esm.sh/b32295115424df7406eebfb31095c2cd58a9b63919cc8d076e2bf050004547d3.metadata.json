@@ -1,0 +1,12 @@
+{
+  "headers": {
+    "date": "Sun, 16 May 2021 16:10:57 GMT",
+    "x-typescript-types": "https://cdn.esm.sh/v41/ipaddr.js@2.0.0/lib/ipaddr.js.d.ts",
+    "content-length": "189",
+    "server": "esm.sh",
+    "cache-control": "private, max-age=600",
+    "content-type": "application/javascript; charset=utf-8",
+    "vary": "Origin"
+  },
+  "url": "https://esm.sh/ipaddr.js@2.0.0"
+}

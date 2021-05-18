@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-xss-protection": "1; mode=block",
+    "source-age": "0",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "vary": "Authorization,Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "x-served-by": "cache-pwk4944-PWK",
+    "strict-transport-security": "max-age=31536000",
+    "content-type": "text/plain; charset=utf-8",
+    "x-fastly-request-id": "cf031fc6001bac762d974f7b3c7f43c000b27965",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "accept-ranges": "bytes",
+    "x-github-request-id": "7DDE:2538:1440CC:258DC2:60A13F3D",
+    "via": "1.1 varnish",
+    "x-frame-options": "deny",
+    "x-cache": "MISS",
+    "etag": "W/\"cf15c70806f5802e5d12e32cf7d00c480bad749b1f7873973e7582eefe78aaba\"",
+    "x-cache-hits": "0",
+    "access-control-allow-origin": "*",
+    "x-timer": "S1621180221.023484,VS0,VE97",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "cache-control": "max-age=300"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/guilds/premium_tiers.ts"
+}

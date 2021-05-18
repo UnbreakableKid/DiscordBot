@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-github-request-id": "AB32:4E9D:2FC0C1:3D8497:60A13F3C",
+    "x-cache": "MISS",
+    "cache-control": "max-age=300",
+    "vary": "Authorization,Accept-Encoding",
+    "content-type": "text/plain; charset=utf-8",
+    "x-fastly-request-id": "d8980e70a71f365fbd1a0bd6680a79ccb153c7c3",
+    "x-timer": "S1621180220.210182,VS0,VE83",
+    "x-cache-hits": "0",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "accept-ranges": "bytes",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-served-by": "cache-pwk4944-PWK",
+    "access-control-allow-origin": "*",
+    "source-age": "0",
+    "etag": "W/\"4fe4e19b9df245472a52ee4b9eb5b9ac2c21fbb1b14dbd50c65b66ac83b348a3\"",
+    "strict-transport-security": "max-age=31536000",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "via": "1.1 varnish"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/handlers/guilds/GUILD_UPDATE.ts"
+}

@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "accept-ranges": "bytes",
+    "content-type": "text/plain; charset=utf-8",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-content-type-options": "nosniff",
+    "access-control-allow-origin": "*",
+    "etag": "W/\"00dfee7e22bb2d6cf738ca72e32dae0ac7e4e65c67731144b7d08905a3f5cfa3\"",
+    "x-frame-options": "deny",
+    "cache-control": "max-age=300",
+    "source-age": "0",
+    "x-cache-hits": "0",
+    "strict-transport-security": "max-age=31536000",
+    "via": "1.1 varnish",
+    "vary": "Authorization,Accept-Encoding",
+    "x-cache": "MISS",
+    "x-github-request-id": "ABCE:6D64:2DC894:3B5E85:60A13F3C",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-xss-protection": "1; mode=block",
+    "x-timer": "S1621180221.573292,VS0,VE87",
+    "x-fastly-request-id": "39a54cf32ba43fd4029be412c21d37d3936c1d3d",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/guilds/get_welcome_screen.ts"
+}

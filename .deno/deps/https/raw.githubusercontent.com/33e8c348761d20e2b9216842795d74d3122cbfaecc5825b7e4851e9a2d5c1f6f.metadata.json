@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-cache-hits": "0",
+    "content-type": "text/plain; charset=utf-8",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-frame-options": "deny",
+    "etag": "W/\"9eaa11e792701931862cf5880581f36508b0aa995c5f7a366b140085a720c8ac\"",
+    "x-cache": "MISS",
+    "vary": "Authorization,Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "cache-control": "max-age=300",
+    "x-xss-protection": "1; mode=block",
+    "source-age": "0",
+    "x-timer": "S1621180221.573812,VS0,VE93",
+    "access-control-allow-origin": "*",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-fastly-request-id": "f959ea54ec6599118f83f128b43df427a86a986e",
+    "x-github-request-id": "C2C4:2D17:45D26C:5D8D1C:60A13F3C",
+    "accept-ranges": "bytes",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "via": "1.1 varnish",
+    "x-served-by": "cache-pwk4944-PWK"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/roles/create_role.ts"
+}

@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-cache": "MISS",
+    "x-github-request-id": "4CF6:42C9:3121C0:3EEC11:60A13F3C",
+    "access-control-allow-origin": "*",
+    "x-fastly-request-id": "4ba7baaf9616e1f84e4ee84b25de6a272865b971",
+    "cache-control": "max-age=300",
+    "x-content-type-options": "nosniff",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-served-by": "cache-pwk4944-PWK",
+    "accept-ranges": "bytes",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "via": "1.1 varnish",
+    "source-age": "0",
+    "strict-transport-security": "max-age=31536000",
+    "content-type": "text/plain; charset=utf-8",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "x-cache-hits": "0",
+    "vary": "Authorization,Accept-Encoding",
+    "x-timer": "S1621180220.223622,VS0,VE187",
+    "etag": "W/\"ad0d25c20c62b84252a975f4b15d9df1f92c018cec529f25de7a290db30fd50b\""
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/ws/cleanup_loading_shards.ts"
+}

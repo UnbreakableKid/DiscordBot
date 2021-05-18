@@ -1,0 +1,25 @@
+import { cacheHandlers } from "../../cache.ts";
+import { rest } from "../../rest/rest.ts";
+import { structures } from "../../structures/mod.ts";
+import { endpoints } from "../../util/constants.ts";
+import { ws } from "../../ws/ws.ts";
+/**
+ * ⚠️ **If you need this, you are probably doing something wrong. Always use cache.guilds.get()
+ *
+ * Advanced Devs:
+ * This function fetches a guild's data. This is not the same data as a GUILD_CREATE.
+ * So it does not cache the guild, you must do it manually.
+ * */ export async function getGuild(guildId, options = {
+    counts: true,
+    addToCache: true
+}) {
+    const result = await rest.runMethod("get", endpoints.GUILDS_BASE(guildId), {
+        with_counts: options.counts
+    });
+    const guild = await structures.createDiscordenoGuild(result, Number((BigInt(guildId) >> 22n) % BigInt(ws.botGatewayData.shards)));
+    if (options.addToCache) {
+        await cacheHandlers.set("guilds", guild.id, guild);
+    }
+    return guild;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvZ3VpbGRzL2dldF9ndWlsZC50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY2FjaGVIYW5kbGVycyB9IGZyb20gXCIuLi8uLi9jYWNoZS50c1wiO1xuaW1wb3J0IHsgcmVzdCB9IGZyb20gXCIuLi8uLi9yZXN0L3Jlc3QudHNcIjtcbmltcG9ydCB7IHN0cnVjdHVyZXMgfSBmcm9tIFwiLi4vLi4vc3RydWN0dXJlcy9tb2QudHNcIjtcbmltcG9ydCB0eXBlIHsgR3VpbGQgfSBmcm9tIFwiLi4vLi4vdHlwZXMvZ3VpbGRzL2d1aWxkLnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcbmltcG9ydCB7IHdzIH0gZnJvbSBcIi4uLy4uL3dzL3dzLnRzXCI7XG5cbi8qKlxuICog4pqg77iPICoqSWYgeW91IG5lZWQgdGhpcywgeW91IGFyZSBwcm9iYWJseSBkb2luZyBzb21ldGhpbmcgd3JvbmcuIEFsd2F5cyB1c2UgY2FjaGUuZ3VpbGRzLmdldCgpXG4gKlxuICogQWR2YW5jZWQgRGV2czpcbiAqIFRoaXMgZnVuY3Rpb24gZmV0Y2hlcyBhIGd1aWxkJ3MgZGF0YS4gVGhpcyBpcyBub3QgdGhlIHNhbWUgZGF0YSBhcyBhIEdVSUxEX0NSRUFURS5cbiAqIFNvIGl0IGRvZXMgbm90IGNhY2hlIHRoZSBndWlsZCwgeW91IG11c3QgZG8gaXQgbWFudWFsbHkuXG4gKiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGdldEd1aWxkKFxuICBndWlsZElkOiBiaWdpbnQsXG4gIG9wdGlvbnM6IHsgY291bnRzPzogYm9vbGVhbjsgYWRkVG9DYWNoZT86IGJvb2xlYW4gfSA9IHtcbiAgICBjb3VudHM6IHRydWUsXG4gICAgYWRkVG9DYWNoZTogdHJ1ZSxcbiAgfSxcbikge1xuICBjb25zdCByZXN1bHQgPSBhd2FpdCByZXN0LnJ1bk1ldGhvZDxHdWlsZD4oXG4gICAgXCJnZXRcIixcbiAgICBlbmRwb2ludHMuR1VJTERTX0JBU0UoZ3VpbGRJZCksXG4gICAge1xuICAgICAgd2l0aF9jb3VudHM6IG9wdGlvbnMuY291bnRzLFxuICAgIH0sXG4gICk7XG5cbiAgY29uc3QgZ3VpbGQgPSBhd2FpdCBzdHJ1Y3R1cmVzLmNyZWF0ZURpc2NvcmRlbm9HdWlsZChcbiAgICByZXN1bHQsXG4gICAgTnVtYmVyKChCaWdJbnQoZ3VpbGRJZCkgPj4gMjJuKSAlIEJpZ0ludCh3cy5ib3RHYXRld2F5RGF0YS5zaGFyZHMpKSxcbiAgKTtcblxuICBpZiAob3B0aW9ucy5hZGRUb0NhY2hlKSB7XG4gICAgYXdhaXQgY2FjaGVIYW5kbGVycy5zZXQoXCJndWlsZHNcIiwgZ3VpbGQuaWQsIGd1aWxkKTtcbiAgfVxuXG4gIHJldHVybiBndWlsZDtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxhQUFhLFNBQVEsY0FBZ0I7U0FDckMsSUFBSSxTQUFRLGtCQUFvQjtTQUNoQyxVQUFVLFNBQVEsdUJBQXlCO1NBRTNDLFNBQVMsU0FBUSx1QkFBeUI7U0FDMUMsRUFBRSxTQUFRLGNBQWdCO0FBRW5DLEVBTUssQUFOTDs7Ozs7O0dBTUssQUFOTCxFQU1LLHVCQUNpQixRQUFRLENBQzVCLE9BQWUsRUFDZixPQUFtRDtJQUNqRCxNQUFNLEVBQUUsSUFBSTtJQUNaLFVBQVUsRUFBRSxJQUFJOztVQUdaLE1BQU0sU0FBUyxJQUFJLENBQUMsU0FBUyxFQUNqQyxHQUFLLEdBQ0wsU0FBUyxDQUFDLFdBQVcsQ0FBQyxPQUFPO1FBRTNCLFdBQVcsRUFBRSxPQUFPLENBQUMsTUFBTTs7VUFJekIsS0FBSyxTQUFTLFVBQVUsQ0FBQyxxQkFBcUIsQ0FDbEQsTUFBTSxFQUNOLE1BQU0sRUFBRSxNQUFNLENBQUMsT0FBTyxLQUFLLEVBQUcsQUFBSCxDQUFHLElBQUksTUFBTSxDQUFDLEVBQUUsQ0FBQyxjQUFjLENBQUMsTUFBTTtRQUcvRCxPQUFPLENBQUMsVUFBVTtjQUNkLGFBQWEsQ0FBQyxHQUFHLEVBQUMsTUFBUSxHQUFFLEtBQUssQ0FBQyxFQUFFLEVBQUUsS0FBSzs7V0FHNUMsS0FBSyJ9

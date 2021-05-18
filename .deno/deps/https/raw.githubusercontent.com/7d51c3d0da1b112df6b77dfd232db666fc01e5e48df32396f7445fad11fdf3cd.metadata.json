@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "strict-transport-security": "max-age=31536000",
+    "x-fastly-request-id": "1304dc3bc02700ac81aceeefba317c6f61934da8",
+    "x-cache": "MISS",
+    "content-type": "text/plain; charset=utf-8",
+    "accept-ranges": "bytes",
+    "source-age": "0",
+    "x-github-request-id": "885A:42C9:3121E4:3EEC0D:60A13F3C",
+    "access-control-allow-origin": "*",
+    "x-content-type-options": "nosniff",
+    "via": "1.1 varnish",
+    "x-xss-protection": "1; mode=block",
+    "cache-control": "max-age=300",
+    "x-timer": "S1621180221.725313,VS0,VE102",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-frame-options": "deny",
+    "x-served-by": "cache-pwk4944-PWK",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "vary": "Authorization,Accept-Encoding",
+    "etag": "W/\"4bebbadec449a55073f2051e1190e1839a83afaa547ddc407aef97837e1d9251\"",
+    "x-cache-hits": "0",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/roles/add_role.ts"
+}

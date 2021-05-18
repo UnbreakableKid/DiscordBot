@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "access-control-allow-origin": "*",
+    "strict-transport-security": "max-age=31536000",
+    "via": "1.1 varnish",
+    "x-cache-hits": "0",
+    "etag": "W/\"29d8b12563ee0cc92958e49506a516949da4ecf4c725c95e6940ed2c22907acf\"",
+    "x-cache": "MISS",
+    "x-timer": "S1621180221.023401,VS0,VE104",
+    "x-fastly-request-id": "e97dd4216f0646c439bb7f047ba4d01d858c0429",
+    "content-type": "text/plain; charset=utf-8",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-content-type-options": "nosniff",
+    "cache-control": "max-age=300",
+    "vary": "Authorization,Accept-Encoding",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-frame-options": "deny",
+    "x-github-request-id": "4D86:60D8:4B25BE:631575:60A13F3D",
+    "source-age": "0",
+    "x-xss-protection": "1; mode=block",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "accept-ranges": "bytes"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/guilds/verification_levels.ts"
+}

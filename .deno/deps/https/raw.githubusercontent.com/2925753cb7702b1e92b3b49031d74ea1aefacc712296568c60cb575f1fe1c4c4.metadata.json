@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "via": "1.1 varnish",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff",
+    "accept-ranges": "bytes",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-fastly-request-id": "cced2c6f072b357265c0c0576fdca6ae24a33a83",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-github-request-id": "9C94:60D9:1D3A87:31A9D2:60A13F3C",
+    "x-cache": "MISS",
+    "x-cache-hits": "0",
+    "cache-control": "max-age=300",
+    "etag": "W/\"8f6afef95cb98afee30c636d55aa87842640d2863c21eae04236e2e71bb8c657\"",
+    "strict-transport-security": "max-age=31536000",
+    "vary": "Authorization,Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "content-type": "text/plain; charset=utf-8",
+    "x-xss-protection": "1; mode=block",
+    "source-age": "0",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-timer": "S1621180221.784308,VS0,VE104"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/misc/typing_start.ts"
+}

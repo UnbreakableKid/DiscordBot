@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-frame-options": "deny",
+    "x-timer": "S1621180221.078069,VS0,VE89",
+    "accept-ranges": "bytes",
+    "x-cache": "MISS",
+    "x-fastly-request-id": "8fc2b5e34905c65c094825102556222568bab046",
+    "x-cache-hits": "0",
+    "x-served-by": "cache-pwk4944-PWK",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "x-xss-protection": "1; mode=block",
+    "cache-control": "max-age=300",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "etag": "W/\"4746b9126f33f7a08e0bf1d4a8b7b08c8f5a439dc009a56b1351a915d36f6a77\"",
+    "strict-transport-security": "max-age=31536000",
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "*",
+    "source-age": "0",
+    "x-github-request-id": "7E5A:2538:1440CC:258DC4:60A13F3D",
+    "vary": "Authorization,Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "via": "1.1 varnish"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/guilds/explicit_content_filter_levels.ts"
+}

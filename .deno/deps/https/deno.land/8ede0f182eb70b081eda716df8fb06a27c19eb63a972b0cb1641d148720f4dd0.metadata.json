@@ -1,0 +1,23 @@
+{
+  "headers": {
+    "accept-ranges": "bytes",
+    "cf-cache-status": "MISS",
+    "content-length": "152",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "server": "cloudflare",
+    "cf-ray": "6505c2db8ec9c550-ORD",
+    "cache-control": "public, max-age=31536000, immutable",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-amz-request-id": "X1FDDJSJRK5J6A4A",
+    "x-amz-version-id": "0wg6tfL3U.mpowYNSH0DjmyubRdjg_A2",
+    "vary": "Accept-Encoding",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "cf-request-id": "0a17781d3b0000c550143b5000000001",
+    "content-type": "application/node",
+    "x-amz-id-2": "8x4Us4B9VS3Gh5ewiMSNj7Jdrm1OQnS1M3cm+6ZjLmBLL0UHMAv8XEmsm5x26VVNB7KjtaCuPfQ=",
+    "access-control-allow-origin": "*",
+    "last-modified": "Mon, 29 Mar 2021 12:17:06 GMT",
+    "etag": "\"0eaecf04a8df694c06870b6d9217f81e\""
+  },
+  "url": "https://deno.land/x/i18next_fs_backend@v1.1.1/lib/fs.cjs"
+}

@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "cache-control": "max-age=300",
+    "x-content-type-options": "nosniff",
+    "access-control-allow-origin": "*",
+    "vary": "Authorization,Accept-Encoding",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "content-type": "text/plain; charset=utf-8",
+    "x-github-request-id": "AE90:6128:4557D6:5D1124:60A13F3C",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "source-age": "0",
+    "x-xss-protection": "1; mode=block",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "accept-ranges": "bytes",
+    "strict-transport-security": "max-age=31536000",
+    "x-fastly-request-id": "ae72655bee60f1c8172dd99275b74d0490e5d2e8",
+    "via": "1.1 varnish",
+    "x-cache": "MISS",
+    "x-cache-hits": "0",
+    "x-timer": "S1621180221.828532,VS0,VE88",
+    "x-served-by": "cache-pwk4944-PWK",
+    "etag": "W/\"4980a656c9c216039b9830e2c0fca0b1cf36eb32c3d9c4a3964260fcba12f15f\"",
+    "x-frame-options": "deny"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/emojis/create_guild_emoji.ts"
+}

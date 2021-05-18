@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "etag": "W/\"e73501f19e9d63b37ba74bbe1be428db661e91d5a43b4330cccdbedcc37e2edb\"",
+    "x-fastly-request-id": "7e496dd00c578f25eb11ff86c65c135b355d2841",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-github-request-id": "6068:6D64:2DC8A0:3B5E95:60A13F3D",
+    "source-age": "0",
+    "x-cache-hits": "0",
+    "via": "1.1 varnish",
+    "x-timer": "S1621180221.023489,VS0,VE146",
+    "x-xss-protection": "1; mode=block",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "cache-control": "max-age=300",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-frame-options": "deny",
+    "strict-transport-security": "max-age=31536000",
+    "x-content-type-options": "nosniff",
+    "x-cache": "MISS",
+    "vary": "Authorization,Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "accept-ranges": "bytes"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/guilds/modify_guild_channel_position.ts"
+}

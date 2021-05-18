@@ -1,0 +1,18 @@
+{
+  "headers": {
+    "server": "cloudflare",
+    "cf-ray": "6505e1118c2dc530-ORD",
+    "cache-control": "public, max-age=31536000, immutable",
+    "cf-cache-status": "DYNAMIC",
+    "nel": "{\"report_to\":\"cf-nel\",\"max_age\":604800}",
+    "content-type": "application/typescript; charset=utf-8",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "vary": "Origin",
+    "cf-request-id": "0a178afef40000c530c50e4000000001",
+    "date": "Sun, 16 May 2021 16:10:58 GMT",
+    "last-modified": "Sun, 18 Apr 2021 07:56:02 GMT",
+    "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=t2iQBfelHYzS%2F%2Byv1txDTJ1MjJTfGDFg5EXCX91kVpgQv7S1p69pH3qtOK2fvyjeaSVQf5KtN%2FRqw7BenkP2VcqqvDtehsTmmSv0\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+  },
+  "url": "https://cdn.esm.sh/v41/ipaddr.js@2.0.0/lib/ipaddr.js.d.ts"
+}

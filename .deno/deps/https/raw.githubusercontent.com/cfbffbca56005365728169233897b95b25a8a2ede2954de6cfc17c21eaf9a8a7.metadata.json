@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-timer": "S1621180221.574120,VS0,VE101",
+    "x-content-type-options": "nosniff",
+    "content-type": "text/plain; charset=utf-8",
+    "cache-control": "max-age=300",
+    "vary": "Authorization,Accept-Encoding",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "access-control-allow-origin": "*",
+    "x-served-by": "cache-pwk4944-PWK",
+    "via": "1.1 varnish",
+    "accept-ranges": "bytes",
+    "x-github-request-id": "DD62:7440:2F1AA7:3CF789:60A13F3C",
+    "source-age": "0",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-fastly-request-id": "589fdc7892ccc52c295f00cea1e193be69dcdb93",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "etag": "W/\"93b1e653a2eee60970d8c3bd634699b23a046f9fe42f702b8592cc32f538b2e6\"",
+    "strict-transport-security": "max-age=31536000",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "x-cache": "MISS",
+    "x-cache-hits": "0"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/members/edit_bot_nickname.ts"
+}

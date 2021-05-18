@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-content-type-options": "nosniff",
+    "x-served-by": "cache-pwk4944-PWK",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "x-github-request-id": "EB5C:7AB5:1177D9:1CD233:60A13F3D",
+    "content-type": "text/plain; charset=utf-8",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "source-age": "0",
+    "x-fastly-request-id": "39a4d24d8a3fb077a25ca600b741ea9246c9e677",
+    "accept-ranges": "bytes",
+    "x-xss-protection": "1; mode=block",
+    "etag": "W/\"a589c1db5e39f6233f7436a935ff769ad21d022be8474440dd59eae4e92c8997\"",
+    "via": "1.1 varnish",
+    "x-cache": "MISS",
+    "strict-transport-security": "max-age=31536000",
+    "x-frame-options": "deny",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "cache-control": "max-age=300",
+    "x-timer": "S1621180221.023434,VS0,VE107",
+    "x-cache-hits": "0",
+    "vary": "Authorization,Accept-Encoding",
+    "access-control-allow-origin": "*"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/guilds/update_self_voice_state.ts"
+}

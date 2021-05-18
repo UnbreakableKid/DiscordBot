@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-cache": "MISS",
+    "vary": "Authorization,Accept-Encoding",
+    "x-fastly-request-id": "3c71cb76d7607996cc4e4a27c79852aff7f99fe4",
+    "source-age": "0",
+    "x-timer": "S1621180220.218727,VS0,VE154",
+    "cache-control": "max-age=300",
+    "x-xss-protection": "1; mode=block",
+    "x-cache-hits": "0",
+    "x-frame-options": "deny",
+    "x-served-by": "cache-pwk4944-PWK",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "via": "1.1 varnish",
+    "etag": "W/\"ed199f8b3eaa532df087bf6bba4f246e9de23aec6f575cf54f64d67a1208d09e\"",
+    "strict-transport-security": "max-age=31536000",
+    "x-github-request-id": "EDEA:4EF2:452D00:5CC9C7:60A13F3C",
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "*",
+    "accept-ranges": "bytes",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-content-type-options": "nosniff"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/rest/check_rate_limits.ts"
+}

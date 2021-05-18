@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "vary": "Authorization,Accept-Encoding",
+    "x-github-request-id": "5528:5C72:10EDED:1C2E12:60A13F3C",
+    "x-served-by": "cache-pwk4944-PWK",
+    "via": "1.1 varnish",
+    "x-frame-options": "deny",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "source-age": "0",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-xss-protection": "1; mode=block",
+    "cache-control": "max-age=300",
+    "accept-ranges": "bytes",
+    "x-content-type-options": "nosniff",
+    "strict-transport-security": "max-age=31536000",
+    "etag": "W/\"bec25cf4130a69fb3f73d518372f917249b49cabe590551d7bf2f2469012d509\"",
+    "content-type": "text/plain; charset=utf-8",
+    "x-cache": "MISS",
+    "x-cache-hits": "0",
+    "x-timer": "S1621180221.734099,VS0,VE130",
+    "access-control-allow-origin": "*",
+    "x-fastly-request-id": "aa0430cd230018d54849a0b4bca6b23f328c9ed8",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/emojis/emoji_url.ts"
+}

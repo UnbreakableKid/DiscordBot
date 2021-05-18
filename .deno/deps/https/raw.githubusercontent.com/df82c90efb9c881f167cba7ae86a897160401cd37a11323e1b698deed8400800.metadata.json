@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "strict-transport-security": "max-age=31536000",
+    "x-frame-options": "deny",
+    "via": "1.1 varnish",
+    "x-cache": "MISS",
+    "x-xss-protection": "1; mode=block",
+    "x-github-request-id": "5528:5C72:10EDE6:1C2E08:60A13F3C",
+    "etag": "W/\"c38282031eefd62dfd0cbf94433836aef33369728ab513af8f8843f84f67e673\"",
+    "access-control-allow-origin": "*",
+    "vary": "Authorization,Accept-Encoding",
+    "x-fastly-request-id": "21bc70c76bf16dd15aa8986cf10a434662521df6",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "source-age": "0",
+    "cache-control": "max-age=300",
+    "x-content-type-options": "nosniff",
+    "accept-ranges": "bytes",
+    "content-type": "text/plain; charset=utf-8",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-cache-hits": "0",
+    "x-timer": "S1621180220.210858,VS0,VE103",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/handlers/commands/APPLICATION_COMMAND_UPDATE.ts"
+}

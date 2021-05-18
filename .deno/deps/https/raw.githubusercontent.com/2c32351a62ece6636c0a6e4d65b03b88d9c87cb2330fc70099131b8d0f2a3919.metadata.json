@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "accept-ranges": "bytes",
+    "source-age": "0",
+    "vary": "Authorization,Accept-Encoding",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "x-cache-hits": "0",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-github-request-id": "FE92:0A71:A5E9A:138074:60A13F3D",
+    "etag": "W/\"54490f49f1d3e3d5c2a637025fad2c163ec3d011d2a63f441adfbc78d3bdc0e0\"",
+    "via": "1.1 varnish",
+    "x-frame-options": "deny",
+    "x-cache": "MISS",
+    "x-fastly-request-id": "752b6968f5158bf1f0d4e84fc464d491d6752361",
+    "cache-control": "max-age=300",
+    "access-control-allow-origin": "*",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "x-content-type-options": "nosniff",
+    "strict-transport-security": "max-age=31536000",
+    "content-type": "text/plain; charset=utf-8",
+    "x-xss-protection": "1; mode=block",
+    "x-timer": "S1621180221.013789,VS0,VE92"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/codes/voice_opcodes.ts"
+}

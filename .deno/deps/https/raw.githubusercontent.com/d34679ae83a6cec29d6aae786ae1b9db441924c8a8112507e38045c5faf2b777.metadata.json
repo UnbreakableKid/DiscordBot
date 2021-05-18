@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-cache-hits": "0",
+    "strict-transport-security": "max-age=31536000",
+    "x-github-request-id": "EDEA:4EF2:452D14:5CC9E2:60A13F3C",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "x-xss-protection": "1; mode=block",
+    "etag": "W/\"0b1daedc5de05c25dccab48d47d487464dd15013262df2f22dbcf20bfbe6ac4c\"",
+    "accept-ranges": "bytes",
+    "x-frame-options": "deny",
+    "x-timer": "S1621180221.910056,VS0,VE97",
+    "vary": "Authorization,Accept-Encoding",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-cache": "MISS",
+    "x-fastly-request-id": "557c33d5442515d5ee055580c325dd50f8849eb4",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "cache-control": "max-age=300",
+    "x-content-type-options": "nosniff",
+    "via": "1.1 varnish",
+    "source-age": "0",
+    "access-control-allow-origin": "*",
+    "content-type": "text/plain; charset=utf-8"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/interactions/commands/application_command_permissions.ts"
+}

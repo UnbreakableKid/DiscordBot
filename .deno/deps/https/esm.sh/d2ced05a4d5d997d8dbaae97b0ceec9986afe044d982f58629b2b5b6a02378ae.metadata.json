@@ -1,0 +1,12 @@
+{
+  "headers": {
+    "date": "Sun, 16 May 2021 16:10:57 GMT",
+    "content-length": "204",
+    "server": "esm.sh",
+    "cache-control": "private, max-age=600",
+    "vary": "Origin",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-typescript-types": "https://cdn.esm.sh/v41/@types/range-parser@1.2.3/index.d.ts"
+  },
+  "url": "https://esm.sh/range-parser@1.2.1"
+}

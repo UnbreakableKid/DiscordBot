@@ -1,0 +1,21 @@
+{
+  "headers": {
+    "x-amz-version-id": "fm81a1CjYBgsFxAR17o8t9DXWwap02MU",
+    "server": "cloudflare",
+    "x-amz-id-2": "QtCJzB4AW+1CUI8Mz5bBu8ANNAyIt/DLApRr8uT4+Tmy5bq3o6AnuBrTOCs0Wp/uLe1EyeJx+v0=",
+    "cf-request-id": "0a17781c080000c5501eb61000000001",
+    "cf-ray": "6505c2d9ab95c550-ORD",
+    "etag": "W/\"e316d66fea035eb4bcf707cfdd750841\"",
+    "access-control-allow-origin": "*",
+    "cache-control": "public, max-age=31536000, immutable",
+    "cf-cache-status": "MISS",
+    "last-modified": "Mon, 26 Apr 2021 19:33:30 GMT",
+    "x-amz-request-id": "X1F1NNYJFC8MTFNX",
+    "content-type": "application/javascript",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "vary": "Accept-Encoding"
+  },
+  "url": "https://deno.land/x/i18next@v20.2.2/Interpolator.js"
+}

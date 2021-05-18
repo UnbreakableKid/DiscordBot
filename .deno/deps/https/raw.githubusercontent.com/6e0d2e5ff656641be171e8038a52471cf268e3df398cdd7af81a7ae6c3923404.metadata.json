@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "x-served-by": "cache-pwk4944-PWK",
+    "etag": "W/\"a6903b4eea413eb6a6f4f43c477bd9b3018223c638987eb82c70450eee77733d\"",
+    "source-age": "0",
+    "x-cache": "MISS",
+    "x-timer": "S1621180221.725962,VS0,VE85",
+    "cache-control": "max-age=300",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-fastly-request-id": "3d346a4a1ecb4e69f488f6d055e2dc8fb280ef5e",
+    "x-xss-protection": "1; mode=block",
+    "x-github-request-id": "F5FE:4CDA:476CC4:5F376E:60A13F3C",
+    "x-content-type-options": "nosniff",
+    "accept-ranges": "bytes",
+    "via": "1.1 varnish",
+    "x-cache-hits": "0",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "vary": "Authorization,Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "x-frame-options": "deny"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/members/kick_member.ts"
+}

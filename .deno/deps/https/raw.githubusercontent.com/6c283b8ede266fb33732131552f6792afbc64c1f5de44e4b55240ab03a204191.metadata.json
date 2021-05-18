@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "etag": "W/\"fa6ca5b9d019508580d5b9c26df4ea8a9f67b2237ef6e87ecc70db25be624cbb\"",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-cache": "MISS",
+    "x-xss-protection": "1; mode=block",
+    "source-age": "0",
+    "access-control-allow-origin": "*",
+    "vary": "Authorization,Accept-Encoding",
+    "strict-transport-security": "max-age=31536000",
+    "via": "1.1 varnish",
+    "x-timer": "S1621180221.013704,VS0,VE112",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "content-type": "text/plain; charset=utf-8",
+    "accept-ranges": "bytes",
+    "x-content-type-options": "nosniff",
+    "x-cache-hits": "0",
+    "cache-control": "max-age=300",
+    "x-github-request-id": "7A66:6505:F70B7:1AB184:60A13F3D",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "x-fastly-request-id": "79e852d037d67a061dc076cacead8477046ce490",
+    "x-frame-options": "deny"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/channels/video_quality_modes.ts"
+}

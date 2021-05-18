@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "access-control-allow-origin": "*",
+    "etag": "W/\"2f75b38b402027542c91c4c28325e63b4ddcaf82011ddd9e649bf5473cd8b182\"",
+    "x-github-request-id": "8F58:78EE:2E966A:3C7743:60A13F3B",
+    "x-timer": "S1621180220.223587,VS0,VE93",
+    "accept-ranges": "bytes",
+    "x-xss-protection": "1; mode=block",
+    "source-age": "0",
+    "cache-control": "max-age=300",
+    "x-frame-options": "deny",
+    "content-type": "text/plain; charset=utf-8",
+    "strict-transport-security": "max-age=31536000",
+    "x-cache": "MISS",
+    "x-cache-hits": "0",
+    "x-content-type-options": "nosniff",
+    "via": "1.1 varnish",
+    "x-fastly-request-id": "5eca9f69163818cf03f26ac291c2e41ec831acda",
+    "x-served-by": "cache-pwk4944-PWK",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "vary": "Authorization,Accept-Encoding"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/ws/heartbeat.ts"
+}

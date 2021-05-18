@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "cache-control": "max-age=300",
+    "x-timer": "S1621180221.783871,VS0,VE102",
+    "x-frame-options": "deny",
+    "x-served-by": "cache-pwk4944-PWK",
+    "strict-transport-security": "max-age=31536000",
+    "x-fastly-request-id": "17e1e66f684728094d0b45859c908285dfaff34a",
+    "access-control-allow-origin": "*",
+    "x-github-request-id": "1B1A:2ADF:11D6F1:22C305:60A13F3C",
+    "etag": "W/\"d0669355ba2707862eb74f528a6616f58bbf0dfc683b19ac914a0a8c15acb08d\"",
+    "accept-ranges": "bytes",
+    "x-xss-protection": "1; mode=block",
+    "x-cache": "MISS",
+    "x-content-type-options": "nosniff",
+    "vary": "Authorization,Accept-Encoding",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "via": "1.1 varnish",
+    "x-cache-hits": "0",
+    "content-type": "text/plain; charset=utf-8",
+    "source-age": "0",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/guilds/guild_role_delete.ts"
+}

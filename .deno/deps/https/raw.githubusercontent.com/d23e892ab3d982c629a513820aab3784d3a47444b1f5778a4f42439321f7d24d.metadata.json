@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-github-request-id": "FCD2:3B48:4555B4:5CCA31:60A13F3C",
+    "via": "1.1 varnish",
+    "x-served-by": "cache-pwk4944-PWK",
+    "cache-control": "max-age=300",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "access-control-allow-origin": "*",
+    "x-xss-protection": "1; mode=block",
+    "x-cache": "MISS",
+    "accept-ranges": "bytes",
+    "content-type": "text/plain; charset=utf-8",
+    "source-age": "0",
+    "x-cache-hits": "0",
+    "x-content-type-options": "nosniff",
+    "etag": "W/\"f1bb35999dfede8009c193d811b206895b3e3d03c7697f193dfacc4be70d5050\"",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "strict-transport-security": "max-age=31536000",
+    "vary": "Authorization,Accept-Encoding",
+    "x-frame-options": "deny",
+    "x-timer": "S1621180220.210660,VS0,VE111",
+    "x-fastly-request-id": "7988bec35e80dca4ffe33a1bbbc32c567de7700f"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/handlers/messages/MESSAGE_DELETE_BULK.ts"
+}

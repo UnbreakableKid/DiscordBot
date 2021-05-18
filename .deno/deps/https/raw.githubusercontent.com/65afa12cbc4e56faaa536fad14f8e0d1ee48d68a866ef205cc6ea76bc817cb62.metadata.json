@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-served-by": "cache-pwk4944-PWK",
+    "cache-control": "max-age=300",
+    "vary": "Authorization,Accept-Encoding",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "access-control-allow-origin": "*",
+    "x-fastly-request-id": "2e163fac299d9646208c37e90a8b66c3bb5861b6",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-xss-protection": "1; mode=block",
+    "x-frame-options": "deny",
+    "strict-transport-security": "max-age=31536000",
+    "source-age": "0",
+    "accept-ranges": "bytes",
+    "x-content-type-options": "nosniff",
+    "content-type": "text/plain; charset=utf-8",
+    "via": "1.1 varnish",
+    "x-cache": "MISS",
+    "x-timer": "S1621180221.130343,VS0,VE92",
+    "x-cache-hits": "0",
+    "x-github-request-id": "AC70:2C3E:1691BD:27F61D:60A13F3D",
+    "etag": "W/\"fdbe1b6c7bc6e056e3d0e0f74e090c5ab1e66d74ab6da2ca6ee43aaa1bb0dc73\""
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/invites/invite_target_types.ts"
+}

@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "content-type": "text/plain; charset=utf-8",
+    "cache-control": "max-age=300",
+    "x-github-request-id": "8F58:78EE:2E9688:3C7782:60A13F3C",
+    "x-frame-options": "deny",
+    "accept-ranges": "bytes",
+    "x-cache-hits": "0",
+    "x-timer": "S1621180221.725063,VS0,VE200",
+    "strict-transport-security": "max-age=31536000",
+    "vary": "Authorization,Accept-Encoding",
+    "etag": "W/\"86a6c53311a46a1495af2a3c1a93fbe2033337ee167d284959b6647e1d0319ba\"",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-xss-protection": "1; mode=block",
+    "source-age": "0",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-content-type-options": "nosniff",
+    "x-cache": "MISS",
+    "via": "1.1 varnish",
+    "x-fastly-request-id": "490f35d87188d7451370d3c1ab7669c1a2f248c4",
+    "x-served-by": "cache-pwk4944-PWK",
+    "access-control-allow-origin": "*"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/members/move_member.ts"
+}

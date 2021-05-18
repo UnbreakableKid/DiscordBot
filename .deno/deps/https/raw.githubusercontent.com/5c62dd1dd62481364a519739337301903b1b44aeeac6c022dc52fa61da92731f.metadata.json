@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-content-type-options": "nosniff",
+    "x-served-by": "cache-pwk4944-PWK",
+    "via": "1.1 varnish",
+    "access-control-allow-origin": "*",
+    "cache-control": "max-age=300",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "strict-transport-security": "max-age=31536000",
+    "content-type": "text/plain; charset=utf-8",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-github-request-id": "C2C4:2D17:45D278:5D8D34:60A13F3C",
+    "source-age": "0",
+    "etag": "W/\"ff78fd4a0095287fb5ce24952d53f6a846cd2becae3d472c95fe2ba5dcea4275\"",
+    "x-frame-options": "deny",
+    "x-cache": "MISS",
+    "x-cache-hits": "0",
+    "x-timer": "S1621180221.909705,VS0,VE83",
+    "x-xss-protection": "1; mode=block",
+    "vary": "Authorization,Accept-Encoding",
+    "x-fastly-request-id": "8b6a431575773476b218147306255e1aab710bd1",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "accept-ranges": "bytes"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/permissions/role_tags.ts"
+}

@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-cache": "MISS",
+    "access-control-allow-origin": "*",
+    "x-cache-hits": "0",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "strict-transport-security": "max-age=31536000",
+    "vary": "Authorization,Accept-Encoding",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "source-age": "0",
+    "x-content-type-options": "nosniff",
+    "x-github-request-id": "B010:3B99:480CC9:5FD94B:60A13F3C",
+    "x-xss-protection": "1; mode=block",
+    "x-timer": "S1621180221.909724,VS0,VE94",
+    "accept-ranges": "bytes",
+    "cache-control": "max-age=300",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "etag": "W/\"9f7609833518dff949f4b08519e036a24fe90dbb349c27104df93f9f2fd456f7\"",
+    "x-fastly-request-id": "daf434317a810a697e60b404499c5f9f906b8e0f",
+    "x-frame-options": "deny",
+    "via": "1.1 varnish",
+    "x-served-by": "cache-pwk4944-PWK",
+    "content-type": "text/plain; charset=utf-8"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/ws/send_shard_message.ts"
+}

@@ -1,0 +1,24 @@
+{
+  "headers": {
+    "cf-ray": "6505e10d4e2430fe-ORD",
+    "access-control-allow-origin": "*",
+    "age": "2036402",
+    "x-amz-version-id": "k7Jqf548St_i6chEui3drHuvOcuAt1Ub",
+    "cf-cache-status": "HIT",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "vary": "Accept-Encoding",
+    "content-length": "3704",
+    "last-modified": "Wed, 16 Sep 2020 14:30:28 GMT",
+    "date": "Sun, 16 May 2021 16:10:57 GMT",
+    "etag": "\"7c7b6cb3fb3799225963a9a7c679cc91\"",
+    "server": "cloudflare",
+    "accept-ranges": "bytes",
+    "x-amz-id-2": "USDGHokCL4XSMV/1MMpEz84ycIZQYyBkHbkiqt2Ckrg759u6mxgGs11v3SVeAwVt4IOipV+YXUg=",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "x-amz-request-id": "HSAK6SDPS2591F11",
+    "cf-request-id": "0a178afc4b000030feb8895000000001",
+    "cache-control": "public, max-age=31536000, immutable",
+    "content-type": "application/typescript; charset=utf-8"
+  },
+  "url": "https://deno.land/x/negotiator@1.0.1/src/language.ts"
+}

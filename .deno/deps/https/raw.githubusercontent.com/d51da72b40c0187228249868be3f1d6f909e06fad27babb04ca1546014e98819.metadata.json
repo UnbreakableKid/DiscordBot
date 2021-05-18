@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-frame-options": "deny",
+    "x-fastly-request-id": "d6a7e0bb3239c15e85b4884f6afe7a48e66d23bd",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "source-age": "0",
+    "x-content-type-options": "nosniff",
+    "x-served-by": "cache-pwk4944-PWK",
+    "cache-control": "max-age=300",
+    "content-type": "text/plain; charset=utf-8",
+    "strict-transport-security": "max-age=31536000",
+    "x-cache": "MISS",
+    "x-xss-protection": "1; mode=block",
+    "etag": "W/\"8a0a0d327764a80ccd7da742b1b9b300dfaa5d7351551d651b168cbb3e6004f1\"",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "via": "1.1 varnish",
+    "accept-ranges": "bytes",
+    "x-cache-hits": "0",
+    "x-timer": "S1621180221.110397,VS0,VE89",
+    "vary": "Authorization,Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "x-github-request-id": "59CE:0607:2D42B1:3B0301:60A13F3D"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/guilds/create_guild_channel.ts"
+}

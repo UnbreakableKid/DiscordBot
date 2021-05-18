@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "source-age": "0",
+    "via": "1.1 varnish",
+    "vary": "Authorization,Accept-Encoding",
+    "x-timer": "S1621180220.210800,VS0,VE102",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-content-type-options": "nosniff",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-xss-protection": "1; mode=block",
+    "strict-transport-security": "max-age=31536000",
+    "x-cache": "MISS",
+    "content-type": "text/plain; charset=utf-8",
+    "cache-control": "max-age=300",
+    "x-github-request-id": "270A:2501:12E07:134364:60A13F3C",
+    "accept-ranges": "bytes",
+    "x-cache-hits": "0",
+    "x-frame-options": "deny",
+    "access-control-allow-origin": "*",
+    "etag": "W/\"be854aced5637ccd1d6f9901fd30c8b75be4ead2ba98af9f4d6a12cbcd6ad13e\"",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-fastly-request-id": "c86a020f2f386f12e5071e205bd02f2a79004486",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/handlers/messages/MESSAGE_REACTION_REMOVE_EMOJI.ts"
+}

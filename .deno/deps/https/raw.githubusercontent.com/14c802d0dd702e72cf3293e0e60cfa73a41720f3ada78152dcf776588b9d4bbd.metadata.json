@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "source-age": "0",
+    "vary": "Authorization,Accept-Encoding",
+    "x-fastly-request-id": "60805fb2fd79d98bdf6a41a3f1635302af04c81c",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-xss-protection": "1; mode=block",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "accept-ranges": "bytes",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-github-request-id": "7A66:6505:F70B2:1AB180:60A13F3C",
+    "etag": "W/\"a48539c5469de92c2f53b628adc0d67dbcfb4fe2f44032138627fbcd41326326\"",
+    "cache-control": "max-age=300",
+    "via": "1.1 varnish",
+    "x-cache": "MISS",
+    "strict-transport-security": "max-age=31536000",
+    "access-control-allow-origin": "*",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-timer": "S1621180221.785215,VS0,VE89",
+    "content-type": "text/plain; charset=utf-8",
+    "x-cache-hits": "0"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/messages/unpin_message.ts"
+}

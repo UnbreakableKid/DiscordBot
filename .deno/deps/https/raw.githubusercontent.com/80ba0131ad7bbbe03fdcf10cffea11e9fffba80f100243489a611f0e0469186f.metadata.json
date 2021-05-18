@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "strict-transport-security": "max-age=31536000",
+    "x-cache-hits": "0",
+    "x-fastly-request-id": "868498c0ef91f0068a122f694eb732be91b5b1b5",
+    "via": "1.1 varnish",
+    "access-control-allow-origin": "*",
+    "x-xss-protection": "1; mode=block",
+    "etag": "W/\"51d5584632b76e51f3e0e4fe058981b9d4e45e851e1e75424ff25fda981e4105\"",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-github-request-id": "85A8:42FC:283357:356074:60A13F3C",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-timer": "S1621180220.096529,VS0,VE102",
+    "x-content-type-options": "nosniff",
+    "x-cache": "MISS",
+    "vary": "Authorization,Accept-Encoding",
+    "accept-ranges": "bytes",
+    "source-age": "0",
+    "x-frame-options": "deny",
+    "cache-control": "max-age=300"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/lavadeno/master/src/@types/player.d.ts"
+}

@@ -1,0 +1,22 @@
+{
+  "headers": {
+    "vary": "Accept-Encoding",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "access-control-allow-origin": "*",
+    "last-modified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "via": "1.1 fly.io",
+    "fly-request-id": "01F5QPAM5SKBVSMW6HB5GX94MD",
+    "age": "108639",
+    "cf-request-id": "0a17781ec2000003f09c1f2000000001",
+    "x-content-type-options": "nosniff",
+    "cache-control": "public, max-age=31536000",
+    "content-type": "application/javascript; charset=utf-8",
+    "cf-cache-status": "HIT",
+    "cf-ray": "6505c2de0b8903f0-ORD",
+    "etag": "W/\"18bca-5+ox9v+JmdXGQRBQr0G65nidC14\"",
+    "server": "cloudflare",
+    "date": "Sun, 16 May 2021 15:50:21 GMT"
+  },
+  "url": "https://unpkg.com/@evan/wasm@0.0.50/target/zlib/deno.js"
+}

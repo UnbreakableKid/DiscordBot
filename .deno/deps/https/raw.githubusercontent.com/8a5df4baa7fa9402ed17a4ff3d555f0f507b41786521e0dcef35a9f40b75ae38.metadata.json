@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "x-served-by": "cache-pwk4944-PWK",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "source-age": "0",
+    "x-cache-hits": "0",
+    "x-fastly-request-id": "42444864f147524f069b5b7a7b515f9941065765",
+    "x-cache": "MISS",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "strict-transport-security": "max-age=31536000",
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "etag": "W/\"e579f5d7ff9eab7f07f50c6ff4b5483ff0fbc07a8434e6bfe850cbc4221f555f\"",
+    "vary": "Authorization,Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "cache-control": "max-age=300",
+    "x-xss-protection": "1; mode=block",
+    "x-frame-options": "deny",
+    "via": "1.1 varnish",
+    "x-timer": "S1621180221.725445,VS0,VE95",
+    "x-github-request-id": "511A:3E53:4E40E:174BD4:60A13F3C"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/guilds/get_vainty_url.ts"
+}

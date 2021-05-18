@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-xss-protection": "1; mode=block",
+    "x-frame-options": "deny",
+    "x-timer": "S1621180221.725535,VS0,VE170",
+    "x-cache": "MISS",
+    "x-content-type-options": "nosniff",
+    "via": "1.1 varnish",
+    "x-fastly-request-id": "caf8e9aef35dde508dfaf953cdcee365fec99bf0",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "source-age": "0",
+    "content-type": "text/plain; charset=utf-8",
+    "x-served-by": "cache-pwk4944-PWK",
+    "access-control-allow-origin": "*",
+    "cache-control": "max-age=300",
+    "x-github-request-id": "EDA0:5226:26A5D0:33B8E2:60A13F3C",
+    "accept-ranges": "bytes",
+    "strict-transport-security": "max-age=31536000",
+    "etag": "W/\"1c9f5c72b2cda0559a03e5c827d1f67ea2e83c49088999c21cbaf9d7af8e37e5\"",
+    "x-cache-hits": "0",
+    "vary": "Authorization,Accept-Encoding",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/channels/create_stage_instance.ts"
+}

@@ -1,0 +1,21 @@
+{
+  "headers": {
+    "last-modified": "Mon, 26 Apr 2021 19:33:30 GMT",
+    "cf-cache-status": "MISS",
+    "etag": "W/\"ddc3c5deb58d5bc762f6cde85955e8a5\"",
+    "vary": "Accept-Encoding",
+    "cf-request-id": "0a17781c090000c5505aaf3000000001",
+    "content-type": "application/javascript",
+    "x-amz-version-id": "bjf6aNuF9klcAH66lA9idF2Vw3rCxPZu",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "server": "cloudflare",
+    "cache-control": "public, max-age=31536000, immutable",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "access-control-allow-origin": "*",
+    "x-amz-request-id": "X1F89XQP4NGRK59Q",
+    "cf-ray": "6505c2d9ab99c550-ORD",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "x-amz-id-2": "QMWkPHZ/2wLaBk8iSX7jXVpT10bbS/PinJxubNj91ldFwayZTlsmtvqvXanIUsXIr0rlT6KWypM="
+  },
+  "url": "https://deno.land/x/i18next@v20.2.2/PluralResolver.js"
+}

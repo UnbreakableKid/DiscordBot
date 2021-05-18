@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-cache": "MISS",
+    "vary": "Authorization,Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "x-cache-hits": "0",
+    "x-content-type-options": "nosniff",
+    "x-served-by": "cache-pwk4944-PWK",
+    "strict-transport-security": "max-age=31536000",
+    "accept-ranges": "bytes",
+    "content-type": "text/plain; charset=utf-8",
+    "etag": "W/\"a7358fc082e764c7eacf7252d4761ac7f5fe453a89fe7b81309e9c78e911e4ad\"",
+    "x-timer": "S1621180221.131197,VS0,VE98",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "via": "1.1 varnish",
+    "source-age": "0",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "cache-control": "max-age=300",
+    "x-fastly-request-id": "cb0089224f3c100dfacfd08494817d2dd583030b",
+    "x-xss-protection": "1; mode=block",
+    "x-github-request-id": "EF0C:4EF1:1611F2:29E405:60A13F3D",
+    "x-frame-options": "deny"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/messages/allowed_mentions_types.ts"
+}

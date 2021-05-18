@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-frame-options": "deny",
+    "source-age": "0",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "x-fastly-request-id": "bd94952bd96349c9852f08f2be96d0f3b2dd5cfa",
+    "cache-control": "max-age=300",
+    "x-cache": "MISS",
+    "etag": "W/\"b0236f43f5d24c98edb05ebf0372c318d0673288d84340b54dd6446d14ad871d\"",
+    "x-content-type-options": "nosniff",
+    "x-xss-protection": "1; mode=block",
+    "vary": "Authorization,Accept-Encoding",
+    "strict-transport-security": "max-age=31536000",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-cache-hits": "0",
+    "x-timer": "S1621180221.025130,VS0,VE106",
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "x-github-request-id": "2086:0B92:28B7AA:35FBDD:60A13F3D",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "via": "1.1 varnish",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "content-type": "text/plain; charset=utf-8"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/oauth2/get_current_authorization_information.ts"
+}

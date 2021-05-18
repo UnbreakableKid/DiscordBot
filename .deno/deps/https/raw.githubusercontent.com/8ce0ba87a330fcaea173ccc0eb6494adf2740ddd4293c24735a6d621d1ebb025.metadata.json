@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-frame-options": "deny",
+    "x-served-by": "cache-pwk4944-PWK",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-content-type-options": "nosniff",
+    "accept-ranges": "bytes",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "etag": "W/\"017295b854887d33a3e5197f7245a9214e18e2ac5ad3e07dc36dd9f14a76698b\"",
+    "source-age": "0",
+    "x-xss-protection": "1; mode=block",
+    "content-type": "text/plain; charset=utf-8",
+    "via": "1.1 varnish",
+    "x-cache-hits": "0",
+    "access-control-allow-origin": "*",
+    "strict-transport-security": "max-age=31536000",
+    "x-fastly-request-id": "d55f05f13d0d84d291e23bab65aa79b6980d95d8",
+    "x-cache": "MISS",
+    "cache-control": "max-age=300",
+    "x-github-request-id": "E106:70F7:1AD43C:2F4B13:60A13F3C",
+    "x-timer": "S1621180220.210964,VS0,VE100",
+    "vary": "Authorization,Accept-Encoding"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/handlers/commands/APPLICATION_COMMAND_DELETE.ts"
+}

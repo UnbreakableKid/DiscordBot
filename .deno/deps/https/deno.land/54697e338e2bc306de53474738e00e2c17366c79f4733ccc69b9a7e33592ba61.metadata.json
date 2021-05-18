@@ -1,0 +1,23 @@
+{
+  "headers": {
+    "access-control-allow-origin": "*",
+    "vary": "Accept-Encoding",
+    "etag": "\"3613ebc39c1833bda31c9a944cd3acf5\"",
+    "server": "cloudflare",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "x-amz-request-id": "X1F1MYEFXGJ18EDE",
+    "x-amz-version-id": "null",
+    "cf-request-id": "0a17781d3b0000c550eb2c8000000001",
+    "cache-control": "public, max-age=31536000, immutable",
+    "cf-ray": "6505c2db8eb2c550-ORD",
+    "cf-cache-status": "MISS",
+    "x-amz-id-2": "b8fn5BMJxeNdyeqsxVhBi42owNqmpgZhjV1RTWzXv/1WaAQSUOPs555SVZxsThU94D8sRi+sf5Y=",
+    "content-type": "application/typescript; charset=utf-8",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "content-length": "2523",
+    "accept-ranges": "bytes",
+    "last-modified": "Sat, 29 Aug 2020 20:03:09 GMT"
+  },
+  "url": "https://deno.land/std@0.66.0/io/ioutil.ts"
+}

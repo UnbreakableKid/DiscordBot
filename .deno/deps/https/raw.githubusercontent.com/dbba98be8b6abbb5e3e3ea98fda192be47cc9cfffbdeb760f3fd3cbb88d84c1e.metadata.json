@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "accept-ranges": "bytes",
+    "content-type": "text/plain; charset=utf-8",
+    "x-cache": "MISS",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-frame-options": "deny",
+    "x-cache-hits": "0",
+    "x-served-by": "cache-pwk4944-PWK",
+    "source-age": "0",
+    "etag": "W/\"c6fdead2aa756c621a4333e270b7aafb9952173c7369a4240b40fd689194de04\"",
+    "x-fastly-request-id": "1cef85a48d2cc3cd48abed92d720bf2d26d50b18",
+    "x-xss-protection": "1; mode=block",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "x-content-type-options": "nosniff",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=31536000",
+    "cache-control": "max-age=300",
+    "x-github-request-id": "BDF8:1E4A:D732E:18A6E1:60A13F3D",
+    "vary": "Authorization,Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "x-timer": "S1621180221.130442,VS0,VE93"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/users/create_dm.ts"
+}

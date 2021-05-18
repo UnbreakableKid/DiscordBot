@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-cache-hits": "0",
+    "x-cache": "MISS",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "cache-control": "max-age=300",
+    "x-xss-protection": "1; mode=block",
+    "source-age": "0",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-timer": "S1621180220.223991,VS0,VE135",
+    "etag": "W/\"9dae4f5aa6ed1dfdb8287004d063909734bc2191d7171f44dd81890404ff4606\"",
+    "via": "1.1 varnish",
+    "x-fastly-request-id": "775b0eddf085af540a1ddcdf511ae46023a4af8b",
+    "x-content-type-options": "nosniff",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-served-by": "cache-pwk4944-PWK",
+    "vary": "Authorization,Accept-Encoding",
+    "x-frame-options": "deny",
+    "accept-ranges": "bytes",
+    "content-type": "text/plain; charset=utf-8",
+    "x-github-request-id": "EDF2:2C3D:372D24:4B428A:60A13F3C",
+    "strict-transport-security": "max-age=31536000"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/ws/resharder.ts"
+}

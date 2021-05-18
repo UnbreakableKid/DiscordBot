@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "access-control-allow-origin": "*",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-timer": "S1621180220.210984,VS0,VE128",
+    "x-cache": "MISS",
+    "source-age": "0",
+    "x-served-by": "cache-pwk4944-PWK",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-content-type-options": "nosniff",
+    "x-fastly-request-id": "a3707cbc79e9657f684400f5de6e79ebde45d90b",
+    "etag": "W/\"8746bb44fe87fec560b35fc68e3d1722b4abf6ecbf9a3d1ef551492995f20a83\"",
+    "strict-transport-security": "max-age=31536000",
+    "x-cache-hits": "0",
+    "x-xss-protection": "1; mode=block",
+    "accept-ranges": "bytes",
+    "vary": "Authorization,Accept-Encoding",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-github-request-id": "EDDC:2535:3D790:137ED4:60A13F3C",
+    "via": "1.1 varnish",
+    "cache-control": "max-age=300",
+    "x-frame-options": "deny",
+    "content-type": "text/plain; charset=utf-8"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/handlers/emojis/GUILD_EMOJIS_UPDATE.ts"
+}

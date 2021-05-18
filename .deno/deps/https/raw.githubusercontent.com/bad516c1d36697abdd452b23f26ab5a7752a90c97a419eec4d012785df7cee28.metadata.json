@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-fastly-request-id": "cb11ede53d0cfd0e2bc0dbf3b8fbae163108753f",
+    "cache-control": "max-age=300",
+    "accept-ranges": "bytes",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "strict-transport-security": "max-age=31536000",
+    "x-cache": "MISS",
+    "x-cache-hits": "0",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "vary": "Authorization,Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "*",
+    "via": "1.1 varnish",
+    "x-timer": "S1621180221.573340,VS0,VE80",
+    "etag": "W/\"0a67c03f3d4efbf2a1c8796896ed56277c02e33c8ca91b890ba4eda1362cb635\"",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "source-age": "0",
+    "x-served-by": "cache-pwk4944-PWK",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-github-request-id": "CC84:4F5F:2FC5EB:3D8CBF:60A13F3C"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/type_guards/is_button.ts"
+}

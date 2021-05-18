@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "source-age": "0",
+    "x-github-request-id": "E84C:6F26:27AEFA:34CE17:60A13F3C",
+    "x-frame-options": "deny",
+    "x-timer": "S1621180221.876022,VS0,VE95",
+    "content-type": "text/plain; charset=utf-8",
+    "vary": "Authorization,Accept-Encoding",
+    "x-cache": "MISS",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-cache-hits": "0",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-fastly-request-id": "4b9d8a67d563147fb4990eadb88f04153ab863d8",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "strict-transport-security": "max-age=31536000",
+    "cache-control": "max-age=300",
+    "etag": "W/\"533893b25534c3aaf70ba48dc3afdb9b9d917013498c99c86da28c2ca476cf2a\"",
+    "x-content-type-options": "nosniff",
+    "x-xss-protection": "1; mode=block",
+    "via": "1.1 varnish",
+    "accept-ranges": "bytes"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/audit_log/audit_log.ts"
+}

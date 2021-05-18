@@ -1,0 +1,4 @@
+export { gzip, gunzip } from "./gzip.ts";
+export { GzipStream } from "./gzip_stream.ts";
+export { gzipFile, gunzipFile } from "./gzip_file.ts";
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL2Rlbm8ubGFuZC94L2NvbXByZXNzQHYwLjMuNi9nemlwL21vZC50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IHsgZ3ppcCwgZ3VuemlwIH0gZnJvbSBcIi4vZ3ppcC50c1wiO1xuZXhwb3J0IHsgR3ppcFN0cmVhbSB9IGZyb20gXCIuL2d6aXBfc3RyZWFtLnRzXCI7XG5leHBvcnQgeyBnemlwRmlsZSwgZ3VuemlwRmlsZSB9IGZyb20gXCIuL2d6aXBfZmlsZS50c1wiO1xuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLElBQUksRUFBRSxNQUFNLFNBQVEsU0FBVztTQUMvQixVQUFVLFNBQVEsZ0JBQWtCO1NBQ3BDLFFBQVEsRUFBRSxVQUFVLFNBQVEsY0FBZ0IifQ==

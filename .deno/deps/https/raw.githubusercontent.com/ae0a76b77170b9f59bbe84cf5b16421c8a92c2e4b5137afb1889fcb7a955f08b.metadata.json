@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-cache": "MISS",
+    "content-type": "text/plain; charset=utf-8",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-fastly-request-id": "9057cd6c0876975cb0cb7569914d8a4a404a9ee8",
+    "strict-transport-security": "max-age=31536000",
+    "accept-ranges": "bytes",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "via": "1.1 varnish",
+    "etag": "W/\"28bc71e05f248af6884acb019c8c2e78a4ce8b00fb200e8b4ebc88c2c1ba1fd3\"",
+    "x-github-request-id": "7798:4E9D:2FC0DD:3D84B8:60A13F3C",
+    "source-age": "0",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-cache-hits": "0",
+    "vary": "Authorization,Accept-Encoding",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "access-control-allow-origin": "*",
+    "x-timer": "S1621180221.725113,VS0,VE107",
+    "cache-control": "max-age=300",
+    "x-content-type-options": "nosniff"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/channels/get_channel_webhooks.ts"
+}

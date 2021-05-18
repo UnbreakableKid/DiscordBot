@@ -1,0 +1,22 @@
+class GZheader {
+    /* true if compressed data believed to be text */ text = 0;
+    /* modification time */ time = 0;
+    /* extra flags (not used when writing a gzip file) */ xflags = 0;
+    /* operating system */ os = 0;
+    /* pointer to extra field or Z_NULL if none */ extra = null;
+    /* extra field length (valid if extra != Z_NULL) */ extra_len = 0;
+    // but leave for few code modifications
+    //
+    // Setup limits is not necessary because in js we should not preallocate memory
+    // for inflate use constant limit in 65536 bytes
+    //
+    /* space at extra (only when reading header) */ // extra_max  = 0;
+    /* pointer to zero-terminated file name or Z_NULL */ name = "";
+    /* space at name (only when reading header) */ // name_max   = 0;
+    /* pointer to zero-terminated comment or Z_NULL */ comment = "";
+    /* space at comment (only when reading header) */ // comm_max   = 0;
+    /* true if there was or will be a header crc */ hcrc = 0;
+    /* true when done reading gzip header (not used when writing a gzip file) */ done = false;
+}
+export { GZheader as default };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL2Rlbm8ubGFuZC94L2NvbXByZXNzQHYwLjMuNi96bGliL3psaWIvZ3poZWFkZXIudHM+Il0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IGNsYXNzIEdaaGVhZGVyIHtcbiAgLyogdHJ1ZSBpZiBjb21wcmVzc2VkIGRhdGEgYmVsaWV2ZWQgdG8gYmUgdGV4dCAqL1xuICB0ZXh0OiBudW1iZXIgPSAwO1xuICAvKiBtb2RpZmljYXRpb24gdGltZSAqL1xuICB0aW1lOiBudW1iZXIgPSAwO1xuICAvKiBleHRyYSBmbGFncyAobm90IHVzZWQgd2hlbiB3cml0aW5nIGEgZ3ppcCBmaWxlKSAqL1xuICB4ZmxhZ3M6IG51bWJlciA9IDA7XG4gIC8qIG9wZXJhdGluZyBzeXN0ZW0gKi9cbiAgb3M6IG51bWJlciA9IDA7XG4gIC8qIHBvaW50ZXIgdG8gZXh0cmEgZmllbGQgb3IgWl9OVUxMIGlmIG5vbmUgKi9cbiAgZXh0cmE6IGFueSA9IG51bGw7XG4gIC8qIGV4dHJhIGZpZWxkIGxlbmd0aCAodmFsaWQgaWYgZXh0cmEgIT0gWl9OVUxMKSAqL1xuICBleHRyYV9sZW46IG51bWJlciA9IDA7IC8vIEFjdHVhbGx5LCB3ZSBkb24ndCBuZWVkIGl0IGluIEpTLFxuICAvLyBidXQgbGVhdmUgZm9yIGZldyBjb2RlIG1vZGlmaWNhdGlvbnNcblxuICAvL1xuICAvLyBTZXR1cCBsaW1pdHMgaXMgbm90IG5lY2Vzc2FyeSBiZWNhdXNlIGluIGpzIHdlIHNob3VsZCBub3QgcHJlYWxsb2NhdGUgbWVtb3J5XG4gIC8vIGZvciBpbmZsYXRlIHVzZSBjb25zdGFudCBsaW1pdCBpbiA2NTUzNiBieXRlc1xuICAvL1xuXG4gIC8qIHNwYWNlIGF0IGV4dHJhIChvbmx5IHdoZW4gcmVhZGluZyBoZWFkZXIpICovXG4gIC8vIGV4dHJhX21heCAgPSAwO1xuICAvKiBwb2ludGVyIHRvIHplcm8tdGVybWluYXRlZCBmaWxlIG5hbWUgb3IgWl9OVUxMICovXG4gIG5hbWU6IHN0cmluZyA9IFwiXCI7XG4gIC8qIHNwYWNlIGF0IG5hbWUgKG9ubHkgd2hlbiByZWFkaW5nIGhlYWRlcikgKi9cbiAgLy8gbmFtZV9tYXggICA9IDA7XG4gIC8qIHBvaW50ZXIgdG8gemVyby10ZXJtaW5hdGVkIGNvbW1lbnQgb3IgWl9OVUxMICovXG4gIGNvbW1lbnQ6IHN0cmluZyA9IFwiXCI7XG4gIC8qIHNwYWNlIGF0IGNvbW1lbnQgKG9ubHkgd2hlbiByZWFkaW5nIGhlYWRlcikgKi9cbiAgLy8gY29tbV9tYXggICA9IDA7XG4gIC8qIHRydWUgaWYgdGhlcmUgd2FzIG9yIHdpbGwgYmUgYSBoZWFkZXIgY3JjICovXG4gIGhjcmM6IG51bWJlciA9IDA7XG4gIC8qIHRydWUgd2hlbiBkb25lIHJlYWRpbmcgZ3ppcCBoZWFkZXIgKG5vdCB1c2VkIHdoZW4gd3JpdGluZyBhIGd6aXAgZmlsZSkgKi9cbiAgZG9uZTogYm9vbGVhbiA9IGZhbHNlO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJNQUFxQixRQUFRO0lBQzNCLEVBQWlELEFBQWpELDZDQUFpRCxBQUFqRCxFQUFpRCxDQUNqRCxJQUFJLEdBQVcsQ0FBQztJQUNoQixFQUF1QixBQUF2QixtQkFBdUIsQUFBdkIsRUFBdUIsQ0FDdkIsSUFBSSxHQUFXLENBQUM7SUFDaEIsRUFBcUQsQUFBckQsaURBQXFELEFBQXJELEVBQXFELENBQ3JELE1BQU0sR0FBVyxDQUFDO0lBQ2xCLEVBQXNCLEFBQXRCLGtCQUFzQixBQUF0QixFQUFzQixDQUN0QixFQUFFLEdBQVcsQ0FBQztJQUNkLEVBQThDLEFBQTlDLDBDQUE4QyxBQUE5QyxFQUE4QyxDQUM5QyxLQUFLLEdBQVEsSUFBSTtJQUNqQixFQUFtRCxBQUFuRCwrQ0FBbUQsQUFBbkQsRUFBbUQsQ0FDbkQsU0FBUyxHQUFXLENBQUM7SUFDckIsRUFBdUMsQUFBdkMscUNBQXVDO0lBRXZDLEVBQUU7SUFDRixFQUErRSxBQUEvRSw2RUFBK0U7SUFDL0UsRUFBZ0QsQUFBaEQsOENBQWdEO0lBQ2hELEVBQUU7SUFFRixFQUErQyxBQUEvQywyQ0FBK0MsQUFBL0MsRUFBK0MsQ0FDL0MsRUFBa0IsQUFBbEIsZ0JBQWtCO0lBQ2xCLEVBQW9ELEFBQXBELGdEQUFvRCxBQUFwRCxFQUFvRCxDQUNwRCxJQUFJO0lBQ0osRUFBOEMsQUFBOUMsMENBQThDLEFBQTlDLEVBQThDLENBQzlDLEVBQWtCLEFBQWxCLGdCQUFrQjtJQUNsQixFQUFrRCxBQUFsRCw4Q0FBa0QsQUFBbEQsRUFBa0QsQ0FDbEQsT0FBTztJQUNQLEVBQWlELEFBQWpELDZDQUFpRCxBQUFqRCxFQUFpRCxDQUNqRCxFQUFrQixBQUFsQixnQkFBa0I7SUFDbEIsRUFBK0MsQUFBL0MsMkNBQStDLEFBQS9DLEVBQStDLENBQy9DLElBQUksR0FBVyxDQUFDO0lBQ2hCLEVBQTRFLEFBQTVFLHdFQUE0RSxBQUE1RSxFQUE0RSxDQUM1RSxJQUFJLEdBQVksS0FBSzs7U0FqQ0YsUUFBUSJ9

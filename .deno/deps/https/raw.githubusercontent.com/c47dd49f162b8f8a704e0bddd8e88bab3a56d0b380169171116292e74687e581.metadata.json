@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "strict-transport-security": "max-age=31536000",
+    "access-control-allow-origin": "*",
+    "via": "1.1 varnish",
+    "cache-control": "max-age=300",
+    "x-content-type-options": "nosniff",
+    "source-age": "0",
+    "x-github-request-id": "F1A2:580E:4835B9:60128D:60A13F3D",
+    "x-timer": "S1621180221.023474,VS0,VE126",
+    "etag": "W/\"e84100ecf834669d41248c3917cec1588c48c79c3cb791c31e0b7a2e6f1828d9\"",
+    "x-cache": "MISS",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "content-type": "text/plain; charset=utf-8",
+    "x-cache-hits": "0",
+    "vary": "Authorization,Accept-Encoding",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "accept-ranges": "bytes",
+    "x-xss-protection": "1; mode=block",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-frame-options": "deny",
+    "x-fastly-request-id": "8d1320825e9ee5960239a390da98d640d2073327",
+    "x-served-by": "cache-pwk4944-PWK"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/guilds/mfa_levels.ts"
+}

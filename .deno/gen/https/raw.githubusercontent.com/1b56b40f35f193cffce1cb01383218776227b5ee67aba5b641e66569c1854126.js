@@ -1,0 +1,15 @@
+import { cacheHandlers } from "../../cache.ts";
+import { rest } from "../../rest/rest.ts";
+import { ChannelTypes } from "../../types/channels/channel_types.ts";
+import { Errors } from "../../types/discordeno/errors.ts";
+import { endpoints } from "../../util/constants.ts";
+/** Gets the stage instance associated with the Stage channel, if it exists. */ export async function getStageInstance(channelId) {
+    const channel = await cacheHandlers.get("channels", channelId);
+    if (channel) {
+        if (channel.type !== ChannelTypes.GuildStageVoice) {
+            throw new Error(Errors.CHANNEL_NOT_STAGE_VOICE);
+        }
+    }
+    return await rest.runMethod("get", endpoints.STAGE_INSTANCE(channelId));
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvY2hhbm5lbHMvZ2V0X3N0YWdlX2luc3RhbmNlLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjYWNoZUhhbmRsZXJzIH0gZnJvbSBcIi4uLy4uL2NhY2hlLnRzXCI7XG5pbXBvcnQgeyByZXN0IH0gZnJvbSBcIi4uLy4uL3Jlc3QvcmVzdC50c1wiO1xuaW1wb3J0IHsgQ2hhbm5lbFR5cGVzIH0gZnJvbSBcIi4uLy4uL3R5cGVzL2NoYW5uZWxzL2NoYW5uZWxfdHlwZXMudHNcIjtcbmltcG9ydCB0eXBlIHsgU3RhZ2VJbnN0YW5jZSB9IGZyb20gXCIuLi8uLi90eXBlcy9jaGFubmVscy9zdGFnZV9pbnN0YW5jZS50c1wiO1xuaW1wb3J0IHsgRXJyb3JzIH0gZnJvbSBcIi4uLy4uL3R5cGVzL2Rpc2NvcmRlbm8vZXJyb3JzLnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcblxuLyoqIEdldHMgdGhlIHN0YWdlIGluc3RhbmNlIGFzc29jaWF0ZWQgd2l0aCB0aGUgU3RhZ2UgY2hhbm5lbCwgaWYgaXQgZXhpc3RzLiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGdldFN0YWdlSW5zdGFuY2UoY2hhbm5lbElkOiBiaWdpbnQpIHtcbiAgY29uc3QgY2hhbm5lbCA9IGF3YWl0IGNhY2hlSGFuZGxlcnMuZ2V0KFwiY2hhbm5lbHNcIiwgY2hhbm5lbElkKTtcblxuICBpZiAoY2hhbm5lbCkge1xuICAgIGlmIChjaGFubmVsLnR5cGUgIT09IENoYW5uZWxUeXBlcy5HdWlsZFN0YWdlVm9pY2UpIHtcbiAgICAgIHRocm93IG5ldyBFcnJvcihFcnJvcnMuQ0hBTk5FTF9OT1RfU1RBR0VfVk9JQ0UpO1xuICAgIH1cbiAgfVxuXG4gIHJldHVybiBhd2FpdCByZXN0LnJ1bk1ldGhvZDxTdGFnZUluc3RhbmNlPihcbiAgICBcImdldFwiLFxuICAgIGVuZHBvaW50cy5TVEFHRV9JTlNUQU5DRShjaGFubmVsSWQpLFxuICApO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLGFBQWEsU0FBUSxjQUFnQjtTQUNyQyxJQUFJLFNBQVEsa0JBQW9CO1NBQ2hDLFlBQVksU0FBUSxxQ0FBdUM7U0FFM0QsTUFBTSxTQUFRLGdDQUFrQztTQUNoRCxTQUFTLFNBQVEsdUJBQXlCO0FBRW5ELEVBQStFLEFBQS9FLDJFQUErRSxBQUEvRSxFQUErRSx1QkFDekQsZ0JBQWdCLENBQUMsU0FBaUI7VUFDaEQsT0FBTyxTQUFTLGFBQWEsQ0FBQyxHQUFHLEVBQUMsUUFBVSxHQUFFLFNBQVM7UUFFekQsT0FBTztZQUNMLE9BQU8sQ0FBQyxJQUFJLEtBQUssWUFBWSxDQUFDLGVBQWU7c0JBQ3JDLEtBQUssQ0FBQyxNQUFNLENBQUMsdUJBQXVCOzs7aUJBSXJDLElBQUksQ0FBQyxTQUFTLEVBQ3pCLEdBQUssR0FDTCxTQUFTLENBQUMsY0FBYyxDQUFDLFNBQVMifQ==

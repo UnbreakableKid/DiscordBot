@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-frame-options": "deny",
+    "x-cache": "MISS",
+    "x-fastly-request-id": "d3df7d5bc22fb1d373184f2d9f9dc70b94b469dc",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "etag": "W/\"7c51074607e9d5e68071ef06ac1d490b5a09cafd194f9e25be989e197e403c5b\"",
+    "via": "1.1 varnish",
+    "x-xss-protection": "1; mode=block",
+    "x-github-request-id": "AC70:2C3E:1691B0:27F609:60A13F3C",
+    "content-type": "text/plain; charset=utf-8",
+    "x-content-type-options": "nosniff",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "source-age": "0",
+    "x-cache-hits": "0",
+    "x-timer": "S1621180220.223815,VS0,VE99",
+    "vary": "Authorization,Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "accept-ranges": "bytes",
+    "x-served-by": "cache-pwk4944-PWK",
+    "strict-transport-security": "max-age=31536000",
+    "cache-control": "max-age=300"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/ws/create_shard.ts"
+}

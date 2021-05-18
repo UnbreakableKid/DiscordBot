@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "accept-ranges": "bytes",
+    "x-fastly-request-id": "2e718fdf15432cd6873e3180850d7073265cfa8d",
+    "x-github-request-id": "7522:0246:F05ED:1A3EA2:60A13F3C",
+    "source-age": "0",
+    "content-type": "text/plain; charset=utf-8",
+    "x-cache-hits": "0",
+    "x-timer": "S1621180221.573867,VS0,VE112",
+    "via": "1.1 varnish",
+    "x-served-by": "cache-pwk4944-PWK",
+    "strict-transport-security": "max-age=31536000",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-xss-protection": "1; mode=block",
+    "x-cache": "MISS",
+    "cache-control": "max-age=300",
+    "vary": "Authorization,Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "etag": "W/\"abdbcee81ec0bd5b4c518e91d9b2e356abbf80301bdcdd6dbf20ac393f2a4f4c\"",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "date": "Sun, 16 May 2021 15:50:20 GMT"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/members/disconnect_member.ts"
+}

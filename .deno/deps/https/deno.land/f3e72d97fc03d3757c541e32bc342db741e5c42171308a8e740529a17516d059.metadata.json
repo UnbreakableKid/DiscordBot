@@ -1,0 +1,21 @@
+{
+  "headers": {
+    "server": "cloudflare",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "cf-ray": "6505c2d9ab9fc550-ORD",
+    "access-control-allow-origin": "*",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "x-amz-request-id": "X1F5SZB4K4VT6KE9",
+    "etag": "W/\"b8abdd4e877a75972fe50b41f52e5724\"",
+    "content-type": "application/javascript",
+    "x-amz-id-2": "age1jQw34JtVJmVjkcm7QB+dgj1NJd9OhZLQEMTO0aXjovrmuLD3JwCHUcvNxSQitgZABHDBfRQ=",
+    "cache-control": "public, max-age=31536000, immutable",
+    "x-amz-version-id": "_wkXTx7vZbKnOWEJ8r8BxB_OxkWKGL6I",
+    "vary": "Accept-Encoding",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "last-modified": "Mon, 26 Apr 2021 19:33:30 GMT",
+    "cf-cache-status": "MISS",
+    "cf-request-id": "0a17781c0a0000c5504186d000000001"
+  },
+  "url": "https://deno.land/x/i18next@v20.2.2/BackendConnector.js"
+}

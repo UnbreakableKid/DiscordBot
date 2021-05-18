@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-cache": "MISS",
+    "etag": "W/\"0c41d5353199c39b4125a00730d37d2714e4ce8c33335d3ced71333ad32c654c\"",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-timer": "S1621180221.783840,VS0,VE132",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-frame-options": "deny",
+    "via": "1.1 varnish",
+    "x-content-type-options": "nosniff",
+    "x-github-request-id": "CB96:42CA:26F78F:3422D2:60A13F3C",
+    "x-xss-protection": "1; mode=block",
+    "x-cache-hits": "0",
+    "vary": "Authorization,Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "accept-ranges": "bytes",
+    "x-fastly-request-id": "2e6b65af41e24fb1f1fec38a2f3eeb83f5fae9cf",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "cache-control": "max-age=300",
+    "strict-transport-security": "max-age=31536000",
+    "content-type": "text/plain; charset=utf-8",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "source-age": "0"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/voice/voice_state.ts"
+}

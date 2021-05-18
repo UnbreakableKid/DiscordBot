@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-github-request-id": "6BAC:78EC:4F26C:F3FF5:60A13F3D",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-cache": "MISS",
+    "strict-transport-security": "max-age=31536000",
+    "x-timer": "S1621180221.130303,VS0,VE140",
+    "cache-control": "max-age=300",
+    "x-frame-options": "deny",
+    "content-type": "text/plain; charset=utf-8",
+    "accept-ranges": "bytes",
+    "via": "1.1 varnish",
+    "source-age": "0",
+    "x-cache-hits": "0",
+    "vary": "Authorization,Accept-Encoding",
+    "access-control-allow-origin": "*",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "x-xss-protection": "1; mode=block",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "x-content-type-options": "nosniff",
+    "etag": "W/\"5a547f2720e94526f3f002a8ca347d1f092c47f1d77f754d0d77b0ded6d93a25\"",
+    "x-fastly-request-id": "51c34e0927fb12efd7c9f9e3c3796cb5432cbbb8",
+    "x-served-by": "cache-pwk4944-PWK"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/invites/create_channel_invite.ts"
+}

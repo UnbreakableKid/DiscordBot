@@ -1,0 +1,19 @@
+import { cacheHandlers } from "../../cache.ts";
+import { rest } from "../../rest/rest.ts";
+import { Errors } from "../../types/discordeno/errors.ts";
+import { endpoints } from "../../util/constants.ts";
+/**
+ * Returns an emoji for the given guild and emoji Id.
+ *
+ * ⚠️ **If you need this, you are probably doing something wrong. Always use cache.guilds.get()?.emojis
+ */ export async function getEmoji(guildId, emojiId, addToCache = true) {
+    const result = await rest.runMethod("get", endpoints.GUILD_EMOJI(guildId, emojiId));
+    if (addToCache) {
+        const guild = await cacheHandlers.get("guilds", guildId);
+        if (!guild) throw new Error(Errors.GUILD_NOT_FOUND);
+        guild.emojis.set(emojiId, result);
+        await cacheHandlers.set("guilds", guildId, guild);
+    }
+    return result;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvZW1vamlzL2dldF9lbW9qaS50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY2FjaGVIYW5kbGVycyB9IGZyb20gXCIuLi8uLi9jYWNoZS50c1wiO1xuaW1wb3J0IHsgcmVzdCB9IGZyb20gXCIuLi8uLi9yZXN0L3Jlc3QudHNcIjtcbmltcG9ydCB0eXBlIHsgRW1vamkgfSBmcm9tIFwiLi4vLi4vdHlwZXMvZW1vamlzL2Vtb2ppLnRzXCI7XG5pbXBvcnQgeyBFcnJvcnMgfSBmcm9tIFwiLi4vLi4vdHlwZXMvZGlzY29yZGVuby9lcnJvcnMudHNcIjtcbmltcG9ydCB7IGVuZHBvaW50cyB9IGZyb20gXCIuLi8uLi91dGlsL2NvbnN0YW50cy50c1wiO1xuXG4vKipcbiAqIFJldHVybnMgYW4gZW1vamkgZm9yIHRoZSBnaXZlbiBndWlsZCBhbmQgZW1vamkgSWQuXG4gKlxuICog4pqg77iPICoqSWYgeW91IG5lZWQgdGhpcywgeW91IGFyZSBwcm9iYWJseSBkb2luZyBzb21ldGhpbmcgd3JvbmcuIEFsd2F5cyB1c2UgY2FjaGUuZ3VpbGRzLmdldCgpPy5lbW9qaXNcbiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGdldEVtb2ppKFxuICBndWlsZElkOiBiaWdpbnQsXG4gIGVtb2ppSWQ6IGJpZ2ludCxcbiAgYWRkVG9DYWNoZSA9IHRydWUsXG4pIHtcbiAgY29uc3QgcmVzdWx0ID0gYXdhaXQgcmVzdC5ydW5NZXRob2Q8RW1vamk+KFxuICAgIFwiZ2V0XCIsXG4gICAgZW5kcG9pbnRzLkdVSUxEX0VNT0pJKGd1aWxkSWQsIGVtb2ppSWQpLFxuICApO1xuXG4gIGlmIChhZGRUb0NhY2hlKSB7XG4gICAgY29uc3QgZ3VpbGQgPSBhd2FpdCBjYWNoZUhhbmRsZXJzLmdldChcImd1aWxkc1wiLCBndWlsZElkKTtcbiAgICBpZiAoIWd1aWxkKSB0aHJvdyBuZXcgRXJyb3IoRXJyb3JzLkdVSUxEX05PVF9GT1VORCk7XG4gICAgZ3VpbGQuZW1vamlzLnNldChlbW9qaUlkLCByZXN1bHQpO1xuICAgIGF3YWl0IGNhY2hlSGFuZGxlcnMuc2V0KFxuICAgICAgXCJndWlsZHNcIixcbiAgICAgIGd1aWxkSWQsXG4gICAgICBndWlsZCxcbiAgICApO1xuICB9XG5cbiAgcmV0dXJuIHJlc3VsdDtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxhQUFhLFNBQVEsY0FBZ0I7U0FDckMsSUFBSSxTQUFRLGtCQUFvQjtTQUVoQyxNQUFNLFNBQVEsZ0NBQWtDO1NBQ2hELFNBQVMsU0FBUSx1QkFBeUI7QUFFbkQsRUFJRyxBQUpIOzs7O0NBSUcsQUFKSCxFQUlHLHVCQUNtQixRQUFRLENBQzVCLE9BQWUsRUFDZixPQUFlLEVBQ2YsVUFBVSxHQUFHLElBQUk7VUFFWCxNQUFNLFNBQVMsSUFBSSxDQUFDLFNBQVMsRUFDakMsR0FBSyxHQUNMLFNBQVMsQ0FBQyxXQUFXLENBQUMsT0FBTyxFQUFFLE9BQU87UUFHcEMsVUFBVTtjQUNOLEtBQUssU0FBUyxhQUFhLENBQUMsR0FBRyxFQUFDLE1BQVEsR0FBRSxPQUFPO2FBQ2xELEtBQUssWUFBWSxLQUFLLENBQUMsTUFBTSxDQUFDLGVBQWU7UUFDbEQsS0FBSyxDQUFDLE1BQU0sQ0FBQyxHQUFHLENBQUMsT0FBTyxFQUFFLE1BQU07Y0FDMUIsYUFBYSxDQUFDLEdBQUcsRUFDckIsTUFBUSxHQUNSLE9BQU8sRUFDUCxLQUFLOztXQUlGLE1BQU0ifQ==

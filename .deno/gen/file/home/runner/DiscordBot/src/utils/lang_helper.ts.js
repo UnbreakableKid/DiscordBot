@@ -1,0 +1,13 @@
+import { snowflakeToBigint } from "../../deps.ts";
+import { db } from "../database/database.ts";
+import { bot } from "../../cache.ts";
+import { log } from "./logger.ts";
+export async function loadLanguages() {
+    const guilds = await db.guilds.getAll(true).catch(log.error);
+    if (!guilds) return;
+    for (const guild of guilds){
+        if (!guild.language) continue;
+        bot.guildLanguages.set(snowflakeToBigint(guild.id), guild.language);
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxmaWxlOi8vL2hvbWUvcnVubmVyL0Rpc2NvcmRCb3Qvc3JjL3V0aWxzL2xhbmdfaGVscGVyLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBzbm93Zmxha2VUb0JpZ2ludCB9IGZyb20gXCIuLi8uLi9kZXBzLnRzXCI7XG5pbXBvcnQgeyBkYiB9IGZyb20gXCIuLi9kYXRhYmFzZS9kYXRhYmFzZS50c1wiO1xuaW1wb3J0IHsgYm90IH0gZnJvbSBcIi4uLy4uL2NhY2hlLnRzXCI7XG5pbXBvcnQgeyBsb2cgfSBmcm9tIFwiLi9sb2dnZXIudHNcIjtcblxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGxvYWRMYW5ndWFnZXMoKSB7XG4gIGNvbnN0IGd1aWxkcyA9IGF3YWl0IGRiLmd1aWxkcy5nZXRBbGwodHJ1ZSkuY2F0Y2gobG9nLmVycm9yKTtcblxuICBpZiAoIWd1aWxkcykgcmV0dXJuO1xuICBmb3IgKGNvbnN0IGd1aWxkIG9mIGd1aWxkcykge1xuICAgIGlmICghZ3VpbGQubGFuZ3VhZ2UpIGNvbnRpbnVlO1xuICAgIGJvdC5ndWlsZExhbmd1YWdlcy5zZXQoc25vd2ZsYWtlVG9CaWdpbnQoZ3VpbGQuaWQpLCBndWlsZC5sYW5ndWFnZSk7XG4gIH1cbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxpQkFBaUIsU0FBUSxhQUFlO1NBQ3hDLEVBQUUsU0FBUSx1QkFBeUI7U0FDbkMsR0FBRyxTQUFRLGNBQWdCO1NBQzNCLEdBQUcsU0FBUSxXQUFhO3NCQUVYLGFBQWE7VUFDM0IsTUFBTSxTQUFTLEVBQUUsQ0FBQyxNQUFNLENBQUMsTUFBTSxDQUFDLElBQUksRUFBRSxLQUFLLENBQUMsR0FBRyxDQUFDLEtBQUs7U0FFdEQsTUFBTTtlQUNBLEtBQUssSUFBSSxNQUFNO2FBQ25CLEtBQUssQ0FBQyxRQUFRO1FBQ25CLEdBQUcsQ0FBQyxjQUFjLENBQUMsR0FBRyxDQUFDLGlCQUFpQixDQUFDLEtBQUssQ0FBQyxFQUFFLEdBQUcsS0FBSyxDQUFDLFFBQVEifQ==

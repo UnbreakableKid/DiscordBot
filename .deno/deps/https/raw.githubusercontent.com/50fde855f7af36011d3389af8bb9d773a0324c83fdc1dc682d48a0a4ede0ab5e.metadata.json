@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "source-age": "0",
+    "cache-control": "max-age=300",
+    "content-type": "text/plain; charset=utf-8",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "access-control-allow-origin": "*",
+    "x-github-request-id": "6266:2536:11C673:229709:60A13F3C",
+    "x-cache": "MISS",
+    "x-cache-hits": "0",
+    "x-fastly-request-id": "7f7fffc60503bfce677c107e4c9789ea44ca9b28",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-timer": "S1621180220.223654,VS0,VE101",
+    "etag": "W/\"78b91b9a83c85fa19f871313505fd04ca3dabdffa6424710426a827ca1419c62\"",
+    "x-xss-protection": "1; mode=block",
+    "vary": "Authorization,Accept-Encoding",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "via": "1.1 varnish",
+    "accept-ranges": "bytes"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/ws/resume.ts"
+}

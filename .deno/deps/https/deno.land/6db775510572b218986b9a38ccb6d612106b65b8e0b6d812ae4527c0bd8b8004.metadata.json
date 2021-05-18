@@ -1,0 +1,24 @@
+{
+  "headers": {
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "server": "cloudflare",
+    "content-type": "application/typescript; charset=utf-8",
+    "etag": "\"539bd887f3ee07e2e52ee94ab816b99b\"",
+    "cache-control": "public, max-age=31536000, immutable",
+    "x-amz-request-id": "HSAJQBPYSDQ1RMDS",
+    "content-length": "1197",
+    "vary": "Accept-Encoding",
+    "accept-ranges": "bytes",
+    "x-amz-id-2": "NMSFc4Xz6nygsIS+kGkLLYl83T0U+nFh1Rm7LbzK1hC4dtjwb3Jh9eIVO7DwJNAD7+nkFNzlUrI=",
+    "access-control-allow-origin": "*",
+    "cf-ray": "6505e10b49ea30fe-ORD",
+    "cf-request-id": "0a178afb0a000030fe9a95c000000001",
+    "cf-cache-status": "HIT",
+    "age": "2036402",
+    "last-modified": "Sat, 29 Aug 2020 19:54:05 GMT",
+    "date": "Sun, 16 May 2021 16:10:57 GMT",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "x-amz-version-id": "null"
+  },
+  "url": "https://deno.land/x/isIP@1.0.0/mod.ts"
+}

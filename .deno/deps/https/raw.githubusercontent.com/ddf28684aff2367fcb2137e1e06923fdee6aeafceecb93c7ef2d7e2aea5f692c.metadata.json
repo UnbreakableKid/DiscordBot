@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-xss-protection": "1; mode=block",
+    "access-control-allow-origin": "*",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-content-type-options": "nosniff",
+    "accept-ranges": "bytes",
+    "x-timer": "S1621180221.573324,VS0,VE109",
+    "content-type": "text/plain; charset=utf-8",
+    "x-cache": "MISS",
+    "source-age": "0",
+    "cache-control": "max-age=300",
+    "x-cache-hits": "0",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-github-request-id": "5216:4E9D:2FC0D6:3D84B4:60A13F3C",
+    "strict-transport-security": "max-age=31536000",
+    "vary": "Authorization,Accept-Encoding",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "via": "1.1 varnish",
+    "x-frame-options": "deny",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-fastly-request-id": "85c52a49ce68160affcf2595fc1d564ecbc82e01",
+    "etag": "W/\"af17d82f64a275931227fc4dd50e69d0e3e226400f712f386096ab796e1f11e4\""
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/channels/get_channels.ts"
+}

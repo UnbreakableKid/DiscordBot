@@ -1,0 +1,24 @@
+{
+  "headers": {
+    "etag": "\"b746c82b6f2b1247880d41ddf6efb1d7\"",
+    "content-type": "application/typescript; charset=utf-8",
+    "x-amz-version-id": "YPTg.bIPKFa2LqOIocopAVxsBWLAyZjy",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "x-amz-request-id": "CPNMAGRWCW37B1NN",
+    "cf-request-id": "0a17781a9c0000c5506485f000000001",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "cf-cache-status": "HIT",
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "x-amz-id-2": "d5G0z3qW1aIOLeX8f+zhxP5dN3r8epQfim8VbI+ygYwgtxzKFwv+XXknJbTBk8zBdCsGPN+0A18=",
+    "cf-ray": "6505c2d76f74c550-ORD",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+    "vary": "Accept-Encoding",
+    "server": "cloudflare",
+    "age": "1399028",
+    "cache-control": "public, max-age=31536000, immutable",
+    "last-modified": "Mon, 21 Dec 2020 22:11:54 GMT",
+    "content-length": "72"
+  },
+  "url": "https://deno.land/x/sabr@1.1.4/deps.ts"
+}

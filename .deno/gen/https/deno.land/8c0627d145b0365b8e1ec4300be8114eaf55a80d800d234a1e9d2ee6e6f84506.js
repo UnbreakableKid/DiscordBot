@@ -1,0 +1,5 @@
+// Copyright 2018-2020 the Deno authors. All rights reserved. MIT license.
+/** This module is browser compatible. */ import { isWindows } from "../_util/os.ts";
+export const SEP = isWindows ? "\\" : "/";
+export const SEP_PATTERN = isWindows ? /[\\/]+/ : /\/+/;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL2Rlbm8ubGFuZC9zdGRAMC43OS4wL3BhdGgvc2VwYXJhdG9yLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBDb3B5cmlnaHQgMjAxOC0yMDIwIHRoZSBEZW5vIGF1dGhvcnMuIEFsbCByaWdodHMgcmVzZXJ2ZWQuIE1JVCBsaWNlbnNlLlxuLyoqIFRoaXMgbW9kdWxlIGlzIGJyb3dzZXIgY29tcGF0aWJsZS4gKi9cblxuaW1wb3J0IHsgaXNXaW5kb3dzIH0gZnJvbSBcIi4uL191dGlsL29zLnRzXCI7XG5cbmV4cG9ydCBjb25zdCBTRVAgPSBpc1dpbmRvd3MgPyBcIlxcXFxcIiA6IFwiL1wiO1xuZXhwb3J0IGNvbnN0IFNFUF9QQVRURVJOID0gaXNXaW5kb3dzID8gL1tcXFxcL10rLyA6IC9cXC8rLztcbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxFQUEwRSxBQUExRSx3RUFBMEU7QUFDMUUsRUFBeUMsQUFBekMscUNBQXlDLEFBQXpDLEVBQXlDLFVBRWhDLFNBQVMsU0FBUSxjQUFnQjthQUU3QixHQUFHLEdBQUcsU0FBUyxJQUFHLEVBQUksS0FBRyxDQUFHO2FBQzVCLFdBQVcsR0FBRyxTQUFTIn0=

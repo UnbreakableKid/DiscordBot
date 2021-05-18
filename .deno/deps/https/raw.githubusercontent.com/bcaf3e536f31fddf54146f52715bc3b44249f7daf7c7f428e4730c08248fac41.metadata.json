@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "source-age": "0",
+    "x-github-request-id": "EE88:5935:29FC24:373ED4:60A13F3D",
+    "strict-transport-security": "max-age=31536000",
+    "vary": "Authorization,Accept-Encoding",
+    "x-cache-hits": "0",
+    "content-type": "text/plain; charset=utf-8",
+    "x-fastly-request-id": "7f4fd15537ccb8911389e1728d0b054714e7f4b5",
+    "x-frame-options": "deny",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-timer": "S1621180221.014167,VS0,VE83",
+    "etag": "W/\"4527e9c1a13052478013043c2f691c3a09360a114e41192dd63bf1a8c11bc293\"",
+    "x-xss-protection": "1; mode=block",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "x-cache": "MISS",
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "x-content-type-options": "nosniff",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "via": "1.1 varnish",
+    "cache-control": "max-age=300"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/channels/overwrite_types.ts"
+}

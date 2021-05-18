@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "cache-control": "max-age=300",
+    "x-cache-hits": "0",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-xss-protection": "1; mode=block",
+    "x-content-type-options": "nosniff",
+    "source-age": "0",
+    "content-type": "text/plain; charset=utf-8",
+    "accept-ranges": "bytes",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "vary": "Authorization,Accept-Encoding",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "x-cache": "MISS",
+    "x-fastly-request-id": "7a26539eab5c80a418ad6c680628f6ad2e43efbf",
+    "x-github-request-id": "1EF4:6F25:C1BEF:170DD6:60A13F3C",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "x-timer": "S1621180221.877334,VS0,VE136",
+    "access-control-allow-origin": "*",
+    "via": "1.1 varnish",
+    "etag": "W/\"f184de052d137ce98882799d12fad9fa07d2fb79ab7e1a53b1acca6ec842e906\"",
+    "x-frame-options": "deny",
+    "strict-transport-security": "max-age=31536000"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/interactions/interaction_types.ts"
+}

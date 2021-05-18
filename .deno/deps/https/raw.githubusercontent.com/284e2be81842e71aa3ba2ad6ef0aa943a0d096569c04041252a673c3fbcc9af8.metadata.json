@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "access-control-allow-origin": "*",
+    "etag": "W/\"df3a790d7f0723e20d5d8bf8e830acf989884d81e649775e4d88a6fd05145f9a\"",
+    "x-timer": "S1621180220.218788,VS0,VE97",
+    "x-content-type-options": "nosniff",
+    "x-fastly-request-id": "4482e1696abc22a5e26842158c8cb4e763d2cd5d",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "accept-ranges": "bytes",
+    "x-frame-options": "deny",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "strict-transport-security": "max-age=31536000",
+    "x-served-by": "cache-pwk4944-PWK",
+    "vary": "Authorization,Accept-Encoding",
+    "x-cache": "MISS",
+    "x-cache-hits": "0",
+    "via": "1.1 varnish",
+    "cache-control": "max-age=300",
+    "x-github-request-id": "F5FE:4CDA:476CB2:5F3758:60A13F3C",
+    "source-age": "0",
+    "x-xss-protection": "1; mode=block",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "content-type": "text/plain; charset=utf-8"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/rest/process_rate_limited_paths.ts"
+}

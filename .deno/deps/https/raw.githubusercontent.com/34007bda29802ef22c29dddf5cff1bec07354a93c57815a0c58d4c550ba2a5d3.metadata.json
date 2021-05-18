@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "via": "1.1 varnish",
+    "x-github-request-id": "8746:60D7:151769:28D362:60A13F3C",
+    "x-served-by": "cache-pwk4944-PWK",
+    "vary": "Authorization,Accept-Encoding",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "content-type": "text/plain; charset=utf-8",
+    "x-content-type-options": "nosniff",
+    "x-cache": "MISS",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-frame-options": "deny",
+    "etag": "W/\"2c39a6dcaa80d6676b92f8e3385d34d869274e1f6ba1f0852c346ca7b76226ff\"",
+    "x-cache-hits": "0",
+    "access-control-allow-origin": "*",
+    "x-xss-protection": "1; mode=block",
+    "accept-ranges": "bytes",
+    "x-timer": "S1621180220.211057,VS0,VE92",
+    "cache-control": "max-age=300",
+    "x-fastly-request-id": "31569d0f123f431f58f11be9c6b8373d49b3bfbc",
+    "source-age": "0",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "strict-transport-security": "max-age=31536000"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/handlers/webhooks/WEBHOOKS_UPDATE.ts"
+}

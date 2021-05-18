@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "content-type": "text/plain; charset=utf-8",
+    "cache-control": "max-age=300",
+    "strict-transport-security": "max-age=31536000",
+    "x-fastly-request-id": "71edb1defebad97d55e211863f3daaf8c57fbfcc",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "x-xss-protection": "1; mode=block",
+    "vary": "Authorization,Accept-Encoding",
+    "x-github-request-id": "BDF8:1E4A:D732C:18A6DF:60A13F3D",
+    "source-age": "0",
+    "access-control-allow-origin": "*",
+    "etag": "W/\"b53cd1620fe3292a57572c9cc1f0895ba67bdfd654d8904e9c704f7d14dcdefa\"",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "via": "1.1 varnish",
+    "x-frame-options": "deny",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-cache": "MISS",
+    "x-timer": "S1621180221.024383,VS0,VE102",
+    "x-cache-hits": "0",
+    "x-content-type-options": "nosniff",
+    "accept-ranges": "bytes"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/guilds/modify_guild_welcome_screen.ts"
+}

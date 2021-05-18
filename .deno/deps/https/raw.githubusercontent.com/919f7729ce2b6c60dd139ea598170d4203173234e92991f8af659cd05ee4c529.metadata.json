@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-cache": "MISS",
+    "x-xss-protection": "1; mode=block",
+    "content-type": "text/plain; charset=utf-8",
+    "via": "1.1 varnish",
+    "x-content-type-options": "nosniff",
+    "vary": "Authorization,Accept-Encoding",
+    "accept-ranges": "bytes",
+    "x-cache-hits": "0",
+    "x-timer": "S1621180221.023463,VS0,VE143",
+    "strict-transport-security": "max-age=31536000",
+    "x-frame-options": "deny",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-fastly-request-id": "4aa8d72152a4885f168dc5fe7cd9ea5ea866ca52",
+    "access-control-allow-origin": "*",
+    "x-github-request-id": "33B8:4F5F:2FC600:3D8CD8:60A13F3D",
+    "x-served-by": "cache-pwk4944-PWK",
+    "cache-control": "max-age=300",
+    "source-age": "0",
+    "etag": "W/\"937611a0b06f91eaae2147f4c2387ae5155263ac358a73f6829c036bfd745ab8\"",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/guilds/modify_guild_role_positions.ts"
+}

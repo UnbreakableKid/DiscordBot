@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "source-age": "0",
+    "x-timer": "S1621180220.986110,VS0,VE94",
+    "x-frame-options": "deny",
+    "accept-ranges": "bytes",
+    "strict-transport-security": "max-age=31536000",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-fastly-request-id": "e0c814cece762e88a26acb67371af05d92b2f875",
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-content-type-options": "nosniff",
+    "vary": "Authorization,Accept-Encoding",
+    "x-xss-protection": "1; mode=block",
+    "cache-control": "max-age=300",
+    "x-github-request-id": "8AFC:4C9B:16BB56:2A9EE2:60A13F3B",
+    "x-cache": "MISS",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "etag": "W/\"9c88505995636349375395070526073124ed09d0d348a6a60ff64fc3a194ee29\"",
+    "via": "1.1 varnish",
+    "x-cache-hits": "0"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/lavadeno/master/mod.ts"
+}

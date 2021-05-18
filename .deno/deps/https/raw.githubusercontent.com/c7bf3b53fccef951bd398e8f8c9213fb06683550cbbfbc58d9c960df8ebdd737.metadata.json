@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "cache-control": "max-age=300",
+    "x-xss-protection": "1; mode=block",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-cache-hits": "0",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-timer": "S1621180221.725568,VS0,VE114",
+    "content-type": "text/plain; charset=utf-8",
+    "etag": "W/\"8d60ec7e1f2c59a162fd7a37cfb7b16a335e4b5dedba7193922fd4ff40e0ee0d\"",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "via": "1.1 varnish",
+    "x-github-request-id": "F56A:0607:2D42A0:3B02E8:60A13F3C",
+    "x-cache": "MISS",
+    "source-age": "0",
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "vary": "Authorization,Accept-Encoding",
+    "strict-transport-security": "max-age=31536000",
+    "x-fastly-request-id": "180d23510fe16701648c363cc47cd2f5a31a4fb4"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/guilds/leave_guild.ts"
+}

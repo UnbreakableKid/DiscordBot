@@ -1,0 +1,21 @@
+{
+  "headers": {
+    "last-modified": "Mon, 26 Apr 2021 19:33:30 GMT",
+    "access-control-allow-origin": "*",
+    "vary": "Accept-Encoding",
+    "x-amz-request-id": "X1F45AJM03B37YF8",
+    "cf-ray": "6505c2d9aba6c550-ORD",
+    "etag": "W/\"88c44bdeebc4a577fe6d81972c1ad5cb\"",
+    "alt-svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400",
+    "x-amz-version-id": "iyKaLmzuUBWKcRsCoUNpbmPjZ1cLC7Q6",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "server": "cloudflare",
+    "cf-request-id": "0a17781c0a0000c5502318a000000001",
+    "x-amz-id-2": "7z1XkVKHSFuIUE+94AJyUPt9jmG60HQ9E7WOp0q6ixQ3dip9jm6mu77AAUCHQgzuPEKNW6F1wOY=",
+    "cache-control": "public, max-age=31536000, immutable",
+    "cf-cache-status": "MISS",
+    "content-type": "application/javascript",
+    "expect-ct": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+  },
+  "url": "https://deno.land/x/i18next@v20.2.2/ResourceStore.js"
+}

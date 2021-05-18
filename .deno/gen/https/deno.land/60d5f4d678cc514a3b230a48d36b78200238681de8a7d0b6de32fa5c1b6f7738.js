@@ -1,0 +1,4 @@
+import Negotiator from "https://deno.land/x/negotiator@1.0.1/mod.ts";
+export { Negotiator };
+export { lookup } from "https://deno.land/x/media_types@v2.4.7/mod.ts";
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL2Rlbm8ubGFuZC94L2FjY2VwdHNAMi4xLjAvZGVwcy50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IE5lZ290aWF0b3IgZnJvbSBcImh0dHBzOi8vZGVuby5sYW5kL3gvbmVnb3RpYXRvckAxLjAuMS9tb2QudHNcIjtcbmV4cG9ydCB7XG4gIE5lZ290aWF0b3IsXG59O1xuXG5leHBvcnQgeyBsb29rdXAgfSBmcm9tIFwiaHR0cHM6Ly9kZW5vLmxhbmQveC9tZWRpYV90eXBlc0B2Mi40LjcvbW9kLnRzXCI7XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ik9BQU8sVUFBVSxPQUFNLDJDQUE2QztTQUVsRSxVQUFVO1NBR0gsTUFBTSxTQUFRLDZDQUErQyJ9

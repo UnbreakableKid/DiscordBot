@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-content-type-options": "nosniff",
+    "source-age": "0",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "cache-control": "max-age=300",
+    "etag": "W/\"12a2a924866f34286bba9f124d6d7a3254a9653c81571014947d65134191a7a7\"",
+    "x-cache-hits": "0",
+    "vary": "Authorization,Accept-Encoding",
+    "x-xss-protection": "1; mode=block",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "x-github-request-id": "7DE4:2D17:45D274:5D8D2A:60A13F3C",
+    "strict-transport-security": "max-age=31536000",
+    "accept-ranges": "bytes",
+    "content-type": "text/plain; charset=utf-8",
+    "x-frame-options": "deny",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "via": "1.1 varnish",
+    "x-cache": "MISS",
+    "x-timer": "S1621180221.784430,VS0,VE93",
+    "x-fastly-request-id": "315754552f17ffb8f1e492c3d5713487752269a9",
+    "access-control-allow-origin": "*",
+    "x-served-by": "cache-pwk4944-PWK"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/interactions/commands/upsert_slash_commands.ts"
+}

@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/plain; charset=utf-8",
+    "etag": "W/\"60b3312b844b02768c9fe12c82ee6401d4c96614b91df9b99e392e351e299af3\"",
+    "x-frame-options": "deny",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "date": "Sun, 16 May 2021 15:50:21 GMT",
+    "x-timer": "S1621180221.110388,VS0,VE89",
+    "x-fastly-request-id": "3338e95f84fb72ae209dae7663d203b7bb8ff678",
+    "via": "1.1 varnish",
+    "expires": "Sun, 16 May 2021 15:55:21 GMT",
+    "cache-control": "max-age=300",
+    "x-content-type-options": "nosniff",
+    "x-xss-protection": "1; mode=block",
+    "x-cache": "MISS",
+    "accept-ranges": "bytes",
+    "source-age": "0",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-cache-hits": "0",
+    "x-github-request-id": "EF5C:307E:43A54D:5B5659:60A13F3D",
+    "strict-transport-security": "max-age=31536000",
+    "vary": "Authorization,Accept-Encoding"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/types/guilds/guild_role_update.ts"
+}

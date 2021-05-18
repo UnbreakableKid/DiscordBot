@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "accept-ranges": "bytes",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-cache-hits": "0",
+    "x-github-request-id": "6CA6:1925:1F9CA2:347FF6:60A13F3C",
+    "x-fastly-request-id": "380ae38cec364def38193a1a8e4d341de1a1f354",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "cache-control": "max-age=300",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "x-xss-protection": "1; mode=block",
+    "vary": "Authorization,Accept-Encoding",
+    "x-frame-options": "deny",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-cache": "MISS",
+    "content-type": "text/plain; charset=utf-8",
+    "x-timer": "S1621180221.576104,VS0,VE105",
+    "source-age": "0",
+    "strict-transport-security": "max-age=31536000",
+    "x-content-type-options": "nosniff",
+    "via": "1.1 varnish",
+    "access-control-allow-origin": "*",
+    "etag": "W/\"ed5dfd9fdf0077bf3f53a07a12fec96837b0e8c1ddb2f86722555b9085227f00\""
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/discordeno/main/src/helpers/channels/delete_stage_instance.ts"
+}

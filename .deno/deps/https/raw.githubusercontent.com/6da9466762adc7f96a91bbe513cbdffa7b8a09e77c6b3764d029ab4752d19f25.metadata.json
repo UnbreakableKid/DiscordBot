@@ -1,0 +1,26 @@
+{
+  "headers": {
+    "x-cache": "MISS",
+    "x-content-type-options": "nosniff",
+    "x-served-by": "cache-pwk4944-PWK",
+    "x-timer": "S1621180220.096495,VS0,VE88",
+    "access-control-allow-origin": "*",
+    "x-fastly-request-id": "31486d015b1bc9194d645e5fce68440611daad8e",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+    "strict-transport-security": "max-age=31536000",
+    "accept-ranges": "bytes",
+    "source-age": "0",
+    "x-xss-protection": "1; mode=block",
+    "cache-control": "max-age=300",
+    "expires": "Sun, 16 May 2021 15:55:20 GMT",
+    "via": "1.1 varnish",
+    "vary": "Authorization,Accept-Encoding",
+    "date": "Sun, 16 May 2021 15:50:20 GMT",
+    "x-frame-options": "deny",
+    "x-github-request-id": "7A66:6505:F70A9:1AB171:60A13F3C",
+    "x-cache-hits": "0",
+    "etag": "W/\"58394e480f8cd4ab129f2e3dece9a9ee600f155ecd22096899c4e87c4dd7817e\"",
+    "content-type": "text/plain; charset=utf-8"
+  },
+  "url": "https://raw.githubusercontent.com/discordeno/lavadeno/master/src/api/Socket.ts"
+}
