@@ -4,16 +4,25 @@ import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotChannelPermissions } from "../../util/permissions.ts";
 import { delay } from "../../util/utils.ts";
-/** Delete a message with the channel id and message id only. */ export async function deleteMessage(channelId, messageId, reason, delayMilliseconds = 0) {
-    const message = await cacheHandlers.get("messages", messageId);
-    if (message && message.authorId !== botId) {
-        await requireBotChannelPermissions(message.channelId, [
-            "MANAGE_MESSAGES"
-        ]);
-    }
-    if (delayMilliseconds) await delay(delayMilliseconds);
-    return await rest.runMethod("delete", endpoints.CHANNEL_MESSAGE(channelId, messageId), {
-        reason
-    });
+/** Delete a message with the channel id and message id only. */ export async function deleteMessage(
+  channelId,
+  messageId,
+  reason,
+  delayMilliseconds = 0,
+) {
+  const message = await cacheHandlers.get("messages", messageId);
+  if (message && message.authorId !== botId) {
+    await requireBotChannelPermissions(message.channelId, [
+      "MANAGE_MESSAGES",
+    ]);
+  }
+  if (delayMilliseconds) await delay(delayMilliseconds);
+  return await rest.runMethod(
+    "delete",
+    endpoints.CHANNEL_MESSAGE(channelId, messageId),
+    {
+      reason,
+    },
+  );
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvbWVzc2FnZXMvZGVsZXRlX21lc3NhZ2UudHM+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGJvdElkIH0gZnJvbSBcIi4uLy4uL2JvdC50c1wiO1xuaW1wb3J0IHsgY2FjaGVIYW5kbGVycyB9IGZyb20gXCIuLi8uLi9jYWNoZS50c1wiO1xuaW1wb3J0IHsgcmVzdCB9IGZyb20gXCIuLi8uLi9yZXN0L3Jlc3QudHNcIjtcbmltcG9ydCB7IGVuZHBvaW50cyB9IGZyb20gXCIuLi8uLi91dGlsL2NvbnN0YW50cy50c1wiO1xuaW1wb3J0IHsgcmVxdWlyZUJvdENoYW5uZWxQZXJtaXNzaW9ucyB9IGZyb20gXCIuLi8uLi91dGlsL3Blcm1pc3Npb25zLnRzXCI7XG5pbXBvcnQgeyBkZWxheSB9IGZyb20gXCIuLi8uLi91dGlsL3V0aWxzLnRzXCI7XG5cbi8qKiBEZWxldGUgYSBtZXNzYWdlIHdpdGggdGhlIGNoYW5uZWwgaWQgYW5kIG1lc3NhZ2UgaWQgb25seS4gKi9cbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBkZWxldGVNZXNzYWdlKFxuICBjaGFubmVsSWQ6IGJpZ2ludCxcbiAgbWVzc2FnZUlkOiBiaWdpbnQsXG4gIHJlYXNvbj86IHN0cmluZyxcbiAgZGVsYXlNaWxsaXNlY29uZHMgPSAwLFxuKSB7XG4gIGNvbnN0IG1lc3NhZ2UgPSBhd2FpdCBjYWNoZUhhbmRsZXJzLmdldChcIm1lc3NhZ2VzXCIsIG1lc3NhZ2VJZCk7XG5cbiAgaWYgKG1lc3NhZ2UgJiYgbWVzc2FnZS5hdXRob3JJZCAhPT0gYm90SWQpIHtcbiAgICBhd2FpdCByZXF1aXJlQm90Q2hhbm5lbFBlcm1pc3Npb25zKG1lc3NhZ2UuY2hhbm5lbElkLCBbXCJNQU5BR0VfTUVTU0FHRVNcIl0pO1xuICB9XG5cbiAgaWYgKGRlbGF5TWlsbGlzZWNvbmRzKSBhd2FpdCBkZWxheShkZWxheU1pbGxpc2Vjb25kcyk7XG5cbiAgcmV0dXJuIGF3YWl0IHJlc3QucnVuTWV0aG9kPHVuZGVmaW5lZD4oXG4gICAgXCJkZWxldGVcIixcbiAgICBlbmRwb2ludHMuQ0hBTk5FTF9NRVNTQUdFKGNoYW5uZWxJZCwgbWVzc2FnZUlkKSxcbiAgICB7IHJlYXNvbiB9LFxuICApO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLEtBQUssU0FBUSxZQUFjO1NBQzNCLGFBQWEsU0FBUSxjQUFnQjtTQUNyQyxJQUFJLFNBQVEsa0JBQW9CO1NBQ2hDLFNBQVMsU0FBUSx1QkFBeUI7U0FDMUMsNEJBQTRCLFNBQVEseUJBQTJCO1NBQy9ELEtBQUssU0FBUSxtQkFBcUI7QUFFM0MsRUFBZ0UsQUFBaEUsNERBQWdFLEFBQWhFLEVBQWdFLHVCQUMxQyxhQUFhLENBQ2pDLFNBQWlCLEVBQ2pCLFNBQWlCLEVBQ2pCLE1BQWUsRUFDZixpQkFBaUIsR0FBRyxDQUFDO1VBRWYsT0FBTyxTQUFTLGFBQWEsQ0FBQyxHQUFHLEVBQUMsUUFBVSxHQUFFLFNBQVM7UUFFekQsT0FBTyxJQUFJLE9BQU8sQ0FBQyxRQUFRLEtBQUssS0FBSztjQUNqQyw0QkFBNEIsQ0FBQyxPQUFPLENBQUMsU0FBUzthQUFHLGVBQWlCOzs7UUFHdEUsaUJBQWlCLFFBQVEsS0FBSyxDQUFDLGlCQUFpQjtpQkFFdkMsSUFBSSxDQUFDLFNBQVMsRUFDekIsTUFBUSxHQUNSLFNBQVMsQ0FBQyxlQUFlLENBQUMsU0FBUyxFQUFFLFNBQVM7UUFDNUMsTUFBTSJ9

@@ -2,11 +2,19 @@ import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotGuildPermissions } from "../../util/permissions.ts";
 import { snakelize } from "../../util/utils.ts";
-/** Ban a user from the guild and optionally delete previous messages sent by the user. Requires the BAN_MEMBERS permission. */ export async function ban(guildId, id, options) {
-    await requireBotGuildPermissions(guildId, [
-        "BAN_MEMBERS"
-    ]);
-    return await rest.runMethod("put", endpoints.GUILD_BAN(guildId, id), snakelize(options));
+/** Ban a user from the guild and optionally delete previous messages sent by the user. Requires the BAN_MEMBERS permission. */ export async function ban(
+  guildId,
+  id,
+  options,
+) {
+  await requireBotGuildPermissions(guildId, [
+    "BAN_MEMBERS",
+  ]);
+  return await rest.runMethod(
+    "put",
+    endpoints.GUILD_BAN(guildId, id),
+    snakelize(options),
+  );
 }
 // aliases
 export { ban as banMember };

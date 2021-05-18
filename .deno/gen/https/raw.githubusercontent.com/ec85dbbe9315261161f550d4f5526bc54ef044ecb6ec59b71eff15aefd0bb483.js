@@ -1,22 +1,39 @@
 export var DiscordRpcErrorCodes;
-(function(DiscordRpcErrorCodes) {
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["UnknownError"] = 1000] = "UnknownError";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidPayload"] = 4000] = "InvalidPayload";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidCommand"] = 4002] = "InvalidCommand";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidGuild"] = 4003] = "InvalidGuild";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidEvent"] = 4004] = "InvalidEvent";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidChannel"] = 4005] = "InvalidChannel";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidPermissions"] = 4006] = "InvalidPermissions";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidClientId"] = 4007] = "InvalidClientId";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidOrigin"] = 4008] = "InvalidOrigin";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidToken"] = 4009] = "InvalidToken";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidUser"] = 4010] = "InvalidUser";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["OAuth2Error"] = 5000] = "OAuth2Error";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["SelectChannelTimedOut"] = 5001] = "SelectChannelTimedOut";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["GetGuildTimedOut"] = 5002] = "GetGuildTimedOut";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["SelectVoiceForceRequired"] = 5003] = "SelectVoiceForceRequired";
-    DiscordRpcErrorCodes[DiscordRpcErrorCodes["CaptureShortcutAlreadyListening"] = 5004] = "CaptureShortcutAlreadyListening";
-})(DiscordRpcErrorCodes || (DiscordRpcErrorCodes = {
-}));
+(function (DiscordRpcErrorCodes) {
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["UnknownError"] = 1000] =
+    "UnknownError";
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidPayload"] = 4000] =
+    "InvalidPayload";
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidCommand"] = 4002] =
+    "InvalidCommand";
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidGuild"] = 4003] =
+    "InvalidGuild";
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidEvent"] = 4004] =
+    "InvalidEvent";
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidChannel"] = 4005] =
+    "InvalidChannel";
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidPermissions"] = 4006] =
+    "InvalidPermissions";
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidClientId"] = 4007] =
+    "InvalidClientId";
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidOrigin"] = 4008] =
+    "InvalidOrigin";
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidToken"] = 4009] =
+    "InvalidToken";
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["InvalidUser"] = 4010] =
+    "InvalidUser";
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["OAuth2Error"] = 5000] =
+    "OAuth2Error";
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["SelectChannelTimedOut"] = 5001] =
+    "SelectChannelTimedOut";
+  DiscordRpcErrorCodes[DiscordRpcErrorCodes["GetGuildTimedOut"] = 5002] =
+    "GetGuildTimedOut";
+  DiscordRpcErrorCodes[
+    DiscordRpcErrorCodes["SelectVoiceForceRequired"] = 5003
+  ] = "SelectVoiceForceRequired";
+  DiscordRpcErrorCodes[
+    DiscordRpcErrorCodes["CaptureShortcutAlreadyListening"] = 5004
+  ] = "CaptureShortcutAlreadyListening";
+})(DiscordRpcErrorCodes || (DiscordRpcErrorCodes = {}));
 export const RpcErrorCodes = DiscordRpcErrorCodes;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL2NvZGVzL3JwY19lcnJvcl9jb2Rlcy50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiLyoqIGh0dHBzOi8vZGlzY29yZC5jb20vZGV2ZWxvcGVycy9kb2NzL3RvcGljcy9vcGNvZGVzLWFuZC1zdGF0dXMtY29kZXMjcnBjICovXG5leHBvcnQgZW51bSBEaXNjb3JkUnBjRXJyb3JDb2RlcyB7XG4gIFVua25vd25FcnJvciA9IDEwMDAsXG4gIEludmFsaWRQYXlsb2FkID0gNDAwMCxcbiAgSW52YWxpZENvbW1hbmQgPSA0MDAyLFxuICBJbnZhbGlkR3VpbGQsXG4gIEludmFsaWRFdmVudCxcbiAgSW52YWxpZENoYW5uZWwsXG4gIEludmFsaWRQZXJtaXNzaW9ucyxcbiAgSW52YWxpZENsaWVudElkLFxuICBJbnZhbGlkT3JpZ2luLFxuICBJbnZhbGlkVG9rZW4sXG4gIEludmFsaWRVc2VyLFxuICBPQXV0aDJFcnJvciA9IDUwMDAsXG4gIFNlbGVjdENoYW5uZWxUaW1lZE91dCxcbiAgR2V0R3VpbGRUaW1lZE91dCxcbiAgU2VsZWN0Vm9pY2VGb3JjZVJlcXVpcmVkLFxuICBDYXB0dXJlU2hvcnRjdXRBbHJlYWR5TGlzdGVuaW5nLFxufVxuXG5leHBvcnQgdHlwZSBScGNFcnJvckNvZGVzID0gRGlzY29yZFJwY0Vycm9yQ29kZXM7XG5leHBvcnQgY29uc3QgUnBjRXJyb3JDb2RlcyA9IERpc2NvcmRScGNFcnJvckNvZGVzO1xuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7VUFDWSxvQkFBb0I7SUFBcEIsb0JBQW9CLENBQXBCLG9CQUFvQixFQUM5QixZQUFZLEtBQUcsSUFBSSxLQUFuQixZQUFZO0lBREYsb0JBQW9CLENBQXBCLG9CQUFvQixFQUU5QixjQUFjLEtBQUcsSUFBSSxLQUFyQixjQUFjO0lBRkosb0JBQW9CLENBQXBCLG9CQUFvQixFQUc5QixjQUFjLEtBQUcsSUFBSSxLQUFyQixjQUFjO0lBSEosb0JBQW9CLENBQXBCLG9CQUFvQixFQUk5QixZQUFZLEtBQVosSUFBWSxLQUFaLFlBQVk7SUFKRixvQkFBb0IsQ0FBcEIsb0JBQW9CLEVBSzlCLFlBQVksS0FBWixJQUFZLEtBQVosWUFBWTtJQUxGLG9CQUFvQixDQUFwQixvQkFBb0IsRUFNOUIsY0FBYyxLQUFkLElBQWMsS0FBZCxjQUFjO0lBTkosb0JBQW9CLENBQXBCLG9CQUFvQixFQU85QixrQkFBa0IsS0FBbEIsSUFBa0IsS0FBbEIsa0JBQWtCO0lBUFIsb0JBQW9CLENBQXBCLG9CQUFvQixFQVE5QixlQUFlLEtBQWYsSUFBZSxLQUFmLGVBQWU7SUFSTCxvQkFBb0IsQ0FBcEIsb0JBQW9CLEVBUzlCLGFBQWEsS0FBYixJQUFhLEtBQWIsYUFBYTtJQVRILG9CQUFvQixDQUFwQixvQkFBb0IsRUFVOUIsWUFBWSxLQUFaLElBQVksS0FBWixZQUFZO0lBVkYsb0JBQW9CLENBQXBCLG9CQUFvQixFQVc5QixXQUFXLEtBQVgsSUFBVyxLQUFYLFdBQVc7SUFYRCxvQkFBb0IsQ0FBcEIsb0JBQW9CLEVBWTlCLFdBQVcsS0FBRyxJQUFJLEtBQWxCLFdBQVc7SUFaRCxvQkFBb0IsQ0FBcEIsb0JBQW9CLEVBYTlCLHFCQUFxQixLQUFyQixJQUFxQixLQUFyQixxQkFBcUI7SUFiWCxvQkFBb0IsQ0FBcEIsb0JBQW9CLEVBYzlCLGdCQUFnQixLQUFoQixJQUFnQixLQUFoQixnQkFBZ0I7SUFkTixvQkFBb0IsQ0FBcEIsb0JBQW9CLEVBZTlCLHdCQUF3QixLQUF4QixJQUF3QixLQUF4Qix3QkFBd0I7SUFmZCxvQkFBb0IsQ0FBcEIsb0JBQW9CLEVBZ0I5QiwrQkFBK0IsS0FBL0IsSUFBK0IsS0FBL0IsK0JBQStCO0dBaEJyQixvQkFBb0IsS0FBcEIsb0JBQW9COzthQW9CbkIsYUFBYSxHQUFHLG9CQUFvQiJ9

@@ -1,12 +1,11 @@
 export var DiscordActivityTypes;
-(function(DiscordActivityTypes) {
-    DiscordActivityTypes[DiscordActivityTypes["Game"] = 0] = "Game";
-    DiscordActivityTypes[DiscordActivityTypes["Streaming"] = 1] = "Streaming";
-    DiscordActivityTypes[DiscordActivityTypes["Listening"] = 2] = "Listening";
-    DiscordActivityTypes[DiscordActivityTypes["Watching"] = 3] = "Watching";
-    DiscordActivityTypes[DiscordActivityTypes["Custom"] = 4] = "Custom";
-    DiscordActivityTypes[DiscordActivityTypes["Competing"] = 5] = "Competing";
-})(DiscordActivityTypes || (DiscordActivityTypes = {
-}));
+(function (DiscordActivityTypes) {
+  DiscordActivityTypes[DiscordActivityTypes["Game"] = 0] = "Game";
+  DiscordActivityTypes[DiscordActivityTypes["Streaming"] = 1] = "Streaming";
+  DiscordActivityTypes[DiscordActivityTypes["Listening"] = 2] = "Listening";
+  DiscordActivityTypes[DiscordActivityTypes["Watching"] = 3] = "Watching";
+  DiscordActivityTypes[DiscordActivityTypes["Custom"] = 4] = "Custom";
+  DiscordActivityTypes[DiscordActivityTypes["Competing"] = 5] = "Competing";
+})(DiscordActivityTypes || (DiscordActivityTypes = {}));
 export const ActivityTypes = DiscordActivityTypes;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL2FjdGl2aXR5L2FjdGl2aXR5X3R5cGVzLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyIvKiogaHR0cHM6Ly9kaXNjb3JkLmNvbS9kZXZlbG9wZXJzL2RvY3MvdG9waWNzL2dhdGV3YXkjYWN0aXZpdHktb2JqZWN0LWFjdGl2aXR5LXR5cGVzICovXG5leHBvcnQgZW51bSBEaXNjb3JkQWN0aXZpdHlUeXBlcyB7XG4gIEdhbWUsXG4gIFN0cmVhbWluZyxcbiAgTGlzdGVuaW5nLFxuICBXYXRjaGluZyxcbiAgQ3VzdG9tID0gNCxcbiAgQ29tcGV0aW5nLFxufVxuXG5leHBvcnQgdHlwZSBBY3Rpdml0eVR5cGVzID0gRGlzY29yZEFjdGl2aXR5VHlwZXM7XG5leHBvcnQgY29uc3QgQWN0aXZpdHlUeXBlcyA9IERpc2NvcmRBY3Rpdml0eVR5cGVzO1xuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7VUFDWSxvQkFBb0I7SUFBcEIsb0JBQW9CLENBQXBCLG9CQUFvQixFQUM5QixJQUFJLEtBQUosQ0FBSSxLQUFKLElBQUk7SUFETSxvQkFBb0IsQ0FBcEIsb0JBQW9CLEVBRTlCLFNBQVMsS0FBVCxDQUFTLEtBQVQsU0FBUztJQUZDLG9CQUFvQixDQUFwQixvQkFBb0IsRUFHOUIsU0FBUyxLQUFULENBQVMsS0FBVCxTQUFTO0lBSEMsb0JBQW9CLENBQXBCLG9CQUFvQixFQUk5QixRQUFRLEtBQVIsQ0FBUSxLQUFSLFFBQVE7SUFKRSxvQkFBb0IsQ0FBcEIsb0JBQW9CLEVBSzlCLE1BQU0sS0FBRyxDQUFDLEtBQVYsTUFBTTtJQUxJLG9CQUFvQixDQUFwQixvQkFBb0IsRUFNOUIsU0FBUyxLQUFULENBQVMsS0FBVCxTQUFTO0dBTkMsb0JBQW9CLEtBQXBCLG9CQUFvQjs7YUFVbkIsYUFBYSxHQUFHLG9CQUFvQiJ9

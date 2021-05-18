@@ -5,15 +5,19 @@ import { requireBotGuildPermissions } from "../../util/permissions.ts";
  * Edit a template's metadata.
  * Requires the `MANAGE_GUILD` permission.
  */ export async function editGuildTemplate(guildId, templateCode, data) {
-    await requireBotGuildPermissions(guildId, [
-        "MANAGE_GUILD"
-    ]);
-    if (data.name?.length && (data.name.length < 1 || data.name.length > 100)) {
-        throw new Error("The name can only be in between 1-100 characters.");
-    }
-    if (data.description?.length && data.description.length > 120) {
-        throw new Error("The description can only be in between 0-120 characters.");
-    }
-    return await rest.runMethod("patch", `${endpoints.GUILD_TEMPLATES(guildId)}/${templateCode}`, data);
+  await requireBotGuildPermissions(guildId, [
+    "MANAGE_GUILD",
+  ]);
+  if (data.name?.length && (data.name.length < 1 || data.name.length > 100)) {
+    throw new Error("The name can only be in between 1-100 characters.");
+  }
+  if (data.description?.length && data.description.length > 120) {
+    throw new Error("The description can only be in between 0-120 characters.");
+  }
+  return await rest.runMethod(
+    "patch",
+    `${endpoints.GUILD_TEMPLATES(guildId)}/${templateCode}`,
+    data,
+  );
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvdGVtcGxhdGVzL2VkaXRfZ3VpbGRfdGVtcGxhdGUudHM+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHJlc3QgfSBmcm9tIFwiLi4vLi4vcmVzdC9yZXN0LnRzXCI7XG5pbXBvcnQgdHlwZSB7IE1vZGlmeUd1aWxkVGVtcGxhdGUgfSBmcm9tIFwiLi4vLi4vdHlwZXMvdGVtcGxhdGVzL21vZGlmeV9ndWlsZF90ZW1wbGF0ZS50c1wiO1xuaW1wb3J0IHR5cGUgeyBUZW1wbGF0ZSB9IGZyb20gXCIuLi8uLi90eXBlcy90ZW1wbGF0ZXMvdGVtcGxhdGUudHNcIjtcbmltcG9ydCB7IGVuZHBvaW50cyB9IGZyb20gXCIuLi8uLi91dGlsL2NvbnN0YW50cy50c1wiO1xuaW1wb3J0IHsgcmVxdWlyZUJvdEd1aWxkUGVybWlzc2lvbnMgfSBmcm9tIFwiLi4vLi4vdXRpbC9wZXJtaXNzaW9ucy50c1wiO1xuXG4vKipcbiAqIEVkaXQgYSB0ZW1wbGF0ZSdzIG1ldGFkYXRhLlxuICogUmVxdWlyZXMgdGhlIGBNQU5BR0VfR1VJTERgIHBlcm1pc3Npb24uXG4gKi9cbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBlZGl0R3VpbGRUZW1wbGF0ZShcbiAgZ3VpbGRJZDogYmlnaW50LFxuICB0ZW1wbGF0ZUNvZGU6IHN0cmluZyxcbiAgZGF0YTogTW9kaWZ5R3VpbGRUZW1wbGF0ZSxcbikge1xuICBhd2FpdCByZXF1aXJlQm90R3VpbGRQZXJtaXNzaW9ucyhndWlsZElkLCBbXCJNQU5BR0VfR1VJTERcIl0pO1xuXG4gIGlmIChkYXRhLm5hbWU/Lmxlbmd0aCAmJiAoZGF0YS5uYW1lLmxlbmd0aCA8IDEgfHwgZGF0YS5uYW1lLmxlbmd0aCA+IDEwMCkpIHtcbiAgICB0aHJvdyBuZXcgRXJyb3IoXCJUaGUgbmFtZSBjYW4gb25seSBiZSBpbiBiZXR3ZWVuIDEtMTAwIGNoYXJhY3RlcnMuXCIpO1xuICB9XG5cbiAgaWYgKGRhdGEuZGVzY3JpcHRpb24/Lmxlbmd0aCAmJiBkYXRhLmRlc2NyaXB0aW9uLmxlbmd0aCA+IDEyMCkge1xuICAgIHRocm93IG5ldyBFcnJvcihcIlRoZSBkZXNjcmlwdGlvbiBjYW4gb25seSBiZSBpbiBiZXR3ZWVuIDAtMTIwIGNoYXJhY3RlcnMuXCIpO1xuICB9XG5cbiAgcmV0dXJuIGF3YWl0IHJlc3QucnVuTWV0aG9kPFRlbXBsYXRlPihcbiAgICBcInBhdGNoXCIsXG4gICAgYCR7ZW5kcG9pbnRzLkdVSUxEX1RFTVBMQVRFUyhndWlsZElkKX0vJHt0ZW1wbGF0ZUNvZGV9YCxcbiAgICBkYXRhLFxuICApO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLElBQUksU0FBUSxrQkFBb0I7U0FHaEMsU0FBUyxTQUFRLHVCQUF5QjtTQUMxQywwQkFBMEIsU0FBUSx5QkFBMkI7QUFFdEUsRUFHRyxBQUhIOzs7Q0FHRyxBQUhILEVBR0csdUJBQ21CLGlCQUFpQixDQUNyQyxPQUFlLEVBQ2YsWUFBb0IsRUFDcEIsSUFBeUI7VUFFbkIsMEJBQTBCLENBQUMsT0FBTztTQUFHLFlBQWM7O1FBRXJELElBQUksQ0FBQyxJQUFJLEVBQUUsTUFBTSxLQUFLLElBQUksQ0FBQyxJQUFJLENBQUMsTUFBTSxHQUFHLENBQUMsSUFBSSxJQUFJLENBQUMsSUFBSSxDQUFDLE1BQU0sR0FBRyxHQUFHO2tCQUM1RCxLQUFLLEVBQUMsaURBQW1EOztRQUdqRSxJQUFJLENBQUMsV0FBVyxFQUFFLE1BQU0sSUFBSSxJQUFJLENBQUMsV0FBVyxDQUFDLE1BQU0sR0FBRyxHQUFHO2tCQUNqRCxLQUFLLEVBQUMsd0RBQTBEOztpQkFHL0QsSUFBSSxDQUFDLFNBQVMsRUFDekIsS0FBTyxNQUNKLFNBQVMsQ0FBQyxlQUFlLENBQUMsT0FBTyxFQUFFLENBQUMsRUFBRSxZQUFZLElBQ3JELElBQUkifQ==

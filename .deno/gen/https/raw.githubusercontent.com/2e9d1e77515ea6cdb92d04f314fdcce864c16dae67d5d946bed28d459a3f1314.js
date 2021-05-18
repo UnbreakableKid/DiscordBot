@@ -4,27 +4,40 @@ import { Errors } from "../../types/discordeno/errors.ts";
 import { bigintToSnowflake } from "../../util/bigint.ts";
 import { calculatePermissions } from "../../util/permissions.ts";
 import { helpers } from "../mod.ts";
-/** Create a copy of a channel */ export async function cloneChannel(channelId, reason) {
-    const channelToClone = await cacheHandlers.get("channels", channelId);
-    if (!channelToClone) throw new Error(Errors.CHANNEL_NOT_FOUND);
-    //Check for DM channel
-    if (channelToClone.type === DiscordChannelTypes.DM || channelToClone.type === DiscordChannelTypes.GroupDm) {
-        throw new Error(Errors.CHANNEL_NOT_IN_GUILD);
-    }
-    const createChannelOptions = {
-        ...channelToClone,
-        name: channelToClone.name,
-        topic: channelToClone.topic || undefined,
-        parentId: channelToClone.parentId ? bigintToSnowflake(channelToClone.parentId) : undefined,
-        permissionOverwrites: channelToClone.permissionOverwrites.map((overwrite)=>({
-                id: overwrite.id.toString(),
-                type: overwrite.type,
-                allow: calculatePermissions(overwrite.allow.toString()),
-                deny: calculatePermissions(overwrite.deny.toString())
-            })
-        )
-    };
-    //Create the channel (also handles permissions)
-    return await helpers.createChannel(channelToClone.guildId, createChannelOptions, reason);
+/** Create a copy of a channel */ export async function cloneChannel(
+  channelId,
+  reason,
+) {
+  const channelToClone = await cacheHandlers.get("channels", channelId);
+  if (!channelToClone) throw new Error(Errors.CHANNEL_NOT_FOUND);
+  //Check for DM channel
+  if (
+    channelToClone.type === DiscordChannelTypes.DM ||
+    channelToClone.type === DiscordChannelTypes.GroupDm
+  ) {
+    throw new Error(Errors.CHANNEL_NOT_IN_GUILD);
+  }
+  const createChannelOptions = {
+    ...channelToClone,
+    name: channelToClone.name,
+    topic: channelToClone.topic || undefined,
+    parentId: channelToClone.parentId
+      ? bigintToSnowflake(channelToClone.parentId)
+      : undefined,
+    permissionOverwrites: channelToClone.permissionOverwrites.map((
+      overwrite,
+    ) => ({
+      id: overwrite.id.toString(),
+      type: overwrite.type,
+      allow: calculatePermissions(overwrite.allow.toString()),
+      deny: calculatePermissions(overwrite.deny.toString()),
+    })),
+  };
+  //Create the channel (also handles permissions)
+  return await helpers.createChannel(
+    channelToClone.guildId,
+    createChannelOptions,
+    reason,
+  );
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvY2hhbm5lbHMvY2xvbmVfY2hhbm5lbC50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY2FjaGVIYW5kbGVycyB9IGZyb20gXCIuLi8uLi9jYWNoZS50c1wiO1xuaW1wb3J0IHsgRGlzY29yZENoYW5uZWxUeXBlcyB9IGZyb20gXCIuLi8uLi90eXBlcy9jaGFubmVscy9jaGFubmVsX3R5cGVzLnRzXCI7XG5pbXBvcnQgdHlwZSB7IENyZWF0ZUd1aWxkQ2hhbm5lbCB9IGZyb20gXCIuLi8uLi90eXBlcy9ndWlsZHMvY3JlYXRlX2d1aWxkX2NoYW5uZWwudHNcIjtcbmltcG9ydCB7IEVycm9ycyB9IGZyb20gXCIuLi8uLi90eXBlcy9kaXNjb3JkZW5vL2Vycm9ycy50c1wiO1xuaW1wb3J0IHsgYmlnaW50VG9Tbm93Zmxha2UgfSBmcm9tIFwiLi4vLi4vdXRpbC9iaWdpbnQudHNcIjtcbmltcG9ydCB7IGNhbGN1bGF0ZVBlcm1pc3Npb25zIH0gZnJvbSBcIi4uLy4uL3V0aWwvcGVybWlzc2lvbnMudHNcIjtcbmltcG9ydCB7IGhlbHBlcnMgfSBmcm9tIFwiLi4vbW9kLnRzXCI7XG5cbi8qKiBDcmVhdGUgYSBjb3B5IG9mIGEgY2hhbm5lbCAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGNsb25lQ2hhbm5lbChjaGFubmVsSWQ6IGJpZ2ludCwgcmVhc29uPzogc3RyaW5nKSB7XG4gIGNvbnN0IGNoYW5uZWxUb0Nsb25lID0gYXdhaXQgY2FjaGVIYW5kbGVycy5nZXQoXCJjaGFubmVsc1wiLCBjaGFubmVsSWQpO1xuICBpZiAoIWNoYW5uZWxUb0Nsb25lKSB0aHJvdyBuZXcgRXJyb3IoRXJyb3JzLkNIQU5ORUxfTk9UX0ZPVU5EKTtcblxuICAvL0NoZWNrIGZvciBETSBjaGFubmVsXG4gIGlmIChcbiAgICBjaGFubmVsVG9DbG9uZS50eXBlID09PSBEaXNjb3JkQ2hhbm5lbFR5cGVzLkRNIHx8XG4gICAgY2hhbm5lbFRvQ2xvbmUudHlwZSA9PT0gRGlzY29yZENoYW5uZWxUeXBlcy5Hcm91cERtXG4gICkge1xuICAgIHRocm93IG5ldyBFcnJvcihFcnJvcnMuQ0hBTk5FTF9OT1RfSU5fR1VJTEQpO1xuICB9XG5cbiAgY29uc3QgY3JlYXRlQ2hhbm5lbE9wdGlvbnM6IENyZWF0ZUd1aWxkQ2hhbm5lbCA9IHtcbiAgICAuLi5jaGFubmVsVG9DbG9uZSxcbiAgICBuYW1lOiBjaGFubmVsVG9DbG9uZS5uYW1lISxcbiAgICB0b3BpYzogY2hhbm5lbFRvQ2xvbmUudG9waWMgfHwgdW5kZWZpbmVkLFxuICAgIHBhcmVudElkOiBjaGFubmVsVG9DbG9uZS5wYXJlbnRJZFxuICAgICAgPyBiaWdpbnRUb1Nub3dmbGFrZShjaGFubmVsVG9DbG9uZS5wYXJlbnRJZClcbiAgICAgIDogdW5kZWZpbmVkLFxuICAgIHBlcm1pc3Npb25PdmVyd3JpdGVzOiBjaGFubmVsVG9DbG9uZS5wZXJtaXNzaW9uT3ZlcndyaXRlcy5tYXAoKFxuICAgICAgb3ZlcndyaXRlLFxuICAgICkgPT4gKHtcbiAgICAgIGlkOiBvdmVyd3JpdGUuaWQudG9TdHJpbmcoKSxcbiAgICAgIHR5cGU6IG92ZXJ3cml0ZS50eXBlLFxuICAgICAgYWxsb3c6IGNhbGN1bGF0ZVBlcm1pc3Npb25zKG92ZXJ3cml0ZS5hbGxvdy50b1N0cmluZygpKSxcbiAgICAgIGRlbnk6IGNhbGN1bGF0ZVBlcm1pc3Npb25zKG92ZXJ3cml0ZS5kZW55LnRvU3RyaW5nKCkpLFxuICAgIH0pKSxcbiAgfTtcblxuICAvL0NyZWF0ZSB0aGUgY2hhbm5lbCAoYWxzbyBoYW5kbGVzIHBlcm1pc3Npb25zKVxuICByZXR1cm4gYXdhaXQgaGVscGVycy5jcmVhdGVDaGFubmVsKFxuICAgIGNoYW5uZWxUb0Nsb25lLmd1aWxkSWQhLFxuICAgIGNyZWF0ZUNoYW5uZWxPcHRpb25zLFxuICAgIHJlYXNvbixcbiAgKTtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxhQUFhLFNBQVEsY0FBZ0I7U0FDckMsbUJBQW1CLFNBQVEscUNBQXVDO1NBRWxFLE1BQU0sU0FBUSxnQ0FBa0M7U0FDaEQsaUJBQWlCLFNBQVEsb0JBQXNCO1NBQy9DLG9CQUFvQixTQUFRLHlCQUEyQjtTQUN2RCxPQUFPLFNBQVEsU0FBVztBQUVuQyxFQUFpQyxBQUFqQyw2QkFBaUMsQUFBakMsRUFBaUMsdUJBQ1gsWUFBWSxDQUFDLFNBQWlCLEVBQUUsTUFBZTtVQUM3RCxjQUFjLFNBQVMsYUFBYSxDQUFDLEdBQUcsRUFBQyxRQUFVLEdBQUUsU0FBUztTQUMvRCxjQUFjLFlBQVksS0FBSyxDQUFDLE1BQU0sQ0FBQyxpQkFBaUI7SUFFN0QsRUFBc0IsQUFBdEIsb0JBQXNCO1FBRXBCLGNBQWMsQ0FBQyxJQUFJLEtBQUssbUJBQW1CLENBQUMsRUFBRSxJQUM5QyxjQUFjLENBQUMsSUFBSSxLQUFLLG1CQUFtQixDQUFDLE9BQU87a0JBRXpDLEtBQUssQ0FBQyxNQUFNLENBQUMsb0JBQW9COztVQUd2QyxvQkFBb0I7V0FDckIsY0FBYztRQUNqQixJQUFJLEVBQUUsY0FBYyxDQUFDLElBQUk7UUFDekIsS0FBSyxFQUFFLGNBQWMsQ0FBQyxLQUFLLElBQUksU0FBUztRQUN4QyxRQUFRLEVBQUUsY0FBYyxDQUFDLFFBQVEsR0FDN0IsaUJBQWlCLENBQUMsY0FBYyxDQUFDLFFBQVEsSUFDekMsU0FBUztRQUNiLG9CQUFvQixFQUFFLGNBQWMsQ0FBQyxvQkFBb0IsQ0FBQyxHQUFHLEVBQzNELFNBQVM7Z0JBRVQsRUFBRSxFQUFFLFNBQVMsQ0FBQyxFQUFFLENBQUMsUUFBUTtnQkFDekIsSUFBSSxFQUFFLFNBQVMsQ0FBQyxJQUFJO2dCQUNwQixLQUFLLEVBQUUsb0JBQW9CLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxRQUFRO2dCQUNwRCxJQUFJLEVBQUUsb0JBQW9CLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxRQUFROzs7O0lBSXRELEVBQStDLEFBQS9DLDZDQUErQztpQkFDbEMsT0FBTyxDQUFDLGFBQWEsQ0FDaEMsY0FBYyxDQUFDLE9BQU8sRUFDdEIsb0JBQW9CLEVBQ3BCLE1BQU0ifQ==

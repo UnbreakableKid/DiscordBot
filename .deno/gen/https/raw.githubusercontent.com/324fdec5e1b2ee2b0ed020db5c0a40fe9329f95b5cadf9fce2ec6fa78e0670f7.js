@@ -3,19 +3,24 @@ import { rest } from "../../rest/rest.ts";
 import { structures } from "../../structures/mod.ts";
 import { endpoints } from "../../util/constants.ts";
 import { sendMessage } from "../messages/send_message.ts";
-/** Send a message to a users DM. Note: this takes 2 API calls. 1 is to fetch the users dm channel. 2 is to send a message to that channel. */ export async function sendDirectMessage(memberId, content) {
-    let dmChannel = await cacheHandlers.get("channels", memberId);
-    if (!dmChannel) {
-        // If not available in cache create a new one.
-        const dmChannelData = await rest.runMethod("post", endpoints.USER_DM, {
-            recipient_id: memberId
-        });
-        const discordenoChannel = await structures.createDiscordenoChannel(dmChannelData);
-        // Recreate the channel and add it undert he users id
-        await cacheHandlers.set("channels", memberId, discordenoChannel);
-        dmChannel = discordenoChannel;
-    }
-    // If it does exist try sending a message to this user
-    return await sendMessage(dmChannel.id, content);
+/** Send a message to a users DM. Note: this takes 2 API calls. 1 is to fetch the users dm channel. 2 is to send a message to that channel. */ export async function sendDirectMessage(
+  memberId,
+  content,
+) {
+  let dmChannel = await cacheHandlers.get("channels", memberId);
+  if (!dmChannel) {
+    // If not available in cache create a new one.
+    const dmChannelData = await rest.runMethod("post", endpoints.USER_DM, {
+      recipient_id: memberId,
+    });
+    const discordenoChannel = await structures.createDiscordenoChannel(
+      dmChannelData,
+    );
+    // Recreate the channel and add it undert he users id
+    await cacheHandlers.set("channels", memberId, discordenoChannel);
+    dmChannel = discordenoChannel;
+  }
+  // If it does exist try sending a message to this user
+  return await sendMessage(dmChannel.id, content);
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvbWVtYmVycy9zZW5kX2RpcmVjdF9tZXNzYWdlLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjYWNoZUhhbmRsZXJzIH0gZnJvbSBcIi4uLy4uL2NhY2hlLnRzXCI7XG5pbXBvcnQgeyByZXN0IH0gZnJvbSBcIi4uLy4uL3Jlc3QvcmVzdC50c1wiO1xuaW1wb3J0IHsgc3RydWN0dXJlcyB9IGZyb20gXCIuLi8uLi9zdHJ1Y3R1cmVzL21vZC50c1wiO1xuaW1wb3J0IHR5cGUgeyBDaGFubmVsIH0gZnJvbSBcIi4uLy4uL3R5cGVzL2NoYW5uZWxzL2NoYW5uZWwudHNcIjtcbmltcG9ydCB0eXBlIHsgQ3JlYXRlTWVzc2FnZSB9IGZyb20gXCIuLi8uLi90eXBlcy9tZXNzYWdlcy9jcmVhdGVfbWVzc2FnZS50c1wiO1xuaW1wb3J0IHsgZW5kcG9pbnRzIH0gZnJvbSBcIi4uLy4uL3V0aWwvY29uc3RhbnRzLnRzXCI7XG5pbXBvcnQgeyBzZW5kTWVzc2FnZSB9IGZyb20gXCIuLi9tZXNzYWdlcy9zZW5kX21lc3NhZ2UudHNcIjtcblxuLyoqIFNlbmQgYSBtZXNzYWdlIHRvIGEgdXNlcnMgRE0uIE5vdGU6IHRoaXMgdGFrZXMgMiBBUEkgY2FsbHMuIDEgaXMgdG8gZmV0Y2ggdGhlIHVzZXJzIGRtIGNoYW5uZWwuIDIgaXMgdG8gc2VuZCBhIG1lc3NhZ2UgdG8gdGhhdCBjaGFubmVsLiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIHNlbmREaXJlY3RNZXNzYWdlKFxuICBtZW1iZXJJZDogYmlnaW50LFxuICBjb250ZW50OiBzdHJpbmcgfCBDcmVhdGVNZXNzYWdlLFxuKSB7XG4gIGxldCBkbUNoYW5uZWwgPSBhd2FpdCBjYWNoZUhhbmRsZXJzLmdldChcImNoYW5uZWxzXCIsIG1lbWJlcklkKTtcbiAgaWYgKCFkbUNoYW5uZWwpIHtcbiAgICAvLyBJZiBub3QgYXZhaWxhYmxlIGluIGNhY2hlIGNyZWF0ZSBhIG5ldyBvbmUuXG4gICAgY29uc3QgZG1DaGFubmVsRGF0YSA9IGF3YWl0IHJlc3QucnVuTWV0aG9kPENoYW5uZWw+KFxuICAgICAgXCJwb3N0XCIsXG4gICAgICBlbmRwb2ludHMuVVNFUl9ETSxcbiAgICAgIHtcbiAgICAgICAgcmVjaXBpZW50X2lkOiBtZW1iZXJJZCxcbiAgICAgIH0sXG4gICAgKTtcbiAgICBjb25zdCBkaXNjb3JkZW5vQ2hhbm5lbCA9IGF3YWl0IHN0cnVjdHVyZXMuY3JlYXRlRGlzY29yZGVub0NoYW5uZWwoXG4gICAgICBkbUNoYW5uZWxEYXRhLFxuICAgICk7XG4gICAgLy8gUmVjcmVhdGUgdGhlIGNoYW5uZWwgYW5kIGFkZCBpdCB1bmRlcnQgaGUgdXNlcnMgaWRcbiAgICBhd2FpdCBjYWNoZUhhbmRsZXJzLnNldChcImNoYW5uZWxzXCIsIG1lbWJlcklkLCBkaXNjb3JkZW5vQ2hhbm5lbCk7XG4gICAgZG1DaGFubmVsID0gZGlzY29yZGVub0NoYW5uZWw7XG4gIH1cblxuICAvLyBJZiBpdCBkb2VzIGV4aXN0IHRyeSBzZW5kaW5nIGEgbWVzc2FnZSB0byB0aGlzIHVzZXJcbiAgcmV0dXJuIGF3YWl0IHNlbmRNZXNzYWdlKGRtQ2hhbm5lbC5pZCwgY29udGVudCk7XG59XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IlNBQVMsYUFBYSxTQUFRLGNBQWdCO1NBQ3JDLElBQUksU0FBUSxrQkFBb0I7U0FDaEMsVUFBVSxTQUFRLHVCQUF5QjtTQUczQyxTQUFTLFNBQVEsdUJBQXlCO1NBQzFDLFdBQVcsU0FBUSwyQkFBNkI7QUFFekQsRUFBOEksQUFBOUksMElBQThJLEFBQTlJLEVBQThJLHVCQUN4SCxpQkFBaUIsQ0FDckMsUUFBZ0IsRUFDaEIsT0FBK0I7UUFFM0IsU0FBUyxTQUFTLGFBQWEsQ0FBQyxHQUFHLEVBQUMsUUFBVSxHQUFFLFFBQVE7U0FDdkQsU0FBUztRQUNaLEVBQThDLEFBQTlDLDRDQUE4QztjQUN4QyxhQUFhLFNBQVMsSUFBSSxDQUFDLFNBQVMsRUFDeEMsSUFBTSxHQUNOLFNBQVMsQ0FBQyxPQUFPO1lBRWYsWUFBWSxFQUFFLFFBQVE7O2NBR3BCLGlCQUFpQixTQUFTLFVBQVUsQ0FBQyx1QkFBdUIsQ0FDaEUsYUFBYTtRQUVmLEVBQXFELEFBQXJELG1EQUFxRDtjQUMvQyxhQUFhLENBQUMsR0FBRyxFQUFDLFFBQVUsR0FBRSxRQUFRLEVBQUUsaUJBQWlCO1FBQy9ELFNBQVMsR0FBRyxpQkFBaUI7O0lBRy9CLEVBQXNELEFBQXRELG9EQUFzRDtpQkFDekMsV0FBVyxDQUFDLFNBQVMsQ0FBQyxFQUFFLEVBQUUsT0FBTyJ9

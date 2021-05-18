@@ -1,12 +1,20 @@
 export var DiscordRpcCloseEventCodes;
-(function(DiscordRpcCloseEventCodes) {
-    DiscordRpcCloseEventCodes[DiscordRpcCloseEventCodes["InvalidClientId"] = 4000] = "InvalidClientId";
-    DiscordRpcCloseEventCodes[DiscordRpcCloseEventCodes["InvalidOrigin"] = 4001] = "InvalidOrigin";
-    DiscordRpcCloseEventCodes[DiscordRpcCloseEventCodes["RateLimited"] = 4002] = "RateLimited";
-    DiscordRpcCloseEventCodes[DiscordRpcCloseEventCodes["TokenRevoked"] = 4003] = "TokenRevoked";
-    DiscordRpcCloseEventCodes[DiscordRpcCloseEventCodes["InvalidVersion"] = 4004] = "InvalidVersion";
-    DiscordRpcCloseEventCodes[DiscordRpcCloseEventCodes["InvalidEncoding"] = 4005] = "InvalidEncoding";
-})(DiscordRpcCloseEventCodes || (DiscordRpcCloseEventCodes = {
-}));
+(function (DiscordRpcCloseEventCodes) {
+  DiscordRpcCloseEventCodes[
+    DiscordRpcCloseEventCodes["InvalidClientId"] = 4000
+  ] = "InvalidClientId";
+  DiscordRpcCloseEventCodes[DiscordRpcCloseEventCodes["InvalidOrigin"] = 4001] =
+    "InvalidOrigin";
+  DiscordRpcCloseEventCodes[DiscordRpcCloseEventCodes["RateLimited"] = 4002] =
+    "RateLimited";
+  DiscordRpcCloseEventCodes[DiscordRpcCloseEventCodes["TokenRevoked"] = 4003] =
+    "TokenRevoked";
+  DiscordRpcCloseEventCodes[
+    DiscordRpcCloseEventCodes["InvalidVersion"] = 4004
+  ] = "InvalidVersion";
+  DiscordRpcCloseEventCodes[
+    DiscordRpcCloseEventCodes["InvalidEncoding"] = 4005
+  ] = "InvalidEncoding";
+})(DiscordRpcCloseEventCodes || (DiscordRpcCloseEventCodes = {}));
 export const RpcCloseEventCodes = DiscordRpcCloseEventCodes;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL2NvZGVzL3JwY19jbG9zZV9ldmVudF9jb2Rlcy50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiLyoqIGh0dHBzOi8vZGlzY29yZC5jb20vZGV2ZWxvcGVycy9kb2NzL3RvcGljcy9vcGNvZGVzLWFuZC1zdGF0dXMtY29kZXMjcnBjICovXG5leHBvcnQgZW51bSBEaXNjb3JkUnBjQ2xvc2VFdmVudENvZGVzIHtcbiAgSW52YWxpZENsaWVudElkID0gNDAwMCxcbiAgSW52YWxpZE9yaWdpbixcbiAgUmF0ZUxpbWl0ZWQsXG4gIFRva2VuUmV2b2tlZCxcbiAgSW52YWxpZFZlcnNpb24sXG4gIEludmFsaWRFbmNvZGluZyxcbn1cblxuZXhwb3J0IHR5cGUgUnBjQ2xvc2VFdmVudENvZGVzID0gRGlzY29yZFJwY0Nsb3NlRXZlbnRDb2RlcztcbmV4cG9ydCBjb25zdCBScGNDbG9zZUV2ZW50Q29kZXMgPSBEaXNjb3JkUnBjQ2xvc2VFdmVudENvZGVzO1xuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7VUFDWSx5QkFBeUI7SUFBekIseUJBQXlCLENBQXpCLHlCQUF5QixFQUNuQyxlQUFlLEtBQUcsSUFBSSxLQUF0QixlQUFlO0lBREwseUJBQXlCLENBQXpCLHlCQUF5QixFQUVuQyxhQUFhLEtBQWIsSUFBYSxLQUFiLGFBQWE7SUFGSCx5QkFBeUIsQ0FBekIseUJBQXlCLEVBR25DLFdBQVcsS0FBWCxJQUFXLEtBQVgsV0FBVztJQUhELHlCQUF5QixDQUF6Qix5QkFBeUIsRUFJbkMsWUFBWSxLQUFaLElBQVksS0FBWixZQUFZO0lBSkYseUJBQXlCLENBQXpCLHlCQUF5QixFQUtuQyxjQUFjLEtBQWQsSUFBYyxLQUFkLGNBQWM7SUFMSix5QkFBeUIsQ0FBekIseUJBQXlCLEVBTW5DLGVBQWUsS0FBZixJQUFlLEtBQWYsZUFBZTtHQU5MLHlCQUF5QixLQUF6Qix5QkFBeUI7O2FBVXhCLGtCQUFrQixHQUFHLHlCQUF5QiJ9

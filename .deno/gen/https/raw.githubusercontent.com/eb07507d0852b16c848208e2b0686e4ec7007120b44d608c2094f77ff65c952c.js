@@ -2,15 +2,19 @@ import { rest } from "../../rest/rest.ts";
 import { Collection } from "../../util/collection.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotChannelPermissions } from "../../util/permissions.ts";
-/** Gets the invites for this channel. Requires MANAGE_CHANNEL */ export async function getChannelInvites(channelId) {
-    await requireBotChannelPermissions(channelId, [
-        "MANAGE_CHANNELS"
-    ]);
-    const result = await rest.runMethod("get", endpoints.CHANNEL_INVITES(channelId));
-    return new Collection(result.map((invite)=>[
-            invite.code,
-            invite
-        ]
-    ));
+/** Gets the invites for this channel. Requires MANAGE_CHANNEL */ export async function getChannelInvites(
+  channelId,
+) {
+  await requireBotChannelPermissions(channelId, [
+    "MANAGE_CHANNELS",
+  ]);
+  const result = await rest.runMethod(
+    "get",
+    endpoints.CHANNEL_INVITES(channelId),
+  );
+  return new Collection(result.map((invite) => [
+    invite.code,
+    invite,
+  ]));
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvaW52aXRlcy9nZXRfY2hhbm5lbF9pbnZpdGVzLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyByZXN0IH0gZnJvbSBcIi4uLy4uL3Jlc3QvcmVzdC50c1wiO1xuaW1wb3J0IHR5cGUgeyBJbnZpdGUgfSBmcm9tIFwiLi4vLi4vdHlwZXMvaW52aXRlcy9pbnZpdGUudHNcIjtcbmltcG9ydCB7IENvbGxlY3Rpb24gfSBmcm9tIFwiLi4vLi4vdXRpbC9jb2xsZWN0aW9uLnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcbmltcG9ydCB7IHJlcXVpcmVCb3RDaGFubmVsUGVybWlzc2lvbnMgfSBmcm9tIFwiLi4vLi4vdXRpbC9wZXJtaXNzaW9ucy50c1wiO1xuXG4vKiogR2V0cyB0aGUgaW52aXRlcyBmb3IgdGhpcyBjaGFubmVsLiBSZXF1aXJlcyBNQU5BR0VfQ0hBTk5FTCAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGdldENoYW5uZWxJbnZpdGVzKGNoYW5uZWxJZDogYmlnaW50KSB7XG4gIGF3YWl0IHJlcXVpcmVCb3RDaGFubmVsUGVybWlzc2lvbnMoY2hhbm5lbElkLCBbXCJNQU5BR0VfQ0hBTk5FTFNcIl0pO1xuXG4gIGNvbnN0IHJlc3VsdCA9IGF3YWl0IHJlc3QucnVuTWV0aG9kPEludml0ZVtdPihcbiAgICBcImdldFwiLFxuICAgIGVuZHBvaW50cy5DSEFOTkVMX0lOVklURVMoY2hhbm5lbElkKSxcbiAgKTtcblxuICByZXR1cm4gbmV3IENvbGxlY3Rpb24oXG4gICAgcmVzdWx0Lm1hcCgoaW52aXRlKSA9PiBbaW52aXRlLmNvZGUsIGludml0ZV0pLFxuICApO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLElBQUksU0FBUSxrQkFBb0I7U0FFaEMsVUFBVSxTQUFRLHdCQUEwQjtTQUM1QyxTQUFTLFNBQVEsdUJBQXlCO1NBQzFDLDRCQUE0QixTQUFRLHlCQUEyQjtBQUV4RSxFQUFpRSxBQUFqRSw2REFBaUUsQUFBakUsRUFBaUUsdUJBQzNDLGlCQUFpQixDQUFDLFNBQWlCO1VBQ2pELDRCQUE0QixDQUFDLFNBQVM7U0FBRyxlQUFpQjs7VUFFMUQsTUFBTSxTQUFTLElBQUksQ0FBQyxTQUFTLEVBQ2pDLEdBQUssR0FDTCxTQUFTLENBQUMsZUFBZSxDQUFDLFNBQVM7ZUFHMUIsVUFBVSxDQUNuQixNQUFNLENBQUMsR0FBRyxFQUFFLE1BQU07WUFBTSxNQUFNLENBQUMsSUFBSTtZQUFFLE1BQU0ifQ==

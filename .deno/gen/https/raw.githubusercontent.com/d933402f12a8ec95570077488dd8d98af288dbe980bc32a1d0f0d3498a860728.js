@@ -1,12 +1,20 @@
 import { rest } from "../../rest/rest.ts";
 import { Collection } from "../../util/collection.ts";
 import { endpoints } from "../../util/constants.ts";
-/** Get a list of users that reacted with this emoji. */ export async function getReactions(channelId, messageId, reaction, options) {
-    const users = await rest.runMethod("get", endpoints.CHANNEL_MESSAGE_REACTION(channelId, messageId, reaction), options);
-    return new Collection(users.map((user)=>[
-            user.id,
-            user
-        ]
-    ));
+/** Get a list of users that reacted with this emoji. */ export async function getReactions(
+  channelId,
+  messageId,
+  reaction,
+  options,
+) {
+  const users = await rest.runMethod(
+    "get",
+    endpoints.CHANNEL_MESSAGE_REACTION(channelId, messageId, reaction),
+    options,
+  );
+  return new Collection(users.map((user) => [
+    user.id,
+    user,
+  ]));
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvbWVzc2FnZXMvZ2V0X3JlYWN0aW9ucy50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgcmVzdCB9IGZyb20gXCIuLi8uLi9yZXN0L3Jlc3QudHNcIjtcbmltcG9ydCB0eXBlIHsgR2V0UmVhY3Rpb25zIH0gZnJvbSBcIi4uLy4uL3R5cGVzL21lc3NhZ2VzL21lc3NhZ2VfZ2V0X3JlYWN0aW9ucy50c1wiO1xuaW1wb3J0IHR5cGUgeyBVc2VyIH0gZnJvbSBcIi4uLy4uL3R5cGVzL3VzZXJzL3VzZXIudHNcIjtcbmltcG9ydCB7IENvbGxlY3Rpb24gfSBmcm9tIFwiLi4vLi4vdXRpbC9jb2xsZWN0aW9uLnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcblxuLyoqIEdldCBhIGxpc3Qgb2YgdXNlcnMgdGhhdCByZWFjdGVkIHdpdGggdGhpcyBlbW9qaS4gKi9cbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBnZXRSZWFjdGlvbnMoXG4gIGNoYW5uZWxJZDogYmlnaW50LFxuICBtZXNzYWdlSWQ6IGJpZ2ludCxcbiAgcmVhY3Rpb246IHN0cmluZyxcbiAgb3B0aW9ucz86IEdldFJlYWN0aW9ucyxcbikge1xuICBjb25zdCB1c2VycyA9IGF3YWl0IHJlc3QucnVuTWV0aG9kPFVzZXJbXT4oXG4gICAgXCJnZXRcIixcbiAgICBlbmRwb2ludHMuQ0hBTk5FTF9NRVNTQUdFX1JFQUNUSU9OKGNoYW5uZWxJZCwgbWVzc2FnZUlkLCByZWFjdGlvbiksXG4gICAgb3B0aW9ucyxcbiAgKTtcblxuICByZXR1cm4gbmV3IENvbGxlY3Rpb24odXNlcnMubWFwKCh1c2VyKSA9PiBbdXNlci5pZCwgdXNlcl0pKTtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxJQUFJLFNBQVEsa0JBQW9CO1NBR2hDLFVBQVUsU0FBUSx3QkFBMEI7U0FDNUMsU0FBUyxTQUFRLHVCQUF5QjtBQUVuRCxFQUF3RCxBQUF4RCxvREFBd0QsQUFBeEQsRUFBd0QsdUJBQ2xDLFlBQVksQ0FDaEMsU0FBaUIsRUFDakIsU0FBaUIsRUFDakIsUUFBZ0IsRUFDaEIsT0FBc0I7VUFFaEIsS0FBSyxTQUFTLElBQUksQ0FBQyxTQUFTLEVBQ2hDLEdBQUssR0FDTCxTQUFTLENBQUMsd0JBQXdCLENBQUMsU0FBUyxFQUFFLFNBQVMsRUFBRSxRQUFRLEdBQ2pFLE9BQU87ZUFHRSxVQUFVLENBQUMsS0FBSyxDQUFDLEdBQUcsRUFBRSxJQUFJO1lBQU0sSUFBSSxDQUFDLEVBQUU7WUFBRSxJQUFJIn0=

@@ -1,12 +1,11 @@
 export var DiscordActivityFlags;
-(function(DiscordActivityFlags) {
-    DiscordActivityFlags[DiscordActivityFlags["Instance"] = 1] = "Instance";
-    DiscordActivityFlags[DiscordActivityFlags["Join"] = 2] = "Join";
-    DiscordActivityFlags[DiscordActivityFlags["Spectate"] = 4] = "Spectate";
-    DiscordActivityFlags[DiscordActivityFlags["JoinRequest"] = 8] = "JoinRequest";
-    DiscordActivityFlags[DiscordActivityFlags["Sync"] = 16] = "Sync";
-    DiscordActivityFlags[DiscordActivityFlags["Play"] = 32] = "Play";
-})(DiscordActivityFlags || (DiscordActivityFlags = {
-}));
+(function (DiscordActivityFlags) {
+  DiscordActivityFlags[DiscordActivityFlags["Instance"] = 1] = "Instance";
+  DiscordActivityFlags[DiscordActivityFlags["Join"] = 2] = "Join";
+  DiscordActivityFlags[DiscordActivityFlags["Spectate"] = 4] = "Spectate";
+  DiscordActivityFlags[DiscordActivityFlags["JoinRequest"] = 8] = "JoinRequest";
+  DiscordActivityFlags[DiscordActivityFlags["Sync"] = 16] = "Sync";
+  DiscordActivityFlags[DiscordActivityFlags["Play"] = 32] = "Play";
+})(DiscordActivityFlags || (DiscordActivityFlags = {}));
 export const ActivityFlags = DiscordActivityFlags;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL2FjdGl2aXR5L2FjdGl2aXR5X2ZsYWdzLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyIvKiogaHR0cHM6Ly9kaXNjb3JkLmNvbS9kZXZlbG9wZXJzL2RvY3MvdG9waWNzL2dhdGV3YXkjYWN0aXZpdHktb2JqZWN0LWFjdGl2aXR5LWZsYWdzICovXG5leHBvcnQgZW51bSBEaXNjb3JkQWN0aXZpdHlGbGFncyB7XG4gIEluc3RhbmNlID0gMSA8PCAwLFxuICBKb2luID0gMSA8PCAxLFxuICBTcGVjdGF0ZSA9IDEgPDwgMixcbiAgSm9pblJlcXVlc3QgPSAxIDw8IDMsXG4gIFN5bmMgPSAxIDw8IDQsXG4gIFBsYXkgPSAxIDw8IDUsXG59XG5cbmV4cG9ydCB0eXBlIEFjdGl2aXR5RmxhZ3MgPSBEaXNjb3JkQWN0aXZpdHlGbGFncztcbmV4cG9ydCBjb25zdCBBY3Rpdml0eUZsYWdzID0gRGlzY29yZEFjdGl2aXR5RmxhZ3M7XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtVQUNZLG9CQUFvQjtJQUFwQixvQkFBb0IsQ0FBcEIsb0JBQW9CLEVBQzlCLFFBQVEsS0FBUixDQUFRLEtBQVIsUUFBUTtJQURFLG9CQUFvQixDQUFwQixvQkFBb0IsRUFFOUIsSUFBSSxLQUFKLENBQUksS0FBSixJQUFJO0lBRk0sb0JBQW9CLENBQXBCLG9CQUFvQixFQUc5QixRQUFRLEtBQVIsQ0FBUSxLQUFSLFFBQVE7SUFIRSxvQkFBb0IsQ0FBcEIsb0JBQW9CLEVBSTlCLFdBQVcsS0FBWCxDQUFXLEtBQVgsV0FBVztJQUpELG9CQUFvQixDQUFwQixvQkFBb0IsRUFLOUIsSUFBSSxLQUFKLEVBQUksS0FBSixJQUFJO0lBTE0sb0JBQW9CLENBQXBCLG9CQUFvQixFQU05QixJQUFJLEtBQUosRUFBSSxLQUFKLElBQUk7R0FOTSxvQkFBb0IsS0FBcEIsb0JBQW9COzthQVVuQixhQUFhLEdBQUcsb0JBQW9CIn0=

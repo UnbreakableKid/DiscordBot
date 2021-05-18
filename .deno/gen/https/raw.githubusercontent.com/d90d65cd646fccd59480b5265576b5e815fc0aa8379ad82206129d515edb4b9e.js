@@ -3,16 +3,18 @@ import { cacheHandlers } from "../../cache.ts";
 import { snowflakeToBigint } from "../../util/bigint.ts";
 import { Collection } from "../../util/collection.ts";
 export async function handleGuildEmojisUpdate(data) {
-    const payload = data.d;
-    const guild = await cacheHandlers.get("guilds", snowflakeToBigint(payload.guildId));
-    if (!guild) return;
-    const cachedEmojis = guild.emojis;
-    guild.emojis = new Collection(payload.emojis.map((emoji)=>[
-            snowflakeToBigint(emoji.id),
-            emoji
-        ]
-    ));
-    await cacheHandlers.set("guilds", guild.id, guild);
-    eventHandlers.guildEmojisUpdate?.(guild, guild.emojis, cachedEmojis);
+  const payload = data.d;
+  const guild = await cacheHandlers.get(
+    "guilds",
+    snowflakeToBigint(payload.guildId),
+  );
+  if (!guild) return;
+  const cachedEmojis = guild.emojis;
+  guild.emojis = new Collection(payload.emojis.map((emoji) => [
+    snowflakeToBigint(emoji.id),
+    emoji,
+  ]));
+  await cacheHandlers.set("guilds", guild.id, guild);
+  eventHandlers.guildEmojisUpdate?.(guild, guild.emojis, cachedEmojis);
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hhbmRsZXJzL2Vtb2ppcy9HVUlMRF9FTU9KSVNfVVBEQVRFLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBldmVudEhhbmRsZXJzIH0gZnJvbSBcIi4uLy4uL2JvdC50c1wiO1xuaW1wb3J0IHsgY2FjaGVIYW5kbGVycyB9IGZyb20gXCIuLi8uLi9jYWNoZS50c1wiO1xuaW1wb3J0IHR5cGUgeyBHdWlsZEVtb2ppc1VwZGF0ZSB9IGZyb20gXCIuLi8uLi90eXBlcy9lbW9qaXMvZ3VpbGRfZW1vamlzX3VwZGF0ZS50c1wiO1xuaW1wb3J0IHR5cGUgeyBEaXNjb3JkR2F0ZXdheVBheWxvYWQgfSBmcm9tIFwiLi4vLi4vdHlwZXMvZ2F0ZXdheS9nYXRld2F5X3BheWxvYWQudHNcIjtcbmltcG9ydCB7IHNub3dmbGFrZVRvQmlnaW50IH0gZnJvbSBcIi4uLy4uL3V0aWwvYmlnaW50LnRzXCI7XG5pbXBvcnQgeyBDb2xsZWN0aW9uIH0gZnJvbSBcIi4uLy4uL3V0aWwvY29sbGVjdGlvbi50c1wiO1xuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gaGFuZGxlR3VpbGRFbW9qaXNVcGRhdGUoZGF0YTogRGlzY29yZEdhdGV3YXlQYXlsb2FkKSB7XG4gIGNvbnN0IHBheWxvYWQgPSBkYXRhLmQgYXMgR3VpbGRFbW9qaXNVcGRhdGU7XG4gIGNvbnN0IGd1aWxkID0gYXdhaXQgY2FjaGVIYW5kbGVycy5nZXQoXG4gICAgXCJndWlsZHNcIixcbiAgICBzbm93Zmxha2VUb0JpZ2ludChwYXlsb2FkLmd1aWxkSWQpLFxuICApO1xuICBpZiAoIWd1aWxkKSByZXR1cm47XG5cbiAgY29uc3QgY2FjaGVkRW1vamlzID0gZ3VpbGQuZW1vamlzO1xuICBndWlsZC5lbW9qaXMgPSBuZXcgQ29sbGVjdGlvbihcbiAgICBwYXlsb2FkLmVtb2ppcy5tYXAoKGVtb2ppKSA9PiBbc25vd2ZsYWtlVG9CaWdpbnQoZW1vamkuaWQhKSwgZW1vamldKSxcbiAgKTtcblxuICBhd2FpdCBjYWNoZUhhbmRsZXJzLnNldChcImd1aWxkc1wiLCBndWlsZC5pZCwgZ3VpbGQpO1xuXG4gIGV2ZW50SGFuZGxlcnMuZ3VpbGRFbW9qaXNVcGRhdGU/LihcbiAgICBndWlsZCxcbiAgICBndWlsZC5lbW9qaXMsXG4gICAgY2FjaGVkRW1vamlzLFxuICApO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLGFBQWEsU0FBUSxZQUFjO1NBQ25DLGFBQWEsU0FBUSxjQUFnQjtTQUdyQyxpQkFBaUIsU0FBUSxvQkFBc0I7U0FDL0MsVUFBVSxTQUFRLHdCQUEwQjtzQkFFL0IsdUJBQXVCLENBQUMsSUFBMkI7VUFDakUsT0FBTyxHQUFHLElBQUksQ0FBQyxDQUFDO1VBQ2hCLEtBQUssU0FBUyxhQUFhLENBQUMsR0FBRyxFQUNuQyxNQUFRLEdBQ1IsaUJBQWlCLENBQUMsT0FBTyxDQUFDLE9BQU87U0FFOUIsS0FBSztVQUVKLFlBQVksR0FBRyxLQUFLLENBQUMsTUFBTTtJQUNqQyxLQUFLLENBQUMsTUFBTSxPQUFPLFVBQVUsQ0FDM0IsT0FBTyxDQUFDLE1BQU0sQ0FBQyxHQUFHLEVBQUUsS0FBSztZQUFNLGlCQUFpQixDQUFDLEtBQUssQ0FBQyxFQUFFO1lBQUksS0FBSzs7O1VBRzlELGFBQWEsQ0FBQyxHQUFHLEVBQUMsTUFBUSxHQUFFLEtBQUssQ0FBQyxFQUFFLEVBQUUsS0FBSztJQUVqRCxhQUFhLENBQUMsaUJBQWlCLEdBQzdCLEtBQUssRUFDTCxLQUFLLENBQUMsTUFBTSxFQUNaLFlBQVkifQ==

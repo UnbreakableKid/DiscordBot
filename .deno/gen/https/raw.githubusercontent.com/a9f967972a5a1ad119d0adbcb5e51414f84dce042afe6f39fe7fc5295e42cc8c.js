@@ -1,9 +1,16 @@
 import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
-/** Modify the positions of channels on the guild. Requires MANAGE_CHANNELS permisison. */ export async function swapChannels(guildId, channelPositions) {
-    if (channelPositions.length < 2) {
-        throw "You must provide at least two channels to be swapped.";
-    }
-    return await rest.runMethod("patch", endpoints.GUILD_CHANNELS(guildId), channelPositions);
+/** Modify the positions of channels on the guild. Requires MANAGE_CHANNELS permisison. */ export async function swapChannels(
+  guildId,
+  channelPositions,
+) {
+  if (channelPositions.length < 2) {
+    throw "You must provide at least two channels to be swapped.";
+  }
+  return await rest.runMethod(
+    "patch",
+    endpoints.GUILD_CHANNELS(guildId),
+    channelPositions,
+  );
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvY2hhbm5lbHMvc3dhcF9jaGFubmVscy50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgcmVzdCB9IGZyb20gXCIuLi8uLi9yZXN0L3Jlc3QudHNcIjtcbmltcG9ydCB0eXBlIHsgTW9kaWZ5R3VpbGRDaGFubmVsUG9zaXRpb25zIH0gZnJvbSBcIi4uLy4uL3R5cGVzL2d1aWxkcy9tb2RpZnlfZ3VpbGRfY2hhbm5lbF9wb3NpdGlvbi50c1wiO1xuaW1wb3J0IHsgZW5kcG9pbnRzIH0gZnJvbSBcIi4uLy4uL3V0aWwvY29uc3RhbnRzLnRzXCI7XG5cbi8qKiBNb2RpZnkgdGhlIHBvc2l0aW9ucyBvZiBjaGFubmVscyBvbiB0aGUgZ3VpbGQuIFJlcXVpcmVzIE1BTkFHRV9DSEFOTkVMUyBwZXJtaXNpc29uLiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIHN3YXBDaGFubmVscyhcbiAgZ3VpbGRJZDogYmlnaW50LFxuICBjaGFubmVsUG9zaXRpb25zOiBNb2RpZnlHdWlsZENoYW5uZWxQb3NpdGlvbnNbXSxcbikge1xuICBpZiAoY2hhbm5lbFBvc2l0aW9ucy5sZW5ndGggPCAyKSB7XG4gICAgdGhyb3cgXCJZb3UgbXVzdCBwcm92aWRlIGF0IGxlYXN0IHR3byBjaGFubmVscyB0byBiZSBzd2FwcGVkLlwiO1xuICB9XG5cbiAgcmV0dXJuIGF3YWl0IHJlc3QucnVuTWV0aG9kPHVuZGVmaW5lZD4oXG4gICAgXCJwYXRjaFwiLFxuICAgIGVuZHBvaW50cy5HVUlMRF9DSEFOTkVMUyhndWlsZElkKSxcbiAgICBjaGFubmVsUG9zaXRpb25zLFxuICApO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLElBQUksU0FBUSxrQkFBb0I7U0FFaEMsU0FBUyxTQUFRLHVCQUF5QjtBQUVuRCxFQUEwRixBQUExRixzRkFBMEYsQUFBMUYsRUFBMEYsdUJBQ3BFLFlBQVksQ0FDaEMsT0FBZSxFQUNmLGdCQUErQztRQUUzQyxnQkFBZ0IsQ0FBQyxNQUFNLEdBQUcsQ0FBQztlQUN2QixxREFBdUQ7O2lCQUdsRCxJQUFJLENBQUMsU0FBUyxFQUN6QixLQUFPLEdBQ1AsU0FBUyxDQUFDLGNBQWMsQ0FBQyxPQUFPLEdBQ2hDLGdCQUFnQiJ9

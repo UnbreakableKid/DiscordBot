@@ -1,12 +1,16 @@
 import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotGuildPermissions } from "../../util/permissions.ts";
-/** Delete the given emoji. Requires the MANAGE_EMOJIS permission. Returns 204 No Content on success. */ export async function deleteEmoji(guildId, id, reason) {
-    await requireBotGuildPermissions(guildId, [
-        "MANAGE_EMOJIS"
-    ]);
-    return await rest.runMethod("delete", endpoints.GUILD_EMOJI(guildId, id), {
-        reason
-    });
+/** Delete the given emoji. Requires the MANAGE_EMOJIS permission. Returns 204 No Content on success. */ export async function deleteEmoji(
+  guildId,
+  id,
+  reason,
+) {
+  await requireBotGuildPermissions(guildId, [
+    "MANAGE_EMOJIS",
+  ]);
+  return await rest.runMethod("delete", endpoints.GUILD_EMOJI(guildId, id), {
+    reason,
+  });
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvZW1vamlzL2RlbGV0ZV9lbW9qaS50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgcmVzdCB9IGZyb20gXCIuLi8uLi9yZXN0L3Jlc3QudHNcIjtcbmltcG9ydCB7IGVuZHBvaW50cyB9IGZyb20gXCIuLi8uLi91dGlsL2NvbnN0YW50cy50c1wiO1xuaW1wb3J0IHsgcmVxdWlyZUJvdEd1aWxkUGVybWlzc2lvbnMgfSBmcm9tIFwiLi4vLi4vdXRpbC9wZXJtaXNzaW9ucy50c1wiO1xuXG4vKiogRGVsZXRlIHRoZSBnaXZlbiBlbW9qaS4gUmVxdWlyZXMgdGhlIE1BTkFHRV9FTU9KSVMgcGVybWlzc2lvbi4gUmV0dXJucyAyMDQgTm8gQ29udGVudCBvbiBzdWNjZXNzLiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGRlbGV0ZUVtb2ppKFxuICBndWlsZElkOiBiaWdpbnQsXG4gIGlkOiBiaWdpbnQsXG4gIHJlYXNvbj86IHN0cmluZyxcbikge1xuICBhd2FpdCByZXF1aXJlQm90R3VpbGRQZXJtaXNzaW9ucyhndWlsZElkLCBbXCJNQU5BR0VfRU1PSklTXCJdKTtcblxuICByZXR1cm4gYXdhaXQgcmVzdC5ydW5NZXRob2Q8dW5kZWZpbmVkPihcbiAgICBcImRlbGV0ZVwiLFxuICAgIGVuZHBvaW50cy5HVUlMRF9FTU9KSShndWlsZElkLCBpZCksXG4gICAgeyByZWFzb24gfSxcbiAgKTtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxJQUFJLFNBQVEsa0JBQW9CO1NBQ2hDLFNBQVMsU0FBUSx1QkFBeUI7U0FDMUMsMEJBQTBCLFNBQVEseUJBQTJCO0FBRXRFLEVBQXdHLEFBQXhHLG9HQUF3RyxBQUF4RyxFQUF3Ryx1QkFDbEYsV0FBVyxDQUMvQixPQUFlLEVBQ2YsRUFBVSxFQUNWLE1BQWU7VUFFVCwwQkFBMEIsQ0FBQyxPQUFPO1NBQUcsYUFBZTs7aUJBRTdDLElBQUksQ0FBQyxTQUFTLEVBQ3pCLE1BQVEsR0FDUixTQUFTLENBQUMsV0FBVyxDQUFDLE9BQU8sRUFBRSxFQUFFO1FBQy9CLE1BQU0ifQ==

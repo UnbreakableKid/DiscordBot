@@ -1,8 +1,13 @@
 export var DiscordIntegrationExpireBehaviors;
-(function(DiscordIntegrationExpireBehaviors) {
-    DiscordIntegrationExpireBehaviors[DiscordIntegrationExpireBehaviors["RemoveRole"] = 0] = "RemoveRole";
-    DiscordIntegrationExpireBehaviors[DiscordIntegrationExpireBehaviors["Kick"] = 1] = "Kick";
-})(DiscordIntegrationExpireBehaviors || (DiscordIntegrationExpireBehaviors = {
-}));
+(function (DiscordIntegrationExpireBehaviors) {
+  DiscordIntegrationExpireBehaviors[
+    DiscordIntegrationExpireBehaviors["RemoveRole"] = 0
+  ] = "RemoveRole";
+  DiscordIntegrationExpireBehaviors[
+    DiscordIntegrationExpireBehaviors["Kick"] = 1
+  ] = "Kick";
+})(
+  DiscordIntegrationExpireBehaviors || (DiscordIntegrationExpireBehaviors = {}),
+);
 export const IntegrationExpireBehaviors = DiscordIntegrationExpireBehaviors;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL2ludGVncmF0aW9ucy9pbnRlZ3JhdGlvbl9leHBpcmVfYmVoYXZpb3JzLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyIvKiogaHR0cHM6Ly9kaXNjb3JkLmNvbS9kZXZlbG9wZXJzL2RvY3MvcmVzb3VyY2VzL2d1aWxkI2ludGVncmF0aW9uLW9iamVjdC1pbnRlZ3JhdGlvbi1leHBpcmUtYmVoYXZpb3JzICovXG5leHBvcnQgZW51bSBEaXNjb3JkSW50ZWdyYXRpb25FeHBpcmVCZWhhdmlvcnMge1xuICBSZW1vdmVSb2xlLFxuICBLaWNrLFxufVxuXG5leHBvcnQgdHlwZSBJbnRlZ3JhdGlvbkV4cGlyZUJlaGF2aW9ycyA9IERpc2NvcmRJbnRlZ3JhdGlvbkV4cGlyZUJlaGF2aW9ycztcbmV4cG9ydCBjb25zdCBJbnRlZ3JhdGlvbkV4cGlyZUJlaGF2aW9ycyA9IERpc2NvcmRJbnRlZ3JhdGlvbkV4cGlyZUJlaGF2aW9ycztcbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO1VBQ1ksaUNBQWlDO0lBQWpDLGlDQUFpQyxDQUFqQyxpQ0FBaUMsRUFDM0MsVUFBVSxLQUFWLENBQVUsS0FBVixVQUFVO0lBREEsaUNBQWlDLENBQWpDLGlDQUFpQyxFQUUzQyxJQUFJLEtBQUosQ0FBSSxLQUFKLElBQUk7R0FGTSxpQ0FBaUMsS0FBakMsaUNBQWlDOzthQU1oQywwQkFBMEIsR0FBRyxpQ0FBaUMifQ==

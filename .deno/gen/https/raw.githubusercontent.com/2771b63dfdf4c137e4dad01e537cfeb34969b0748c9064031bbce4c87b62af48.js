@@ -5,9 +5,12 @@ import { requireBotGuildPermissions } from "../../util/permissions.ts";
  * Syncs the template to the guild's current state.
  * Requires the `MANAGE_GUILD` permission.
  */ export async function syncGuildTemplate(guildId, templateCode) {
-    await requireBotGuildPermissions(guildId, [
-        "MANAGE_GUILD"
-    ]);
-    return await rest.runMethod("put", `${endpoints.GUILD_TEMPLATES(guildId)}/${templateCode}`);
+  await requireBotGuildPermissions(guildId, [
+    "MANAGE_GUILD",
+  ]);
+  return await rest.runMethod(
+    "put",
+    `${endpoints.GUILD_TEMPLATES(guildId)}/${templateCode}`,
+  );
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvdGVtcGxhdGVzL3N5bmNfZ3VpbGRfdGVtcGxhdGUudHM+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHJlc3QgfSBmcm9tIFwiLi4vLi4vcmVzdC9yZXN0LnRzXCI7XG5pbXBvcnQgdHlwZSB7IFRlbXBsYXRlIH0gZnJvbSBcIi4uLy4uL3R5cGVzL3RlbXBsYXRlcy90ZW1wbGF0ZS50c1wiO1xuaW1wb3J0IHsgZW5kcG9pbnRzIH0gZnJvbSBcIi4uLy4uL3V0aWwvY29uc3RhbnRzLnRzXCI7XG5pbXBvcnQgeyByZXF1aXJlQm90R3VpbGRQZXJtaXNzaW9ucyB9IGZyb20gXCIuLi8uLi91dGlsL3Blcm1pc3Npb25zLnRzXCI7XG5cbi8qKlxuICogU3luY3MgdGhlIHRlbXBsYXRlIHRvIHRoZSBndWlsZCdzIGN1cnJlbnQgc3RhdGUuXG4gKiBSZXF1aXJlcyB0aGUgYE1BTkFHRV9HVUlMRGAgcGVybWlzc2lvbi5cbiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIHN5bmNHdWlsZFRlbXBsYXRlKGd1aWxkSWQ6IGJpZ2ludCwgdGVtcGxhdGVDb2RlOiBzdHJpbmcpIHtcbiAgYXdhaXQgcmVxdWlyZUJvdEd1aWxkUGVybWlzc2lvbnMoZ3VpbGRJZCwgW1wiTUFOQUdFX0dVSUxEXCJdKTtcblxuICByZXR1cm4gYXdhaXQgcmVzdC5ydW5NZXRob2Q8VGVtcGxhdGU+KFxuICAgIFwicHV0XCIsXG4gICAgYCR7ZW5kcG9pbnRzLkdVSUxEX1RFTVBMQVRFUyhndWlsZElkKX0vJHt0ZW1wbGF0ZUNvZGV9YCxcbiAgKTtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxJQUFJLFNBQVEsa0JBQW9CO1NBRWhDLFNBQVMsU0FBUSx1QkFBeUI7U0FDMUMsMEJBQTBCLFNBQVEseUJBQTJCO0FBRXRFLEVBR0csQUFISDs7O0NBR0csQUFISCxFQUdHLHVCQUNtQixpQkFBaUIsQ0FBQyxPQUFlLEVBQUUsWUFBb0I7VUFDckUsMEJBQTBCLENBQUMsT0FBTztTQUFHLFlBQWM7O2lCQUU1QyxJQUFJLENBQUMsU0FBUyxFQUN6QixHQUFLLE1BQ0YsU0FBUyxDQUFDLGVBQWUsQ0FBQyxPQUFPLEVBQUUsQ0FBQyxFQUFFLFlBQVkifQ==

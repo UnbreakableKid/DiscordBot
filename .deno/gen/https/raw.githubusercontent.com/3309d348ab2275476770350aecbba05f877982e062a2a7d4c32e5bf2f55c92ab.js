@@ -1,9 +1,23 @@
 export var DiscordExplicitContentFilterLevels;
-(function(DiscordExplicitContentFilterLevels) {
-    DiscordExplicitContentFilterLevels[DiscordExplicitContentFilterLevels[/** Media content will not be scanned */ "Disabled"] = 0] = "Disabled";
-    DiscordExplicitContentFilterLevels[DiscordExplicitContentFilterLevels[/** Media content sent by members without roles will be scanned */ "MembersWithoutRoles"] = 1] = "MembersWithoutRoles";
-    DiscordExplicitContentFilterLevels[DiscordExplicitContentFilterLevels[/** Media content sent by all members will be scanned */ "AllMembers"] = 2] = "AllMembers";
-})(DiscordExplicitContentFilterLevels || (DiscordExplicitContentFilterLevels = {
-}));
+(function (DiscordExplicitContentFilterLevels) {
+  DiscordExplicitContentFilterLevels[
+    DiscordExplicitContentFilterLevels[
+      /** Media content will not be scanned */ "Disabled"
+    ] = 0
+  ] = "Disabled";
+  DiscordExplicitContentFilterLevels[
+    DiscordExplicitContentFilterLevels[
+      /** Media content sent by members without roles will be scanned */ "MembersWithoutRoles"
+    ] = 1
+  ] = "MembersWithoutRoles";
+  DiscordExplicitContentFilterLevels[
+    DiscordExplicitContentFilterLevels[
+      /** Media content sent by all members will be scanned */ "AllMembers"
+    ] = 2
+  ] = "AllMembers";
+})(
+  DiscordExplicitContentFilterLevels ||
+    (DiscordExplicitContentFilterLevels = {}),
+);
 export const ExplicitContentFilterLevels = DiscordExplicitContentFilterLevels;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL2d1aWxkcy9leHBsaWNpdF9jb250ZW50X2ZpbHRlcl9sZXZlbHMudHM+Il0sInNvdXJjZXNDb250ZW50IjpbIi8qKiBodHRwczovL2Rpc2NvcmQuY29tL2RldmVsb3BlcnMvZG9jcy9yZXNvdXJjZXMvZ3VpbGQjZ3VpbGQtb2JqZWN0LWV4cGxpY2l0LWNvbnRlbnQtZmlsdGVyLWxldmVsICovXG5leHBvcnQgZW51bSBEaXNjb3JkRXhwbGljaXRDb250ZW50RmlsdGVyTGV2ZWxzIHtcbiAgLyoqIE1lZGlhIGNvbnRlbnQgd2lsbCBub3QgYmUgc2Nhbm5lZCAqL1xuICBEaXNhYmxlZCxcbiAgLyoqIE1lZGlhIGNvbnRlbnQgc2VudCBieSBtZW1iZXJzIHdpdGhvdXQgcm9sZXMgd2lsbCBiZSBzY2FubmVkICovXG4gIE1lbWJlcnNXaXRob3V0Um9sZXMsXG4gIC8qKiBNZWRpYSBjb250ZW50IHNlbnQgYnkgYWxsIG1lbWJlcnMgd2lsbCBiZSBzY2FubmVkICovXG4gIEFsbE1lbWJlcnMsXG59XG5cbmV4cG9ydCB0eXBlIEV4cGxpY2l0Q29udGVudEZpbHRlckxldmVscyA9IERpc2NvcmRFeHBsaWNpdENvbnRlbnRGaWx0ZXJMZXZlbHM7XG5leHBvcnQgY29uc3QgRXhwbGljaXRDb250ZW50RmlsdGVyTGV2ZWxzID0gRGlzY29yZEV4cGxpY2l0Q29udGVudEZpbHRlckxldmVscztcbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO1VBQ1ksa0NBQWtDO0lBQWxDLGtDQUFrQyxDQUFsQyxrQ0FBa0MsQ0FDNUMsRUFBd0MsQUFBeEMsb0NBQXdDLEFBQXhDLEVBQXdDLEVBQ3hDLFFBQVEsS0FBUixDQUFRLEtBQVIsUUFBUTtJQUZFLGtDQUFrQyxDQUFsQyxrQ0FBa0MsQ0FHNUMsRUFBa0UsQUFBbEUsOERBQWtFLEFBQWxFLEVBQWtFLEVBQ2xFLG1CQUFtQixLQUFuQixDQUFtQixLQUFuQixtQkFBbUI7SUFKVCxrQ0FBa0MsQ0FBbEMsa0NBQWtDLENBSzVDLEVBQXdELEFBQXhELG9EQUF3RCxBQUF4RCxFQUF3RCxFQUN4RCxVQUFVLEtBQVYsQ0FBVSxLQUFWLFVBQVU7R0FOQSxrQ0FBa0MsS0FBbEMsa0NBQWtDOzthQVVqQywyQkFBMkIsR0FBRyxrQ0FBa0MifQ==

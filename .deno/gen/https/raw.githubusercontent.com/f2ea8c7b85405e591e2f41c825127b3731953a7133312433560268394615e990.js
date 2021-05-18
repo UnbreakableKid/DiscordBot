@@ -1,10 +1,17 @@
 import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotGuildPermissions } from "../../util/permissions.ts";
-/** Delete the channel permission overwrites for a user or role in this channel. Requires `MANAGE_ROLES` permission. */ export async function deleteChannelOverwrite(guildId, channelId, overwriteId) {
-    await requireBotGuildPermissions(guildId, [
-        "MANAGE_ROLES"
-    ]);
-    return await rest.runMethod("delete", endpoints.CHANNEL_OVERWRITE(channelId, overwriteId));
+/** Delete the channel permission overwrites for a user or role in this channel. Requires `MANAGE_ROLES` permission. */ export async function deleteChannelOverwrite(
+  guildId,
+  channelId,
+  overwriteId,
+) {
+  await requireBotGuildPermissions(guildId, [
+    "MANAGE_ROLES",
+  ]);
+  return await rest.runMethod(
+    "delete",
+    endpoints.CHANNEL_OVERWRITE(channelId, overwriteId),
+  );
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvY2hhbm5lbHMvZGVsZXRlX2NoYW5uZWxfb3ZlcndyaXRlLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyByZXN0IH0gZnJvbSBcIi4uLy4uL3Jlc3QvcmVzdC50c1wiO1xuaW1wb3J0IHsgZW5kcG9pbnRzIH0gZnJvbSBcIi4uLy4uL3V0aWwvY29uc3RhbnRzLnRzXCI7XG5pbXBvcnQgeyByZXF1aXJlQm90R3VpbGRQZXJtaXNzaW9ucyB9IGZyb20gXCIuLi8uLi91dGlsL3Blcm1pc3Npb25zLnRzXCI7XG5cbi8qKiBEZWxldGUgdGhlIGNoYW5uZWwgcGVybWlzc2lvbiBvdmVyd3JpdGVzIGZvciBhIHVzZXIgb3Igcm9sZSBpbiB0aGlzIGNoYW5uZWwuIFJlcXVpcmVzIGBNQU5BR0VfUk9MRVNgIHBlcm1pc3Npb24uICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gZGVsZXRlQ2hhbm5lbE92ZXJ3cml0ZShcbiAgZ3VpbGRJZDogYmlnaW50LFxuICBjaGFubmVsSWQ6IGJpZ2ludCxcbiAgb3ZlcndyaXRlSWQ6IGJpZ2ludCxcbik6IFByb21pc2U8dW5kZWZpbmVkPiB7XG4gIGF3YWl0IHJlcXVpcmVCb3RHdWlsZFBlcm1pc3Npb25zKGd1aWxkSWQsIFtcIk1BTkFHRV9ST0xFU1wiXSk7XG5cbiAgcmV0dXJuIGF3YWl0IHJlc3QucnVuTWV0aG9kPHVuZGVmaW5lZD4oXG4gICAgXCJkZWxldGVcIixcbiAgICBlbmRwb2ludHMuQ0hBTk5FTF9PVkVSV1JJVEUoY2hhbm5lbElkLCBvdmVyd3JpdGVJZCksXG4gICk7XG59XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IlNBQVMsSUFBSSxTQUFRLGtCQUFvQjtTQUNoQyxTQUFTLFNBQVEsdUJBQXlCO1NBQzFDLDBCQUEwQixTQUFRLHlCQUEyQjtBQUV0RSxFQUF1SCxBQUF2SCxtSEFBdUgsQUFBdkgsRUFBdUgsdUJBQ2pHLHNCQUFzQixDQUMxQyxPQUFlLEVBQ2YsU0FBaUIsRUFDakIsV0FBbUI7VUFFYiwwQkFBMEIsQ0FBQyxPQUFPO1NBQUcsWUFBYzs7aUJBRTVDLElBQUksQ0FBQyxTQUFTLEVBQ3pCLE1BQVEsR0FDUixTQUFTLENBQUMsaUJBQWlCLENBQUMsU0FBUyxFQUFFLFdBQVcifQ==

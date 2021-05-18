@@ -1,6 +1,7 @@
 // Copyright the Browserify authors. MIT License.
 // Ported from https://github.com/browserify/path-browserify/
-/** This module is browser compatible. */ // Alphabet chars.
+/** This module is browser compatible. */
+// Alphabet chars.
 export const CHAR_UPPERCASE_A = 65;
 export const CHAR_LOWERCASE_A = 97;
 export const CHAR_UPPERCASE_Z = 90;
@@ -46,9 +47,9 @@ let NATIVE_OS = "linux";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const navigator = globalThis.navigator;
 if (globalThis.Deno != null) {
-    NATIVE_OS = Deno.build.os;
+  NATIVE_OS = Deno.build.os;
 } else if (navigator?.appVersion?.includes?.("Win") ?? false) {
-    NATIVE_OS = "windows";
+  NATIVE_OS = "windows";
 }
 // TODO(nayeemrmn): Improve OS detection in browsers beyond Windows.
 export const isWindows = NATIVE_OS == "windows";

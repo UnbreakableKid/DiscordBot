@@ -7,15 +7,15 @@ import { requireBotGuildPermissions } from "../../util/permissions.ts";
  * @param name name of the template (1-100 characters)
  * @param description description for the template (0-120 characters
  */ export async function createGuildTemplate(guildId, data) {
-    await requireBotGuildPermissions(guildId, [
-        "MANAGE_GUILD"
-    ]);
-    if (data.name.length < 1 || data.name.length > 100) {
-        throw new Error("The name can only be in between 1-100 characters.");
-    }
-    if (data.description?.length && data.description.length > 120) {
-        throw new Error("The description can only be in between 0-120 characters.");
-    }
-    return await rest.runMethod("post", endpoints.GUILD_TEMPLATES(guildId), data);
+  await requireBotGuildPermissions(guildId, [
+    "MANAGE_GUILD",
+  ]);
+  if (data.name.length < 1 || data.name.length > 100) {
+    throw new Error("The name can only be in between 1-100 characters.");
+  }
+  if (data.description?.length && data.description.length > 120) {
+    throw new Error("The description can only be in between 0-120 characters.");
+  }
+  return await rest.runMethod("post", endpoints.GUILD_TEMPLATES(guildId), data);
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvdGVtcGxhdGVzL2NyZWF0ZV9ndWlsZF90ZW1wbGF0ZS50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgcmVzdCB9IGZyb20gXCIuLi8uLi9yZXN0L3Jlc3QudHNcIjtcbmltcG9ydCB0eXBlIHsgVGVtcGxhdGUgfSBmcm9tIFwiLi4vLi4vdHlwZXMvdGVtcGxhdGVzL3RlbXBsYXRlLnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcbmltcG9ydCB7IHJlcXVpcmVCb3RHdWlsZFBlcm1pc3Npb25zIH0gZnJvbSBcIi4uLy4uL3V0aWwvcGVybWlzc2lvbnMudHNcIjtcblxuLyoqXG4gKiBDcmVhdGVzIGEgdGVtcGxhdGUgZm9yIHRoZSBndWlsZC5cbiAqIFJlcXVpcmVzIHRoZSBgTUFOQUdFX0dVSUxEYCBwZXJtaXNzaW9uLlxuICogQHBhcmFtIG5hbWUgbmFtZSBvZiB0aGUgdGVtcGxhdGUgKDEtMTAwIGNoYXJhY3RlcnMpXG4gKiBAcGFyYW0gZGVzY3JpcHRpb24gZGVzY3JpcHRpb24gZm9yIHRoZSB0ZW1wbGF0ZSAoMC0xMjAgY2hhcmFjdGVyc1xuICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gY3JlYXRlR3VpbGRUZW1wbGF0ZShcbiAgZ3VpbGRJZDogYmlnaW50LFxuICBkYXRhOiBUZW1wbGF0ZSxcbikge1xuICBhd2FpdCByZXF1aXJlQm90R3VpbGRQZXJtaXNzaW9ucyhndWlsZElkLCBbXCJNQU5BR0VfR1VJTERcIl0pO1xuXG4gIGlmIChkYXRhLm5hbWUubGVuZ3RoIDwgMSB8fCBkYXRhLm5hbWUubGVuZ3RoID4gMTAwKSB7XG4gICAgdGhyb3cgbmV3IEVycm9yKFwiVGhlIG5hbWUgY2FuIG9ubHkgYmUgaW4gYmV0d2VlbiAxLTEwMCBjaGFyYWN0ZXJzLlwiKTtcbiAgfVxuXG4gIGlmIChkYXRhLmRlc2NyaXB0aW9uPy5sZW5ndGggJiYgZGF0YS5kZXNjcmlwdGlvbi5sZW5ndGggPiAxMjApIHtcbiAgICB0aHJvdyBuZXcgRXJyb3IoXCJUaGUgZGVzY3JpcHRpb24gY2FuIG9ubHkgYmUgaW4gYmV0d2VlbiAwLTEyMCBjaGFyYWN0ZXJzLlwiKTtcbiAgfVxuXG4gIHJldHVybiBhd2FpdCByZXN0LnJ1bk1ldGhvZDxUZW1wbGF0ZT4oXG4gICAgXCJwb3N0XCIsXG4gICAgZW5kcG9pbnRzLkdVSUxEX1RFTVBMQVRFUyhndWlsZElkKSxcbiAgICBkYXRhLFxuICApO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLElBQUksU0FBUSxrQkFBb0I7U0FFaEMsU0FBUyxTQUFRLHVCQUF5QjtTQUMxQywwQkFBMEIsU0FBUSx5QkFBMkI7QUFFdEUsRUFLRyxBQUxIOzs7OztDQUtHLEFBTEgsRUFLRyx1QkFDbUIsbUJBQW1CLENBQ3ZDLE9BQWUsRUFDZixJQUFjO1VBRVIsMEJBQTBCLENBQUMsT0FBTztTQUFHLFlBQWM7O1FBRXJELElBQUksQ0FBQyxJQUFJLENBQUMsTUFBTSxHQUFHLENBQUMsSUFBSSxJQUFJLENBQUMsSUFBSSxDQUFDLE1BQU0sR0FBRyxHQUFHO2tCQUN0QyxLQUFLLEVBQUMsaURBQW1EOztRQUdqRSxJQUFJLENBQUMsV0FBVyxFQUFFLE1BQU0sSUFBSSxJQUFJLENBQUMsV0FBVyxDQUFDLE1BQU0sR0FBRyxHQUFHO2tCQUNqRCxLQUFLLEVBQUMsd0RBQTBEOztpQkFHL0QsSUFBSSxDQUFDLFNBQVMsRUFDekIsSUFBTSxHQUNOLFNBQVMsQ0FBQyxlQUFlLENBQUMsT0FBTyxHQUNqQyxJQUFJIn0=

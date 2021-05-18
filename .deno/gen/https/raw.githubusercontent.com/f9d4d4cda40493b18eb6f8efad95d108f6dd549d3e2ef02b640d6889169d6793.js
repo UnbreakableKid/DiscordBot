@@ -1,12 +1,15 @@
 import { rest } from "./rest.ts";
 /** Cleans up the queues by checking if there is nothing left and removing it. */ export function cleanupQueues() {
-    for (const [key, queue] of rest.pathQueues){
-        rest.eventHandlers.debug?.("loop", "Running for of loop in cleanupQueues function.");
-        if (queue.length) continue;
-        // REMOVE IT FROM CACHE
-        rest.pathQueues.delete(key);
-    }
-    // NO QUEUE LEFT, DISABLE THE QUEUE
-    if (!rest.pathQueues.size) rest.processingQueue = false;
+  for (const [key, queue] of rest.pathQueues) {
+    rest.eventHandlers.debug?.(
+      "loop",
+      "Running for of loop in cleanupQueues function.",
+    );
+    if (queue.length) continue;
+    // REMOVE IT FROM CACHE
+    rest.pathQueues.delete(key);
+  }
+  // NO QUEUE LEFT, DISABLE THE QUEUE
+  if (!rest.pathQueues.size) rest.processingQueue = false;
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3Jlc3QvY2xlYW51cF9xdWV1ZXMudHM+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHJlc3QgfSBmcm9tIFwiLi9yZXN0LnRzXCI7XG5cbi8qKiBDbGVhbnMgdXAgdGhlIHF1ZXVlcyBieSBjaGVja2luZyBpZiB0aGVyZSBpcyBub3RoaW5nIGxlZnQgYW5kIHJlbW92aW5nIGl0LiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGNsZWFudXBRdWV1ZXMoKSB7XG4gIGZvciAoY29uc3QgW2tleSwgcXVldWVdIG9mIHJlc3QucGF0aFF1ZXVlcykge1xuICAgIHJlc3QuZXZlbnRIYW5kbGVycy5kZWJ1Zz8uKFxuICAgICAgXCJsb29wXCIsXG4gICAgICBcIlJ1bm5pbmcgZm9yIG9mIGxvb3AgaW4gY2xlYW51cFF1ZXVlcyBmdW5jdGlvbi5cIixcbiAgICApO1xuICAgIGlmIChxdWV1ZS5sZW5ndGgpIGNvbnRpbnVlO1xuICAgIC8vIFJFTU9WRSBJVCBGUk9NIENBQ0hFXG4gICAgcmVzdC5wYXRoUXVldWVzLmRlbGV0ZShrZXkpO1xuICB9XG5cbiAgLy8gTk8gUVVFVUUgTEVGVCwgRElTQUJMRSBUSEUgUVVFVUVcbiAgaWYgKCFyZXN0LnBhdGhRdWV1ZXMuc2l6ZSkgcmVzdC5wcm9jZXNzaW5nUXVldWUgPSBmYWxzZTtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxJQUFJLFNBQVEsU0FBVztBQUVoQyxFQUFpRixBQUFqRiw2RUFBaUYsQUFBakYsRUFBaUYsaUJBQ2pFLGFBQWE7Z0JBQ2YsR0FBRyxFQUFFLEtBQUssS0FBSyxJQUFJLENBQUMsVUFBVTtRQUN4QyxJQUFJLENBQUMsYUFBYSxDQUFDLEtBQUssSUFDdEIsSUFBTSxJQUNOLDhDQUFnRDtZQUU5QyxLQUFLLENBQUMsTUFBTTtRQUNoQixFQUF1QixBQUF2QixxQkFBdUI7UUFDdkIsSUFBSSxDQUFDLFVBQVUsQ0FBQyxNQUFNLENBQUMsR0FBRzs7SUFHNUIsRUFBbUMsQUFBbkMsaUNBQW1DO1NBQzlCLElBQUksQ0FBQyxVQUFVLENBQUMsSUFBSSxFQUFFLElBQUksQ0FBQyxlQUFlLEdBQUcsS0FBSyJ9

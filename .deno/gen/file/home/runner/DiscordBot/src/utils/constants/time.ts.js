@@ -1,10 +1,9 @@
 export var Milliseconds;
-(function(Milliseconds) {
-    Milliseconds[Milliseconds["WEEK"] = 604800000] = "WEEK";
-    Milliseconds[Milliseconds["DAY"] = 86400000] = "DAY";
-    Milliseconds[Milliseconds["HOUR"] = 3600000] = "HOUR";
-    Milliseconds[Milliseconds["MINUTE"] = 60000] = "MINUTE";
-    Milliseconds[Milliseconds["SECOND"] = 1000] = "SECOND";
-})(Milliseconds || (Milliseconds = {
-}));
+(function (Milliseconds) {
+  Milliseconds[Milliseconds["WEEK"] = 604800000] = "WEEK";
+  Milliseconds[Milliseconds["DAY"] = 86400000] = "DAY";
+  Milliseconds[Milliseconds["HOUR"] = 3600000] = "HOUR";
+  Milliseconds[Milliseconds["MINUTE"] = 60000] = "MINUTE";
+  Milliseconds[Milliseconds["SECOND"] = 1000] = "SECOND";
+})(Milliseconds || (Milliseconds = {}));
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxmaWxlOi8vL2hvbWUvcnVubmVyL0Rpc2NvcmRCb3Qvc3JjL3V0aWxzL2NvbnN0YW50cy90aW1lLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZW51bSBNaWxsaXNlY29uZHMge1xuICBXRUVLID0gMTAwMCAqIDYwICogNjAgKiAyNCAqIDcsXG4gIERBWSA9IDEwMDAgKiA2MCAqIDYwICogMjQsXG4gIEhPVVIgPSAxMDAwICogNjAgKiA2MCxcbiAgTUlOVVRFID0gMTAwMCAqIDYwLFxuICBTRUNPTkQgPSAxMDAwLFxufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7VUFBWSxZQUFZO0lBQVosWUFBWSxDQUFaLFlBQVksRUFDdEIsSUFBSSxLQUFKLFNBQUksS0FBSixJQUFJO0lBRE0sWUFBWSxDQUFaLFlBQVksRUFFdEIsR0FBRyxLQUFILFFBQUcsS0FBSCxHQUFHO0lBRk8sWUFBWSxDQUFaLFlBQVksRUFHdEIsSUFBSSxLQUFKLE9BQUksS0FBSixJQUFJO0lBSE0sWUFBWSxDQUFaLFlBQVksRUFJdEIsTUFBTSxLQUFOLEtBQU0sS0FBTixNQUFNO0lBSkksWUFBWSxDQUFaLFlBQVksRUFLdEIsTUFBTSxLQUFHLElBQUksS0FBYixNQUFNO0dBTEksWUFBWSxLQUFaLFlBQVkifQ==

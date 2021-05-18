@@ -2,10 +2,17 @@ import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotGuildPermissions } from "../../util/permissions.ts";
 import { snakelize } from "../../util/utils.ts";
-/** Modify the discovery metadata for the guild. Requires the MANAGE_GUILD permission. Returns the updated discovery metadata object on success. */ export async function editDiscovery(guildId, data) {
-    await requireBotGuildPermissions(guildId, [
-        "MANAGE_GUILD"
-    ]);
-    return await rest.runMethod("patch", endpoints.DISCOVERY_MODIFY(guildId), snakelize(data));
+/** Modify the discovery metadata for the guild. Requires the MANAGE_GUILD permission. Returns the updated discovery metadata object on success. */ export async function editDiscovery(
+  guildId,
+  data,
+) {
+  await requireBotGuildPermissions(guildId, [
+    "MANAGE_GUILD",
+  ]);
+  return await rest.runMethod(
+    "patch",
+    endpoints.DISCOVERY_MODIFY(guildId),
+    snakelize(data),
+  );
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvZGlzY292ZXJ5L2VkaXRfZGlzY292ZXJ5LnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyByZXN0IH0gZnJvbSBcIi4uLy4uL3Jlc3QvcmVzdC50c1wiO1xuaW1wb3J0IHR5cGUgeyBEaXNjb3ZlcnlNZXRhZGF0YSB9IGZyb20gXCIuLi8uLi90eXBlcy9kaXNjb3ZlcnkvZGlzY292ZXJ5X21ldGFkYXRhLnRzXCI7XG5pbXBvcnQgdHlwZSB7IE1vZGlmeUd1aWxkRGlzY292ZXJ5TWV0YWRhdGEgfSBmcm9tIFwiLi4vLi4vdHlwZXMvZGlzY292ZXJ5L21vZGlmeV9ndWlsZF9kaXNjb3ZlcnlfbWV0YWRhdGEudHNcIjtcbmltcG9ydCB7IGVuZHBvaW50cyB9IGZyb20gXCIuLi8uLi91dGlsL2NvbnN0YW50cy50c1wiO1xuaW1wb3J0IHsgcmVxdWlyZUJvdEd1aWxkUGVybWlzc2lvbnMgfSBmcm9tIFwiLi4vLi4vdXRpbC9wZXJtaXNzaW9ucy50c1wiO1xuaW1wb3J0IHsgc25ha2VsaXplIH0gZnJvbSBcIi4uLy4uL3V0aWwvdXRpbHMudHNcIjtcblxuLyoqIE1vZGlmeSB0aGUgZGlzY292ZXJ5IG1ldGFkYXRhIGZvciB0aGUgZ3VpbGQuIFJlcXVpcmVzIHRoZSBNQU5BR0VfR1VJTEQgcGVybWlzc2lvbi4gUmV0dXJucyB0aGUgdXBkYXRlZCBkaXNjb3ZlcnkgbWV0YWRhdGEgb2JqZWN0IG9uIHN1Y2Nlc3MuICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gZWRpdERpc2NvdmVyeShcbiAgZ3VpbGRJZDogYmlnaW50LFxuICBkYXRhOiBNb2RpZnlHdWlsZERpc2NvdmVyeU1ldGFkYXRhLFxuKSB7XG4gIGF3YWl0IHJlcXVpcmVCb3RHdWlsZFBlcm1pc3Npb25zKGd1aWxkSWQsIFtcIk1BTkFHRV9HVUlMRFwiXSk7XG5cbiAgcmV0dXJuIGF3YWl0IHJlc3QucnVuTWV0aG9kPERpc2NvdmVyeU1ldGFkYXRhPihcbiAgICBcInBhdGNoXCIsXG4gICAgZW5kcG9pbnRzLkRJU0NPVkVSWV9NT0RJRlkoZ3VpbGRJZCksXG4gICAgc25ha2VsaXplKGRhdGEpLFxuICApO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLElBQUksU0FBUSxrQkFBb0I7U0FHaEMsU0FBUyxTQUFRLHVCQUF5QjtTQUMxQywwQkFBMEIsU0FBUSx5QkFBMkI7U0FDN0QsU0FBUyxTQUFRLG1CQUFxQjtBQUUvQyxFQUFtSixBQUFuSiwrSUFBbUosQUFBbkosRUFBbUosdUJBQzdILGFBQWEsQ0FDakMsT0FBZSxFQUNmLElBQWtDO1VBRTVCLDBCQUEwQixDQUFDLE9BQU87U0FBRyxZQUFjOztpQkFFNUMsSUFBSSxDQUFDLFNBQVMsRUFDekIsS0FBTyxHQUNQLFNBQVMsQ0FBQyxnQkFBZ0IsQ0FBQyxPQUFPLEdBQ2xDLFNBQVMsQ0FBQyxJQUFJIn0=

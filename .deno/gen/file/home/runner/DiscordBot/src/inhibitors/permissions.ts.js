@@ -1,53 +1,106 @@
-import { getMissingChannelPermissions, getMissingGuildPermissions } from "../../deps.ts";
+import {
+  getMissingChannelPermissions,
+  getMissingGuildPermissions,
+} from "../../deps.ts";
 import { bot } from "../../cache.ts";
-/** This function can be overriden to handle when a command has a mission permission. */ function missingCommandPermission(message, missingPermissions, type) {
-    const perms = missingPermissions.join(", ");
-    const response = type === "framework/core:BOT_CHANNEL_PERM" ? `I am missing the following permissions in this channel: **${perms}**` : type === "framework/core:BOT_SERVER_PERM" ? `I am missing the following permissions in this server from my roles: **${perms}**` : type === "framework/core:USER_CHANNEL_PERM" ? `You are missing the following permissions in this channel: **${perms}**` : `You are missing the following permissions in this server from your roles: **${perms}**`;
-    if (missingPermissions.find((perm)=>perm === "SEND_MESSAGES" || perm === "VIEW_CHANNEL"
-    )) {
-        return;
-    }
-    message.reply(response);
+/** This function can be overriden to handle when a command has a mission permission. */ function missingCommandPermission(
+  message,
+  missingPermissions,
+  type,
+) {
+  const perms = missingPermissions.join(", ");
+  const response = type === "framework/core:BOT_CHANNEL_PERM"
+    ? `I am missing the following permissions in this channel: **${perms}**`
+    : type === "framework/core:BOT_SERVER_PERM"
+    ? `I am missing the following permissions in this server from my roles: **${perms}**`
+    : type === "framework/core:USER_CHANNEL_PERM"
+    ? `You are missing the following permissions in this channel: **${perms}**`
+    : `You are missing the following permissions in this server from your roles: **${perms}**`;
+  if (
+    missingPermissions.find((perm) =>
+      perm === "SEND_MESSAGES" || perm === "VIEW_CHANNEL"
+    )
+  ) {
+    return;
+  }
+  message.reply(response);
 }
-bot.inhibitors.set("permissions", async function(message, command) {
-    if (!message.guild) return false;
-    // No permissions are required
-    if (!command.botChannelPermissions?.length && !command.botServerPermissions?.length && !command.userChannelPermissions?.length && !command.userServerPermissions?.length) {
-        return false;
-    }
-    // Check if the message author has the necessary channel permissions to run this command
-    if (command.userChannelPermissions?.length) {
-        const missingPermissions = await getMissingChannelPermissions(message.channelId, message.authorId, command.userChannelPermissions);
-        if (missingPermissions.length) {
-            missingCommandPermission(message, missingPermissions, "framework/core:USER_CHANNEL_PERM");
-            return true;
-        }
-    }
-    const member = message.guild.members.get(message.authorId);
-    // Check if the message author has the necessary permissions to run this command
-    if (member && command.userServerPermissions?.length) {
-        const missingPermissions = await getMissingGuildPermissions(message.guildId, message.authorId, command.userServerPermissions);
-        if (missingPermissions.length) {
-            missingCommandPermission(message, missingPermissions, "framework/core:USER_SERVER_PERM");
-            return true;
-        }
-    }
-    // Check if the bot has the necessary channel permissions to run this command in this channel.
-    if (command.botChannelPermissions?.length) {
-        const missingPermissions = await getMissingChannelPermissions(message.channelId, message.authorId, command.botChannelPermissions);
-        if (missingPermissions.length) {
-            missingCommandPermission(message, missingPermissions, "framework/core:BOT_CHANNEL_PERM");
-            return true;
-        }
-    }
-    // Check if the bot has the necessary permissions to run this command
-    if (command.botServerPermissions?.length) {
-        const missingPermissions = await getMissingGuildPermissions(message.guildId, message.authorId, command.botServerPermissions);
-        if (missingPermissions.length) {
-            missingCommandPermission(message, missingPermissions, "framework/core:BOT_CHANNEL_PERM");
-            return true;
-        }
-    }
+bot.inhibitors.set("permissions", async function (message, command) {
+  if (!message.guild) return false;
+  // No permissions are required
+  if (
+    !command.botChannelPermissions?.length &&
+    !command.botServerPermissions?.length &&
+    !command.userChannelPermissions?.length &&
+    !command.userServerPermissions?.length
+  ) {
     return false;
+  }
+  // Check if the message author has the necessary channel permissions to run this command
+  if (command.userChannelPermissions?.length) {
+    const missingPermissions = await getMissingChannelPermissions(
+      message.channelId,
+      message.authorId,
+      command.userChannelPermissions,
+    );
+    if (missingPermissions.length) {
+      missingCommandPermission(
+        message,
+        missingPermissions,
+        "framework/core:USER_CHANNEL_PERM",
+      );
+      return true;
+    }
+  }
+  const member = message.guild.members.get(message.authorId);
+  // Check if the message author has the necessary permissions to run this command
+  if (member && command.userServerPermissions?.length) {
+    const missingPermissions = await getMissingGuildPermissions(
+      message.guildId,
+      message.authorId,
+      command.userServerPermissions,
+    );
+    if (missingPermissions.length) {
+      missingCommandPermission(
+        message,
+        missingPermissions,
+        "framework/core:USER_SERVER_PERM",
+      );
+      return true;
+    }
+  }
+  // Check if the bot has the necessary channel permissions to run this command in this channel.
+  if (command.botChannelPermissions?.length) {
+    const missingPermissions = await getMissingChannelPermissions(
+      message.channelId,
+      message.authorId,
+      command.botChannelPermissions,
+    );
+    if (missingPermissions.length) {
+      missingCommandPermission(
+        message,
+        missingPermissions,
+        "framework/core:BOT_CHANNEL_PERM",
+      );
+      return true;
+    }
+  }
+  // Check if the bot has the necessary permissions to run this command
+  if (command.botServerPermissions?.length) {
+    const missingPermissions = await getMissingGuildPermissions(
+      message.guildId,
+      message.authorId,
+      command.botServerPermissions,
+    );
+    if (missingPermissions.length) {
+      missingCommandPermission(
+        message,
+        missingPermissions,
+        "framework/core:BOT_CHANNEL_PERM",
+      );
+      return true;
+    }
+  }
+  return false;
 });
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxmaWxlOi8vL2hvbWUvcnVubmVyL0Rpc2NvcmRCb3Qvc3JjL2luaGliaXRvcnMvcGVybWlzc2lvbnMudHMjMT4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtcbiAgRGlzY29yZGVub01lc3NhZ2UsXG4gIGdldE1pc3NpbmdDaGFubmVsUGVybWlzc2lvbnMsXG4gIGdldE1pc3NpbmdHdWlsZFBlcm1pc3Npb25zLFxuICBQZXJtaXNzaW9uU3RyaW5ncyxcbn0gZnJvbSBcIi4uLy4uL2RlcHMudHNcIjtcbmltcG9ydCB7IGJvdCB9IGZyb20gXCIuLi8uLi9jYWNoZS50c1wiO1xuXG4vKiogVGhpcyBmdW5jdGlvbiBjYW4gYmUgb3ZlcnJpZGVuIHRvIGhhbmRsZSB3aGVuIGEgY29tbWFuZCBoYXMgYSBtaXNzaW9uIHBlcm1pc3Npb24uICovXG5mdW5jdGlvbiBtaXNzaW5nQ29tbWFuZFBlcm1pc3Npb24oXG4gIG1lc3NhZ2U6IERpc2NvcmRlbm9NZXNzYWdlLFxuICBtaXNzaW5nUGVybWlzc2lvbnM6IFBlcm1pc3Npb25TdHJpbmdzW10sXG4gIHR5cGU6XG4gICAgfCBcImZyYW1ld29yay9jb3JlOlVTRVJfU0VSVkVSX1BFUk1cIlxuICAgIHwgXCJmcmFtZXdvcmsvY29yZTpVU0VSX0NIQU5ORUxfUEVSTVwiXG4gICAgfCBcImZyYW1ld29yay9jb3JlOkJPVF9TRVJWRVJfUEVSTVwiXG4gICAgfCBcImZyYW1ld29yay9jb3JlOkJPVF9DSEFOTkVMX1BFUk1cIixcbikge1xuICBjb25zdCBwZXJtcyA9IG1pc3NpbmdQZXJtaXNzaW9ucy5qb2luKFwiLCBcIik7XG4gIGNvbnN0IHJlc3BvbnNlID0gdHlwZSA9PT0gXCJmcmFtZXdvcmsvY29yZTpCT1RfQ0hBTk5FTF9QRVJNXCJcbiAgICA/IGBJIGFtIG1pc3NpbmcgdGhlIGZvbGxvd2luZyBwZXJtaXNzaW9ucyBpbiB0aGlzIGNoYW5uZWw6ICoqJHtwZXJtc30qKmBcbiAgICA6IHR5cGUgPT09IFwiZnJhbWV3b3JrL2NvcmU6Qk9UX1NFUlZFUl9QRVJNXCJcbiAgICA/IGBJIGFtIG1pc3NpbmcgdGhlIGZvbGxvd2luZyBwZXJtaXNzaW9ucyBpbiB0aGlzIHNlcnZlciBmcm9tIG15IHJvbGVzOiAqKiR7cGVybXN9KipgXG4gICAgOiB0eXBlID09PSBcImZyYW1ld29yay9jb3JlOlVTRVJfQ0hBTk5FTF9QRVJNXCJcbiAgICA/IGBZb3UgYXJlIG1pc3NpbmcgdGhlIGZvbGxvd2luZyBwZXJtaXNzaW9ucyBpbiB0aGlzIGNoYW5uZWw6ICoqJHtwZXJtc30qKmBcbiAgICA6IGBZb3UgYXJlIG1pc3NpbmcgdGhlIGZvbGxvd2luZyBwZXJtaXNzaW9ucyBpbiB0aGlzIHNlcnZlciBmcm9tIHlvdXIgcm9sZXM6ICoqJHtwZXJtc30qKmA7XG5cbiAgaWYgKFxuICAgIG1pc3NpbmdQZXJtaXNzaW9ucy5maW5kKFxuICAgICAgKHBlcm0pID0+IHBlcm0gPT09IFwiU0VORF9NRVNTQUdFU1wiIHx8IHBlcm0gPT09IFwiVklFV19DSEFOTkVMXCIsXG4gICAgKVxuICApIHtcbiAgICByZXR1cm47XG4gIH1cbiAgbWVzc2FnZS5yZXBseShyZXNwb25zZSk7XG59XG5cbmJvdC5pbmhpYml0b3JzLnNldChcInBlcm1pc3Npb25zXCIsIGFzeW5jIGZ1bmN0aW9uIChtZXNzYWdlLCBjb21tYW5kKSB7XG4gIGlmICghbWVzc2FnZS5ndWlsZCkgcmV0dXJuIGZhbHNlO1xuXG4gIC8vIE5vIHBlcm1pc3Npb25zIGFyZSByZXF1aXJlZFxuICBpZiAoXG4gICAgIWNvbW1hbmQuYm90Q2hhbm5lbFBlcm1pc3Npb25zPy5sZW5ndGggJiZcbiAgICAhY29tbWFuZC5ib3RTZXJ2ZXJQZXJtaXNzaW9ucz8ubGVuZ3RoICYmXG4gICAgIWNvbW1hbmQudXNlckNoYW5uZWxQZXJtaXNzaW9ucz8ubGVuZ3RoICYmXG4gICAgIWNvbW1hbmQudXNlclNlcnZlclBlcm1pc3Npb25zPy5sZW5ndGhcbiAgKSB7XG4gICAgcmV0dXJuIGZhbHNlO1xuICB9XG5cbiAgLy8gQ2hlY2sgaWYgdGhlIG1lc3NhZ2UgYXV0aG9yIGhhcyB0aGUgbmVjZXNzYXJ5IGNoYW5uZWwgcGVybWlzc2lvbnMgdG8gcnVuIHRoaXMgY29tbWFuZFxuICBpZiAoY29tbWFuZC51c2VyQ2hhbm5lbFBlcm1pc3Npb25zPy5sZW5ndGgpIHtcbiAgICBjb25zdCBtaXNzaW5nUGVybWlzc2lvbnMgPSBhd2FpdCBnZXRNaXNzaW5nQ2hhbm5lbFBlcm1pc3Npb25zKFxuICAgICAgbWVzc2FnZS5jaGFubmVsSWQsXG4gICAgICBtZXNzYWdlLmF1dGhvcklkLFxuICAgICAgY29tbWFuZC51c2VyQ2hhbm5lbFBlcm1pc3Npb25zLFxuICAgICk7XG5cbiAgICBpZiAobWlzc2luZ1Blcm1pc3Npb25zLmxlbmd0aCkge1xuICAgICAgbWlzc2luZ0NvbW1hbmRQZXJtaXNzaW9uKFxuICAgICAgICBtZXNzYWdlLFxuICAgICAgICBtaXNzaW5nUGVybWlzc2lvbnMsXG4gICAgICAgIFwiZnJhbWV3b3JrL2NvcmU6VVNFUl9DSEFOTkVMX1BFUk1cIixcbiAgICAgICk7XG4gICAgICByZXR1cm4gdHJ1ZTtcbiAgICB9XG4gIH1cblxuICBjb25zdCBtZW1iZXIgPSBtZXNzYWdlLmd1aWxkLm1lbWJlcnMuZ2V0KG1lc3NhZ2UuYXV0aG9ySWQpO1xuXG4gIC8vIENoZWNrIGlmIHRoZSBtZXNzYWdlIGF1dGhvciBoYXMgdGhlIG5lY2Vzc2FyeSBwZXJtaXNzaW9ucyB0byBydW4gdGhpcyBjb21tYW5kXG4gIGlmIChtZW1iZXIgJiYgY29tbWFuZC51c2VyU2VydmVyUGVybWlzc2lvbnM/Lmxlbmd0aCkge1xuICAgIGNvbnN0IG1pc3NpbmdQZXJtaXNzaW9ucyA9IGF3YWl0IGdldE1pc3NpbmdHdWlsZFBlcm1pc3Npb25zKFxuICAgICAgbWVzc2FnZS5ndWlsZElkLFxuICAgICAgbWVzc2FnZS5hdXRob3JJZCxcbiAgICAgIGNvbW1hbmQudXNlclNlcnZlclBlcm1pc3Npb25zLFxuICAgICk7XG5cbiAgICBpZiAobWlzc2luZ1Blcm1pc3Npb25zLmxlbmd0aCkge1xuICAgICAgbWlzc2luZ0NvbW1hbmRQZXJtaXNzaW9uKFxuICAgICAgICBtZXNzYWdlLFxuICAgICAgICBtaXNzaW5nUGVybWlzc2lvbnMsXG4gICAgICAgIFwiZnJhbWV3b3JrL2NvcmU6VVNFUl9TRVJWRVJfUEVSTVwiLFxuICAgICAgKTtcbiAgICAgIHJldHVybiB0cnVlO1xuICAgIH1cbiAgfVxuXG4gIC8vIENoZWNrIGlmIHRoZSBib3QgaGFzIHRoZSBuZWNlc3NhcnkgY2hhbm5lbCBwZXJtaXNzaW9ucyB0byBydW4gdGhpcyBjb21tYW5kIGluIHRoaXMgY2hhbm5lbC5cbiAgaWYgKGNvbW1hbmQuYm90Q2hhbm5lbFBlcm1pc3Npb25zPy5sZW5ndGgpIHtcbiAgICBjb25zdCBtaXNzaW5nUGVybWlzc2lvbnMgPSBhd2FpdCBnZXRNaXNzaW5nQ2hhbm5lbFBlcm1pc3Npb25zKFxuICAgICAgbWVzc2FnZS5jaGFubmVsSWQsXG4gICAgICBtZXNzYWdlLmF1dGhvcklkLFxuICAgICAgY29tbWFuZC5ib3RDaGFubmVsUGVybWlzc2lvbnMsXG4gICAgKTtcblxuICAgIGlmIChtaXNzaW5nUGVybWlzc2lvbnMubGVuZ3RoKSB7XG4gICAgICBtaXNzaW5nQ29tbWFuZFBlcm1pc3Npb24oXG4gICAgICAgIG1lc3NhZ2UsXG4gICAgICAgIG1pc3NpbmdQZXJtaXNzaW9ucyxcbiAgICAgICAgXCJmcmFtZXdvcmsvY29yZTpCT1RfQ0hBTk5FTF9QRVJNXCIsXG4gICAgICApO1xuICAgICAgcmV0dXJuIHRydWU7XG4gICAgfVxuICB9XG5cbiAgLy8gQ2hlY2sgaWYgdGhlIGJvdCBoYXMgdGhlIG5lY2Vzc2FyeSBwZXJtaXNzaW9ucyB0byBydW4gdGhpcyBjb21tYW5kXG4gIGlmIChjb21tYW5kLmJvdFNlcnZlclBlcm1pc3Npb25zPy5sZW5ndGgpIHtcbiAgICBjb25zdCBtaXNzaW5nUGVybWlzc2lvbnMgPSBhd2FpdCBnZXRNaXNzaW5nR3VpbGRQZXJtaXNzaW9ucyhcbiAgICAgIG1lc3NhZ2UuZ3VpbGRJZCxcbiAgICAgIG1lc3NhZ2UuYXV0aG9ySWQsXG4gICAgICBjb21tYW5kLmJvdFNlcnZlclBlcm1pc3Npb25zLFxuICAgICk7XG5cbiAgICBpZiAobWlzc2luZ1Blcm1pc3Npb25zLmxlbmd0aCkge1xuICAgICAgbWlzc2luZ0NvbW1hbmRQZXJtaXNzaW9uKFxuICAgICAgICBtZXNzYWdlLFxuICAgICAgICBtaXNzaW5nUGVybWlzc2lvbnMsXG4gICAgICAgIFwiZnJhbWV3b3JrL2NvcmU6Qk9UX0NIQU5ORUxfUEVSTVwiLFxuICAgICAgKTtcbiAgICAgIHJldHVybiB0cnVlO1xuICAgIH1cbiAgfVxuXG4gIHJldHVybiBmYWxzZTtcbn0pO1xuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUVFLDRCQUE0QixFQUM1QiwwQkFBMEIsU0FFckIsYUFBZTtTQUNiLEdBQUcsU0FBUSxjQUFnQjtBQUVwQyxFQUF3RixBQUF4RixvRkFBd0YsQUFBeEYsRUFBd0YsVUFDL0Usd0JBQXdCLENBQy9CLE9BQTBCLEVBQzFCLGtCQUF1QyxFQUN2QyxJQUlxQztVQUUvQixLQUFLLEdBQUcsa0JBQWtCLENBQUMsSUFBSSxFQUFDLEVBQUk7VUFDcEMsUUFBUSxHQUFHLElBQUksTUFBSywrQkFBaUMsS0FDdEQsMERBQTBELEVBQUUsS0FBSyxDQUFDLEVBQUUsSUFDckUsSUFBSSxNQUFLLDhCQUFnQyxLQUN4Qyx1RUFBdUUsRUFBRSxLQUFLLENBQUMsRUFBRSxJQUNsRixJQUFJLE1BQUssZ0NBQWtDLEtBQzFDLDZEQUE2RCxFQUFFLEtBQUssQ0FBQyxFQUFFLEtBQ3ZFLDRFQUE0RSxFQUFFLEtBQUssQ0FBQyxFQUFFO1FBR3pGLGtCQUFrQixDQUFDLElBQUksRUFDcEIsSUFBSSxHQUFLLElBQUksTUFBSyxhQUFlLEtBQUksSUFBSSxNQUFLLFlBQWM7Ozs7SUFLakUsT0FBTyxDQUFDLEtBQUssQ0FBQyxRQUFROztBQUd4QixHQUFHLENBQUMsVUFBVSxDQUFDLEdBQUcsRUFBQyxXQUFhLGtCQUFrQixPQUFPLEVBQUUsT0FBTztTQUMzRCxPQUFPLENBQUMsS0FBSyxTQUFTLEtBQUs7SUFFaEMsRUFBOEIsQUFBOUIsNEJBQThCO1NBRTNCLE9BQU8sQ0FBQyxxQkFBcUIsRUFBRSxNQUFNLEtBQ3JDLE9BQU8sQ0FBQyxvQkFBb0IsRUFBRSxNQUFNLEtBQ3BDLE9BQU8sQ0FBQyxzQkFBc0IsRUFBRSxNQUFNLEtBQ3RDLE9BQU8sQ0FBQyxxQkFBcUIsRUFBRSxNQUFNO2VBRS9CLEtBQUs7O0lBR2QsRUFBd0YsQUFBeEYsc0ZBQXdGO1FBQ3BGLE9BQU8sQ0FBQyxzQkFBc0IsRUFBRSxNQUFNO2NBQ2xDLGtCQUFrQixTQUFTLDRCQUE0QixDQUMzRCxPQUFPLENBQUMsU0FBUyxFQUNqQixPQUFPLENBQUMsUUFBUSxFQUNoQixPQUFPLENBQUMsc0JBQXNCO1lBRzVCLGtCQUFrQixDQUFDLE1BQU07WUFDM0Isd0JBQXdCLENBQ3RCLE9BQU8sRUFDUCxrQkFBa0IsR0FDbEIsZ0NBQWtDO21CQUU3QixJQUFJOzs7VUFJVCxNQUFNLEdBQUcsT0FBTyxDQUFDLEtBQUssQ0FBQyxPQUFPLENBQUMsR0FBRyxDQUFDLE9BQU8sQ0FBQyxRQUFRO0lBRXpELEVBQWdGLEFBQWhGLDhFQUFnRjtRQUM1RSxNQUFNLElBQUksT0FBTyxDQUFDLHFCQUFxQixFQUFFLE1BQU07Y0FDM0Msa0JBQWtCLFNBQVMsMEJBQTBCLENBQ3pELE9BQU8sQ0FBQyxPQUFPLEVBQ2YsT0FBTyxDQUFDLFFBQVEsRUFDaEIsT0FBTyxDQUFDLHFCQUFxQjtZQUczQixrQkFBa0IsQ0FBQyxNQUFNO1lBQzNCLHdCQUF3QixDQUN0QixPQUFPLEVBQ1Asa0JBQWtCLEdBQ2xCLCtCQUFpQzttQkFFNUIsSUFBSTs7O0lBSWYsRUFBOEYsQUFBOUYsNEZBQThGO1FBQzFGLE9BQU8sQ0FBQyxxQkFBcUIsRUFBRSxNQUFNO2NBQ2pDLGtCQUFrQixTQUFTLDRCQUE0QixDQUMzRCxPQUFPLENBQUMsU0FBUyxFQUNqQixPQUFPLENBQUMsUUFBUSxFQUNoQixPQUFPLENBQUMscUJBQXFCO1lBRzNCLGtCQUFrQixDQUFDLE1BQU07WUFDM0Isd0JBQXdCLENBQ3RCLE9BQU8sRUFDUCxrQkFBa0IsR0FDbEIsK0JBQWlDO21CQUU1QixJQUFJOzs7SUFJZixFQUFxRSxBQUFyRSxtRUFBcUU7UUFDakUsT0FBTyxDQUFDLG9CQUFvQixFQUFFLE1BQU07Y0FDaEMsa0JBQWtCLFNBQVMsMEJBQTBCLENBQ3pELE9BQU8sQ0FBQyxPQUFPLEVBQ2YsT0FBTyxDQUFDLFFBQVEsRUFDaEIsT0FBTyxDQUFDLG9CQUFvQjtZQUcxQixrQkFBa0IsQ0FBQyxNQUFNO1lBQzNCLHdCQUF3QixDQUN0QixPQUFPLEVBQ1Asa0JBQWtCLEdBQ2xCLCtCQUFpQzttQkFFNUIsSUFBSTs7O1dBSVIsS0FBSyJ9

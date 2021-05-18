@@ -8,13 +8,25 @@ import { ws } from "../../ws/ws.ts";
  * Create a new guild based on a template
  * NOTE: This endpoint can be used only by bots in less than 10 guilds.
  */ export async function createGuildFromTemplate(templateCode, data) {
-    if (await cacheHandlers.size("guilds") >= 10) {
-        throw new Error("This function can only be used by bots in less than 10 guilds.");
-    }
-    if (data.icon) {
-        data.icon = await urlToBase64(data.icon);
-    }
-    const createdGuild = await rest.runMethod("post", endpoints.GUILD_TEMPLATE(templateCode), data);
-    return await structures.createDiscordenoGuild(createdGuild, Number((BigInt(createdGuild.id) >> 22n % BigInt(ws.botGatewayData.shards)).toString()));
+  if (await cacheHandlers.size("guilds") >= 10) {
+    throw new Error(
+      "This function can only be used by bots in less than 10 guilds.",
+    );
+  }
+  if (data.icon) {
+    data.icon = await urlToBase64(data.icon);
+  }
+  const createdGuild = await rest.runMethod(
+    "post",
+    endpoints.GUILD_TEMPLATE(templateCode),
+    data,
+  );
+  return await structures.createDiscordenoGuild(
+    createdGuild,
+    Number(
+      (BigInt(createdGuild.id) >> 22n % BigInt(ws.botGatewayData.shards))
+        .toString(),
+    ),
+  );
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvdGVtcGxhdGVzL2NyZWF0ZV9ndWlsZF9mcm9tX3RlbXBsYXRlLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjYWNoZUhhbmRsZXJzIH0gZnJvbSBcIi4uLy4uL2NhY2hlLnRzXCI7XG5pbXBvcnQgeyByZXN0IH0gZnJvbSBcIi4uLy4uL3Jlc3QvcmVzdC50c1wiO1xuaW1wb3J0IHsgc3RydWN0dXJlcyB9IGZyb20gXCIuLi8uLi9zdHJ1Y3R1cmVzL21vZC50c1wiO1xuaW1wb3J0IHR5cGUgeyBHdWlsZCB9IGZyb20gXCIuLi8uLi90eXBlcy9ndWlsZHMvZ3VpbGQudHNcIjtcbmltcG9ydCB0eXBlIHsgQ3JlYXRlR3VpbGRGcm9tVGVtcGxhdGUgfSBmcm9tIFwiLi4vLi4vdHlwZXMvdGVtcGxhdGVzL2NyZWF0ZV9ndWlsZF9mcm9tX3RlbXBsYXRlLnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcbmltcG9ydCB7IHVybFRvQmFzZTY0IH0gZnJvbSBcIi4uLy4uL3V0aWwvdXRpbHMudHNcIjtcbmltcG9ydCB7IHdzIH0gZnJvbSBcIi4uLy4uL3dzL3dzLnRzXCI7XG5cbi8qKlxuICogQ3JlYXRlIGEgbmV3IGd1aWxkIGJhc2VkIG9uIGEgdGVtcGxhdGVcbiAqIE5PVEU6IFRoaXMgZW5kcG9pbnQgY2FuIGJlIHVzZWQgb25seSBieSBib3RzIGluIGxlc3MgdGhhbiAxMCBndWlsZHMuXG4gKi9cbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBjcmVhdGVHdWlsZEZyb21UZW1wbGF0ZShcbiAgdGVtcGxhdGVDb2RlOiBzdHJpbmcsXG4gIGRhdGE6IENyZWF0ZUd1aWxkRnJvbVRlbXBsYXRlLFxuKSB7XG4gIGlmICgoYXdhaXQgY2FjaGVIYW5kbGVycy5zaXplKFwiZ3VpbGRzXCIpKSA+PSAxMCkge1xuICAgIHRocm93IG5ldyBFcnJvcihcbiAgICAgIFwiVGhpcyBmdW5jdGlvbiBjYW4gb25seSBiZSB1c2VkIGJ5IGJvdHMgaW4gbGVzcyB0aGFuIDEwIGd1aWxkcy5cIixcbiAgICApO1xuICB9XG5cbiAgaWYgKGRhdGEuaWNvbikge1xuICAgIGRhdGEuaWNvbiA9IGF3YWl0IHVybFRvQmFzZTY0KGRhdGEuaWNvbik7XG4gIH1cblxuICBjb25zdCBjcmVhdGVkR3VpbGQgPSBhd2FpdCByZXN0LnJ1bk1ldGhvZDxHdWlsZD4oXG4gICAgXCJwb3N0XCIsXG4gICAgZW5kcG9pbnRzLkdVSUxEX1RFTVBMQVRFKHRlbXBsYXRlQ29kZSksXG4gICAgZGF0YSxcbiAgKTtcblxuICByZXR1cm4gYXdhaXQgc3RydWN0dXJlcy5jcmVhdGVEaXNjb3JkZW5vR3VpbGQoXG4gICAgY3JlYXRlZEd1aWxkLFxuICAgIE51bWJlcihcbiAgICAgIChCaWdJbnQoY3JlYXRlZEd1aWxkLmlkKSA+PiAyMm4gJSBCaWdJbnQod3MuYm90R2F0ZXdheURhdGEuc2hhcmRzKSlcbiAgICAgICAgLnRvU3RyaW5nKCksXG4gICAgKSxcbiAgKTtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxhQUFhLFNBQVEsY0FBZ0I7U0FDckMsSUFBSSxTQUFRLGtCQUFvQjtTQUNoQyxVQUFVLFNBQVEsdUJBQXlCO1NBRzNDLFNBQVMsU0FBUSx1QkFBeUI7U0FDMUMsV0FBVyxTQUFRLG1CQUFxQjtTQUN4QyxFQUFFLFNBQVEsY0FBZ0I7QUFFbkMsRUFHRyxBQUhIOzs7Q0FHRyxBQUhILEVBR0csdUJBQ21CLHVCQUF1QixDQUMzQyxZQUFvQixFQUNwQixJQUE2QjtjQUVsQixhQUFhLENBQUMsSUFBSSxFQUFDLE1BQVEsTUFBTSxFQUFFO2tCQUNsQyxLQUFLLEVBQ2IsOERBQWdFOztRQUloRSxJQUFJLENBQUMsSUFBSTtRQUNYLElBQUksQ0FBQyxJQUFJLFNBQVMsV0FBVyxDQUFDLElBQUksQ0FBQyxJQUFJOztVQUduQyxZQUFZLFNBQVMsSUFBSSxDQUFDLFNBQVMsRUFDdkMsSUFBTSxHQUNOLFNBQVMsQ0FBQyxjQUFjLENBQUMsWUFBWSxHQUNyQyxJQUFJO2lCQUdPLFVBQVUsQ0FBQyxxQkFBcUIsQ0FDM0MsWUFBWSxFQUNaLE1BQU0sRUFDSCxNQUFNLENBQUMsWUFBWSxDQUFDLEVBQUUsS0FBSyxFQUFHLEFBQUgsQ0FBRyxHQUFHLE1BQU0sQ0FBQyxFQUFFLENBQUMsY0FBYyxDQUFDLE1BQU0sR0FDOUQsUUFBUSJ9

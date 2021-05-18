@@ -1,20 +1,47 @@
 export var DiscordGatewayCloseEventCodes;
-(function(DiscordGatewayCloseEventCodes) {
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["UnknownError"] = 4000] = "UnknownError";
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["UnknownOpcode"] = 4001] = "UnknownOpcode";
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["DecodeError"] = 4002] = "DecodeError";
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["NotAuthenticated"] = 4003] = "NotAuthenticated";
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["AuthenticationFailed"] = 4004] = "AuthenticationFailed";
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["AlreadyAuthenticated"] = 4005] = "AlreadyAuthenticated";
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["InvalidSeq"] = 4007] = "InvalidSeq";
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["RateLimited"] = 4008] = "RateLimited";
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["SessionTimedOut"] = 4009] = "SessionTimedOut";
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["InvalidShard"] = 4010] = "InvalidShard";
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["ShardingRequired"] = 4011] = "ShardingRequired";
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["InvalidApiVersion"] = 4012] = "InvalidApiVersion";
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["InvalidIntents"] = 4013] = "InvalidIntents";
-    DiscordGatewayCloseEventCodes[DiscordGatewayCloseEventCodes["DisallowedIntents"] = 4014] = "DisallowedIntents";
-})(DiscordGatewayCloseEventCodes || (DiscordGatewayCloseEventCodes = {
-}));
+(function (DiscordGatewayCloseEventCodes) {
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["UnknownError"] = 4000
+  ] = "UnknownError";
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["UnknownOpcode"] = 4001
+  ] = "UnknownOpcode";
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["DecodeError"] = 4002
+  ] = "DecodeError";
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["NotAuthenticated"] = 4003
+  ] = "NotAuthenticated";
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["AuthenticationFailed"] = 4004
+  ] = "AuthenticationFailed";
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["AlreadyAuthenticated"] = 4005
+  ] = "AlreadyAuthenticated";
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["InvalidSeq"] = 4007
+  ] = "InvalidSeq";
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["RateLimited"] = 4008
+  ] = "RateLimited";
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["SessionTimedOut"] = 4009
+  ] = "SessionTimedOut";
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["InvalidShard"] = 4010
+  ] = "InvalidShard";
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["ShardingRequired"] = 4011
+  ] = "ShardingRequired";
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["InvalidApiVersion"] = 4012
+  ] = "InvalidApiVersion";
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["InvalidIntents"] = 4013
+  ] = "InvalidIntents";
+  DiscordGatewayCloseEventCodes[
+    DiscordGatewayCloseEventCodes["DisallowedIntents"] = 4014
+  ] = "DisallowedIntents";
+})(DiscordGatewayCloseEventCodes || (DiscordGatewayCloseEventCodes = {}));
 export const GatewayCloseEventCodes = DiscordGatewayCloseEventCodes;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL2NvZGVzL2dhdGV3YXlfY2xvc2VfZXZlbnRfY29kZXMudHM+Il0sInNvdXJjZXNDb250ZW50IjpbIi8qKiBodHRwczovL2Rpc2NvcmQuY29tL2RldmVsb3BlcnMvZG9jcy90b3BpY3Mvb3Bjb2Rlcy1hbmQtc3RhdHVzLWNvZGVzI29wY29kZXMtYW5kLXN0YXR1cy1jb2RlcyAqL1xuZXhwb3J0IGVudW0gRGlzY29yZEdhdGV3YXlDbG9zZUV2ZW50Q29kZXMge1xuICBVbmtub3duRXJyb3IgPSA0MDAwLFxuICBVbmtub3duT3Bjb2RlLFxuICBEZWNvZGVFcnJvcixcbiAgTm90QXV0aGVudGljYXRlZCxcbiAgQXV0aGVudGljYXRpb25GYWlsZWQsXG4gIEFscmVhZHlBdXRoZW50aWNhdGVkLFxuICBJbnZhbGlkU2VxID0gNDAwNyxcbiAgUmF0ZUxpbWl0ZWQsXG4gIFNlc3Npb25UaW1lZE91dCxcbiAgSW52YWxpZFNoYXJkLFxuICBTaGFyZGluZ1JlcXVpcmVkLFxuICBJbnZhbGlkQXBpVmVyc2lvbixcbiAgSW52YWxpZEludGVudHMsXG4gIERpc2FsbG93ZWRJbnRlbnRzLFxufVxuXG5leHBvcnQgdHlwZSBHYXRld2F5Q2xvc2VFdmVudENvZGVzID0gRGlzY29yZEdhdGV3YXlDbG9zZUV2ZW50Q29kZXM7XG5leHBvcnQgY29uc3QgR2F0ZXdheUNsb3NlRXZlbnRDb2RlcyA9IERpc2NvcmRHYXRld2F5Q2xvc2VFdmVudENvZGVzO1xuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7VUFDWSw2QkFBNkI7SUFBN0IsNkJBQTZCLENBQTdCLDZCQUE2QixFQUN2QyxZQUFZLEtBQUcsSUFBSSxLQUFuQixZQUFZO0lBREYsNkJBQTZCLENBQTdCLDZCQUE2QixFQUV2QyxhQUFhLEtBQWIsSUFBYSxLQUFiLGFBQWE7SUFGSCw2QkFBNkIsQ0FBN0IsNkJBQTZCLEVBR3ZDLFdBQVcsS0FBWCxJQUFXLEtBQVgsV0FBVztJQUhELDZCQUE2QixDQUE3Qiw2QkFBNkIsRUFJdkMsZ0JBQWdCLEtBQWhCLElBQWdCLEtBQWhCLGdCQUFnQjtJQUpOLDZCQUE2QixDQUE3Qiw2QkFBNkIsRUFLdkMsb0JBQW9CLEtBQXBCLElBQW9CLEtBQXBCLG9CQUFvQjtJQUxWLDZCQUE2QixDQUE3Qiw2QkFBNkIsRUFNdkMsb0JBQW9CLEtBQXBCLElBQW9CLEtBQXBCLG9CQUFvQjtJQU5WLDZCQUE2QixDQUE3Qiw2QkFBNkIsRUFPdkMsVUFBVSxLQUFHLElBQUksS0FBakIsVUFBVTtJQVBBLDZCQUE2QixDQUE3Qiw2QkFBNkIsRUFRdkMsV0FBVyxLQUFYLElBQVcsS0FBWCxXQUFXO0lBUkQsNkJBQTZCLENBQTdCLDZCQUE2QixFQVN2QyxlQUFlLEtBQWYsSUFBZSxLQUFmLGVBQWU7SUFUTCw2QkFBNkIsQ0FBN0IsNkJBQTZCLEVBVXZDLFlBQVksS0FBWixJQUFZLEtBQVosWUFBWTtJQVZGLDZCQUE2QixDQUE3Qiw2QkFBNkIsRUFXdkMsZ0JBQWdCLEtBQWhCLElBQWdCLEtBQWhCLGdCQUFnQjtJQVhOLDZCQUE2QixDQUE3Qiw2QkFBNkIsRUFZdkMsaUJBQWlCLEtBQWpCLElBQWlCLEtBQWpCLGlCQUFpQjtJQVpQLDZCQUE2QixDQUE3Qiw2QkFBNkIsRUFhdkMsY0FBYyxLQUFkLElBQWMsS0FBZCxjQUFjO0lBYkosNkJBQTZCLENBQTdCLDZCQUE2QixFQWN2QyxpQkFBaUIsS0FBakIsSUFBaUIsS0FBakIsaUJBQWlCO0dBZFAsNkJBQTZCLEtBQTdCLDZCQUE2Qjs7YUFrQjVCLHNCQUFzQixHQUFHLDZCQUE2QiJ9

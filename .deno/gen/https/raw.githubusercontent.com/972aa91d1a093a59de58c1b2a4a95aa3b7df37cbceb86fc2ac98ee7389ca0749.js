@@ -2,123 +2,159 @@ import { eventHandlers } from "../bot.ts";
 import { DiscordHTTPResponseCodes } from "../types/codes/http_response_codes.ts";
 import { delay } from "../util/utils.ts";
 import { rest } from "./rest.ts";
-/** Processes the queue by looping over each path separately until the queues are empty. */ export async function processQueue(id) {
-    const queue = rest.pathQueues.get(id);
-    if (!queue) return;
-    while(queue.length){
-        rest.eventHandlers.debug?.("loop", "Running while loop in processQueue function.");
-        // IF THE BOT IS GLOBALLY RATELIMITED TRY AGAIN
-        if (rest.globallyRateLimited) {
-            setTimeout(async ()=>{
-                eventHandlers.debug?.("loop", `Running setTimeout in processQueue function.`);
-                await processQueue(id);
-            }, 1000);
+/** Processes the queue by looping over each path separately until the queues are empty. */ export async function processQueue(
+  id,
+) {
+  const queue = rest.pathQueues.get(id);
+  if (!queue) return;
+  while (queue.length) {
+    rest.eventHandlers.debug?.(
+      "loop",
+      "Running while loop in processQueue function.",
+    );
+    // IF THE BOT IS GLOBALLY RATELIMITED TRY AGAIN
+    if (rest.globallyRateLimited) {
+      setTimeout(async () => {
+        eventHandlers.debug?.(
+          "loop",
+          `Running setTimeout in processQueue function.`,
+        );
+        await processQueue(id);
+      }, 1000);
+      break;
+    }
+    // SELECT THE FIRST ITEM FROM THIS QUEUE
+    const [queuedRequest] = queue;
+    // IF THIS DOESNT HAVE ANY ITEMS JUST CANCEL, THE CLEANER WILL REMOVE IT.
+    if (!queuedRequest) return;
+    const basicURL = rest.simplifyUrl(
+      queuedRequest.request.url,
+      queuedRequest.request.method.toUpperCase(),
+    );
+    // IF THIS URL IS STILL RATE LIMITED, TRY AGAIN
+    const urlResetIn = rest.checkRateLimits(basicURL);
+    if (urlResetIn) {
+      // PAUSE FOR THIS SPECIFC REQUEST
+      await delay(urlResetIn);
+      continue;
+    }
+    // IF A BUCKET EXISTS, CHECK THE BUCKET'S RATE LIMITS
+    const bucketResetIn = queuedRequest.payload.bucketId
+      ? rest.checkRateLimits(queuedRequest.payload.bucketId)
+      : false;
+    // THIS BUCKET IS STILL RATELIMITED, RE-ADD TO QUEUE
+    if (bucketResetIn) continue;
+    // EXECUTE THE REQUEST
+    // IF THIS IS A GET REQUEST, CHANGE THE BODY TO QUERY PARAMETERS
+    const query =
+      queuedRequest.request.method.toUpperCase() === "GET" &&
+        queuedRequest.payload.body
+        ? Object.entries(queuedRequest.payload.body).map(([key, value]) =>
+          `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+        ).join("&")
+        : "";
+    const urlToUse =
+      queuedRequest.request.method.toUpperCase() === "GET" && query
+        ? `${queuedRequest.request.url}?${query}`
+        : queuedRequest.request.url;
+    // CUSTOM HANDLER FOR USER TO LOG OR WHATEVER WHENEVER A FETCH IS MADE
+    rest.eventHandlers.fetching(queuedRequest.payload);
+    try {
+      const response = await fetch(
+        urlToUse,
+        rest.createRequestBody(queuedRequest),
+      );
+      rest.eventHandlers.fetched(queuedRequest.payload);
+      const bucketIdFromHeaders = rest.processRequestHeaders(
+        basicURL,
+        response.headers,
+      );
+      // SET THE BUCKET Id IF IT WAS PRESENT
+      if (bucketIdFromHeaders) {
+        queuedRequest.payload.bucketId = bucketIdFromHeaders;
+      }
+      if (response.status < 200 || response.status >= 400) {
+        rest.eventHandlers.error("httpError", queuedRequest.payload, response);
+        let error = "REQUEST_UNKNOWN_ERROR";
+        switch (response.status) {
+          case DiscordHTTPResponseCodes.BadRequest:
+            error =
+              "The request was improperly formatted, or the server couldn't understand it.";
+            break;
+          case DiscordHTTPResponseCodes.Unauthorized:
+            error = "The Authorization header was missing or invalid.";
+            break;
+          case DiscordHTTPResponseCodes.Forbidden:
+            error =
+              "The Authorization token you passed did not have permission to the resource.";
+            break;
+          case DiscordHTTPResponseCodes.NotFound:
+            error = "The resource at the location specified doesn't exist.";
+            break;
+          case DiscordHTTPResponseCodes.MethodNotAllowed:
+            error =
+              "The HTTP method used is not valid for the location specified.";
+            break;
+          case DiscordHTTPResponseCodes.GatewayUnavailable:
+            error =
+              "There was not a gateway available to process your request. Wait a bit and retry.";
             break;
         }
-        // SELECT THE FIRST ITEM FROM THIS QUEUE
-        const [queuedRequest] = queue;
-        // IF THIS DOESNT HAVE ANY ITEMS JUST CANCEL, THE CLEANER WILL REMOVE IT.
-        if (!queuedRequest) return;
-        const basicURL = rest.simplifyUrl(queuedRequest.request.url, queuedRequest.request.method.toUpperCase());
-        // IF THIS URL IS STILL RATE LIMITED, TRY AGAIN
-        const urlResetIn = rest.checkRateLimits(basicURL);
-        if (urlResetIn) {
-            // PAUSE FOR THIS SPECIFC REQUEST
-            await delay(urlResetIn);
-            continue;
-        }
-        // IF A BUCKET EXISTS, CHECK THE BUCKET'S RATE LIMITS
-        const bucketResetIn = queuedRequest.payload.bucketId ? rest.checkRateLimits(queuedRequest.payload.bucketId) : false;
-        // THIS BUCKET IS STILL RATELIMITED, RE-ADD TO QUEUE
-        if (bucketResetIn) continue;
-        // EXECUTE THE REQUEST
-        // IF THIS IS A GET REQUEST, CHANGE THE BODY TO QUERY PARAMETERS
-        const query = queuedRequest.request.method.toUpperCase() === "GET" && queuedRequest.payload.body ? Object.entries(queuedRequest.payload.body).map(([key, value])=>`${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-        ).join("&") : "";
-        const urlToUse = queuedRequest.request.method.toUpperCase() === "GET" && query ? `${queuedRequest.request.url}?${query}` : queuedRequest.request.url;
-        // CUSTOM HANDLER FOR USER TO LOG OR WHATEVER WHENEVER A FETCH IS MADE
-        rest.eventHandlers.fetching(queuedRequest.payload);
-        try {
-            const response = await fetch(urlToUse, rest.createRequestBody(queuedRequest));
-            rest.eventHandlers.fetched(queuedRequest.payload);
-            const bucketIdFromHeaders = rest.processRequestHeaders(basicURL, response.headers);
-            // SET THE BUCKET Id IF IT WAS PRESENT
-            if (bucketIdFromHeaders) {
-                queuedRequest.payload.bucketId = bucketIdFromHeaders;
-            }
-            if (response.status < 200 || response.status >= 400) {
-                rest.eventHandlers.error("httpError", queuedRequest.payload, response);
-                let error = "REQUEST_UNKNOWN_ERROR";
-                switch(response.status){
-                    case DiscordHTTPResponseCodes.BadRequest:
-                        error = "The request was improperly formatted, or the server couldn't understand it.";
-                        break;
-                    case DiscordHTTPResponseCodes.Unauthorized:
-                        error = "The Authorization header was missing or invalid.";
-                        break;
-                    case DiscordHTTPResponseCodes.Forbidden:
-                        error = "The Authorization token you passed did not have permission to the resource.";
-                        break;
-                    case DiscordHTTPResponseCodes.NotFound:
-                        error = "The resource at the location specified doesn't exist.";
-                        break;
-                    case DiscordHTTPResponseCodes.MethodNotAllowed:
-                        error = "The HTTP method used is not valid for the location specified.";
-                        break;
-                    case DiscordHTTPResponseCodes.GatewayUnavailable:
-                        error = "There was not a gateway available to process your request. Wait a bit and retry.";
-                        break;
-                }
-                queuedRequest.request.reject?.(new Error(`[${response.status}] ${error}`));
-                // If Rate limited should not remove from queue
-                if (response.status !== 429) queue.shift();
-                continue;
-            }
-            // SOMETIMES DISCORD RETURNS AN EMPTY 204 RESPONSE THAT CAN'T BE MADE TO JSON
-            if (response.status === 204) {
-                rest.eventHandlers.fetchSuccess(queuedRequest.payload);
-                // REMOVE FROM QUEUE
-                queue.shift();
-                queuedRequest.request.respond({
-                    status: 204
-                });
-            } else {
-                // CONVERT THE RESPONSE TO JSON
-                const json = await response.json();
-                // IF THE RESPONSE WAS RATE LIMITED, HANDLE ACCORDINGLY
-                if (json.retry_after || json.message === "You are being rate limited.") {
-                    // IF IT HAS MAXED RETRIES SOMETHING SERIOUSLY WRONG. CANCEL OUT.
-                    if (queuedRequest.payload.retryCount >= rest.maxRetryCount) {
-                        rest.eventHandlers.retriesMaxed(queuedRequest.payload);
-                        queuedRequest.request.respond({
-                            status: 200,
-                            body: JSON.stringify({
-                                error: "The request was rate limited and it maxed out the retries limit."
-                            })
-                        });
-                        // REMOVE ITEM FROM QUEUE TO PREVENT RETRY
-                        queue.shift();
-                        continue;
-                    }
-                    continue;
-                }
-                rest.eventHandlers.fetchSuccess(queuedRequest.payload);
-                // REMOVE FROM QUEUE
-                queue.shift();
-                queuedRequest.request.respond({
-                    status: 200,
-                    body: JSON.stringify(json)
-                });
-            }
-        } catch (error) {
-            // SOMETHING WENT WRONG, LOG AND RESPOND WITH ERROR
-            rest.eventHandlers.fetchFailed(queuedRequest.payload, error);
-            queuedRequest.request.reject?.(error);
-            // REMOVE FROM QUEUE
+        queuedRequest.request.reject?.(
+          new Error(`[${response.status}] ${error}`),
+        );
+        // If Rate limited should not remove from queue
+        if (response.status !== 429) queue.shift();
+        continue;
+      }
+      // SOMETIMES DISCORD RETURNS AN EMPTY 204 RESPONSE THAT CAN'T BE MADE TO JSON
+      if (response.status === 204) {
+        rest.eventHandlers.fetchSuccess(queuedRequest.payload);
+        // REMOVE FROM QUEUE
+        queue.shift();
+        queuedRequest.request.respond({
+          status: 204,
+        });
+      } else {
+        // CONVERT THE RESPONSE TO JSON
+        const json = await response.json();
+        // IF THE RESPONSE WAS RATE LIMITED, HANDLE ACCORDINGLY
+        if (
+          json.retry_after || json.message === "You are being rate limited."
+        ) {
+          // IF IT HAS MAXED RETRIES SOMETHING SERIOUSLY WRONG. CANCEL OUT.
+          if (queuedRequest.payload.retryCount >= rest.maxRetryCount) {
+            rest.eventHandlers.retriesMaxed(queuedRequest.payload);
+            queuedRequest.request.respond({
+              status: 200,
+              body: JSON.stringify({
+                error:
+                  "The request was rate limited and it maxed out the retries limit.",
+              }),
+            });
+            // REMOVE ITEM FROM QUEUE TO PREVENT RETRY
             queue.shift();
+            continue;
+          }
+          continue;
         }
+        rest.eventHandlers.fetchSuccess(queuedRequest.payload);
+        // REMOVE FROM QUEUE
+        queue.shift();
+        queuedRequest.request.respond({
+          status: 200,
+          body: JSON.stringify(json),
+        });
+      }
+    } catch (error) {
+      // SOMETHING WENT WRONG, LOG AND RESPOND WITH ERROR
+      rest.eventHandlers.fetchFailed(queuedRequest.payload, error);
+      queuedRequest.request.reject?.(error);
+      // REMOVE FROM QUEUE
+      queue.shift();
     }
-    // ONCE QUEUE IS DONE, WE CAN TRY CLEANING UP
-    rest.cleanupQueues();
+  }
+  // ONCE QUEUE IS DONE, WE CAN TRY CLEANING UP
+  rest.cleanupQueues();
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3Jlc3QvcHJvY2Vzc19xdWV1ZS50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgZXZlbnRIYW5kbGVycyB9IGZyb20gXCIuLi9ib3QudHNcIjtcbmltcG9ydCB7IERpc2NvcmRIVFRQUmVzcG9uc2VDb2RlcyB9IGZyb20gXCIuLi90eXBlcy9jb2Rlcy9odHRwX3Jlc3BvbnNlX2NvZGVzLnRzXCI7XG5pbXBvcnQgeyBkZWxheSB9IGZyb20gXCIuLi91dGlsL3V0aWxzLnRzXCI7XG5pbXBvcnQgeyByZXN0IH0gZnJvbSBcIi4vcmVzdC50c1wiO1xuXG4vKiogUHJvY2Vzc2VzIHRoZSBxdWV1ZSBieSBsb29waW5nIG92ZXIgZWFjaCBwYXRoIHNlcGFyYXRlbHkgdW50aWwgdGhlIHF1ZXVlcyBhcmUgZW1wdHkuICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gcHJvY2Vzc1F1ZXVlKGlkOiBzdHJpbmcpIHtcbiAgY29uc3QgcXVldWUgPSByZXN0LnBhdGhRdWV1ZXMuZ2V0KGlkKTtcbiAgaWYgKCFxdWV1ZSkgcmV0dXJuO1xuXG4gIHdoaWxlIChxdWV1ZS5sZW5ndGgpIHtcbiAgICByZXN0LmV2ZW50SGFuZGxlcnMuZGVidWc/LihcbiAgICAgIFwibG9vcFwiLFxuICAgICAgXCJSdW5uaW5nIHdoaWxlIGxvb3AgaW4gcHJvY2Vzc1F1ZXVlIGZ1bmN0aW9uLlwiLFxuICAgICk7XG4gICAgLy8gSUYgVEhFIEJPVCBJUyBHTE9CQUxMWSBSQVRFTElNSVRFRCBUUlkgQUdBSU5cbiAgICBpZiAocmVzdC5nbG9iYWxseVJhdGVMaW1pdGVkKSB7XG4gICAgICBzZXRUaW1lb3V0KGFzeW5jICgpID0+IHtcbiAgICAgICAgZXZlbnRIYW5kbGVycy5kZWJ1Zz8uKFxuICAgICAgICAgIFwibG9vcFwiLFxuICAgICAgICAgIGBSdW5uaW5nIHNldFRpbWVvdXQgaW4gcHJvY2Vzc1F1ZXVlIGZ1bmN0aW9uLmAsXG4gICAgICAgICk7XG4gICAgICAgIGF3YWl0IHByb2Nlc3NRdWV1ZShpZCk7XG4gICAgICB9LCAxMDAwKTtcblxuICAgICAgYnJlYWs7XG4gICAgfVxuICAgIC8vIFNFTEVDVCBUSEUgRklSU1QgSVRFTSBGUk9NIFRISVMgUVVFVUVcbiAgICBjb25zdCBbcXVldWVkUmVxdWVzdF0gPSBxdWV1ZTtcbiAgICAvLyBJRiBUSElTIERPRVNOVCBIQVZFIEFOWSBJVEVNUyBKVVNUIENBTkNFTCwgVEhFIENMRUFORVIgV0lMTCBSRU1PVkUgSVQuXG4gICAgaWYgKCFxdWV1ZWRSZXF1ZXN0KSByZXR1cm47XG5cbiAgICBjb25zdCBiYXNpY1VSTCA9IHJlc3Quc2ltcGxpZnlVcmwoXG4gICAgICBxdWV1ZWRSZXF1ZXN0LnJlcXVlc3QudXJsLFxuICAgICAgcXVldWVkUmVxdWVzdC5yZXF1ZXN0Lm1ldGhvZC50b1VwcGVyQ2FzZSgpLFxuICAgICk7XG5cbiAgICAvLyBJRiBUSElTIFVSTCBJUyBTVElMTCBSQVRFIExJTUlURUQsIFRSWSBBR0FJTlxuICAgIGNvbnN0IHVybFJlc2V0SW4gPSByZXN0LmNoZWNrUmF0ZUxpbWl0cyhiYXNpY1VSTCk7XG4gICAgaWYgKHVybFJlc2V0SW4pIHtcbiAgICAgIC8vIFBBVVNFIEZPUiBUSElTIFNQRUNJRkMgUkVRVUVTVFxuICAgICAgYXdhaXQgZGVsYXkodXJsUmVzZXRJbik7XG4gICAgICBjb250aW51ZTtcbiAgICB9XG5cbiAgICAvLyBJRiBBIEJVQ0tFVCBFWElTVFMsIENIRUNLIFRIRSBCVUNLRVQnUyBSQVRFIExJTUlUU1xuICAgIGNvbnN0IGJ1Y2tldFJlc2V0SW4gPSBxdWV1ZWRSZXF1ZXN0LnBheWxvYWQuYnVja2V0SWRcbiAgICAgID8gcmVzdC5jaGVja1JhdGVMaW1pdHMocXVldWVkUmVxdWVzdC5wYXlsb2FkLmJ1Y2tldElkKVxuICAgICAgOiBmYWxzZTtcbiAgICAvLyBUSElTIEJVQ0tFVCBJUyBTVElMTCBSQVRFTElNSVRFRCwgUkUtQUREIFRPIFFVRVVFXG4gICAgaWYgKGJ1Y2tldFJlc2V0SW4pIGNvbnRpbnVlO1xuXG4gICAgLy8gRVhFQ1VURSBUSEUgUkVRVUVTVFxuXG4gICAgLy8gSUYgVEhJUyBJUyBBIEdFVCBSRVFVRVNULCBDSEFOR0UgVEhFIEJPRFkgVE8gUVVFUlkgUEFSQU1FVEVSU1xuICAgIGNvbnN0IHF1ZXJ5ID0gcXVldWVkUmVxdWVzdC5yZXF1ZXN0Lm1ldGhvZC50b1VwcGVyQ2FzZSgpID09PSBcIkdFVFwiICYmXG4gICAgICAgIHF1ZXVlZFJlcXVlc3QucGF5bG9hZC5ib2R5XG4gICAgICA/IE9iamVjdC5lbnRyaWVzKHF1ZXVlZFJlcXVlc3QucGF5bG9hZC5ib2R5KVxuICAgICAgICAubWFwKFxuICAgICAgICAgIChba2V5LCB2YWx1ZV0pID0+XG4gICAgICAgICAgICBgJHtlbmNvZGVVUklDb21wb25lbnQoa2V5KX09JHtcbiAgICAgICAgICAgICAgZW5jb2RlVVJJQ29tcG9uZW50KFxuICAgICAgICAgICAgICAgIHZhbHVlIGFzIHN0cmluZyxcbiAgICAgICAgICAgICAgKVxuICAgICAgICAgICAgfWAsXG4gICAgICAgIClcbiAgICAgICAgLmpvaW4oXCImXCIpXG4gICAgICA6IFwiXCI7XG4gICAgY29uc3QgdXJsVG9Vc2UgPVxuICAgICAgcXVldWVkUmVxdWVzdC5yZXF1ZXN0Lm1ldGhvZC50b1VwcGVyQ2FzZSgpID09PSBcIkdFVFwiICYmIHF1ZXJ5XG4gICAgICAgID8gYCR7cXVldWVkUmVxdWVzdC5yZXF1ZXN0LnVybH0/JHtxdWVyeX1gXG4gICAgICAgIDogcXVldWVkUmVxdWVzdC5yZXF1ZXN0LnVybDtcblxuICAgIC8vIENVU1RPTSBIQU5ETEVSIEZPUiBVU0VSIFRPIExPRyBPUiBXSEFURVZFUiBXSEVORVZFUiBBIEZFVENIIElTIE1BREVcbiAgICByZXN0LmV2ZW50SGFuZGxlcnMuZmV0Y2hpbmcocXVldWVkUmVxdWVzdC5wYXlsb2FkKTtcblxuICAgIHRyeSB7XG4gICAgICBjb25zdCByZXNwb25zZSA9IGF3YWl0IGZldGNoKFxuICAgICAgICB1cmxUb1VzZSxcbiAgICAgICAgcmVzdC5jcmVhdGVSZXF1ZXN0Qm9keShxdWV1ZWRSZXF1ZXN0KSxcbiAgICAgICk7XG5cbiAgICAgIHJlc3QuZXZlbnRIYW5kbGVycy5mZXRjaGVkKHF1ZXVlZFJlcXVlc3QucGF5bG9hZCk7XG4gICAgICBjb25zdCBidWNrZXRJZEZyb21IZWFkZXJzID0gcmVzdC5wcm9jZXNzUmVxdWVzdEhlYWRlcnMoXG4gICAgICAgIGJhc2ljVVJMLFxuICAgICAgICByZXNwb25zZS5oZWFkZXJzLFxuICAgICAgKTtcbiAgICAgIC8vIFNFVCBUSEUgQlVDS0VUIElkIElGIElUIFdBUyBQUkVTRU5UXG4gICAgICBpZiAoYnVja2V0SWRGcm9tSGVhZGVycykge1xuICAgICAgICBxdWV1ZWRSZXF1ZXN0LnBheWxvYWQuYnVja2V0SWQgPSBidWNrZXRJZEZyb21IZWFkZXJzO1xuICAgICAgfVxuXG4gICAgICBpZiAocmVzcG9uc2Uuc3RhdHVzIDwgMjAwIHx8IHJlc3BvbnNlLnN0YXR1cyA+PSA0MDApIHtcbiAgICAgICAgcmVzdC5ldmVudEhhbmRsZXJzLmVycm9yKFwiaHR0cEVycm9yXCIsIHF1ZXVlZFJlcXVlc3QucGF5bG9hZCwgcmVzcG9uc2UpO1xuXG4gICAgICAgIGxldCBlcnJvciA9IFwiUkVRVUVTVF9VTktOT1dOX0VSUk9SXCI7XG4gICAgICAgIHN3aXRjaCAocmVzcG9uc2Uuc3RhdHVzKSB7XG4gICAgICAgICAgY2FzZSBEaXNjb3JkSFRUUFJlc3BvbnNlQ29kZXMuQmFkUmVxdWVzdDpcbiAgICAgICAgICAgIGVycm9yID1cbiAgICAgICAgICAgICAgXCJUaGUgcmVxdWVzdCB3YXMgaW1wcm9wZXJseSBmb3JtYXR0ZWQsIG9yIHRoZSBzZXJ2ZXIgY291bGRuJ3QgdW5kZXJzdGFuZCBpdC5cIjtcbiAgICAgICAgICAgIGJyZWFrO1xuICAgICAgICAgIGNhc2UgRGlzY29yZEhUVFBSZXNwb25zZUNvZGVzLlVuYXV0aG9yaXplZDpcbiAgICAgICAgICAgIGVycm9yID0gXCJUaGUgQXV0aG9yaXphdGlvbiBoZWFkZXIgd2FzIG1pc3Npbmcgb3IgaW52YWxpZC5cIjtcbiAgICAgICAgICAgIGJyZWFrO1xuICAgICAgICAgIGNhc2UgRGlzY29yZEhUVFBSZXNwb25zZUNvZGVzLkZvcmJpZGRlbjpcbiAgICAgICAgICAgIGVycm9yID1cbiAgICAgICAgICAgICAgXCJUaGUgQXV0aG9yaXphdGlvbiB0b2tlbiB5b3UgcGFzc2VkIGRpZCBub3QgaGF2ZSBwZXJtaXNzaW9uIHRvIHRoZSByZXNvdXJjZS5cIjtcbiAgICAgICAgICAgIGJyZWFrO1xuICAgICAgICAgIGNhc2UgRGlzY29yZEhUVFBSZXNwb25zZUNvZGVzLk5vdEZvdW5kOlxuICAgICAgICAgICAgZXJyb3IgPSBcIlRoZSByZXNvdXJjZSBhdCB0aGUgbG9jYXRpb24gc3BlY2lmaWVkIGRvZXNuJ3QgZXhpc3QuXCI7XG4gICAgICAgICAgICBicmVhaztcbiAgICAgICAgICBjYXNlIERpc2NvcmRIVFRQUmVzcG9uc2VDb2Rlcy5NZXRob2ROb3RBbGxvd2VkOlxuICAgICAgICAgICAgZXJyb3IgPVxuICAgICAgICAgICAgICBcIlRoZSBIVFRQIG1ldGhvZCB1c2VkIGlzIG5vdCB2YWxpZCBmb3IgdGhlIGxvY2F0aW9uIHNwZWNpZmllZC5cIjtcbiAgICAgICAgICAgIGJyZWFrO1xuICAgICAgICAgIGNhc2UgRGlzY29yZEhUVFBSZXNwb25zZUNvZGVzLkdhdGV3YXlVbmF2YWlsYWJsZTpcbiAgICAgICAgICAgIGVycm9yID1cbiAgICAgICAgICAgICAgXCJUaGVyZSB3YXMgbm90IGEgZ2F0ZXdheSBhdmFpbGFibGUgdG8gcHJvY2VzcyB5b3VyIHJlcXVlc3QuIFdhaXQgYSBiaXQgYW5kIHJldHJ5LlwiO1xuICAgICAgICAgICAgYnJlYWs7XG4gICAgICAgIH1cblxuICAgICAgICBxdWV1ZWRSZXF1ZXN0LnJlcXVlc3QucmVqZWN0Py4oXG4gICAgICAgICAgbmV3IEVycm9yKGBbJHtyZXNwb25zZS5zdGF0dXN9XSAke2Vycm9yfWApLFxuICAgICAgICApO1xuXG4gICAgICAgIC8vIElmIFJhdGUgbGltaXRlZCBzaG91bGQgbm90IHJlbW92ZSBmcm9tIHF1ZXVlXG4gICAgICAgIGlmIChyZXNwb25zZS5zdGF0dXMgIT09IDQyOSkgcXVldWUuc2hpZnQoKTtcbiAgICAgICAgY29udGludWU7XG4gICAgICB9XG5cbiAgICAgIC8vIFNPTUVUSU1FUyBESVNDT1JEIFJFVFVSTlMgQU4gRU1QVFkgMjA0IFJFU1BPTlNFIFRIQVQgQ0FOJ1QgQkUgTUFERSBUTyBKU09OXG4gICAgICBpZiAocmVzcG9uc2Uuc3RhdHVzID09PSAyMDQpIHtcbiAgICAgICAgcmVzdC5ldmVudEhhbmRsZXJzLmZldGNoU3VjY2VzcyhxdWV1ZWRSZXF1ZXN0LnBheWxvYWQpO1xuICAgICAgICAvLyBSRU1PVkUgRlJPTSBRVUVVRVxuICAgICAgICBxdWV1ZS5zaGlmdCgpO1xuICAgICAgICBxdWV1ZWRSZXF1ZXN0LnJlcXVlc3QucmVzcG9uZCh7IHN0YXR1czogMjA0IH0pO1xuICAgICAgfSBlbHNlIHtcbiAgICAgICAgLy8gQ09OVkVSVCBUSEUgUkVTUE9OU0UgVE8gSlNPTlxuICAgICAgICBjb25zdCBqc29uID0gYXdhaXQgcmVzcG9uc2UuanNvbigpO1xuICAgICAgICAvLyBJRiBUSEUgUkVTUE9OU0UgV0FTIFJBVEUgTElNSVRFRCwgSEFORExFIEFDQ09SRElOR0xZXG4gICAgICAgIGlmIChcbiAgICAgICAgICBqc29uLnJldHJ5X2FmdGVyIHx8XG4gICAgICAgICAganNvbi5tZXNzYWdlID09PSBcIllvdSBhcmUgYmVpbmcgcmF0ZSBsaW1pdGVkLlwiXG4gICAgICAgICkge1xuICAgICAgICAgIC8vIElGIElUIEhBUyBNQVhFRCBSRVRSSUVTIFNPTUVUSElORyBTRVJJT1VTTFkgV1JPTkcuIENBTkNFTCBPVVQuXG4gICAgICAgICAgaWYgKHF1ZXVlZFJlcXVlc3QucGF5bG9hZC5yZXRyeUNvdW50ID49IHJlc3QubWF4UmV0cnlDb3VudCkge1xuICAgICAgICAgICAgcmVzdC5ldmVudEhhbmRsZXJzLnJldHJpZXNNYXhlZChxdWV1ZWRSZXF1ZXN0LnBheWxvYWQpO1xuICAgICAgICAgICAgcXVldWVkUmVxdWVzdC5yZXF1ZXN0LnJlc3BvbmQoe1xuICAgICAgICAgICAgICBzdGF0dXM6IDIwMCxcbiAgICAgICAgICAgICAgYm9keTogSlNPTi5zdHJpbmdpZnkoe1xuICAgICAgICAgICAgICAgIGVycm9yOlxuICAgICAgICAgICAgICAgICAgXCJUaGUgcmVxdWVzdCB3YXMgcmF0ZSBsaW1pdGVkIGFuZCBpdCBtYXhlZCBvdXQgdGhlIHJldHJpZXMgbGltaXQuXCIsXG4gICAgICAgICAgICAgIH0pLFxuICAgICAgICAgICAgfSk7XG4gICAgICAgICAgICAvLyBSRU1PVkUgSVRFTSBGUk9NIFFVRVVFIFRPIFBSRVZFTlQgUkVUUllcbiAgICAgICAgICAgIHF1ZXVlLnNoaWZ0KCk7XG4gICAgICAgICAgICBjb250aW51ZTtcbiAgICAgICAgICB9XG5cbiAgICAgICAgICAvLyBTSU5DRSBJVCBXQVMgUkFURUxJTUlURSwgUkVUUlkgQUdBSU5cbiAgICAgICAgICBjb250aW51ZTtcbiAgICAgICAgfVxuXG4gICAgICAgIHJlc3QuZXZlbnRIYW5kbGVycy5mZXRjaFN1Y2Nlc3MocXVldWVkUmVxdWVzdC5wYXlsb2FkKTtcbiAgICAgICAgLy8gUkVNT1ZFIEZST00gUVVFVUVcbiAgICAgICAgcXVldWUuc2hpZnQoKTtcbiAgICAgICAgcXVldWVkUmVxdWVzdC5yZXF1ZXN0LnJlc3BvbmQoe1xuICAgICAgICAgIHN0YXR1czogMjAwLFxuICAgICAgICAgIGJvZHk6IEpTT04uc3RyaW5naWZ5KGpzb24pLFxuICAgICAgICB9KTtcbiAgICAgIH1cbiAgICB9IGNhdGNoIChlcnJvcikge1xuICAgICAgLy8gU09NRVRISU5HIFdFTlQgV1JPTkcsIExPRyBBTkQgUkVTUE9ORCBXSVRIIEVSUk9SXG4gICAgICByZXN0LmV2ZW50SGFuZGxlcnMuZmV0Y2hGYWlsZWQocXVldWVkUmVxdWVzdC5wYXlsb2FkLCBlcnJvcik7XG4gICAgICBxdWV1ZWRSZXF1ZXN0LnJlcXVlc3QucmVqZWN0Py4oZXJyb3IpO1xuICAgICAgLy8gUkVNT1ZFIEZST00gUVVFVUVcbiAgICAgIHF1ZXVlLnNoaWZ0KCk7XG4gICAgfVxuICB9XG5cbiAgLy8gT05DRSBRVUVVRSBJUyBET05FLCBXRSBDQU4gVFJZIENMRUFOSU5HIFVQXG4gIHJlc3QuY2xlYW51cFF1ZXVlcygpO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLGFBQWEsU0FBUSxTQUFXO1NBQ2hDLHdCQUF3QixTQUFRLHFDQUF1QztTQUN2RSxLQUFLLFNBQVEsZ0JBQWtCO1NBQy9CLElBQUksU0FBUSxTQUFXO0FBRWhDLEVBQTJGLEFBQTNGLHVGQUEyRixBQUEzRixFQUEyRix1QkFDckUsWUFBWSxDQUFDLEVBQVU7VUFDckMsS0FBSyxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUMsR0FBRyxDQUFDLEVBQUU7U0FDL0IsS0FBSztVQUVILEtBQUssQ0FBQyxNQUFNO1FBQ2pCLElBQUksQ0FBQyxhQUFhLENBQUMsS0FBSyxJQUN0QixJQUFNLElBQ04sNENBQThDO1FBRWhELEVBQStDLEFBQS9DLDZDQUErQztZQUMzQyxJQUFJLENBQUMsbUJBQW1CO1lBQzFCLFVBQVU7Z0JBQ1IsYUFBYSxDQUFDLEtBQUssSUFDakIsSUFBTSxJQUNMLDRDQUE0QztzQkFFekMsWUFBWSxDQUFDLEVBQUU7ZUFDcEIsSUFBSTs7O1FBSVQsRUFBd0MsQUFBeEMsc0NBQXdDO2VBQ2pDLGFBQWEsSUFBSSxLQUFLO1FBQzdCLEVBQXlFLEFBQXpFLHVFQUF5RTthQUNwRSxhQUFhO2NBRVosUUFBUSxHQUFHLElBQUksQ0FBQyxXQUFXLENBQy9CLGFBQWEsQ0FBQyxPQUFPLENBQUMsR0FBRyxFQUN6QixhQUFhLENBQUMsT0FBTyxDQUFDLE1BQU0sQ0FBQyxXQUFXO1FBRzFD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

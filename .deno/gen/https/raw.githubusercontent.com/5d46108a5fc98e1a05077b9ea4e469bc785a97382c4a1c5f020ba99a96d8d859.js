@@ -1,8 +1,15 @@
 export var DiscordApplicationCommandPermissionTypes;
-(function(DiscordApplicationCommandPermissionTypes) {
-    DiscordApplicationCommandPermissionTypes[DiscordApplicationCommandPermissionTypes["Role"] = 1] = "Role";
-    DiscordApplicationCommandPermissionTypes[DiscordApplicationCommandPermissionTypes["User"] = 2] = "User";
-})(DiscordApplicationCommandPermissionTypes || (DiscordApplicationCommandPermissionTypes = {
-}));
-export const ApplicationCommandPermissionTypes = DiscordApplicationCommandPermissionTypes;
+(function (DiscordApplicationCommandPermissionTypes) {
+  DiscordApplicationCommandPermissionTypes[
+    DiscordApplicationCommandPermissionTypes["Role"] = 1
+  ] = "Role";
+  DiscordApplicationCommandPermissionTypes[
+    DiscordApplicationCommandPermissionTypes["User"] = 2
+  ] = "User";
+})(
+  DiscordApplicationCommandPermissionTypes ||
+    (DiscordApplicationCommandPermissionTypes = {}),
+);
+export const ApplicationCommandPermissionTypes =
+  DiscordApplicationCommandPermissionTypes;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL2ludGVyYWN0aW9ucy9jb21tYW5kcy9hcHBsaWNhdGlvbl9jb21tYW5kX3Blcm1pc3Npb25fdHlwZXMudHM+Il0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBlbnVtIERpc2NvcmRBcHBsaWNhdGlvbkNvbW1hbmRQZXJtaXNzaW9uVHlwZXMge1xuICBSb2xlID0gMSxcbiAgVXNlcixcbn1cblxuZXhwb3J0IHR5cGUgQXBwbGljYXRpb25Db21tYW5kUGVybWlzc2lvblR5cGVzID1cbiAgRGlzY29yZEFwcGxpY2F0aW9uQ29tbWFuZFBlcm1pc3Npb25UeXBlcztcbmV4cG9ydCBjb25zdCBBcHBsaWNhdGlvbkNvbW1hbmRQZXJtaXNzaW9uVHlwZXMgPVxuICBEaXNjb3JkQXBwbGljYXRpb25Db21tYW5kUGVybWlzc2lvblR5cGVzO1xuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7VUFBWSx3Q0FBd0M7SUFBeEMsd0NBQXdDLENBQXhDLHdDQUF3QyxFQUNsRCxJQUFJLEtBQUcsQ0FBQyxLQUFSLElBQUk7SUFETSx3Q0FBd0MsQ0FBeEMsd0NBQXdDLEVBRWxELElBQUksS0FBSixDQUFJLEtBQUosSUFBSTtHQUZNLHdDQUF3QyxLQUF4Qyx3Q0FBd0M7O2FBT3ZDLGlDQUFpQyxHQUM1Qyx3Q0FBd0MifQ==

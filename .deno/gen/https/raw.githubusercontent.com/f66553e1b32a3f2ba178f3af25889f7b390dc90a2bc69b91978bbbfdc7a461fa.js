@@ -2,7 +2,14 @@ import { applicationId } from "../../../bot.ts";
 import { rest } from "../../../rest/rest.ts";
 import { endpoints } from "../../../util/constants.ts";
 import { snakelize } from "../../../util/utils.ts";
-/** Batch edits permissions for all commands in a guild. Takes an array of partial GuildApplicationCommandPermissions objects including `id` and `permissions`. */ export async function batchEditSlashCommandPermissions(guildId, options) {
-    return await rest.runMethod("put", endpoints.COMMANDS_PERMISSIONS(applicationId, guildId), snakelize(options));
+/** Batch edits permissions for all commands in a guild. Takes an array of partial GuildApplicationCommandPermissions objects including `id` and `permissions`. */ export async function batchEditSlashCommandPermissions(
+  guildId,
+  options,
+) {
+  return await rest.runMethod(
+    "put",
+    endpoints.COMMANDS_PERMISSIONS(applicationId, guildId),
+    snakelize(options),
+  );
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvaW50ZXJhY3Rpb25zL2NvbW1hbmRzL2JhdGNoX2VkaXRfc2xhc2hfY29tbWFuZF9wZXJtaXNzaW9ucy50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgYXBwbGljYXRpb25JZCB9IGZyb20gXCIuLi8uLi8uLi9ib3QudHNcIjtcbmltcG9ydCB7IHJlc3QgfSBmcm9tIFwiLi4vLi4vLi4vcmVzdC9yZXN0LnRzXCI7XG5pbXBvcnQgdHlwZSB7IEFwcGxpY2F0aW9uQ29tbWFuZFBlcm1pc3Npb25zIH0gZnJvbSBcIi4uLy4uLy4uL3R5cGVzL2ludGVyYWN0aW9ucy9jb21tYW5kcy9hcHBsaWNhdGlvbl9jb21tYW5kX3Blcm1pc3Npb25zLnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcbmltcG9ydCB7IHNuYWtlbGl6ZSB9IGZyb20gXCIuLi8uLi8uLi91dGlsL3V0aWxzLnRzXCI7XG5cbi8qKiBCYXRjaCBlZGl0cyBwZXJtaXNzaW9ucyBmb3IgYWxsIGNvbW1hbmRzIGluIGEgZ3VpbGQuIFRha2VzIGFuIGFycmF5IG9mIHBhcnRpYWwgR3VpbGRBcHBsaWNhdGlvbkNvbW1hbmRQZXJtaXNzaW9ucyBvYmplY3RzIGluY2x1ZGluZyBgaWRgIGFuZCBgcGVybWlzc2lvbnNgLiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGJhdGNoRWRpdFNsYXNoQ29tbWFuZFBlcm1pc3Npb25zKFxuICBndWlsZElkOiBiaWdpbnQsXG4gIG9wdGlvbnM6IHsgaWQ6IHN0cmluZzsgcGVybWlzc2lvbnM6IEFwcGxpY2F0aW9uQ29tbWFuZFBlcm1pc3Npb25zW10gfVtdLFxuKSB7XG4gIHJldHVybiBhd2FpdCByZXN0LnJ1bk1ldGhvZChcbiAgICBcInB1dFwiLFxuICAgIGVuZHBvaW50cy5DT01NQU5EU19QRVJNSVNTSU9OUyhhcHBsaWNhdGlvbklkLCBndWlsZElkKSxcbiAgICBzbmFrZWxpemUob3B0aW9ucyksXG4gICk7XG59XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IlNBQVMsYUFBYSxTQUFRLGVBQWlCO1NBQ3RDLElBQUksU0FBUSxxQkFBdUI7U0FFbkMsU0FBUyxTQUFRLDBCQUE0QjtTQUM3QyxTQUFTLFNBQVEsc0JBQXdCO0FBRWxELEVBQWtLLEFBQWxLLDhKQUFrSyxBQUFsSyxFQUFrSyx1QkFDNUksZ0NBQWdDLENBQ3BELE9BQWUsRUFDZixPQUF1RTtpQkFFMUQsSUFBSSxDQUFDLFNBQVMsRUFDekIsR0FBSyxHQUNMLFNBQVMsQ0FBQyxvQkFBb0IsQ0FBQyxhQUFhLEVBQUUsT0FBTyxHQUNyRCxTQUFTLENBQUMsT0FBTyJ9

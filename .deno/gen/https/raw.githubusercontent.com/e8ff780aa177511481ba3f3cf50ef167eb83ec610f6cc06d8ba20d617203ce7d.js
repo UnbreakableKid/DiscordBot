@@ -8,34 +8,44 @@ import { ws } from "./ws/ws.ts";
 export let secretKey = "";
 export let botId = 0n;
 export let applicationId = 0n;
-export let eventHandlers = {
-};
+export let eventHandlers = {};
 export let proxyWSURL = `wss://gateway.discord.gg`;
 export async function startBot(config) {
-    if (config.eventHandlers) eventHandlers = config.eventHandlers;
-    ws.identifyPayload.token = `Bot ${config.token}`;
-    rest.token = `Bot ${config.token}`;
-    ws.identifyPayload.intents = config.intents.reduce((bits, next)=>bits |= typeof next === "string" ? DiscordGatewayIntents[next] : next
-    , 0);
-    // Initial API connection to get info about bots connection
-    ws.botGatewayData = await getGatewayBot();
-    ws.maxShards = ws.maxShards || ws.botGatewayData.shards;
-    ws.lastShardId = ws.lastShardId === 1 ? ws.botGatewayData.shards - 1 : ws.lastShardId;
-    // Explicitly append gateway version and encoding
-    ws.botGatewayData.url += `?v=${GATEWAY_VERSION}&encoding=json`;
-    proxyWSURL = ws.botGatewayData.url;
-    ws.spawnShards();
+  if (config.eventHandlers) eventHandlers = config.eventHandlers;
+  ws.identifyPayload.token = `Bot ${config.token}`;
+  rest.token = `Bot ${config.token}`;
+  ws.identifyPayload.intents = config.intents.reduce(
+    (bits, next) =>
+      bits |= typeof next === "string" ? DiscordGatewayIntents[next] : next,
+    0,
+  );
+  // Initial API connection to get info about bots connection
+  ws.botGatewayData = await getGatewayBot();
+  ws.maxShards = ws.maxShards || ws.botGatewayData.shards;
+  ws.lastShardId = ws.lastShardId === 1
+    ? ws.botGatewayData.shards - 1
+    : ws.lastShardId;
+  // Explicitly append gateway version and encoding
+  ws.botGatewayData.url += `?v=${GATEWAY_VERSION}&encoding=json`;
+  proxyWSURL = ws.botGatewayData.url;
+  ws.spawnShards();
 }
-/** Allows you to dynamically update the event handlers by passing in new eventHandlers */ export function updateEventHandlers(newEventHandlers) {
-    eventHandlers = {
-        ...eventHandlers,
-        ...newEventHandlers
-    };
+/** Allows you to dynamically update the event handlers by passing in new eventHandlers */ export function updateEventHandlers(
+  newEventHandlers,
+) {
+  eventHandlers = {
+    ...eventHandlers,
+    ...newEventHandlers,
+  };
 }
-/** INTERNAL LIB function used to set the bot Id once the READY event is sent by Discord. */ export function setBotId(id) {
-    botId = snowflakeToBigint(id);
+/** INTERNAL LIB function used to set the bot Id once the READY event is sent by Discord. */ export function setBotId(
+  id,
+) {
+  botId = snowflakeToBigint(id);
 }
-/** INTERNAL LIB function used to set the application Id once the READY event is sent by Discord. */ export function setApplicationId(id) {
-    applicationId = snowflakeToBigint(id);
+/** INTERNAL LIB function used to set the application Id once the READY event is sent by Discord. */ export function setApplicationId(
+  id,
+) {
+  applicationId = snowflakeToBigint(id);
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2JvdC50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgZ2V0R2F0ZXdheUJvdCB9IGZyb20gXCIuL2hlbHBlcnMvbWlzYy9nZXRfZ2F0ZXdheV9ib3QudHNcIjtcbmltcG9ydCB7IHJlc3QgfSBmcm9tIFwiLi9yZXN0L3Jlc3QudHNcIjtcbmltcG9ydCB0eXBlIHsgRXZlbnRIYW5kbGVycyB9IGZyb20gXCIuL3R5cGVzL2Rpc2NvcmRlbm8vZXZlbnRIYW5kbGVycy50c1wiO1xuaW1wb3J0IHsgRGlzY29yZEdhdGV3YXlJbnRlbnRzIH0gZnJvbSBcIi4vdHlwZXMvZ2F0ZXdheS9nYXRld2F5X2ludGVudHMudHNcIjtcbmltcG9ydCB7IHNub3dmbGFrZVRvQmlnaW50IH0gZnJvbSBcIi4vdXRpbC9iaWdpbnQudHNcIjtcbmltcG9ydCB7IEdBVEVXQVlfVkVSU0lPTiB9IGZyb20gXCIuL3V0aWwvY29uc3RhbnRzLnRzXCI7XG5pbXBvcnQgeyB3cyB9IGZyb20gXCIuL3dzL3dzLnRzXCI7XG5cbi8vIGRlbm8tbGludC1pZ25vcmUgcHJlZmVyLWNvbnN0XG5leHBvcnQgbGV0IHNlY3JldEtleSA9IFwiXCI7XG5leHBvcnQgbGV0IGJvdElkID0gMG47XG5leHBvcnQgbGV0IGFwcGxpY2F0aW9uSWQgPSAwbjtcblxuZXhwb3J0IGxldCBldmVudEhhbmRsZXJzOiBFdmVudEhhbmRsZXJzID0ge307XG5cbmV4cG9ydCBsZXQgcHJveHlXU1VSTCA9IGB3c3M6Ly9nYXRld2F5LmRpc2NvcmQuZ2dgO1xuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gc3RhcnRCb3QoY29uZmlnOiBCb3RDb25maWcpIHtcbiAgaWYgKGNvbmZpZy5ldmVudEhhbmRsZXJzKSBldmVudEhhbmRsZXJzID0gY29uZmlnLmV2ZW50SGFuZGxlcnM7XG4gIHdzLmlkZW50aWZ5UGF5bG9hZC50b2tlbiA9IGBCb3QgJHtjb25maWcudG9rZW59YDtcbiAgcmVzdC50b2tlbiA9IGBCb3QgJHtjb25maWcudG9rZW59YDtcbiAgd3MuaWRlbnRpZnlQYXlsb2FkLmludGVudHMgPSBjb25maWcuaW50ZW50cy5yZWR1Y2UoXG4gICAgKFxuICAgICAgYml0cyxcbiAgICAgIG5leHQsXG4gICAgKSA9PiAoYml0cyB8PSB0eXBlb2YgbmV4dCA9PT0gXCJzdHJpbmdcIlxuICAgICAgPyBEaXNjb3JkR2F0ZXdheUludGVudHNbbmV4dF1cbiAgICAgIDogbmV4dCksXG4gICAgMCxcbiAgKTtcblxuICAvLyBJbml0aWFsIEFQSSBjb25uZWN0aW9uIHRvIGdldCBpbmZvIGFib3V0IGJvdHMgY29ubmVjdGlvblxuICB3cy5ib3RHYXRld2F5RGF0YSA9IGF3YWl0IGdldEdhdGV3YXlCb3QoKTtcbiAgd3MubWF4U2hhcmRzID0gd3MubWF4U2hhcmRzIHx8IHdzLmJvdEdhdGV3YXlEYXRhLnNoYXJkcztcbiAgd3MubGFzdFNoYXJkSWQgPSB3cy5sYXN0U2hhcmRJZCA9PT0gMVxuICAgID8gd3MuYm90R2F0ZXdheURhdGEuc2hhcmRzIC0gMVxuICAgIDogd3MubGFzdFNoYXJkSWQ7XG5cbiAgLy8gRXhwbGljaXRseSBhcHBlbmQgZ2F0ZXdheSB2ZXJzaW9uIGFuZCBlbmNvZGluZ1xuICB3cy5ib3RHYXRld2F5RGF0YS51cmwgKz0gYD92PSR7R0FURVdBWV9WRVJTSU9OfSZlbmNvZGluZz1qc29uYDtcblxuICBwcm94eVdTVVJMID0gd3MuYm90R2F0ZXdheURhdGEudXJsO1xuXG4gIHdzLnNwYXduU2hhcmRzKCk7XG59XG5cbi8qKiBBbGxvd3MgeW91IHRvIGR5bmFtaWNhbGx5IHVwZGF0ZSB0aGUgZXZlbnQgaGFuZGxlcnMgYnkgcGFzc2luZyBpbiBuZXcgZXZlbnRIYW5kbGVycyAqL1xuZXhwb3J0IGZ1bmN0aW9uIHVwZGF0ZUV2ZW50SGFuZGxlcnMobmV3RXZlbnRIYW5kbGVyczogRXZlbnRIYW5kbGVycykge1xuICBldmVudEhhbmRsZXJzID0ge1xuICAgIC4uLmV2ZW50SGFuZGxlcnMsXG4gICAgLi4ubmV3RXZlbnRIYW5kbGVycyxcbiAgfTtcbn1cblxuLyoqIElOVEVSTkFMIExJQiBmdW5jdGlvbiB1c2VkIHRvIHNldCB0aGUgYm90IElkIG9uY2UgdGhlIFJFQURZIGV2ZW50IGlzIHNlbnQgYnkgRGlzY29yZC4gKi9cbmV4cG9ydCBmdW5jdGlvbiBzZXRCb3RJZChpZDogc3RyaW5nKSB7XG4gIGJvdElkID0gc25vd2ZsYWtlVG9CaWdpbnQoaWQpO1xufVxuXG4vKiogSU5URVJOQUwgTElCIGZ1bmN0aW9uIHVzZWQgdG8gc2V0IHRoZSBhcHBsaWNhdGlvbiBJZCBvbmNlIHRoZSBSRUFEWSBldmVudCBpcyBzZW50IGJ5IERpc2NvcmQuICovXG5leHBvcnQgZnVuY3Rpb24gc2V0QXBwbGljYXRpb25JZChpZDogc3RyaW5nKSB7XG4gIGFwcGxpY2F0aW9uSWQgPSBzbm93Zmxha2VUb0JpZ2ludChpZCk7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgQm90Q29uZmlnIHtcbiAgdG9rZW46IHN0cmluZztcbiAgY29tcHJlc3M/OiBib29sZWFuO1xuICBpbnRlbnRzOiAoRGlzY29yZEdhdGV3YXlJbnRlbnRzIHwga2V5b2YgdHlwZW9mIERpc2NvcmRHYXRld2F5SW50ZW50cylbXTtcbiAgZXZlbnRIYW5kbGVycz86IEV2ZW50SGFuZGxlcnM7XG59XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IlNBQVMsYUFBYSxTQUFRLGlDQUFtQztTQUN4RCxJQUFJLFNBQVEsY0FBZ0I7U0FFNUIscUJBQXFCLFNBQVEsa0NBQW9DO1NBQ2pFLGlCQUFpQixTQUFRLGdCQUFrQjtTQUMzQyxlQUFlLFNBQVEsbUJBQXFCO1NBQzVDLEVBQUUsU0FBUSxVQUFZO0FBRS9CLEVBQWdDLEFBQWhDLDhCQUFnQztXQUNyQixTQUFTO1dBQ1QsS0FBSyxHQUFHLENBQUUsQUFBRixDQUFFO1dBQ1YsYUFBYSxHQUFHLENBQUUsQUFBRixDQUFFO1dBRWxCLGFBQWE7O1dBRWIsVUFBVSxJQUFJLHdCQUF3QjtzQkFFM0IsUUFBUSxDQUFDLE1BQWlCO1FBQzFDLE1BQU0sQ0FBQyxhQUFhLEVBQUUsYUFBYSxHQUFHLE1BQU0sQ0FBQyxhQUFhO0lBQzlELEVBQUUsQ0FBQyxlQUFlLENBQUMsS0FBSyxJQUFJLElBQUksRUFBRSxNQUFNLENBQUMsS0FBSztJQUM5QyxJQUFJLENBQUMsS0FBSyxJQUFJLElBQUksRUFBRSxNQUFNLENBQUMsS0FBSztJQUNoQyxFQUFFLENBQUMsZUFBZSxDQUFDLE9BQU8sR0FBRyxNQUFNLENBQUMsT0FBTyxDQUFDLE1BQU0sRUFFOUMsSUFBSSxFQUNKLElBQUksR0FDQSxJQUFJLFdBQVcsSUFBSSxNQUFLLE1BQVEsSUFDbEMscUJBQXFCLENBQUMsSUFBSSxJQUMxQixJQUFJO01BQ1IsQ0FBQztJQUdILEVBQTJELEFBQTNELHlEQUEyRDtJQUMzRCxFQUFFLENBQUMsY0FBYyxTQUFTLGFBQWE7SUFDdkMsRUFBRSxDQUFDLFNBQVMsR0FBRyxFQUFFLENBQUMsU0FBUyxJQUFJLEVBQUUsQ0FBQyxjQUFjLENBQUMsTUFBTTtJQUN2RCxFQUFFLENBQUMsV0FBVyxHQUFHLEVBQUUsQ0FBQyxXQUFXLEtBQUssQ0FBQyxHQUNqQyxFQUFFLENBQUMsY0FBYyxDQUFDLE1BQU0sR0FBRyxDQUFDLEdBQzVCLEVBQUUsQ0FBQyxXQUFXO0lBRWxCLEVBQWlELEFBQWpELCtDQUFpRDtJQUNqRCxFQUFFLENBQUMsY0FBYyxDQUFDLEdBQUcsS0FBSyxHQUFHLEVBQUUsZUFBZSxDQUFDLGNBQWM7SUFFN0QsVUFBVSxHQUFHLEVBQUUsQ0FBQyxjQUFjLENBQUMsR0FBRztJQUVsQyxFQUFFLENBQUMsV0FBVzs7QUFHaEIsRUFBMEYsQUFBMUYsc0ZBQTBGLEFBQTFGLEVBQTBGLGlCQUMxRSxtQkFBbUIsQ0FBQyxnQkFBK0I7SUFDakUsYUFBYTtXQUNSLGFBQWE7V0FDYixnQkFBZ0I7OztBQUl2QixFQUE0RixBQUE1Rix3RkFBNEYsQUFBNUYsRUFBNEYsaUJBQzVFLFFBQVEsQ0FBQyxFQUFVO0lBQ2pDLEtBQUssR0FBRyxpQkFBaUIsQ0FBQyxFQUFFOztBQUc5QixFQUFvRyxBQUFwRyxnR0FBb0csQUFBcEcsRUFBb0csaUJBQ3BGLGdCQUFnQixDQUFDLEVBQVU7SUFDekMsYUFBYSxHQUFHLGlCQUFpQixDQUFDLEVBQUUifQ==

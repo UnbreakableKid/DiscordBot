@@ -1,27 +1,48 @@
 export var DiscordMessageTypes;
-(function(DiscordMessageTypes) {
-    DiscordMessageTypes[DiscordMessageTypes["Default"] = 0] = "Default";
-    DiscordMessageTypes[DiscordMessageTypes["RecipientAdd"] = 1] = "RecipientAdd";
-    DiscordMessageTypes[DiscordMessageTypes["RecipientRemove"] = 2] = "RecipientRemove";
-    DiscordMessageTypes[DiscordMessageTypes["Call"] = 3] = "Call";
-    DiscordMessageTypes[DiscordMessageTypes["ChannelNameChange"] = 4] = "ChannelNameChange";
-    DiscordMessageTypes[DiscordMessageTypes["ChannelIconChange"] = 5] = "ChannelIconChange";
-    DiscordMessageTypes[DiscordMessageTypes["ChannelPinnedMessage"] = 6] = "ChannelPinnedMessage";
-    DiscordMessageTypes[DiscordMessageTypes["GuildMemberJoin"] = 7] = "GuildMemberJoin";
-    DiscordMessageTypes[DiscordMessageTypes["UserPremiumGuildSubscription"] = 8] = "UserPremiumGuildSubscription";
-    DiscordMessageTypes[DiscordMessageTypes["UserPremiumGuildSubscriptionTier1"] = 9] = "UserPremiumGuildSubscriptionTier1";
-    DiscordMessageTypes[DiscordMessageTypes["UserPremiumGuildSubscriptionTier2"] = 10] = "UserPremiumGuildSubscriptionTier2";
-    DiscordMessageTypes[DiscordMessageTypes["UserPremiumGuildSubscriptionTier3"] = 11] = "UserPremiumGuildSubscriptionTier3";
-    DiscordMessageTypes[DiscordMessageTypes["ChannelFollowAdd"] = 12] = "ChannelFollowAdd";
-    DiscordMessageTypes[DiscordMessageTypes["GuildDiscoveryDisqualified"] = 14] = "GuildDiscoveryDisqualified";
-    DiscordMessageTypes[DiscordMessageTypes["GuildDiscoveryRequalified"] = 15] = "GuildDiscoveryRequalified";
-    DiscordMessageTypes[DiscordMessageTypes["GuildDiscoveryGracePeriodInitialWarning"] = 16] = "GuildDiscoveryGracePeriodInitialWarning";
-    DiscordMessageTypes[DiscordMessageTypes["GuildDiscoveryGracePeriodFinalWarning"] = 17] = "GuildDiscoveryGracePeriodFinalWarning";
-    DiscordMessageTypes[DiscordMessageTypes["ThreadCreated"] = 18] = "ThreadCreated";
-    DiscordMessageTypes[DiscordMessageTypes["Reply"] = 19] = "Reply";
-    DiscordMessageTypes[DiscordMessageTypes["ApplicationCommand"] = 20] = "ApplicationCommand";
-    DiscordMessageTypes[DiscordMessageTypes["GuildInviteReminder"] = 22] = "GuildInviteReminder";
-})(DiscordMessageTypes || (DiscordMessageTypes = {
-}));
+(function (DiscordMessageTypes) {
+  DiscordMessageTypes[DiscordMessageTypes["Default"] = 0] = "Default";
+  DiscordMessageTypes[DiscordMessageTypes["RecipientAdd"] = 1] = "RecipientAdd";
+  DiscordMessageTypes[DiscordMessageTypes["RecipientRemove"] = 2] =
+    "RecipientRemove";
+  DiscordMessageTypes[DiscordMessageTypes["Call"] = 3] = "Call";
+  DiscordMessageTypes[DiscordMessageTypes["ChannelNameChange"] = 4] =
+    "ChannelNameChange";
+  DiscordMessageTypes[DiscordMessageTypes["ChannelIconChange"] = 5] =
+    "ChannelIconChange";
+  DiscordMessageTypes[DiscordMessageTypes["ChannelPinnedMessage"] = 6] =
+    "ChannelPinnedMessage";
+  DiscordMessageTypes[DiscordMessageTypes["GuildMemberJoin"] = 7] =
+    "GuildMemberJoin";
+  DiscordMessageTypes[DiscordMessageTypes["UserPremiumGuildSubscription"] = 8] =
+    "UserPremiumGuildSubscription";
+  DiscordMessageTypes[
+    DiscordMessageTypes["UserPremiumGuildSubscriptionTier1"] = 9
+  ] = "UserPremiumGuildSubscriptionTier1";
+  DiscordMessageTypes[
+    DiscordMessageTypes["UserPremiumGuildSubscriptionTier2"] = 10
+  ] = "UserPremiumGuildSubscriptionTier2";
+  DiscordMessageTypes[
+    DiscordMessageTypes["UserPremiumGuildSubscriptionTier3"] = 11
+  ] = "UserPremiumGuildSubscriptionTier3";
+  DiscordMessageTypes[DiscordMessageTypes["ChannelFollowAdd"] = 12] =
+    "ChannelFollowAdd";
+  DiscordMessageTypes[DiscordMessageTypes["GuildDiscoveryDisqualified"] = 14] =
+    "GuildDiscoveryDisqualified";
+  DiscordMessageTypes[DiscordMessageTypes["GuildDiscoveryRequalified"] = 15] =
+    "GuildDiscoveryRequalified";
+  DiscordMessageTypes[
+    DiscordMessageTypes["GuildDiscoveryGracePeriodInitialWarning"] = 16
+  ] = "GuildDiscoveryGracePeriodInitialWarning";
+  DiscordMessageTypes[
+    DiscordMessageTypes["GuildDiscoveryGracePeriodFinalWarning"] = 17
+  ] = "GuildDiscoveryGracePeriodFinalWarning";
+  DiscordMessageTypes[DiscordMessageTypes["ThreadCreated"] = 18] =
+    "ThreadCreated";
+  DiscordMessageTypes[DiscordMessageTypes["Reply"] = 19] = "Reply";
+  DiscordMessageTypes[DiscordMessageTypes["ApplicationCommand"] = 20] =
+    "ApplicationCommand";
+  DiscordMessageTypes[DiscordMessageTypes["GuildInviteReminder"] = 22] =
+    "GuildInviteReminder";
+})(DiscordMessageTypes || (DiscordMessageTypes = {}));
 export const MessageTypes = DiscordMessageTypes;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL21lc3NhZ2VzL21lc3NhZ2VfdHlwZXMudHM+Il0sInNvdXJjZXNDb250ZW50IjpbIi8qKiBodHRwczovL2Rpc2NvcmQuY29tL2RldmVsb3BlcnMvZG9jcy9yZXNvdXJjZXMvY2hhbm5lbCNtZXNzYWdlLW9iamVjdC1tZXNzYWdlLXR5cGVzICovXG5leHBvcnQgZW51bSBEaXNjb3JkTWVzc2FnZVR5cGVzIHtcbiAgRGVmYXVsdCxcbiAgUmVjaXBpZW50QWRkLFxuICBSZWNpcGllbnRSZW1vdmUsXG4gIENhbGwsXG4gIENoYW5uZWxOYW1lQ2hhbmdlLFxuICBDaGFubmVsSWNvbkNoYW5nZSxcbiAgQ2hhbm5lbFBpbm5lZE1lc3NhZ2UsXG4gIEd1aWxkTWVtYmVySm9pbixcbiAgVXNlclByZW1pdW1HdWlsZFN1YnNjcmlwdGlvbixcbiAgVXNlclByZW1pdW1HdWlsZFN1YnNjcmlwdGlvblRpZXIxLFxuICBVc2VyUHJlbWl1bUd1aWxkU3Vic2NyaXB0aW9uVGllcjIsXG4gIFVzZXJQcmVtaXVtR3VpbGRTdWJzY3JpcHRpb25UaWVyMyxcbiAgQ2hhbm5lbEZvbGxvd0FkZCxcbiAgR3VpbGREaXNjb3ZlcnlEaXNxdWFsaWZpZWQgPSAxNCxcbiAgR3VpbGREaXNjb3ZlcnlSZXF1YWxpZmllZCxcbiAgR3VpbGREaXNjb3ZlcnlHcmFjZVBlcmlvZEluaXRpYWxXYXJuaW5nLFxuICBHdWlsZERpc2NvdmVyeUdyYWNlUGVyaW9kRmluYWxXYXJuaW5nLFxuICBUaHJlYWRDcmVhdGVkLFxuICBSZXBseSA9IDE5LFxuICBBcHBsaWNhdGlvbkNvbW1hbmQsXG4gIEd1aWxkSW52aXRlUmVtaW5kZXIgPSAyMixcbn1cblxuZXhwb3J0IHR5cGUgTWVzc2FnZVR5cGVzID0gRGlzY29yZE1lc3NhZ2VUeXBlcztcbmV4cG9ydCBjb25zdCBNZXNzYWdlVHlwZXMgPSBEaXNjb3JkTWVzc2FnZVR5cGVzO1xuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7VUFDWSxtQkFBbUI7SUFBbkIsbUJBQW1CLENBQW5CLG1CQUFtQixFQUM3QixPQUFPLEtBQVAsQ0FBTyxLQUFQLE9BQU87SUFERyxtQkFBbUIsQ0FBbkIsbUJBQW1CLEVBRTdCLFlBQVksS0FBWixDQUFZLEtBQVosWUFBWTtJQUZGLG1CQUFtQixDQUFuQixtQkFBbUIsRUFHN0IsZUFBZSxLQUFmLENBQWUsS0FBZixlQUFlO0lBSEwsbUJBQW1CLENBQW5CLG1CQUFtQixFQUk3QixJQUFJLEtBQUosQ0FBSSxLQUFKLElBQUk7SUFKTSxtQkFBbUIsQ0FBbkIsbUJBQW1CLEVBSzdCLGlCQUFpQixLQUFqQixDQUFpQixLQUFqQixpQkFBaUI7SUFMUCxtQkFBbUIsQ0FBbkIsbUJBQW1CLEVBTTdCLGlCQUFpQixLQUFqQixDQUFpQixLQUFqQixpQkFBaUI7SUFOUCxtQkFBbUIsQ0FBbkIsbUJBQW1CLEVBTzdCLG9CQUFvQixLQUFwQixDQUFvQixLQUFwQixvQkFBb0I7SUFQVixtQkFBbUIsQ0FBbkIsbUJBQW1CLEVBUTdCLGVBQWUsS0FBZixDQUFlLEtBQWYsZUFBZTtJQVJMLG1CQUFtQixDQUFuQixtQkFBbUIsRUFTN0IsNEJBQTRCLEtBQTVCLENBQTRCLEtBQTVCLDRCQUE0QjtJQVRsQixtQkFBbUIsQ0FBbkIsbUJBQW1CLEVBVTdCLGlDQUFpQyxLQUFqQyxDQUFpQyxLQUFqQyxpQ0FBaUM7SUFWdkIsbUJBQW1CLENBQW5CLG1CQUFtQixFQVc3QixpQ0FBaUMsS0FBakMsRUFBaUMsS0FBakMsaUNBQWlDO0lBWHZCLG1CQUFtQixDQUFuQixtQkFBbUIsRUFZN0IsaUNBQWlDLEtBQWpDLEVBQWlDLEtBQWpDLGlDQUFpQztJQVp2QixtQkFBbUIsQ0FBbkIsbUJBQW1CLEVBYTdCLGdCQUFnQixLQUFoQixFQUFnQixLQUFoQixnQkFBZ0I7SUFiTixtQkFBbUIsQ0FBbkIsbUJBQW1CLEVBYzdCLDBCQUEwQixLQUFHLEVBQUUsS0FBL0IsMEJBQTBCO0lBZGhCLG1CQUFtQixDQUFuQixtQkFBbUIsRUFlN0IseUJBQXlCLEtBQXpCLEVBQXlCLEtBQXpCLHlCQUF5QjtJQWZmLG1CQUFtQixDQUFuQixtQkFBbUIsRUFnQjdCLHVDQUF1QyxLQUF2QyxFQUF1QyxLQUF2Qyx1Q0FBdUM7SUFoQjdCLG1CQUFtQixDQUFuQixtQkFBbUIsRUFpQjdCLHFDQUFxQyxLQUFyQyxFQUFxQyxLQUFyQyxxQ0FBcUM7SUFqQjNCLG1CQUFtQixDQUFuQixtQkFBbUIsRUFrQjdCLGFBQWEsS0FBYixFQUFhLEtBQWIsYUFBYTtJQWxCSCxtQkFBbUIsQ0FBbkIsbUJBQW1CLEVBbUI3QixLQUFLLEtBQUcsRUFBRSxLQUFWLEtBQUs7SUFuQkssbUJBQW1CLENBQW5CLG1CQUFtQixFQW9CN0Isa0JBQWtCLEtBQWxCLEVBQWtCLEtBQWxCLGtCQUFrQjtJQXBCUixtQkFBbUIsQ0FBbkIsbUJBQW1CLEVBcUI3QixtQkFBbUIsS0FBRyxFQUFFLEtBQXhCLG1CQUFtQjtHQXJCVCxtQkFBbUIsS0FBbkIsbUJBQW1COzthQXlCbEIsWUFBWSxHQUFHLG1CQUFtQiJ9

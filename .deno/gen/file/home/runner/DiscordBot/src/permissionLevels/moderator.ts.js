@@ -2,8 +2,11 @@ import { PermissionLevels } from "../types/commands.ts";
 import { hasGuildPermissions } from "../../deps.ts";
 import { bot } from "../../cache.ts";
 // The member using the command must be a moderator. (Usually has MANAGE_GUILD perm)
-bot.permissionLevels.set(PermissionLevels.MODERATOR, (message)=>hasGuildPermissions(message.guildId, message.authorId, [
-        "MANAGE_GUILD"
-    ])
+bot.permissionLevels.set(
+  PermissionLevels.MODERATOR,
+  (message) =>
+    hasGuildPermissions(message.guildId, message.authorId, [
+      "MANAGE_GUILD",
+    ]),
 );
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxmaWxlOi8vL2hvbWUvcnVubmVyL0Rpc2NvcmRCb3Qvc3JjL3Blcm1pc3Npb25MZXZlbHMvbW9kZXJhdG9yLnRzIzY+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFBlcm1pc3Npb25MZXZlbHMgfSBmcm9tIFwiLi4vdHlwZXMvY29tbWFuZHMudHNcIjtcbmltcG9ydCB7IGhhc0d1aWxkUGVybWlzc2lvbnMgfSBmcm9tIFwiLi4vLi4vZGVwcy50c1wiO1xuaW1wb3J0IHsgYm90IH0gZnJvbSBcIi4uLy4uL2NhY2hlLnRzXCI7XG5cbi8vIFRoZSBtZW1iZXIgdXNpbmcgdGhlIGNvbW1hbmQgbXVzdCBiZSBhIG1vZGVyYXRvci4gKFVzdWFsbHkgaGFzIE1BTkFHRV9HVUlMRCBwZXJtKVxuYm90LnBlcm1pc3Npb25MZXZlbHMuc2V0KFxuICBQZXJtaXNzaW9uTGV2ZWxzLk1PREVSQVRPUixcbiAgKG1lc3NhZ2UpID0+XG4gICAgaGFzR3VpbGRQZXJtaXNzaW9ucyhtZXNzYWdlLmd1aWxkSWQsIG1lc3NhZ2UuYXV0aG9ySWQsIFtcIk1BTkFHRV9HVUlMRFwiXSksXG4pO1xuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLGdCQUFnQixTQUFRLG9CQUFzQjtTQUM5QyxtQkFBbUIsU0FBUSxhQUFlO1NBQzFDLEdBQUcsU0FBUSxjQUFnQjtBQUVwQyxFQUFvRixBQUFwRixrRkFBb0Y7QUFDcEYsR0FBRyxDQUFDLGdCQUFnQixDQUFDLEdBQUcsQ0FDdEIsZ0JBQWdCLENBQUMsU0FBUyxHQUN6QixPQUFPLEdBQ04sbUJBQW1CLENBQUMsT0FBTyxDQUFDLE9BQU8sRUFBRSxPQUFPLENBQUMsUUFBUTtTQUFHLFlBQWMifQ==

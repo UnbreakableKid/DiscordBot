@@ -1,9 +1,8 @@
 export var DiscordPremiumTypes;
-(function(DiscordPremiumTypes) {
-    DiscordPremiumTypes[DiscordPremiumTypes["None"] = 0] = "None";
-    DiscordPremiumTypes[DiscordPremiumTypes["NitroClassic"] = 1] = "NitroClassic";
-    DiscordPremiumTypes[DiscordPremiumTypes["Nitro"] = 2] = "Nitro";
-})(DiscordPremiumTypes || (DiscordPremiumTypes = {
-}));
+(function (DiscordPremiumTypes) {
+  DiscordPremiumTypes[DiscordPremiumTypes["None"] = 0] = "None";
+  DiscordPremiumTypes[DiscordPremiumTypes["NitroClassic"] = 1] = "NitroClassic";
+  DiscordPremiumTypes[DiscordPremiumTypes["Nitro"] = 2] = "Nitro";
+})(DiscordPremiumTypes || (DiscordPremiumTypes = {}));
 export const PremiumTypes = DiscordPremiumTypes;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL3VzZXJzL3ByZW1pdW1fdHlwZXMudHM+Il0sInNvdXJjZXNDb250ZW50IjpbIi8qKiBodHRwczovL2Rpc2NvcmQuY29tL2RldmVsb3BlcnMvZG9jcy9yZXNvdXJjZXMvdXNlciN1c2VyLW9iamVjdC1wcmVtaXVtLXR5cGVzICovXG5leHBvcnQgZW51bSBEaXNjb3JkUHJlbWl1bVR5cGVzIHtcbiAgTm9uZSxcbiAgTml0cm9DbGFzc2ljLFxuICBOaXRybyxcbn1cblxuZXhwb3J0IHR5cGUgUHJlbWl1bVR5cGVzID0gRGlzY29yZFByZW1pdW1UeXBlcztcbmV4cG9ydCBjb25zdCBQcmVtaXVtVHlwZXMgPSBEaXNjb3JkUHJlbWl1bVR5cGVzO1xuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7VUFDWSxtQkFBbUI7SUFBbkIsbUJBQW1CLENBQW5CLG1CQUFtQixFQUM3QixJQUFJLEtBQUosQ0FBSSxLQUFKLElBQUk7SUFETSxtQkFBbUIsQ0FBbkIsbUJBQW1CLEVBRTdCLFlBQVksS0FBWixDQUFZLEtBQVosWUFBWTtJQUZGLG1CQUFtQixDQUFuQixtQkFBbUIsRUFHN0IsS0FBSyxLQUFMLENBQUssS0FBTCxLQUFLO0dBSEssbUJBQW1CLEtBQW5CLG1CQUFtQjs7YUFPbEIsWUFBWSxHQUFHLG1CQUFtQiJ9

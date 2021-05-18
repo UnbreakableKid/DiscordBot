@@ -2,9 +2,12 @@ import { eventHandlers } from "../../bot.ts";
 import { cacheHandlers } from "../../cache.ts";
 import { snowflakeToBigint } from "../../util/bigint.ts";
 export async function handleGuildIntegrationsUpdate(data) {
-    const payload = data.d;
-    const guild = await cacheHandlers.get("guilds", snowflakeToBigint(payload.guildId));
-    if (!guild) return;
-    eventHandlers.guildIntegrationsUpdate?.(guild);
+  const payload = data.d;
+  const guild = await cacheHandlers.get(
+    "guilds",
+    snowflakeToBigint(payload.guildId),
+  );
+  if (!guild) return;
+  eventHandlers.guildIntegrationsUpdate?.(guild);
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hhbmRsZXJzL2d1aWxkcy9HVUlMRF9JTlRFR1JBVElPTlNfVVBEQVRFLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBldmVudEhhbmRsZXJzIH0gZnJvbSBcIi4uLy4uL2JvdC50c1wiO1xuaW1wb3J0IHsgY2FjaGVIYW5kbGVycyB9IGZyb20gXCIuLi8uLi9jYWNoZS50c1wiO1xuaW1wb3J0IHR5cGUgeyBEaXNjb3JkR2F0ZXdheVBheWxvYWQgfSBmcm9tIFwiLi4vLi4vdHlwZXMvZ2F0ZXdheS9nYXRld2F5X3BheWxvYWQudHNcIjtcbmltcG9ydCB0eXBlIHsgR3VpbGRJbnRlZ3JhdGlvbnNVcGRhdGUgfSBmcm9tIFwiLi4vLi4vdHlwZXMvaW50ZWdyYXRpb25zL2d1aWxkX2ludGVncmF0aW9uc191cGRhdGUudHNcIjtcbmltcG9ydCB7IHNub3dmbGFrZVRvQmlnaW50IH0gZnJvbSBcIi4uLy4uL3V0aWwvYmlnaW50LnRzXCI7XG5cbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBoYW5kbGVHdWlsZEludGVncmF0aW9uc1VwZGF0ZShcbiAgZGF0YTogRGlzY29yZEdhdGV3YXlQYXlsb2FkLFxuKSB7XG4gIGNvbnN0IHBheWxvYWQgPSBkYXRhLmQgYXMgR3VpbGRJbnRlZ3JhdGlvbnNVcGRhdGU7XG5cbiAgY29uc3QgZ3VpbGQgPSBhd2FpdCBjYWNoZUhhbmRsZXJzLmdldChcbiAgICBcImd1aWxkc1wiLFxuICAgIHNub3dmbGFrZVRvQmlnaW50KHBheWxvYWQuZ3VpbGRJZCksXG4gICk7XG4gIGlmICghZ3VpbGQpIHJldHVybjtcblxuICBldmVudEhhbmRsZXJzLmd1aWxkSW50ZWdyYXRpb25zVXBkYXRlPy4oZ3VpbGQpO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLGFBQWEsU0FBUSxZQUFjO1NBQ25DLGFBQWEsU0FBUSxjQUFnQjtTQUdyQyxpQkFBaUIsU0FBUSxvQkFBc0I7c0JBRWxDLDZCQUE2QixDQUNqRCxJQUEyQjtVQUVyQixPQUFPLEdBQUcsSUFBSSxDQUFDLENBQUM7VUFFaEIsS0FBSyxTQUFTLGFBQWEsQ0FBQyxHQUFHLEVBQ25DLE1BQVEsR0FDUixpQkFBaUIsQ0FBQyxPQUFPLENBQUMsT0FBTztTQUU5QixLQUFLO0lBRVYsYUFBYSxDQUFDLHVCQUF1QixHQUFHLEtBQUsifQ==

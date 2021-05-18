@@ -1,6 +1,7 @@
 // Copyright the Browserify authors. MIT License.
 // Ported from https://github.com/browserify/path-browserify/
-/** This module is browser compatible. */ // Alphabet chars.
+/** This module is browser compatible. */
+// Alphabet chars.
 export const CHAR_UPPERCASE_A = 65;
 export const CHAR_LOWERCASE_A = 97;
 export const CHAR_UPPERCASE_Z = 90;

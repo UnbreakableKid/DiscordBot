@@ -1,17 +1,27 @@
 export var DiscordHTTPResponseCodes;
-(function(DiscordHTTPResponseCodes) {
-    DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["Ok"] = 200] = "Ok";
-    DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["Created"] = 201] = "Created";
-    DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["NoContent"] = 204] = "NoContent";
-    DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["NotModified"] = 304] = "NotModified";
-    DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["BadRequest"] = 400] = "BadRequest";
-    DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["Unauthorized"] = 401] = "Unauthorized";
-    DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["Forbidden"] = 403] = "Forbidden";
-    DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["NotFound"] = 404] = "NotFound";
-    DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["MethodNotAllowed"] = 405] = "MethodNotAllowed";
-    DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["TooManyRequests"] = 429] = "TooManyRequests";
-    DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["GatewayUnavailable"] = 502] = "GatewayUnavailable";
-})(DiscordHTTPResponseCodes || (DiscordHTTPResponseCodes = {
-}));
+(function (DiscordHTTPResponseCodes) {
+  DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["Ok"] = 200] = "Ok";
+  DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["Created"] = 201] =
+    "Created";
+  DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["NoContent"] = 204] =
+    "NoContent";
+  DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["NotModified"] = 304] =
+    "NotModified";
+  DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["BadRequest"] = 400] =
+    "BadRequest";
+  DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["Unauthorized"] = 401] =
+    "Unauthorized";
+  DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["Forbidden"] = 403] =
+    "Forbidden";
+  DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["NotFound"] = 404] =
+    "NotFound";
+  DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["MethodNotAllowed"] = 405] =
+    "MethodNotAllowed";
+  DiscordHTTPResponseCodes[DiscordHTTPResponseCodes["TooManyRequests"] = 429] =
+    "TooManyRequests";
+  DiscordHTTPResponseCodes[
+    DiscordHTTPResponseCodes["GatewayUnavailable"] = 502
+  ] = "GatewayUnavailable";
+})(DiscordHTTPResponseCodes || (DiscordHTTPResponseCodes = {}));
 export const HTTPResponseCodes = DiscordHTTPResponseCodes;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL2NvZGVzL2h0dHBfcmVzcG9uc2VfY29kZXMudHM+Il0sInNvdXJjZXNDb250ZW50IjpbIi8qKiBodHRwczovL2Rpc2NvcmQuY29tL2RldmVsb3BlcnMvZG9jcy90b3BpY3Mvb3Bjb2Rlcy1hbmQtc3RhdHVzLWNvZGVzI2h0dHAgKi9cbmV4cG9ydCBlbnVtIERpc2NvcmRIVFRQUmVzcG9uc2VDb2RlcyB7XG4gIE9rID0gMjAwLFxuICBDcmVhdGVkLFxuICBOb0NvbnRlbnQgPSAyMDQsXG4gIE5vdE1vZGlmaWVkID0gMzA0LFxuICBCYWRSZXF1ZXN0ID0gNDAwLFxuICBVbmF1dGhvcml6ZWQsXG4gIEZvcmJpZGRlbiA9IDQwMyxcbiAgTm90Rm91bmQsXG4gIE1ldGhvZE5vdEFsbG93ZWQsXG4gIFRvb01hbnlSZXF1ZXN0cyA9IDQyOSxcbiAgR2F0ZXdheVVuYXZhaWxhYmxlID0gNTAyLFxufVxuXG5leHBvcnQgdHlwZSBIVFRQUmVzcG9uc2VDb2RlcyA9IERpc2NvcmRIVFRQUmVzcG9uc2VDb2RlcztcbmV4cG9ydCBjb25zdCBIVFRQUmVzcG9uc2VDb2RlcyA9IERpc2NvcmRIVFRQUmVzcG9uc2VDb2RlcztcbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO1VBQ1ksd0JBQXdCO0lBQXhCLHdCQUF3QixDQUF4Qix3QkFBd0IsRUFDbEMsRUFBRSxLQUFHLEdBQUcsS0FBUixFQUFFO0lBRFEsd0JBQXdCLENBQXhCLHdCQUF3QixFQUVsQyxPQUFPLEtBQVAsR0FBTyxLQUFQLE9BQU87SUFGRyx3QkFBd0IsQ0FBeEIsd0JBQXdCLEVBR2xDLFNBQVMsS0FBRyxHQUFHLEtBQWYsU0FBUztJQUhDLHdCQUF3QixDQUF4Qix3QkFBd0IsRUFJbEMsV0FBVyxLQUFHLEdBQUcsS0FBakIsV0FBVztJQUpELHdCQUF3QixDQUF4Qix3QkFBd0IsRUFLbEMsVUFBVSxLQUFHLEdBQUcsS0FBaEIsVUFBVTtJQUxBLHdCQUF3QixDQUF4Qix3QkFBd0IsRUFNbEMsWUFBWSxLQUFaLEdBQVksS0FBWixZQUFZO0lBTkYsd0JBQXdCLENBQXhCLHdCQUF3QixFQU9sQyxTQUFTLEtBQUcsR0FBRyxLQUFmLFNBQVM7SUFQQyx3QkFBd0IsQ0FBeEIsd0JBQXdCLEVBUWxDLFFBQVEsS0FBUixHQUFRLEtBQVIsUUFBUTtJQVJFLHdCQUF3QixDQUF4Qix3QkFBd0IsRUFTbEMsZ0JBQWdCLEtBQWhCLEdBQWdCLEtBQWhCLGdCQUFnQjtJQVROLHdCQUF3QixDQUF4Qix3QkFBd0IsRUFVbEMsZUFBZSxLQUFHLEdBQUcsS0FBckIsZUFBZTtJQVZMLHdCQUF3QixDQUF4Qix3QkFBd0IsRUFXbEMsa0JBQWtCLEtBQUcsR0FBRyxLQUF4QixrQkFBa0I7R0FYUix3QkFBd0IsS0FBeEIsd0JBQXdCOzthQWV2QixpQkFBaUIsR0FBRyx3QkFBd0IifQ==

@@ -1,10 +1,13 @@
 import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotChannelPermissions } from "../../util/permissions.ts";
-/** Delete a webhook permanently. Requires the `MANAGE_WEBHOOKS` permission. Returns a undefined on success */ export async function deleteWebhook(channelId, webhookId) {
-    await requireBotChannelPermissions(channelId, [
-        "MANAGE_WEBHOOKS"
-    ]);
-    return await rest.runMethod("delete", endpoints.WEBHOOK_ID(webhookId));
+/** Delete a webhook permanently. Requires the `MANAGE_WEBHOOKS` permission. Returns a undefined on success */ export async function deleteWebhook(
+  channelId,
+  webhookId,
+) {
+  await requireBotChannelPermissions(channelId, [
+    "MANAGE_WEBHOOKS",
+  ]);
+  return await rest.runMethod("delete", endpoints.WEBHOOK_ID(webhookId));
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvd2ViaG9va3MvZGVsZXRlX3dlYmhvb2sudHM+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHJlc3QgfSBmcm9tIFwiLi4vLi4vcmVzdC9yZXN0LnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcbmltcG9ydCB7IHJlcXVpcmVCb3RDaGFubmVsUGVybWlzc2lvbnMgfSBmcm9tIFwiLi4vLi4vdXRpbC9wZXJtaXNzaW9ucy50c1wiO1xuXG4vKiogRGVsZXRlIGEgd2ViaG9vayBwZXJtYW5lbnRseS4gUmVxdWlyZXMgdGhlIGBNQU5BR0VfV0VCSE9PS1NgIHBlcm1pc3Npb24uIFJldHVybnMgYSB1bmRlZmluZWQgb24gc3VjY2VzcyAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGRlbGV0ZVdlYmhvb2soY2hhbm5lbElkOiBiaWdpbnQsIHdlYmhvb2tJZDogYmlnaW50KSB7XG4gIGF3YWl0IHJlcXVpcmVCb3RDaGFubmVsUGVybWlzc2lvbnMoY2hhbm5lbElkLCBbXCJNQU5BR0VfV0VCSE9PS1NcIl0pO1xuXG4gIHJldHVybiBhd2FpdCByZXN0LnJ1bk1ldGhvZDx1bmRlZmluZWQ+KFxuICAgIFwiZGVsZXRlXCIsXG4gICAgZW5kcG9pbnRzLldFQkhPT0tfSUQod2ViaG9va0lkKSxcbiAgKTtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxJQUFJLFNBQVEsa0JBQW9CO1NBQ2hDLFNBQVMsU0FBUSx1QkFBeUI7U0FDMUMsNEJBQTRCLFNBQVEseUJBQTJCO0FBRXhFLEVBQThHLEFBQTlHLDBHQUE4RyxBQUE5RyxFQUE4Ryx1QkFDeEYsYUFBYSxDQUFDLFNBQWlCLEVBQUUsU0FBaUI7VUFDaEUsNEJBQTRCLENBQUMsU0FBUztTQUFHLGVBQWlCOztpQkFFbkQsSUFBSSxDQUFDLFNBQVMsRUFDekIsTUFBUSxHQUNSLFNBQVMsQ0FBQyxVQUFVLENBQUMsU0FBUyJ9

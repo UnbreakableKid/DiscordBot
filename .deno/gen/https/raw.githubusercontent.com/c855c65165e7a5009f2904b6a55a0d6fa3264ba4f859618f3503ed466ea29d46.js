@@ -3,15 +3,16 @@ import { snowflakeToBigint } from "../../util/bigint.ts";
 import { Collection } from "../../util/collection.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotGuildPermissions } from "../../util/permissions.ts";
-/** Returns a list of ban objects for the users banned from this guild. Requires the BAN_MEMBERS permission. */ export async function getBans(guildId) {
-    await requireBotGuildPermissions(guildId, [
-        "BAN_MEMBERS"
-    ]);
-    const results = await rest.runMethod("get", endpoints.GUILD_BANS(guildId));
-    return new Collection(results.map((res)=>[
-            snowflakeToBigint(res.user.id),
-            res
-        ]
-    ));
+/** Returns a list of ban objects for the users banned from this guild. Requires the BAN_MEMBERS permission. */ export async function getBans(
+  guildId,
+) {
+  await requireBotGuildPermissions(guildId, [
+    "BAN_MEMBERS",
+  ]);
+  const results = await rest.runMethod("get", endpoints.GUILD_BANS(guildId));
+  return new Collection(results.map((res) => [
+    snowflakeToBigint(res.user.id),
+    res,
+  ]));
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvZ3VpbGRzL2dldF9iYW5zLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyByZXN0IH0gZnJvbSBcIi4uLy4uL3Jlc3QvcmVzdC50c1wiO1xuaW1wb3J0IHR5cGUgeyBCYW4gfSBmcm9tIFwiLi4vLi4vdHlwZXMvZ3VpbGRzL2Jhbi50c1wiO1xuaW1wb3J0IHsgc25vd2ZsYWtlVG9CaWdpbnQgfSBmcm9tIFwiLi4vLi4vdXRpbC9iaWdpbnQudHNcIjtcbmltcG9ydCB7IENvbGxlY3Rpb24gfSBmcm9tIFwiLi4vLi4vdXRpbC9jb2xsZWN0aW9uLnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcbmltcG9ydCB7IHJlcXVpcmVCb3RHdWlsZFBlcm1pc3Npb25zIH0gZnJvbSBcIi4uLy4uL3V0aWwvcGVybWlzc2lvbnMudHNcIjtcblxuLyoqIFJldHVybnMgYSBsaXN0IG9mIGJhbiBvYmplY3RzIGZvciB0aGUgdXNlcnMgYmFubmVkIGZyb20gdGhpcyBndWlsZC4gUmVxdWlyZXMgdGhlIEJBTl9NRU1CRVJTIHBlcm1pc3Npb24uICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gZ2V0QmFucyhndWlsZElkOiBiaWdpbnQpIHtcbiAgYXdhaXQgcmVxdWlyZUJvdEd1aWxkUGVybWlzc2lvbnMoZ3VpbGRJZCwgW1wiQkFOX01FTUJFUlNcIl0pO1xuXG4gIGNvbnN0IHJlc3VsdHMgPSBhd2FpdCByZXN0LnJ1bk1ldGhvZDxCYW5bXT4oXG4gICAgXCJnZXRcIixcbiAgICBlbmRwb2ludHMuR1VJTERfQkFOUyhndWlsZElkKSxcbiAgKTtcblxuICByZXR1cm4gbmV3IENvbGxlY3Rpb248YmlnaW50LCBCYW4+KFxuICAgIHJlc3VsdHMubWFwKChyZXMpID0+IFtzbm93Zmxha2VUb0JpZ2ludChyZXMudXNlci5pZCksIHJlc10pLFxuICApO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLElBQUksU0FBUSxrQkFBb0I7U0FFaEMsaUJBQWlCLFNBQVEsb0JBQXNCO1NBQy9DLFVBQVUsU0FBUSx3QkFBMEI7U0FDNUMsU0FBUyxTQUFRLHVCQUF5QjtTQUMxQywwQkFBMEIsU0FBUSx5QkFBMkI7QUFFdEUsRUFBK0csQUFBL0csMkdBQStHLEFBQS9HLEVBQStHLHVCQUN6RixPQUFPLENBQUMsT0FBZTtVQUNyQywwQkFBMEIsQ0FBQyxPQUFPO1NBQUcsV0FBYTs7VUFFbEQsT0FBTyxTQUFTLElBQUksQ0FBQyxTQUFTLEVBQ2xDLEdBQUssR0FDTCxTQUFTLENBQUMsVUFBVSxDQUFDLE9BQU87ZUFHbkIsVUFBVSxDQUNuQixPQUFPLENBQUMsR0FBRyxFQUFFLEdBQUc7WUFBTSxpQkFBaUIsQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLEVBQUU7WUFBRyxHQUFHIn0=

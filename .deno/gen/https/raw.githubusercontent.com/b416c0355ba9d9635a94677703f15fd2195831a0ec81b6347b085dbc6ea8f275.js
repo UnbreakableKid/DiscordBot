@@ -1,11 +1,14 @@
-/** Validates the length of a string in JS. Certain characters in JS can have multiple numbers in length in unicode and discords api is in python which treats length differently. */ export function validateLength(text, options) {
-    const length = [
-        ...text
-    ].length;
-    // Text is too long
-    if (options.max && length > options.max) return false;
-    // Text is too short
-    if (options.min && length < options.min) return false;
-    return true;
+/** Validates the length of a string in JS. Certain characters in JS can have multiple numbers in length in unicode and discords api is in python which treats length differently. */ export function validateLength(
+  text,
+  options,
+) {
+  const length = [
+    ...text,
+  ].length;
+  // Text is too long
+  if (options.max && length > options.max) return false;
+  // Text is too short
+  if (options.min && length < options.min) return false;
+  return true;
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3V0aWwvdmFsaWRhdGVfbGVuZ3RoLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyIvKiogVmFsaWRhdGVzIHRoZSBsZW5ndGggb2YgYSBzdHJpbmcgaW4gSlMuIENlcnRhaW4gY2hhcmFjdGVycyBpbiBKUyBjYW4gaGF2ZSBtdWx0aXBsZSBudW1iZXJzIGluIGxlbmd0aCBpbiB1bmljb2RlIGFuZCBkaXNjb3JkcyBhcGkgaXMgaW4gcHl0aG9uIHdoaWNoIHRyZWF0cyBsZW5ndGggZGlmZmVyZW50bHkuICovXG5leHBvcnQgZnVuY3Rpb24gdmFsaWRhdGVMZW5ndGgoXG4gIHRleHQ6IHN0cmluZyxcbiAgb3B0aW9uczogeyBtYXg/OiBudW1iZXI7IG1pbj86IG51bWJlciB9LFxuKSB7XG4gIGNvbnN0IGxlbmd0aCA9IFsuLi50ZXh0XS5sZW5ndGg7XG5cbiAgLy8gVGV4dCBpcyB0b28gbG9uZ1xuICBpZiAob3B0aW9ucy5tYXggJiYgbGVuZ3RoID4gb3B0aW9ucy5tYXgpIHJldHVybiBmYWxzZTtcbiAgLy8gVGV4dCBpcyB0b28gc2hvcnRcbiAgaWYgKG9wdGlvbnMubWluICYmIGxlbmd0aCA8IG9wdGlvbnMubWluKSByZXR1cm4gZmFsc2U7XG5cbiAgcmV0dXJuIHRydWU7XG59XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsRUFBcUwsQUFBckwsaUxBQXFMLEFBQXJMLEVBQXFMLGlCQUNySyxjQUFjLENBQzVCLElBQVksRUFDWixPQUF1QztVQUVqQyxNQUFNO1dBQU8sSUFBSTtNQUFFLE1BQU07SUFFL0IsRUFBbUIsQUFBbkIsaUJBQW1CO1FBQ2YsT0FBTyxDQUFDLEdBQUcsSUFBSSxNQUFNLEdBQUcsT0FBTyxDQUFDLEdBQUcsU0FBUyxLQUFLO0lBQ3JELEVBQW9CLEFBQXBCLGtCQUFvQjtRQUNoQixPQUFPLENBQUMsR0FBRyxJQUFJLE1BQU0sR0FBRyxPQUFPLENBQUMsR0FBRyxTQUFTLEtBQUs7V0FFOUMsSUFBSSJ9

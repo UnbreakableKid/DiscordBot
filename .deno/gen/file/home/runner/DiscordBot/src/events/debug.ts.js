@@ -1,5 +1,5 @@
 import { bot } from "../../cache.ts";
-bot.eventHandlers.debug = function(_data) {
-// log.warn(_data);
+bot.eventHandlers.debug = function (_data) {
+  // log.warn(_data);
 };
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxmaWxlOi8vL2hvbWUvcnVubmVyL0Rpc2NvcmRCb3Qvc3JjL2V2ZW50cy9kZWJ1Zy50cyMyPiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBib3QgfSBmcm9tIFwiLi4vLi4vY2FjaGUudHNcIjtcblxuYm90LmV2ZW50SGFuZGxlcnMuZGVidWcgPSBmdW5jdGlvbiAoX2RhdGEpIHtcbiAgLy8gbG9nLndhcm4oX2RhdGEpO1xufTtcbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxHQUFHLFNBQVEsY0FBZ0I7QUFFcEMsR0FBRyxDQUFDLGFBQWEsQ0FBQyxLQUFLLFlBQWEsS0FBSztBQUN2QyxFQUFtQixBQUFuQixpQkFBbUIifQ==

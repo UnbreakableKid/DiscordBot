@@ -1,16 +1,23 @@
 import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotChannelPermissions } from "../../util/permissions.ts";
-/** Create a reaction for the message. Reaction takes the form of **name:id** for custom guild emoji, or Unicode characters. Requires READ_MESSAGE_HISTORY and ADD_REACTIONS */ export async function addReaction(channelId, messageId, reaction) {
-    await requireBotChannelPermissions(channelId, [
-        "ADD_REACTIONS",
-        "READ_MESSAGE_HISTORY", 
-    ]);
-    if (reaction.startsWith("<:")) {
-        reaction = reaction.substring(2, reaction.length - 1);
-    } else if (reaction.startsWith("<a:")) {
-        reaction = reaction.substring(3, reaction.length - 1);
-    }
-    return await rest.runMethod("put", endpoints.CHANNEL_MESSAGE_REACTION_ME(channelId, messageId, reaction));
+/** Create a reaction for the message. Reaction takes the form of **name:id** for custom guild emoji, or Unicode characters. Requires READ_MESSAGE_HISTORY and ADD_REACTIONS */ export async function addReaction(
+  channelId,
+  messageId,
+  reaction,
+) {
+  await requireBotChannelPermissions(channelId, [
+    "ADD_REACTIONS",
+    "READ_MESSAGE_HISTORY",
+  ]);
+  if (reaction.startsWith("<:")) {
+    reaction = reaction.substring(2, reaction.length - 1);
+  } else if (reaction.startsWith("<a:")) {
+    reaction = reaction.substring(3, reaction.length - 1);
+  }
+  return await rest.runMethod(
+    "put",
+    endpoints.CHANNEL_MESSAGE_REACTION_ME(channelId, messageId, reaction),
+  );
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvbWVzc2FnZXMvYWRkX3JlYWN0aW9uLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyByZXN0IH0gZnJvbSBcIi4uLy4uL3Jlc3QvcmVzdC50c1wiO1xuaW1wb3J0IHsgZW5kcG9pbnRzIH0gZnJvbSBcIi4uLy4uL3V0aWwvY29uc3RhbnRzLnRzXCI7XG5pbXBvcnQgeyByZXF1aXJlQm90Q2hhbm5lbFBlcm1pc3Npb25zIH0gZnJvbSBcIi4uLy4uL3V0aWwvcGVybWlzc2lvbnMudHNcIjtcblxuLyoqIENyZWF0ZSBhIHJlYWN0aW9uIGZvciB0aGUgbWVzc2FnZS4gUmVhY3Rpb24gdGFrZXMgdGhlIGZvcm0gb2YgKipuYW1lOmlkKiogZm9yIGN1c3RvbSBndWlsZCBlbW9qaSwgb3IgVW5pY29kZSBjaGFyYWN0ZXJzLiBSZXF1aXJlcyBSRUFEX01FU1NBR0VfSElTVE9SWSBhbmQgQUREX1JFQUNUSU9OUyAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGFkZFJlYWN0aW9uKFxuICBjaGFubmVsSWQ6IGJpZ2ludCxcbiAgbWVzc2FnZUlkOiBiaWdpbnQsXG4gIHJlYWN0aW9uOiBzdHJpbmcsXG4pIHtcbiAgYXdhaXQgcmVxdWlyZUJvdENoYW5uZWxQZXJtaXNzaW9ucyhjaGFubmVsSWQsIFtcbiAgICBcIkFERF9SRUFDVElPTlNcIixcbiAgICBcIlJFQURfTUVTU0FHRV9ISVNUT1JZXCIsXG4gIF0pO1xuXG4gIGlmIChyZWFjdGlvbi5zdGFydHNXaXRoKFwiPDpcIikpIHtcbiAgICByZWFjdGlvbiA9IHJlYWN0aW9uLnN1YnN0cmluZygyLCByZWFjdGlvbi5sZW5ndGggLSAxKTtcbiAgfSBlbHNlIGlmIChyZWFjdGlvbi5zdGFydHNXaXRoKFwiPGE6XCIpKSB7XG4gICAgcmVhY3Rpb24gPSByZWFjdGlvbi5zdWJzdHJpbmcoMywgcmVhY3Rpb24ubGVuZ3RoIC0gMSk7XG4gIH1cblxuICByZXR1cm4gYXdhaXQgcmVzdC5ydW5NZXRob2Q8dW5kZWZpbmVkPihcbiAgICBcInB1dFwiLFxuICAgIGVuZHBvaW50cy5DSEFOTkVMX01FU1NBR0VfUkVBQ1RJT05fTUUoY2hhbm5lbElkLCBtZXNzYWdlSWQsIHJlYWN0aW9uKSxcbiAgKTtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxJQUFJLFNBQVEsa0JBQW9CO1NBQ2hDLFNBQVMsU0FBUSx1QkFBeUI7U0FDMUMsNEJBQTRCLFNBQVEseUJBQTJCO0FBRXhFLEVBQStLLEFBQS9LLDJLQUErSyxBQUEvSyxFQUErSyx1QkFDekosV0FBVyxDQUMvQixTQUFpQixFQUNqQixTQUFpQixFQUNqQixRQUFnQjtVQUVWLDRCQUE0QixDQUFDLFNBQVM7U0FDMUMsYUFBZTtTQUNmLG9CQUFzQjs7UUFHcEIsUUFBUSxDQUFDLFVBQVUsRUFBQyxFQUFJO1FBQzFCLFFBQVEsR0FBRyxRQUFRLENBQUMsU0FBUyxDQUFDLENBQUMsRUFBRSxRQUFRLENBQUMsTUFBTSxHQUFHLENBQUM7ZUFDM0MsUUFBUSxDQUFDLFVBQVUsRUFBQyxHQUFLO1FBQ2xDLFFBQVEsR0FBRyxRQUFRLENBQUMsU0FBUyxDQUFDLENBQUMsRUFBRSxRQUFRLENBQUMsTUFBTSxHQUFHLENBQUM7O2lCQUd6QyxJQUFJLENBQUMsU0FBUyxFQUN6QixHQUFLLEdBQ0wsU0FBUyxDQUFDLDJCQUEyQixDQUFDLFNBQVMsRUFBRSxTQUFTLEVBQUUsUUFBUSJ9

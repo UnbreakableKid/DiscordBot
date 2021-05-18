@@ -1,6 +1,8 @@
 import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
-/** Returns the guild template if it exists */ export async function getTemplate(templateCode) {
-    return await rest.runMethod("get", endpoints.GUILD_TEMPLATE(templateCode));
+/** Returns the guild template if it exists */ export async function getTemplate(
+  templateCode,
+) {
+  return await rest.runMethod("get", endpoints.GUILD_TEMPLATE(templateCode));
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvdGVtcGxhdGVzL2dldF90ZW1wbGF0ZS50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgcmVzdCB9IGZyb20gXCIuLi8uLi9yZXN0L3Jlc3QudHNcIjtcbmltcG9ydCB0eXBlIHsgVGVtcGxhdGUgfSBmcm9tIFwiLi4vLi4vdHlwZXMvdGVtcGxhdGVzL3RlbXBsYXRlLnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcblxuLyoqIFJldHVybnMgdGhlIGd1aWxkIHRlbXBsYXRlIGlmIGl0IGV4aXN0cyAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGdldFRlbXBsYXRlKHRlbXBsYXRlQ29kZTogc3RyaW5nKSB7XG4gIHJldHVybiBhd2FpdCByZXN0LnJ1bk1ldGhvZDxUZW1wbGF0ZT4oXG4gICAgXCJnZXRcIixcbiAgICBlbmRwb2ludHMuR1VJTERfVEVNUExBVEUodGVtcGxhdGVDb2RlKSxcbiAgKTtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxJQUFJLFNBQVEsa0JBQW9CO1NBRWhDLFNBQVMsU0FBUSx1QkFBeUI7QUFFbkQsRUFBOEMsQUFBOUMsMENBQThDLEFBQTlDLEVBQThDLHVCQUN4QixXQUFXLENBQUMsWUFBb0I7aUJBQ3ZDLElBQUksQ0FBQyxTQUFTLEVBQ3pCLEdBQUssR0FDTCxTQUFTLENBQUMsY0FBYyxDQUFDLFlBQVkifQ==

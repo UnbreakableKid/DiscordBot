@@ -1,6 +1,5 @@
 import { bot } from "../../cache.ts";
 import { PermissionLevels } from "../types/commands.ts";
 // The default level where any member can use the command
-bot.permissionLevels.set(PermissionLevels.MEMBER, ()=>true
-);
+bot.permissionLevels.set(PermissionLevels.MEMBER, () => true);
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxmaWxlOi8vL2hvbWUvcnVubmVyL0Rpc2NvcmRCb3Qvc3JjL3Blcm1pc3Npb25MZXZlbHMvbWVtYmVyLnRzIzY+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGJvdCB9IGZyb20gXCIuLi8uLi9jYWNoZS50c1wiO1xuaW1wb3J0IHsgUGVybWlzc2lvbkxldmVscyB9IGZyb20gXCIuLi90eXBlcy9jb21tYW5kcy50c1wiO1xuXG4vLyBUaGUgZGVmYXVsdCBsZXZlbCB3aGVyZSBhbnkgbWVtYmVyIGNhbiB1c2UgdGhlIGNvbW1hbmRcbmJvdC5wZXJtaXNzaW9uTGV2ZWxzLnNldChQZXJtaXNzaW9uTGV2ZWxzLk1FTUJFUiwgKCkgPT4gdHJ1ZSk7XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IlNBQVMsR0FBRyxTQUFRLGNBQWdCO1NBQzNCLGdCQUFnQixTQUFRLG9CQUFzQjtBQUV2RCxFQUF5RCxBQUF6RCx1REFBeUQ7QUFDekQsR0FBRyxDQUFDLGdCQUFnQixDQUFDLEdBQUcsQ0FBQyxnQkFBZ0IsQ0FBQyxNQUFNLE1BQVEsSUFBSSJ9

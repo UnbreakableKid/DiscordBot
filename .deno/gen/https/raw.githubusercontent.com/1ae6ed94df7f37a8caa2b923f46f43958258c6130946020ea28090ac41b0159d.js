@@ -2,12 +2,15 @@ import { cacheHandlers } from "../../cache.ts";
 import { rest } from "../../rest/rest.ts";
 import { Errors } from "../../types/discordeno/errors.ts";
 import { endpoints } from "../../util/constants.ts";
-/** Returns the widget for the guild. */ export async function getWidget(guildId, options) {
-    if (!options?.force) {
-        const guild = await cacheHandlers.get("guilds", guildId);
-        if (!guild) throw new Error(Errors.GUILD_NOT_FOUND);
-        if (!guild?.widgetEnabled) throw new Error(Errors.GUILD_WIDGET_NOT_ENABLED);
-    }
-    return await rest.runMethod("get", `${endpoints.GUILD_WIDGET(guildId)}.json`);
+/** Returns the widget for the guild. */ export async function getWidget(
+  guildId,
+  options,
+) {
+  if (!options?.force) {
+    const guild = await cacheHandlers.get("guilds", guildId);
+    if (!guild) throw new Error(Errors.GUILD_NOT_FOUND);
+    if (!guild?.widgetEnabled) throw new Error(Errors.GUILD_WIDGET_NOT_ENABLED);
+  }
+  return await rest.runMethod("get", `${endpoints.GUILD_WIDGET(guildId)}.json`);
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvZ3VpbGRzL2dldF93aWRnZXQudHM+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNhY2hlSGFuZGxlcnMgfSBmcm9tIFwiLi4vLi4vY2FjaGUudHNcIjtcbmltcG9ydCB7IHJlc3QgfSBmcm9tIFwiLi4vLi4vcmVzdC9yZXN0LnRzXCI7XG5pbXBvcnQgdHlwZSB7IEd1aWxkV2lkZ2V0RGV0YWlscyB9IGZyb20gXCIuLi8uLi90eXBlcy9ndWlsZHMvZ3VpbGRfd2lkZ2V0X2RldGFpbHMudHNcIjtcbmltcG9ydCB7IEVycm9ycyB9IGZyb20gXCIuLi8uLi90eXBlcy9kaXNjb3JkZW5vL2Vycm9ycy50c1wiO1xuaW1wb3J0IHsgZW5kcG9pbnRzIH0gZnJvbSBcIi4uLy4uL3V0aWwvY29uc3RhbnRzLnRzXCI7XG5cbi8qKiBSZXR1cm5zIHRoZSB3aWRnZXQgZm9yIHRoZSBndWlsZC4gKi9cbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBnZXRXaWRnZXQoZ3VpbGRJZDogYmlnaW50LCBvcHRpb25zPzogeyBmb3JjZTogYm9vbGVhbiB9KSB7XG4gIGlmICghb3B0aW9ucz8uZm9yY2UpIHtcbiAgICBjb25zdCBndWlsZCA9IGF3YWl0IGNhY2hlSGFuZGxlcnMuZ2V0KFwiZ3VpbGRzXCIsIGd1aWxkSWQpO1xuICAgIGlmICghZ3VpbGQpIHRocm93IG5ldyBFcnJvcihFcnJvcnMuR1VJTERfTk9UX0ZPVU5EKTtcbiAgICBpZiAoIWd1aWxkPy53aWRnZXRFbmFibGVkKSB0aHJvdyBuZXcgRXJyb3IoRXJyb3JzLkdVSUxEX1dJREdFVF9OT1RfRU5BQkxFRCk7XG4gIH1cblxuICByZXR1cm4gYXdhaXQgcmVzdC5ydW5NZXRob2Q8R3VpbGRXaWRnZXREZXRhaWxzPihcbiAgICBcImdldFwiLFxuICAgIGAke2VuZHBvaW50cy5HVUlMRF9XSURHRVQoZ3VpbGRJZCl9Lmpzb25gLFxuICApO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLGFBQWEsU0FBUSxjQUFnQjtTQUNyQyxJQUFJLFNBQVEsa0JBQW9CO1NBRWhDLE1BQU0sU0FBUSxnQ0FBa0M7U0FDaEQsU0FBUyxTQUFRLHVCQUF5QjtBQUVuRCxFQUF3QyxBQUF4QyxvQ0FBd0MsQUFBeEMsRUFBd0MsdUJBQ2xCLFNBQVMsQ0FBQyxPQUFlLEVBQUUsT0FBNEI7U0FDdEUsT0FBTyxFQUFFLEtBQUs7Y0FDWCxLQUFLLFNBQVMsYUFBYSxDQUFDLEdBQUcsRUFBQyxNQUFRLEdBQUUsT0FBTzthQUNsRCxLQUFLLFlBQVksS0FBSyxDQUFDLE1BQU0sQ0FBQyxlQUFlO2FBQzdDLEtBQUssRUFBRSxhQUFhLFlBQVksS0FBSyxDQUFDLE1BQU0sQ0FBQyx3QkFBd0I7O2lCQUcvRCxJQUFJLENBQUMsU0FBUyxFQUN6QixHQUFLLE1BQ0YsU0FBUyxDQUFDLFlBQVksQ0FBQyxPQUFPLEVBQUUsS0FBSyJ9

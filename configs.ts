@@ -46,7 +46,7 @@ export const configs = {
       // Id of the client which is connecting to the lavalink
       id: "main",
       host: "lavalink-deno.herokuapp.com",
-      port:80,
+      port: 80,
       password: "youshallnotpass",
     },
   ],

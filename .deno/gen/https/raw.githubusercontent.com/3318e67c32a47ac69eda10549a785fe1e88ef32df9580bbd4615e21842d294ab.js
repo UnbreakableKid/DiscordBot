@@ -1,12 +1,21 @@
 export var DiscordApplicationFlags;
-(function(DiscordApplicationFlags) {
-    DiscordApplicationFlags[DiscordApplicationFlags["GatewayPresence"] = 4096] = "GatewayPresence";
-    DiscordApplicationFlags[DiscordApplicationFlags["GatewayPresenceLimited"] = 8192] = "GatewayPresenceLimited";
-    DiscordApplicationFlags[DiscordApplicationFlags["GatewayGuildMembers"] = 16384] = "GatewayGuildMembers";
-    DiscordApplicationFlags[DiscordApplicationFlags["GatewayGuildMembersLimited"] = 32768] = "GatewayGuildMembersLimited";
-    DiscordApplicationFlags[DiscordApplicationFlags["VerificationPendingGuildLimit"] = 65536] = "VerificationPendingGuildLimit";
-    DiscordApplicationFlags[DiscordApplicationFlags["Embedded"] = 131072] = "Embedded";
-})(DiscordApplicationFlags || (DiscordApplicationFlags = {
-}));
+(function (DiscordApplicationFlags) {
+  DiscordApplicationFlags[DiscordApplicationFlags["GatewayPresence"] = 4096] =
+    "GatewayPresence";
+  DiscordApplicationFlags[
+    DiscordApplicationFlags["GatewayPresenceLimited"] = 8192
+  ] = "GatewayPresenceLimited";
+  DiscordApplicationFlags[
+    DiscordApplicationFlags["GatewayGuildMembers"] = 16384
+  ] = "GatewayGuildMembers";
+  DiscordApplicationFlags[
+    DiscordApplicationFlags["GatewayGuildMembersLimited"] = 32768
+  ] = "GatewayGuildMembersLimited";
+  DiscordApplicationFlags[
+    DiscordApplicationFlags["VerificationPendingGuildLimit"] = 65536
+  ] = "VerificationPendingGuildLimit";
+  DiscordApplicationFlags[DiscordApplicationFlags["Embedded"] = 131072] =
+    "Embedded";
+})(DiscordApplicationFlags || (DiscordApplicationFlags = {}));
 export const ApplicationFlags = DiscordApplicationFlags;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL2FwcGxpY2F0aW9ucy9hcHBsaWNhdGlvbl9mbGFncy50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiLyoqIGh0dHBzOi8vZGlzY29yZC5jb20vZGV2ZWxvcGVycy9kb2NzL3RvcGljcy9vYXV0aDIjYXBwbGljYXRpb24tYXBwbGljYXRpb24tZmxhZ3MgKi9cbmV4cG9ydCBlbnVtIERpc2NvcmRBcHBsaWNhdGlvbkZsYWdzIHtcbiAgR2F0ZXdheVByZXNlbmNlID0gMSA8PCAxMixcbiAgR2F0ZXdheVByZXNlbmNlTGltaXRlZCA9IDEgPDwgMTMsXG4gIEdhdGV3YXlHdWlsZE1lbWJlcnMgPSAxIDw8IDE0LFxuICBHYXRld2F5R3VpbGRNZW1iZXJzTGltaXRlZCA9IDEgPDwgMTUsXG4gIFZlcmlmaWNhdGlvblBlbmRpbmdHdWlsZExpbWl0ID0gMSA8PCAxNixcbiAgRW1iZWRkZWQgPSAxIDw8IDE3LFxufVxuXG5leHBvcnQgdHlwZSBBcHBsaWNhdGlvbkZsYWdzID0gRGlzY29yZEFwcGxpY2F0aW9uRmxhZ3M7XG5leHBvcnQgY29uc3QgQXBwbGljYXRpb25GbGFncyA9IERpc2NvcmRBcHBsaWNhdGlvbkZsYWdzO1xuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7VUFDWSx1QkFBdUI7SUFBdkIsdUJBQXVCLENBQXZCLHVCQUF1QixFQUNqQyxlQUFlLEtBQWYsSUFBZSxLQUFmLGVBQWU7SUFETCx1QkFBdUIsQ0FBdkIsdUJBQXVCLEVBRWpDLHNCQUFzQixLQUF0QixJQUFzQixLQUF0QixzQkFBc0I7SUFGWix1QkFBdUIsQ0FBdkIsdUJBQXVCLEVBR2pDLG1CQUFtQixLQUFuQixLQUFtQixLQUFuQixtQkFBbUI7SUFIVCx1QkFBdUIsQ0FBdkIsdUJBQXVCLEVBSWpDLDBCQUEwQixLQUExQixLQUEwQixLQUExQiwwQkFBMEI7SUFKaEIsdUJBQXVCLENBQXZCLHVCQUF1QixFQUtqQyw2QkFBNkIsS0FBN0IsS0FBNkIsS0FBN0IsNkJBQTZCO0lBTG5CLHVCQUF1QixDQUF2Qix1QkFBdUIsRUFNakMsUUFBUSxLQUFSLE1BQVEsS0FBUixRQUFRO0dBTkUsdUJBQXVCLEtBQXZCLHVCQUF1Qjs7YUFVdEIsZ0JBQWdCLEdBQUcsdUJBQXVCIn0=

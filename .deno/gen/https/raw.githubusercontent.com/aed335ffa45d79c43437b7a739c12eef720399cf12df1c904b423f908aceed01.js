@@ -1,7 +1,10 @@
 import { editMember } from "./edit_member.ts";
-/** Kicks a member from a voice channel */ export function disconnectMember(guildId, memberId) {
-    return editMember(guildId, memberId, {
-        channelId: null
-    });
+/** Kicks a member from a voice channel */ export function disconnectMember(
+  guildId,
+  memberId,
+) {
+  return editMember(guildId, memberId, {
+    channelId: null,
+  });
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvbWVtYmVycy9kaXNjb25uZWN0X21lbWJlci50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgZWRpdE1lbWJlciB9IGZyb20gXCIuL2VkaXRfbWVtYmVyLnRzXCI7XG5cbi8qKiBLaWNrcyBhIG1lbWJlciBmcm9tIGEgdm9pY2UgY2hhbm5lbCAqL1xuZXhwb3J0IGZ1bmN0aW9uIGRpc2Nvbm5lY3RNZW1iZXIoZ3VpbGRJZDogYmlnaW50LCBtZW1iZXJJZDogYmlnaW50KSB7XG4gIHJldHVybiBlZGl0TWVtYmVyKGd1aWxkSWQsIG1lbWJlcklkLCB7IGNoYW5uZWxJZDogbnVsbCB9KTtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxVQUFVLFNBQVEsZ0JBQWtCO0FBRTdDLEVBQTBDLEFBQTFDLHNDQUEwQyxBQUExQyxFQUEwQyxpQkFDMUIsZ0JBQWdCLENBQUMsT0FBZSxFQUFFLFFBQWdCO1dBQ3pELFVBQVUsQ0FBQyxPQUFPLEVBQUUsUUFBUTtRQUFJLFNBQVMsRUFBRSxJQUFJIn0=

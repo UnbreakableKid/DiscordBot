@@ -1,7 +1,7 @@
 export function snowflakeToBigint(snowflake) {
-    return BigInt(snowflake) | 0n;
+  return BigInt(snowflake) | 0n;
 }
 export function bigintToSnowflake(snowflake) {
-    return snowflake === 0n ? "" : snowflake.toString();
+  return snowflake === 0n ? "" : snowflake.toString();
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3V0aWwvYmlnaW50LnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZnVuY3Rpb24gc25vd2ZsYWtlVG9CaWdpbnQoc25vd2ZsYWtlOiBzdHJpbmcpIHtcbiAgcmV0dXJuIEJpZ0ludChzbm93Zmxha2UpIHwgMG47XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBiaWdpbnRUb1Nub3dmbGFrZShzbm93Zmxha2U6IGJpZ2ludCkge1xuICByZXR1cm4gc25vd2ZsYWtlID09PSAwbiA/IFwiXCIgOiBzbm93Zmxha2UudG9TdHJpbmcoKTtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiZ0JBQWdCLGlCQUFpQixDQUFDLFNBQWlCO1dBQzFDLE1BQU0sQ0FBQyxTQUFTLElBQUksQ0FBRSxBQUFGLENBQUU7O2dCQUdmLGlCQUFpQixDQUFDLFNBQWlCO1dBQzFDLFNBQVMsS0FBSyxDQUFFLEFBQUYsQ0FBRSxRQUFRLFNBQVMsQ0FBQyxRQUFRIn0=

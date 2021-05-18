@@ -1,10 +1,13 @@
 import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotGuildPermissions } from "../../util/permissions.ts";
-/** Returns a ban object for the given user or a 404 not found if the ban cannot be found. Requires the BAN_MEMBERS permission. */ export async function getBan(guildId, memberId) {
-    await requireBotGuildPermissions(guildId, [
-        "BAN_MEMBERS"
-    ]);
-    return await rest.runMethod("get", endpoints.GUILD_BAN(guildId, memberId));
+/** Returns a ban object for the given user or a 404 not found if the ban cannot be found. Requires the BAN_MEMBERS permission. */ export async function getBan(
+  guildId,
+  memberId,
+) {
+  await requireBotGuildPermissions(guildId, [
+    "BAN_MEMBERS",
+  ]);
+  return await rest.runMethod("get", endpoints.GUILD_BAN(guildId, memberId));
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvZ3VpbGRzL2dldF9iYW4udHM+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHJlc3QgfSBmcm9tIFwiLi4vLi4vcmVzdC9yZXN0LnRzXCI7XG5pbXBvcnQgdHlwZSB7IEJhbiB9IGZyb20gXCIuLi8uLi90eXBlcy9ndWlsZHMvYmFuLnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcbmltcG9ydCB7IHJlcXVpcmVCb3RHdWlsZFBlcm1pc3Npb25zIH0gZnJvbSBcIi4uLy4uL3V0aWwvcGVybWlzc2lvbnMudHNcIjtcblxuLyoqIFJldHVybnMgYSBiYW4gb2JqZWN0IGZvciB0aGUgZ2l2ZW4gdXNlciBvciBhIDQwNCBub3QgZm91bmQgaWYgdGhlIGJhbiBjYW5ub3QgYmUgZm91bmQuIFJlcXVpcmVzIHRoZSBCQU5fTUVNQkVSUyBwZXJtaXNzaW9uLiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGdldEJhbihndWlsZElkOiBiaWdpbnQsIG1lbWJlcklkOiBiaWdpbnQpIHtcbiAgYXdhaXQgcmVxdWlyZUJvdEd1aWxkUGVybWlzc2lvbnMoZ3VpbGRJZCwgW1wiQkFOX01FTUJFUlNcIl0pO1xuXG4gIHJldHVybiBhd2FpdCByZXN0LnJ1bk1ldGhvZDxCYW4+KFxuICAgIFwiZ2V0XCIsXG4gICAgZW5kcG9pbnRzLkdVSUxEX0JBTihndWlsZElkLCBtZW1iZXJJZCksXG4gICk7XG59XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IlNBQVMsSUFBSSxTQUFRLGtCQUFvQjtTQUVoQyxTQUFTLFNBQVEsdUJBQXlCO1NBQzFDLDBCQUEwQixTQUFRLHlCQUEyQjtBQUV0RSxFQUFrSSxBQUFsSSw4SEFBa0ksQUFBbEksRUFBa0ksdUJBQzVHLE1BQU0sQ0FBQyxPQUFlLEVBQUUsUUFBZ0I7VUFDdEQsMEJBQTBCLENBQUMsT0FBTztTQUFHLFdBQWE7O2lCQUUzQyxJQUFJLENBQUMsU0FBUyxFQUN6QixHQUFLLEdBQ0wsU0FBUyxDQUFDLFNBQVMsQ0FBQyxPQUFPLEVBQUUsUUFBUSJ9

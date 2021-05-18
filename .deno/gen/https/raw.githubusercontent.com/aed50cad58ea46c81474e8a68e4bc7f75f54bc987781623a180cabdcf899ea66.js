@@ -2,15 +2,16 @@ import { rest } from "../../rest/rest.ts";
 import { Collection } from "../../util/collection.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotGuildPermissions } from "../../util/permissions.ts";
-/** Returns a list of guild webhooks objects. Requires the MANAGE_WEBHOOKs permission. */ export async function getWebhooks(guildId) {
-    await requireBotGuildPermissions(guildId, [
-        "MANAGE_WEBHOOKS"
-    ]);
-    const result = await rest.runMethod("get", endpoints.GUILD_WEBHOOKS(guildId));
-    return new Collection(result.map((webhook)=>[
-            webhook.id,
-            webhook
-        ]
-    ));
+/** Returns a list of guild webhooks objects. Requires the MANAGE_WEBHOOKs permission. */ export async function getWebhooks(
+  guildId,
+) {
+  await requireBotGuildPermissions(guildId, [
+    "MANAGE_WEBHOOKS",
+  ]);
+  const result = await rest.runMethod("get", endpoints.GUILD_WEBHOOKS(guildId));
+  return new Collection(result.map((webhook) => [
+    webhook.id,
+    webhook,
+  ]));
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvd2ViaG9va3MvZ2V0X3dlYmhvb2tzLnRzPiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyByZXN0IH0gZnJvbSBcIi4uLy4uL3Jlc3QvcmVzdC50c1wiO1xuaW1wb3J0IHR5cGUgeyBXZWJob29rIH0gZnJvbSBcIi4uLy4uL3R5cGVzL3dlYmhvb2tzL3dlYmhvb2sudHNcIjtcbmltcG9ydCB7IENvbGxlY3Rpb24gfSBmcm9tIFwiLi4vLi4vdXRpbC9jb2xsZWN0aW9uLnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcbmltcG9ydCB7IHJlcXVpcmVCb3RHdWlsZFBlcm1pc3Npb25zIH0gZnJvbSBcIi4uLy4uL3V0aWwvcGVybWlzc2lvbnMudHNcIjtcblxuLyoqIFJldHVybnMgYSBsaXN0IG9mIGd1aWxkIHdlYmhvb2tzIG9iamVjdHMuIFJlcXVpcmVzIHRoZSBNQU5BR0VfV0VCSE9PS3MgcGVybWlzc2lvbi4gKi9cbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBnZXRXZWJob29rcyhndWlsZElkOiBiaWdpbnQpIHtcbiAgYXdhaXQgcmVxdWlyZUJvdEd1aWxkUGVybWlzc2lvbnMoZ3VpbGRJZCwgW1wiTUFOQUdFX1dFQkhPT0tTXCJdKTtcblxuICBjb25zdCByZXN1bHQgPSBhd2FpdCByZXN0LnJ1bk1ldGhvZDxXZWJob29rW10+KFxuICAgIFwiZ2V0XCIsXG4gICAgZW5kcG9pbnRzLkdVSUxEX1dFQkhPT0tTKGd1aWxkSWQpLFxuICApO1xuXG4gIHJldHVybiBuZXcgQ29sbGVjdGlvbihcbiAgICByZXN1bHQubWFwKCh3ZWJob29rKSA9PiBbd2ViaG9vay5pZCwgd2ViaG9va10pLFxuICApO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLElBQUksU0FBUSxrQkFBb0I7U0FFaEMsVUFBVSxTQUFRLHdCQUEwQjtTQUM1QyxTQUFTLFNBQVEsdUJBQXlCO1NBQzFDLDBCQUEwQixTQUFRLHlCQUEyQjtBQUV0RSxFQUF5RixBQUF6RixxRkFBeUYsQUFBekYsRUFBeUYsdUJBQ25FLFdBQVcsQ0FBQyxPQUFlO1VBQ3pDLDBCQUEwQixDQUFDLE9BQU87U0FBRyxlQUFpQjs7VUFFdEQsTUFBTSxTQUFTLElBQUksQ0FBQyxTQUFTLEVBQ2pDLEdBQUssR0FDTCxTQUFTLENBQUMsY0FBYyxDQUFDLE9BQU87ZUFHdkIsVUFBVSxDQUNuQixNQUFNLENBQUMsR0FBRyxFQUFFLE9BQU87WUFBTSxPQUFPLENBQUMsRUFBRTtZQUFFLE9BQU8ifQ==

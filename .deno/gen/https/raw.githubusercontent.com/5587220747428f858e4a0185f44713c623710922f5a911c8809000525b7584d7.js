@@ -2,8 +2,13 @@ import { applicationId } from "../../bot.ts";
 import { rest } from "../../rest/rest.ts";
 import { structures } from "../../structures/mod.ts";
 import { endpoints } from "../../util/constants.ts";
-/** Returns the initial Interactio response. Functions the same as Get Webhook Message */ export async function getOriginalInteractionResponse(token) {
-    const result = await rest.runMethod("get", endpoints.INTERACTION_ORIGINAL_ID_TOKEN(applicationId, token));
-    return await structures.createDiscordenoMessage(result);
+/** Returns the initial Interactio response. Functions the same as Get Webhook Message */ export async function getOriginalInteractionResponse(
+  token,
+) {
+  const result = await rest.runMethod(
+    "get",
+    endpoints.INTERACTION_ORIGINAL_ID_TOKEN(applicationId, token),
+  );
+  return await structures.createDiscordenoMessage(result);
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvaW50ZXJhY3Rpb25zL2dldF9vcmlnaW5hbF9pbnRlcmFjdGlvbl9yZXNwb25zZS50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgYXBwbGljYXRpb25JZCB9IGZyb20gXCIuLi8uLi9ib3QudHNcIjtcbmltcG9ydCB7IHJlc3QgfSBmcm9tIFwiLi4vLi4vcmVzdC9yZXN0LnRzXCI7XG5pbXBvcnQgeyBzdHJ1Y3R1cmVzIH0gZnJvbSBcIi4uLy4uL3N0cnVjdHVyZXMvbW9kLnRzXCI7XG5pbXBvcnQgdHlwZSB7IE1lc3NhZ2UgfSBmcm9tIFwiLi4vLi4vdHlwZXMvbWVzc2FnZXMvbWVzc2FnZS50c1wiO1xuaW1wb3J0IHsgZW5kcG9pbnRzIH0gZnJvbSBcIi4uLy4uL3V0aWwvY29uc3RhbnRzLnRzXCI7XG5cbi8qKiBSZXR1cm5zIHRoZSBpbml0aWFsIEludGVyYWN0aW8gcmVzcG9uc2UuIEZ1bmN0aW9ucyB0aGUgc2FtZSBhcyBHZXQgV2ViaG9vayBNZXNzYWdlICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gZ2V0T3JpZ2luYWxJbnRlcmFjdGlvblJlc3BvbnNlKHRva2VuOiBzdHJpbmcpIHtcbiAgY29uc3QgcmVzdWx0ID0gYXdhaXQgcmVzdC5ydW5NZXRob2Q8TWVzc2FnZT4oXG4gICAgXCJnZXRcIixcbiAgICBlbmRwb2ludHMuSU5URVJBQ1RJT05fT1JJR0lOQUxfSURfVE9LRU4oYXBwbGljYXRpb25JZCwgdG9rZW4pLFxuICApO1xuXG4gIHJldHVybiBhd2FpdCBzdHJ1Y3R1cmVzLmNyZWF0ZURpc2NvcmRlbm9NZXNzYWdlKHJlc3VsdCk7XG59XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IlNBQVMsYUFBYSxTQUFRLFlBQWM7U0FDbkMsSUFBSSxTQUFRLGtCQUFvQjtTQUNoQyxVQUFVLFNBQVEsdUJBQXlCO1NBRTNDLFNBQVMsU0FBUSx1QkFBeUI7QUFFbkQsRUFBeUYsQUFBekYscUZBQXlGLEFBQXpGLEVBQXlGLHVCQUNuRSw4QkFBOEIsQ0FBQyxLQUFhO1VBQzFELE1BQU0sU0FBUyxJQUFJLENBQUMsU0FBUyxFQUNqQyxHQUFLLEdBQ0wsU0FBUyxDQUFDLDZCQUE2QixDQUFDLGFBQWEsRUFBRSxLQUFLO2lCQUdqRCxVQUFVLENBQUMsdUJBQXVCLENBQUMsTUFBTSJ9

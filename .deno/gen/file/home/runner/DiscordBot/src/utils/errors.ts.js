@@ -1,48 +1,64 @@
 import { Errors } from "../../deps.ts";
 import { log } from "./logger.ts";
 function missingPermResponse(permission) {
-    const perm = permission.split("_").slice(1).join(" ");
-    return `The bot does not have the necessary permission to ${perm.toLowerCase()}. Grant the **${perm.toUpperCase()}** permission to the bot and try again.`;
+  const perm = permission.split("_").slice(1).join(" ");
+  return `The bot does not have the necessary permission to ${perm.toLowerCase()}. Grant the **${perm.toUpperCase()}** permission to the bot and try again.`;
 }
 export async function handleError(message, type) {
-    switch(type){
-        case Errors.MISSING_SEND_MESSAGES:
-            return await message.send(missingPermResponse(type)).catch(log.error);
-        case Errors.MISSING_MANAGE_ROLES:
-        case Errors.MISSING_KICK_MEMBERS:
-        case Errors.MISSING_VIEW_CHANNEL:
-        case Errors.MISSING_READ_MESSAGE_HISTORY:
-        case Errors.MISSING_MANAGE_NICKNAMES:
-        case Errors.MISSING_MUTE_MEMBERS:
-        case Errors.MISSING_DEAFEN_MEMBERS:
-        case Errors.MISSING_SEND_TTS_MESSAGES:
-        case Errors.MISSING_MANAGE_MESSAGES:
-        case Errors.MISSING_MANAGE_CHANNELS:
-        case Errors.MISSING_CREATE_INSTANT_INVITE:
-        case Errors.MISSING_MANAGE_WEBHOOKS:
-        case Errors.MISSING_MANAGE_EMOJIS:
-        case Errors.MISSING_BAN_MEMBERS:
-        case Errors.MISSING_MANAGE_GUILD:
-        case Errors.MISSING_VIEW_AUDIT_LOG:
-            return await message.send(missingPermResponse(type)).catch(log.error);
-        case Errors.DELETE_MESSAGES_MIN:
-            return await message.send("You need to provide atleast 2 messages to delete multiple messages at once.").catch(log.error);
-        case Errors.MESSAGE_MAX_LENGTH:
-            return await message.send("The amount of characters in this message was too large for me to send. Please contact my developers to have this fixed.").catch(log.error);
-        case Errors.NICKNAMES_MAX_LENGTH:
-            return await message.send("A nickname can not be longer than 32 characters.").catch(log.error);
-        case Errors.PRUNE_MIN_DAYS:
-            return await message.send("You can not prune members from the server with less than 1 days activity requirement.").catch(log.error);
-        case Errors.RATE_LIMIT_RETRY_MAXED:
-            return await message.send("Errored more than the maximum amount of retries. Please contact my developers to have this fixed.").catch(log.error);
-        case Errors.MISSING_INTENT_GUILD_MEMBERS:
-            return await message.send("Unable to fetch members if the bot does not have the GUILD MEMBERS intent.").catch(log.error);
-        case Errors.BOTS_HIGHEST_ROLE_TOO_LOW:
-            return await message.send("The bot's highest role is too low to complete this action.").catch(log.error);
-        case Errors.CHANNEL_NOT_IN_GUILD:
-            return await message.send("This function is only able to be done inside a server. This channel was not found in any server.").catch(log.error);
-        default:
-            return;
-    }
+  switch (type) {
+    case Errors.MISSING_SEND_MESSAGES:
+      return await message.send(missingPermResponse(type)).catch(log.error);
+    case Errors.MISSING_MANAGE_ROLES:
+    case Errors.MISSING_KICK_MEMBERS:
+    case Errors.MISSING_VIEW_CHANNEL:
+    case Errors.MISSING_READ_MESSAGE_HISTORY:
+    case Errors.MISSING_MANAGE_NICKNAMES:
+    case Errors.MISSING_MUTE_MEMBERS:
+    case Errors.MISSING_DEAFEN_MEMBERS:
+    case Errors.MISSING_SEND_TTS_MESSAGES:
+    case Errors.MISSING_MANAGE_MESSAGES:
+    case Errors.MISSING_MANAGE_CHANNELS:
+    case Errors.MISSING_CREATE_INSTANT_INVITE:
+    case Errors.MISSING_MANAGE_WEBHOOKS:
+    case Errors.MISSING_MANAGE_EMOJIS:
+    case Errors.MISSING_BAN_MEMBERS:
+    case Errors.MISSING_MANAGE_GUILD:
+    case Errors.MISSING_VIEW_AUDIT_LOG:
+      return await message.send(missingPermResponse(type)).catch(log.error);
+    case Errors.DELETE_MESSAGES_MIN:
+      return await message.send(
+        "You need to provide atleast 2 messages to delete multiple messages at once.",
+      ).catch(log.error);
+    case Errors.MESSAGE_MAX_LENGTH:
+      return await message.send(
+        "The amount of characters in this message was too large for me to send. Please contact my developers to have this fixed.",
+      ).catch(log.error);
+    case Errors.NICKNAMES_MAX_LENGTH:
+      return await message.send(
+        "A nickname can not be longer than 32 characters.",
+      ).catch(log.error);
+    case Errors.PRUNE_MIN_DAYS:
+      return await message.send(
+        "You can not prune members from the server with less than 1 days activity requirement.",
+      ).catch(log.error);
+    case Errors.RATE_LIMIT_RETRY_MAXED:
+      return await message.send(
+        "Errored more than the maximum amount of retries. Please contact my developers to have this fixed.",
+      ).catch(log.error);
+    case Errors.MISSING_INTENT_GUILD_MEMBERS:
+      return await message.send(
+        "Unable to fetch members if the bot does not have the GUILD MEMBERS intent.",
+      ).catch(log.error);
+    case Errors.BOTS_HIGHEST_ROLE_TOO_LOW:
+      return await message.send(
+        "The bot's highest role is too low to complete this action.",
+      ).catch(log.error);
+    case Errors.CHANNEL_NOT_IN_GUILD:
+      return await message.send(
+        "This function is only able to be done inside a server. This channel was not found in any server.",
+      ).catch(log.error);
+    default:
+      return;
+  }
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxmaWxlOi8vL2hvbWUvcnVubmVyL0Rpc2NvcmRCb3Qvc3JjL3V0aWxzL2Vycm9ycy50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgRGlzY29yZGVub01lc3NhZ2UsIEVycm9ycyB9IGZyb20gXCIuLi8uLi9kZXBzLnRzXCI7XG5pbXBvcnQgeyBsb2cgfSBmcm9tIFwiLi9sb2dnZXIudHNcIjtcblxuZnVuY3Rpb24gbWlzc2luZ1Blcm1SZXNwb25zZShwZXJtaXNzaW9uOiBzdHJpbmcpIHtcbiAgY29uc3QgcGVybSA9IHBlcm1pc3Npb24uc3BsaXQoXCJfXCIpLnNsaWNlKDEpLmpvaW4oXCIgXCIpO1xuICByZXR1cm4gYFRoZSBib3QgZG9lcyBub3QgaGF2ZSB0aGUgbmVjZXNzYXJ5IHBlcm1pc3Npb24gdG8gJHtwZXJtLnRvTG93ZXJDYXNlKCl9LiBHcmFudCB0aGUgKioke3Blcm0udG9VcHBlckNhc2UoKX0qKiBwZXJtaXNzaW9uIHRvIHRoZSBib3QgYW5kIHRyeSBhZ2Fpbi5gO1xufVxuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gaGFuZGxlRXJyb3IobWVzc2FnZTogRGlzY29yZGVub01lc3NhZ2UsIHR5cGU6IEVycm9ycykge1xuICBzd2l0Y2ggKHR5cGUpIHtcbiAgICBjYXNlIEVycm9ycy5NSVNTSU5HX1NFTkRfTUVTU0FHRVM6XG4gICAgICByZXR1cm4gYXdhaXQgbWVzc2FnZS5zZW5kKG1pc3NpbmdQZXJtUmVzcG9uc2UodHlwZSkpLmNhdGNoKGxvZy5lcnJvcik7XG4gICAgY2FzZSBFcnJvcnMuTUlTU0lOR19NQU5BR0VfUk9MRVM6XG4gICAgY2FzZSBFcnJvcnMuTUlTU0lOR19LSUNLX01FTUJFUlM6XG4gICAgY2FzZSBFcnJvcnMuTUlTU0lOR19WSUVXX0NIQU5ORUw6XG4gICAgY2FzZSBFcnJvcnMuTUlTU0lOR19SRUFEX01FU1NBR0VfSElTVE9SWTpcbiAgICBjYXNlIEVycm9ycy5NSVNTSU5HX01BTkFHRV9OSUNLTkFNRVM6XG4gICAgY2FzZSBFcnJvcnMuTUlTU0lOR19NVVRFX01FTUJFUlM6XG4gICAgY2FzZSBFcnJvcnMuTUlTU0lOR19ERUFGRU5fTUVNQkVSUzpcbiAgICBjYXNlIEVycm9ycy5NSVNTSU5HX1NFTkRfVFRTX01FU1NBR0VTOlxuICAgIGNhc2UgRXJyb3JzLk1JU1NJTkdfTUFOQUdFX01FU1NBR0VTOlxuICAgIGNhc2UgRXJyb3JzLk1JU1NJTkdfTUFOQUdFX0NIQU5ORUxTOlxuICAgIGNhc2UgRXJyb3JzLk1JU1NJTkdfQ1JFQVRFX0lOU1RBTlRfSU5WSVRFOlxuICAgIGNhc2UgRXJyb3JzLk1JU1NJTkdfTUFOQUdFX1dFQkhPT0tTOlxuICAgIGNhc2UgRXJyb3JzLk1JU1NJTkdfTUFOQUdFX0VNT0pJUzpcbiAgICBjYXNlIEVycm9ycy5NSVNTSU5HX0JBTl9NRU1CRVJTOlxuICAgIGNhc2UgRXJyb3JzLk1JU1NJTkdfTUFOQUdFX0dVSUxEOlxuICAgIGNhc2UgRXJyb3JzLk1JU1NJTkdfVklFV19BVURJVF9MT0c6XG4gICAgICByZXR1cm4gYXdhaXQgbWVzc2FnZS5zZW5kKG1pc3NpbmdQZXJtUmVzcG9uc2UodHlwZSkpLmNhdGNoKGxvZy5lcnJvcik7XG4gICAgY2FzZSBFcnJvcnMuREVMRVRFX01FU1NBR0VTX01JTjpcbiAgICAgIHJldHVybiBhd2FpdCBtZXNzYWdlXG4gICAgICAgIC5zZW5kKFxuICAgICAgICAgIFwiWW91IG5lZWQgdG8gcHJvdmlkZSBhdGxlYXN0IDIgbWVzc2FnZXMgdG8gZGVsZXRlIG11bHRpcGxlIG1lc3NhZ2VzIGF0IG9uY2UuXCIsXG4gICAgICAgIClcbiAgICAgICAgLmNhdGNoKGxvZy5lcnJvcik7XG4gICAgY2FzZSBFcnJvcnMuTUVTU0FHRV9NQVhfTEVOR1RIOlxuICAgICAgcmV0dXJuIGF3YWl0IG1lc3NhZ2VcbiAgICAgICAgLnNlbmQoXG4gICAgICAgICAgXCJUaGUgYW1vdW50IG9mIGNoYXJhY3RlcnMgaW4gdGhpcyBtZXNzYWdlIHdhcyB0b28gbGFyZ2UgZm9yIG1lIHRvIHNlbmQuIFBsZWFzZSBjb250YWN0IG15IGRldmVsb3BlcnMgdG8gaGF2ZSB0aGlzIGZpeGVkLlwiLFxuICAgICAgICApXG4gICAgICAgIC5jYXRjaChsb2cuZXJyb3IpO1xuICAgIGNhc2UgRXJyb3JzLk5JQ0tOQU1FU19NQVhfTEVOR1RIOlxuICAgICAgcmV0dXJuIGF3YWl0IG1lc3NhZ2Uuc2VuZChcbiAgICAgICAgXCJBIG5pY2tuYW1lIGNhbiBub3QgYmUgbG9uZ2VyIHRoYW4gMzIgY2hhcmFjdGVycy5cIixcbiAgICAgICkuY2F0Y2gobG9nLmVycm9yKTtcbiAgICBjYXNlIEVycm9ycy5QUlVORV9NSU5fREFZUzpcbiAgICAgIHJldHVybiBhd2FpdCBtZXNzYWdlXG4gICAgICAgIC5zZW5kKFxuICAgICAgICAgIFwiWW91IGNhbiBub3QgcHJ1bmUgbWVtYmVycyBmcm9tIHRoZSBzZXJ2ZXIgd2l0aCBsZXNzIHRoYW4gMSBkYXlzIGFjdGl2aXR5IHJlcXVpcmVtZW50LlwiLFxuICAgICAgICApXG4gICAgICAgIC5jYXRjaChsb2cuZXJyb3IpO1xuICAgIGNhc2UgRXJyb3JzLlJBVEVfTElNSVRfUkVUUllfTUFYRUQ6XG4gICAgICByZXR1cm4gYXdhaXQgbWVzc2FnZVxuICAgICAgICAuc2VuZChcbiAgICAgICAgICBcIkVycm9yZWQgbW9yZSB0aGFuIHRoZSBtYXhpbXVtIGFtb3VudCBvZiByZXRyaWVzLiBQbGVhc2UgY29udGFjdCBteSBkZXZlbG9wZXJzIHRvIGhhdmUgdGhpcyBmaXhlZC5cIixcbiAgICAgICAgKVxuICAgICAgICAuY2F0Y2gobG9nLmVycm9yKTtcbiAgICBjYXNlIEVycm9ycy5NSVNTSU5HX0lOVEVOVF9HVUlMRF9NRU1CRVJTOlxuICAgICAgcmV0dXJuIGF3YWl0IG1lc3NhZ2VcbiAgICAgICAgLnNlbmQoXG4gICAgICAgICAgXCJVbmFibGUgdG8gZmV0Y2ggbWVtYmVycyBpZiB0aGUgYm90IGRvZXMgbm90IGhhdmUgdGhlIEdVSUxEIE1FTUJFUlMgaW50ZW50LlwiLFxuICAgICAgICApXG4gICAgICAgIC5jYXRjaChsb2cuZXJyb3IpO1xuICAgIGNhc2UgRXJyb3JzLkJPVFNfSElHSEVTVF9ST0xFX1RPT19MT1c6XG4gICAgICByZXR1cm4gYXdhaXQgbWVzc2FnZS5zZW5kKFxuICAgICAgICBcIlRoZSBib3QncyBoaWdoZXN0IHJvbGUgaXMgdG9vIGxvdyB0byBjb21wbGV0ZSB0aGlzIGFjdGlvbi5cIixcbiAgICAgICkuY2F0Y2gobG9nLmVycm9yKTtcbiAgICBjYXNlIEVycm9ycy5DSEFOTkVMX05PVF9JTl9HVUlMRDpcbiAgICAgIHJldHVybiBhd2FpdCBtZXNzYWdlXG4gICAgICAgIC5zZW5kKFxuICAgICAgICAgIFwiVGhpcyBmdW5jdGlvbiBpcyBvbmx5IGFibGUgdG8gYmUgZG9uZSBpbnNpZGUgYSBzZXJ2ZXIuIFRoaXMgY2hhbm5lbCB3YXMgbm90IGZvdW5kIGluIGFueSBzZXJ2ZXIuXCIsXG4gICAgICAgIClcbiAgICAgICAgLmNhdGNoKGxvZy5lcnJvcik7XG4gICAgZGVmYXVsdDpcbiAgICAgIHJldHVybjtcbiAgfVxufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUE0QixNQUFNLFNBQVEsYUFBZTtTQUNoRCxHQUFHLFNBQVEsV0FBYTtTQUV4QixtQkFBbUIsQ0FBQyxVQUFrQjtVQUN2QyxJQUFJLEdBQUcsVUFBVSxDQUFDLEtBQUssRUFBQyxDQUFHLEdBQUUsS0FBSyxDQUFDLENBQUMsRUFBRSxJQUFJLEVBQUMsQ0FBRztZQUM1QyxrREFBa0QsRUFBRSxJQUFJLENBQUMsV0FBVyxHQUFHLGNBQWMsRUFBRSxJQUFJLENBQUMsV0FBVyxHQUFHLHVDQUF1Qzs7c0JBR3JJLFdBQVcsQ0FBQyxPQUEwQixFQUFFLElBQVk7V0FDaEUsSUFBSTthQUNMLE1BQU0sQ0FBQyxxQkFBcUI7eUJBQ2xCLE9BQU8sQ0FBQyxJQUFJLENBQUMsbUJBQW1CLENBQUMsSUFBSSxHQUFHLEtBQUssQ0FBQyxHQUFHLENBQUMsS0FBSzthQUNqRSxNQUFNLENBQUMsb0JBQW9CO2FBQzNCLE1BQU0sQ0FBQyxvQkFBb0I7YUFDM0IsTUFBTSxDQUFDLG9CQUFvQjthQUMzQixNQUFNLENBQUMsNEJBQTRCO2FBQ25DLE1BQU0sQ0FBQyx3QkFBd0I7YUFDL0IsTUFBTSxDQUFDLG9CQUFvQjthQUMzQixNQUFNLENBQUMsc0JBQXNCO2FBQzdCLE1BQU0sQ0FBQyx5QkFBeUI7YUFDaEMsTUFBTSxDQUFDLHVCQUF1QjthQUM5QixNQUFNLENBQUMsdUJBQXVCO2FBQzlCLE1BQU0sQ0FBQyw2QkFBNkI7YUFDcEMsTUFBTSxDQUFDLHVCQUF1QjthQUM5QixNQUFNLENBQUMscUJBQXFCO2FBQzVCLE1BQU0sQ0FBQyxtQkFBbUI7YUFDMUIsTUFBTSxDQUFDLG9CQUFvQjthQUMzQixNQUFNLENBQUMsc0JBQXNCO3lCQUNuQixPQUFPLENBQUMsSUFBSSxDQUFDLG1CQUFtQixDQUFDLElBQUksR0FBRyxLQUFLLENBQUMsR0FBRyxDQUFDLEtBQUs7YUFDakUsTUFBTSxDQUFDLG1CQUFtQjt5QkFDaEIsT0FBTyxDQUNqQixJQUFJLEVBQ0gsMkVBQTZFLEdBRTlFLEtBQUssQ0FBQyxHQUFHLENBQUMsS0FBSzthQUNmLE1BQU0sQ0FBQyxrQkFBa0I7eUJBQ2YsT0FBTyxDQUNqQixJQUFJLEVBQ0gsdUhBQXlILEdBRTFILEtBQUssQ0FBQyxHQUFHLENBQUMsS0FBSzthQUNmLE1BQU0sQ0FBQyxvQkFBb0I7eUJBQ2pCLE9BQU8sQ0FBQyxJQUFJLEVBQ3ZCLGdEQUFrRCxHQUNsRCxLQUFLLENBQUMsR0FBRyxDQUFDLEtBQUs7YUFDZCxNQUFNLENBQUMsY0FBYzt5QkFDWCxPQUFPLENBQ2pCLElBQUksRUFDSCxxRkFBdUYsR0FFeEYsS0FBSyxDQUFDLEdBQUcsQ0FBQyxLQUFLO2FBQ2YsTUFBTSxDQUFDLHNCQUFzQjt5QkFDbkIsT0FBTyxDQUNqQixJQUFJLEVBQ0gsaUdBQW1HLEdBRXBHLEtBQUssQ0FBQyxHQUFHLENBQUMsS0FBSzthQUNmLE1BQU0sQ0FBQyw0QkFBNEI7eUJBQ3pCLE9BQU8sQ0FDakIsSUFBSSxFQUNILDBFQUE0RSxHQUU3RSxLQUFLLENBQUMsR0FBRyxDQUFDLEtBQUs7YUFDZixNQUFNLENBQUMseUJBQXlCO3lCQUN0QixPQUFPLENBQUMsSUFBSSxFQUN2QiwwREFBNEQsR0FDNUQsS0FBSyxDQUFDLEdBQUcsQ0FBQyxLQUFLO2FBQ2QsTUFBTSxDQUFDLG9CQUFvQjt5QkFDakIsT0FBTyxDQUNqQixJQUFJLEVBQ0gsZ0dBQWtHLEdBRW5HLEtBQUssQ0FBQyxHQUFHLENBQUMsS0FBSyJ9

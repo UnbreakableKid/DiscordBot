@@ -3,11 +3,11 @@ import { loadLanguages } from "./../utils/lang_helper.ts";
 // Create the database class
 const sabr = new Sabr();
 export const db = {
-    // This will allow us to access table methods easily as we will see below.
-    sabr,
-    client: new SabrTable(sabr, "client"),
-    guilds: new SabrTable(sabr, "guilds"),
-    users: new SabrTable(sabr, "users")
+  // This will allow us to access table methods easily as we will see below.
+  sabr,
+  client: new SabrTable(sabr, "client"),
+  guilds: new SabrTable(sabr, "guilds"),
+  users: new SabrTable(sabr, "users"),
 };
 // This is important as it prepares all the tables.
 await sabr.init();

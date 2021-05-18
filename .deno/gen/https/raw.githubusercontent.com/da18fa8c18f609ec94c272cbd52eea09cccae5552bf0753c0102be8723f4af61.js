@@ -2,9 +2,17 @@ import { applicationId } from "../../../bot.ts";
 import { rest } from "../../../rest/rest.ts";
 import { endpoints } from "../../../util/constants.ts";
 import { snakelize } from "../../../util/utils.ts";
-/** Edits command permissions for a specific command for your application in a guild. */ export async function editSlashCommandPermissions(guildId, commandId, options) {
-    return await rest.runMethod("put", endpoints.COMMANDS_PERMISSION(applicationId, guildId, commandId), {
-        permissions: snakelize(options)
-    });
+/** Edits command permissions for a specific command for your application in a guild. */ export async function editSlashCommandPermissions(
+  guildId,
+  commandId,
+  options,
+) {
+  return await rest.runMethod(
+    "put",
+    endpoints.COMMANDS_PERMISSION(applicationId, guildId, commandId),
+    {
+      permissions: snakelize(options),
+    },
+  );
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvaW50ZXJhY3Rpb25zL2NvbW1hbmRzL2VkaXRfc2xhc2hfY29tbWFuZF9wZXJtaXNzaW9ucy50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgYXBwbGljYXRpb25JZCB9IGZyb20gXCIuLi8uLi8uLi9ib3QudHNcIjtcbmltcG9ydCB7IHJlc3QgfSBmcm9tIFwiLi4vLi4vLi4vcmVzdC9yZXN0LnRzXCI7XG5pbXBvcnQgdHlwZSB7IEFwcGxpY2F0aW9uQ29tbWFuZFBlcm1pc3Npb25zIH0gZnJvbSBcIi4uLy4uLy4uL3R5cGVzL2ludGVyYWN0aW9ucy9jb21tYW5kcy9hcHBsaWNhdGlvbl9jb21tYW5kX3Blcm1pc3Npb25zLnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcbmltcG9ydCB7IHNuYWtlbGl6ZSB9IGZyb20gXCIuLi8uLi8uLi91dGlsL3V0aWxzLnRzXCI7XG5cbi8qKiBFZGl0cyBjb21tYW5kIHBlcm1pc3Npb25zIGZvciBhIHNwZWNpZmljIGNvbW1hbmQgZm9yIHlvdXIgYXBwbGljYXRpb24gaW4gYSBndWlsZC4gKi9cbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBlZGl0U2xhc2hDb21tYW5kUGVybWlzc2lvbnMoXG4gIGd1aWxkSWQ6IGJpZ2ludCxcbiAgY29tbWFuZElkOiBiaWdpbnQsXG4gIG9wdGlvbnM6IEFwcGxpY2F0aW9uQ29tbWFuZFBlcm1pc3Npb25zW10sXG4pIHtcbiAgcmV0dXJuIGF3YWl0IHJlc3QucnVuTWV0aG9kKFxuICAgIFwicHV0XCIsXG4gICAgZW5kcG9pbnRzLkNPTU1BTkRTX1BFUk1JU1NJT04oYXBwbGljYXRpb25JZCwgZ3VpbGRJZCwgY29tbWFuZElkKSxcbiAgICB7IHBlcm1pc3Npb25zOiBzbmFrZWxpemUob3B0aW9ucykgfSxcbiAgKTtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxhQUFhLFNBQVEsZUFBaUI7U0FDdEMsSUFBSSxTQUFRLHFCQUF1QjtTQUVuQyxTQUFTLFNBQVEsMEJBQTRCO1NBQzdDLFNBQVMsU0FBUSxzQkFBd0I7QUFFbEQsRUFBd0YsQUFBeEYsb0ZBQXdGLEFBQXhGLEVBQXdGLHVCQUNsRSwyQkFBMkIsQ0FDL0MsT0FBZSxFQUNmLFNBQWlCLEVBQ2pCLE9BQXdDO2lCQUUzQixJQUFJLENBQUMsU0FBUyxFQUN6QixHQUFLLEdBQ0wsU0FBUyxDQUFDLG1CQUFtQixDQUFDLGFBQWEsRUFBRSxPQUFPLEVBQUUsU0FBUztRQUM3RCxXQUFXLEVBQUUsU0FBUyxDQUFDLE9BQU8ifQ==

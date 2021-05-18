@@ -1,13 +1,16 @@
 import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotGuildPermissions } from "../../util/permissions.ts";
-/** Edit the nickname of the bot in this guild */ export async function editBotNickname(guildId, nickname) {
-    await requireBotGuildPermissions(guildId, [
-        "CHANGE_NICKNAME"
-    ]);
-    const response = await rest.runMethod("patch", endpoints.USER_NICK(guildId), {
-        nick: nickname
-    });
-    return response.nick;
+/** Edit the nickname of the bot in this guild */ export async function editBotNickname(
+  guildId,
+  nickname,
+) {
+  await requireBotGuildPermissions(guildId, [
+    "CHANGE_NICKNAME",
+  ]);
+  const response = await rest.runMethod("patch", endpoints.USER_NICK(guildId), {
+    nick: nickname,
+  });
+  return response.nick;
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvbWVtYmVycy9lZGl0X2JvdF9uaWNrbmFtZS50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgcmVzdCB9IGZyb20gXCIuLi8uLi9yZXN0L3Jlc3QudHNcIjtcbmltcG9ydCB7IGVuZHBvaW50cyB9IGZyb20gXCIuLi8uLi91dGlsL2NvbnN0YW50cy50c1wiO1xuaW1wb3J0IHsgcmVxdWlyZUJvdEd1aWxkUGVybWlzc2lvbnMgfSBmcm9tIFwiLi4vLi4vdXRpbC9wZXJtaXNzaW9ucy50c1wiO1xuXG4vKiogRWRpdCB0aGUgbmlja25hbWUgb2YgdGhlIGJvdCBpbiB0aGlzIGd1aWxkICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gZWRpdEJvdE5pY2tuYW1lKFxuICBndWlsZElkOiBiaWdpbnQsXG4gIG5pY2tuYW1lOiBzdHJpbmcgfCBudWxsLFxuKSB7XG4gIGF3YWl0IHJlcXVpcmVCb3RHdWlsZFBlcm1pc3Npb25zKGd1aWxkSWQsIFtcIkNIQU5HRV9OSUNLTkFNRVwiXSk7XG5cbiAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCByZXN0LnJ1bk1ldGhvZDx7IG5pY2s6IHN0cmluZyB9PihcbiAgICBcInBhdGNoXCIsXG4gICAgZW5kcG9pbnRzLlVTRVJfTklDSyhndWlsZElkKSxcbiAgICB7XG4gICAgICBuaWNrOiBuaWNrbmFtZSxcbiAgICB9LFxuICApO1xuXG4gIHJldHVybiByZXNwb25zZS5uaWNrO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLElBQUksU0FBUSxrQkFBb0I7U0FDaEMsU0FBUyxTQUFRLHVCQUF5QjtTQUMxQywwQkFBMEIsU0FBUSx5QkFBMkI7QUFFdEUsRUFBaUQsQUFBakQsNkNBQWlELEFBQWpELEVBQWlELHVCQUMzQixlQUFlLENBQ25DLE9BQWUsRUFDZixRQUF1QjtVQUVqQiwwQkFBMEIsQ0FBQyxPQUFPO1NBQUcsZUFBaUI7O1VBRXRELFFBQVEsU0FBUyxJQUFJLENBQUMsU0FBUyxFQUNuQyxLQUFPLEdBQ1AsU0FBUyxDQUFDLFNBQVMsQ0FBQyxPQUFPO1FBRXpCLElBQUksRUFBRSxRQUFROztXQUlYLFFBQVEsQ0FBQyxJQUFJIn0=

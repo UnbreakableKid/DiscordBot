@@ -1,6 +1,10 @@
 import { cacheHandlers } from "../../cache.ts";
-/** Gets an array of all the channels ids that are the children of this category. */ export async function categoryChildren(id) {
-    return await cacheHandlers.filter("channels", (channel)=>channel.parentId === id
-    );
+/** Gets an array of all the channels ids that are the children of this category. */ export async function categoryChildren(
+  id,
+) {
+  return await cacheHandlers.filter(
+    "channels",
+    (channel) => channel.parentId === id,
+  );
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvY2hhbm5lbHMvY2F0ZWdvcnlfY2hpbGRyZW4udHM+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNhY2hlSGFuZGxlcnMgfSBmcm9tIFwiLi4vLi4vY2FjaGUudHNcIjtcblxuLyoqIEdldHMgYW4gYXJyYXkgb2YgYWxsIHRoZSBjaGFubmVscyBpZHMgdGhhdCBhcmUgdGhlIGNoaWxkcmVuIG9mIHRoaXMgY2F0ZWdvcnkuICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gY2F0ZWdvcnlDaGlsZHJlbihpZDogYmlnaW50KSB7XG4gIHJldHVybiBhd2FpdCBjYWNoZUhhbmRsZXJzLmZpbHRlcihcbiAgICBcImNoYW5uZWxzXCIsXG4gICAgKGNoYW5uZWwpID0+IGNoYW5uZWwucGFyZW50SWQgPT09IGlkLFxuICApO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLGFBQWEsU0FBUSxjQUFnQjtBQUU5QyxFQUFvRixBQUFwRixnRkFBb0YsQUFBcEYsRUFBb0YsdUJBQzlELGdCQUFnQixDQUFDLEVBQVU7aUJBQ2xDLGFBQWEsQ0FBQyxNQUFNLEVBQy9CLFFBQVUsSUFDVCxPQUFPLEdBQUssT0FBTyxDQUFDLFFBQVEsS0FBSyxFQUFFIn0=

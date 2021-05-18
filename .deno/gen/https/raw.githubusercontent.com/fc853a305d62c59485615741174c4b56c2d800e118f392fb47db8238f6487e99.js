@@ -1,6 +1,8 @@
 import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
-/** Delete a guild permanently. User must be owner. Returns 204 No Content on success. Fires a Guild Delete Gateway event. */ export async function deleteGuild(guildId) {
-    return await rest.runMethod("delete", endpoints.GUILDS_BASE(guildId));
+/** Delete a guild permanently. User must be owner. Returns 204 No Content on success. Fires a Guild Delete Gateway event. */ export async function deleteGuild(
+  guildId,
+) {
+  return await rest.runMethod("delete", endpoints.GUILDS_BASE(guildId));
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvZ3VpbGRzL2RlbGV0ZV9ndWlsZC50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgcmVzdCB9IGZyb20gXCIuLi8uLi9yZXN0L3Jlc3QudHNcIjtcbmltcG9ydCB7IGVuZHBvaW50cyB9IGZyb20gXCIuLi8uLi91dGlsL2NvbnN0YW50cy50c1wiO1xuXG4vKiogRGVsZXRlIGEgZ3VpbGQgcGVybWFuZW50bHkuIFVzZXIgbXVzdCBiZSBvd25lci4gUmV0dXJucyAyMDQgTm8gQ29udGVudCBvbiBzdWNjZXNzLiBGaXJlcyBhIEd1aWxkIERlbGV0ZSBHYXRld2F5IGV2ZW50LiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGRlbGV0ZUd1aWxkKGd1aWxkSWQ6IGJpZ2ludCkge1xuICByZXR1cm4gYXdhaXQgcmVzdC5ydW5NZXRob2Q8dW5kZWZpbmVkPihcbiAgICBcImRlbGV0ZVwiLFxuICAgIGVuZHBvaW50cy5HVUlMRFNfQkFTRShndWlsZElkKSxcbiAgKTtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxJQUFJLFNBQVEsa0JBQW9CO1NBQ2hDLFNBQVMsU0FBUSx1QkFBeUI7QUFFbkQsRUFBNkgsQUFBN0gseUhBQTZILEFBQTdILEVBQTZILHVCQUN2RyxXQUFXLENBQUMsT0FBZTtpQkFDbEMsSUFBSSxDQUFDLFNBQVMsRUFDekIsTUFBUSxHQUNSLFNBQVMsQ0FBQyxXQUFXLENBQUMsT0FBTyJ9

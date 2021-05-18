@@ -1,199 +1,176 @@
-/** https://discord.com/developers/docs/reference#api-reference-base-url */ export const BASE_URL = "https://discord.com/api";
-/** https://discord.com/developers/docs/reference#api-versioning-api-versions */ export const API_VERSION = 9;
-/** https://discord.com/developers/docs/topics/gateway#gateways-gateway-versions */ export const GATEWAY_VERSION = 9;
+/** https://discord.com/developers/docs/reference#api-reference-base-url */ export const BASE_URL =
+  "https://discord.com/api";
+/** https://discord.com/developers/docs/reference#api-versioning-api-versions */ export const API_VERSION =
+  9;
+/** https://discord.com/developers/docs/topics/gateway#gateways-gateway-versions */ export const GATEWAY_VERSION =
+  9;
 // TODO: update this version
-/** https://github.com/discordeno/discordeno/releases */ export const DISCORDENO_VERSION = "11.0.0";
-/** https://discord.com/developers/docs/reference#user-agent */ export const USER_AGENT = `DiscordBot (https://github.com/discordeno/discordeno, v${DISCORDENO_VERSION})`;
-/** https://discord.com/developers/docs/reference#image-formatting-image-base-url */ export const IMAGE_BASE_URL = "https://cdn.discordapp.com";
+/** https://github.com/discordeno/discordeno/releases */ export const DISCORDENO_VERSION =
+  "11.0.0";
+/** https://discord.com/developers/docs/reference#user-agent */ export const USER_AGENT =
+  `DiscordBot (https://github.com/discordeno/discordeno, v${DISCORDENO_VERSION})`;
+/** https://discord.com/developers/docs/reference#image-formatting-image-base-url */ export const IMAGE_BASE_URL =
+  "https://cdn.discordapp.com";
 // This can be modified by big brain bots and use a proxy
 export const baseEndpoints = {
-    BASE_URL: `${BASE_URL}/v${API_VERSION}`,
-    CDN_URL: IMAGE_BASE_URL
+  BASE_URL: `${BASE_URL}/v${API_VERSION}`,
+  CDN_URL: IMAGE_BASE_URL,
 };
-const GUILDS_BASE = (guildId)=>`${baseEndpoints.BASE_URL}/guilds/${guildId}`
-;
-const CHANNEL_BASE = (channelId)=>`${baseEndpoints.BASE_URL}/channels/${channelId}`
-;
+const GUILDS_BASE = (guildId) => `${baseEndpoints.BASE_URL}/guilds/${guildId}`;
+const CHANNEL_BASE = (channelId) =>
+  `${baseEndpoints.BASE_URL}/channels/${channelId}`;
 export const endpoints = {
-    GUILDS_BASE,
-    CHANNEL_BASE,
-    GATEWAY_BOT: `${baseEndpoints.BASE_URL}/gateway/bot`,
-    // Channel Endpoints
-    CHANNEL_MESSAGE: (channelId, messageId)=>`${CHANNEL_BASE(channelId)}/messages/${messageId}`
-    ,
-    CHANNEL_MESSAGES: (channelId)=>`${CHANNEL_BASE(channelId)}/messages`
-    ,
-    CHANNEL_PIN: (channelId, messageId)=>`${CHANNEL_BASE(channelId)}/pins/${messageId}`
-    ,
-    CHANNEL_PINS: (channelId)=>`${CHANNEL_BASE(channelId)}/pins`
-    ,
-    CHANNEL_BULK_DELETE: (channelId)=>`${CHANNEL_BASE(channelId)}/messages/bulk-delete`
-    ,
-    CHANNEL_INVITES: (channelId)=>`${CHANNEL_BASE(channelId)}/invites`
-    ,
-    CHANNEL_WEBHOOKS: (channelId)=>`${CHANNEL_BASE(channelId)}/webhooks`
-    ,
-    CHANNEL_MESSAGE_REACTION_ME: (channelId, messageId, emoji)=>`${CHANNEL_BASE(channelId)}/messages/${messageId}/reactions/${emoji}/@me`
-    ,
-    CHANNEL_MESSAGE_REACTION_USER: (channelId, messageId, emoji, userId)=>`${CHANNEL_BASE(channelId)}/messages/${messageId}/reactions/${emoji}/${userId}`
-    ,
-    CHANNEL_MESSAGE_REACTIONS: (channelId, messageId)=>`${CHANNEL_BASE(channelId)}/messages/${messageId}/reactions`
-    ,
-    CHANNEL_MESSAGE_REACTION: (channelId, messageId, emoji)=>`${CHANNEL_BASE(channelId)}/messages/${messageId}/reactions/${emoji}`
-    ,
-    CHANNEL_FOLLOW: (channelId)=>`${CHANNEL_BASE(channelId)}/followers`
-    ,
-    CHANNEL_MESSAGE_CROSSPOST: (channelId, messageId)=>`${CHANNEL_BASE(channelId)}/messages/${messageId}/crosspost`
-    ,
-    CHANNEL_OVERWRITE: (channelId, overwriteId)=>`${CHANNEL_BASE(channelId)}/permissions/${overwriteId}`
-    ,
-    // Bots SHALL NOT use this endpoint but they can
-    CHANNEL_TYPING: (channelId)=>`${CHANNEL_BASE(channelId)}/typing`
-    ,
-    // Thread Endpoints
-    THREAD_START_PUBLIC: (channelId, messageId)=>`${endpoints.CHANNEL_MESSAGE(channelId, messageId)}/threads`
-    ,
-    THREAD_START_PRIVATE: (channelId)=>`${CHANNEL_BASE(channelId)}/threads`
-    ,
-    THREAD_ACTIVE: (channelId)=>`${CHANNEL_BASE(channelId)}/threads/active`
-    ,
-    THREAD_MEMBERS: (channelId)=>`${CHANNEL_BASE(channelId)}/thread-members`
-    ,
-    THREAD_ME: (channelId)=>`${endpoints.THREAD_MEMBERS(channelId)}/@me`
-    ,
-    THREAD_USER: (channelId, userId)=>`${endpoints.THREAD_MEMBERS(channelId)}/${userId}`
-    ,
-    THREAD_ARCHIVED_BASE: (channelId)=>`${CHANNEL_BASE(channelId)}/threads/archived`
-    ,
-    THREAD_ARCHIVED_PUBLIC: (channelId)=>`${endpoints.THREAD_ARCHIVED_BASE(channelId)}/public`
-    ,
-    THREAD_ARCHIVED_PRIVATE: (channelId)=>`${endpoints.THREAD_ARCHIVED_BASE(channelId)}/private`
-    ,
-    THREAD_ARCHIVED_PRIVATE_JOINED: (channelId)=>`${CHANNEL_BASE(channelId)}/users/@me/threads/archived/private`
-    ,
-    // Guild Endpoints
-    GUILDS: `${baseEndpoints.BASE_URL}/guilds`,
-    GUILD_AUDIT_LOGS: (guildId)=>`${GUILDS_BASE(guildId)}/audit-logs`
-    ,
-    GUILD_BAN: (guildId, userId)=>`${GUILDS_BASE(guildId)}/bans/${userId}`
-    ,
-    GUILD_BANS: (guildId)=>`${GUILDS_BASE(guildId)}/bans`
-    ,
-    GUILD_BANNER: (guildId, icon)=>`${baseEndpoints.CDN_URL}/banners/${guildId}/${icon}`
-    ,
-    GUILD_CHANNELS: (guildId)=>`${GUILDS_BASE(guildId)}/channels`
-    ,
-    GUILD_WIDGET: (guildId)=>`${GUILDS_BASE(guildId)}/widget`
-    ,
-    GUILD_EMOJI: (guildId, emojiId)=>`${GUILDS_BASE(guildId)}/emojis/${emojiId}`
-    ,
-    GUILD_EMOJIS: (guildId)=>`${GUILDS_BASE(guildId)}/emojis`
-    ,
-    GUILD_ICON: (guildId, icon)=>`${baseEndpoints.CDN_URL}/icons/${guildId}/${icon}`
-    ,
-    GUILD_INTEGRATION: (guildId, integrationId)=>`${GUILDS_BASE(guildId)}/integrations/${integrationId}`
-    ,
-    GUILD_INTEGRATION_SYNC: (guildId, integrationId)=>`${GUILDS_BASE(guildId)}/integrations/${integrationId}/sync`
-    ,
-    GUILD_INTEGRATIONS: (guildId)=>`${GUILDS_BASE(guildId)}/integrations?include_applications=true`
-    ,
-    GUILD_INVITES: (guildId)=>`${GUILDS_BASE(guildId)}/invites`
-    ,
-    GUILD_LEAVE: (guildId)=>`${baseEndpoints.BASE_URL}/users/@me/guilds/${guildId}`
-    ,
-    GUILD_MEMBER: (guildId, userId)=>`${GUILDS_BASE(guildId)}/members/${userId}`
-    ,
-    GUILD_MEMBERS: (guildId)=>`${GUILDS_BASE(guildId)}/members`
-    ,
-    GUILD_MEMBER_ROLE: (guildId, memberId, roleId)=>`${GUILDS_BASE(guildId)}/members/${memberId}/roles/${roleId}`
-    ,
-    GUILD_MEMBERS_SEARCH: (guildId)=>`${GUILDS_BASE(guildId)}/members/search`
-    ,
-    GUILD_PRUNE: (guildId)=>`${GUILDS_BASE(guildId)}/prune`
-    ,
-    GUILD_REGIONS: (guildId)=>`${GUILDS_BASE(guildId)}/regions`
-    ,
-    GUILD_ROLE: (guildId, roleId)=>`${GUILDS_BASE(guildId)}/roles/${roleId}`
-    ,
-    GUILD_ROLES: (guildId)=>`${GUILDS_BASE(guildId)}/roles`
-    ,
-    GUILD_SPLASH: (guildId, icon)=>`${baseEndpoints.CDN_URL}/splashes/${guildId}/${icon}`
-    ,
-    GUILD_VANITY_URL: (guildId)=>`${GUILDS_BASE(guildId)}/vanity-url`
-    ,
-    GUILD_WEBHOOKS: (guildId)=>`${GUILDS_BASE(guildId)}/webhooks`
-    ,
-    GUILD_TEMPLATE: (code)=>`${baseEndpoints.BASE_URL}/guilds/templates/${code}`
-    ,
-    GUILD_TEMPLATES: (guildId)=>`${GUILDS_BASE(guildId)}/templates`
-    ,
-    GUILD_PREVIEW: (guildId)=>`${GUILDS_BASE(guildId)}/preview`
-    ,
-    UPDATE_VOICE_STATE: (guildId, userId)=>`${GUILDS_BASE(guildId)}/voice-states/${userId ?? "@me"}`
-    ,
-    GUILD_WELCOME_SCREEN: (guildId)=>`${GUILDS_BASE(guildId)}/welcome-screen`
-    ,
-    // Voice
-    VOICE_REGIONS: `${baseEndpoints.BASE_URL}/voice/regions`,
-    INVITE: (inviteCode)=>`${baseEndpoints.BASE_URL}/invites/${inviteCode}`
-    ,
-    WEBHOOK: (webhookId, token)=>`${baseEndpoints.BASE_URL}/webhooks/${webhookId}/${token}`
-    ,
-    WEBHOOK_ID: (webhookId)=>`${baseEndpoints.BASE_URL}/webhooks/${webhookId}`
-    ,
-    WEBHOOK_MESSAGE: (webhookId, token, messageId)=>`${baseEndpoints.BASE_URL}/webhooks/${webhookId}/${token}/messages/${messageId}`
-    ,
-    WEBHOOK_MESSAGE_ORIGINAL: (webhookId, token)=>`${baseEndpoints.BASE_URL}/webhooks/${webhookId}/${token}/messages/@original`
-    ,
-    WEBHOOK_SLACK: (webhookId, token)=>`${baseEndpoints.BASE_URL}/webhooks/${webhookId}/${token}/slack`
-    ,
-    WEBHOOK_GITHUB: (webhookId, token)=>`${baseEndpoints.BASE_URL}/webhooks/${webhookId}/${token}/github`
-    ,
-    // Application Endpoints
-    COMMANDS: (applicationId)=>`${baseEndpoints.BASE_URL}/applications/${applicationId}/commands`
-    ,
-    COMMANDS_GUILD: (applicationId, guildId)=>`${baseEndpoints.BASE_URL}/applications/${applicationId}/guilds/${guildId}/commands`
-    ,
-    COMMANDS_PERMISSIONS: (applicationId, guildId)=>`${endpoints.COMMANDS_GUILD(applicationId, guildId)}/permissions`
-    ,
-    COMMANDS_PERMISSION: (applicationId, guildId, commandId)=>`${endpoints.COMMANDS_GUILD(applicationId, guildId)}/${commandId}/permissions`
-    ,
-    COMMANDS_ID: (applicationId, commandId)=>`${baseEndpoints.BASE_URL}/applications/${applicationId}/commands/${commandId}`
-    ,
-    COMMANDS_GUILD_ID: (applicationId, guildId, commandId)=>`${baseEndpoints.BASE_URL}/applications/${applicationId}/guilds/${guildId}/commands/${commandId}`
-    ,
-    // Interaction Endpoints
-    INTERACTION_ID_TOKEN: (interactionId, token)=>`${baseEndpoints.BASE_URL}/interactions/${interactionId}/${token}/callback`
-    ,
-    INTERACTION_ORIGINAL_ID_TOKEN: (interactionId, token)=>`${baseEndpoints.BASE_URL}/webhooks/${interactionId}/${token}/messages/@original`
-    ,
-    INTERACTION_ID_TOKEN_MESSAGE_ID: (applicationId, token, messageId)=>`${baseEndpoints.BASE_URL}/webhooks/${applicationId}/${token}/messages/${messageId}`
-    ,
-    // User endpoints
-    USER: (userId)=>`${baseEndpoints.BASE_URL}/users/${userId}`
-    ,
-    USER_BOT: `${baseEndpoints.BASE_URL}/users/@me`,
-    USER_GUILDS: `${baseEndpoints.BASE_URL}/@me/guilds`,
-    USER_AVATAR: (userId, icon)=>`${baseEndpoints.CDN_URL}/avatars/${userId}/${icon}`
-    ,
-    USER_DEFAULT_AVATAR: (icon)=>`${baseEndpoints.CDN_URL}/embed/avatars/${icon}.png`
-    ,
-    USER_DM: `${baseEndpoints.BASE_URL}/users/@me/channels`,
-    USER_CONNECTIONS: `${baseEndpoints.BASE_URL}/users/@me/connections`,
-    USER_NICK: (guildId)=>`${GUILDS_BASE(guildId)}/members/@me/nick`
-    ,
-    // Discovery Endpoints
-    DISCOVERY_CATEGORIES: `${baseEndpoints.BASE_URL}/discovery/categories`,
-    DISCOVERY_VALID_TERM: `${baseEndpoints.BASE_URL}/discovery/valid-term`,
-    DISCOVERY_MODIFY: (guildId)=>`${GUILDS_BASE(guildId)}/discovery-metadata`
-    ,
-    DISCOVERY_SUBCATEGORY: (guildId, categoryId)=>`${GUILDS_BASE(guildId)}/discovery-categories/${categoryId}`
-    ,
-    // OAuth2
-    OAUTH2_APPLICATION: `${baseEndpoints.BASE_URL}/oauth2/applications/@me`,
-    // Stage instances
-    STAGE_INSTANCES: `${baseEndpoints.BASE_URL}/stage-instances`,
-    STAGE_INSTANCE: (channelId)=>`${baseEndpoints.BASE_URL}/stage-instances/${channelId}`
+  GUILDS_BASE,
+  CHANNEL_BASE,
+  GATEWAY_BOT: `${baseEndpoints.BASE_URL}/gateway/bot`,
+  // Channel Endpoints
+  CHANNEL_MESSAGE: (channelId, messageId) =>
+    `${CHANNEL_BASE(channelId)}/messages/${messageId}`,
+  CHANNEL_MESSAGES: (channelId) => `${CHANNEL_BASE(channelId)}/messages`,
+  CHANNEL_PIN: (channelId, messageId) =>
+    `${CHANNEL_BASE(channelId)}/pins/${messageId}`,
+  CHANNEL_PINS: (channelId) => `${CHANNEL_BASE(channelId)}/pins`,
+  CHANNEL_BULK_DELETE: (channelId) =>
+    `${CHANNEL_BASE(channelId)}/messages/bulk-delete`,
+  CHANNEL_INVITES: (channelId) => `${CHANNEL_BASE(channelId)}/invites`,
+  CHANNEL_WEBHOOKS: (channelId) => `${CHANNEL_BASE(channelId)}/webhooks`,
+  CHANNEL_MESSAGE_REACTION_ME: (channelId, messageId, emoji) =>
+    `${CHANNEL_BASE(channelId)}/messages/${messageId}/reactions/${emoji}/@me`,
+  CHANNEL_MESSAGE_REACTION_USER: (channelId, messageId, emoji, userId) =>
+    `${
+      CHANNEL_BASE(channelId)
+    }/messages/${messageId}/reactions/${emoji}/${userId}`,
+  CHANNEL_MESSAGE_REACTIONS: (channelId, messageId) =>
+    `${CHANNEL_BASE(channelId)}/messages/${messageId}/reactions`,
+  CHANNEL_MESSAGE_REACTION: (channelId, messageId, emoji) =>
+    `${CHANNEL_BASE(channelId)}/messages/${messageId}/reactions/${emoji}`,
+  CHANNEL_FOLLOW: (channelId) => `${CHANNEL_BASE(channelId)}/followers`,
+  CHANNEL_MESSAGE_CROSSPOST: (channelId, messageId) =>
+    `${CHANNEL_BASE(channelId)}/messages/${messageId}/crosspost`,
+  CHANNEL_OVERWRITE: (channelId, overwriteId) =>
+    `${CHANNEL_BASE(channelId)}/permissions/${overwriteId}`,
+  // Bots SHALL NOT use this endpoint but they can
+  CHANNEL_TYPING: (channelId) => `${CHANNEL_BASE(channelId)}/typing`,
+  // Thread Endpoints
+  THREAD_START_PUBLIC: (channelId, messageId) =>
+    `${endpoints.CHANNEL_MESSAGE(channelId, messageId)}/threads`,
+  THREAD_START_PRIVATE: (channelId) => `${CHANNEL_BASE(channelId)}/threads`,
+  THREAD_ACTIVE: (channelId) => `${CHANNEL_BASE(channelId)}/threads/active`,
+  THREAD_MEMBERS: (channelId) => `${CHANNEL_BASE(channelId)}/thread-members`,
+  THREAD_ME: (channelId) => `${endpoints.THREAD_MEMBERS(channelId)}/@me`,
+  THREAD_USER: (channelId, userId) =>
+    `${endpoints.THREAD_MEMBERS(channelId)}/${userId}`,
+  THREAD_ARCHIVED_BASE: (channelId) =>
+    `${CHANNEL_BASE(channelId)}/threads/archived`,
+  THREAD_ARCHIVED_PUBLIC: (channelId) =>
+    `${endpoints.THREAD_ARCHIVED_BASE(channelId)}/public`,
+  THREAD_ARCHIVED_PRIVATE: (channelId) =>
+    `${endpoints.THREAD_ARCHIVED_BASE(channelId)}/private`,
+  THREAD_ARCHIVED_PRIVATE_JOINED: (channelId) =>
+    `${CHANNEL_BASE(channelId)}/users/@me/threads/archived/private`,
+  // Guild Endpoints
+  GUILDS: `${baseEndpoints.BASE_URL}/guilds`,
+  GUILD_AUDIT_LOGS: (guildId) => `${GUILDS_BASE(guildId)}/audit-logs`,
+  GUILD_BAN: (guildId, userId) => `${GUILDS_BASE(guildId)}/bans/${userId}`,
+  GUILD_BANS: (guildId) => `${GUILDS_BASE(guildId)}/bans`,
+  GUILD_BANNER: (guildId, icon) =>
+    `${baseEndpoints.CDN_URL}/banners/${guildId}/${icon}`,
+  GUILD_CHANNELS: (guildId) => `${GUILDS_BASE(guildId)}/channels`,
+  GUILD_WIDGET: (guildId) => `${GUILDS_BASE(guildId)}/widget`,
+  GUILD_EMOJI: (guildId, emojiId) =>
+    `${GUILDS_BASE(guildId)}/emojis/${emojiId}`,
+  GUILD_EMOJIS: (guildId) => `${GUILDS_BASE(guildId)}/emojis`,
+  GUILD_ICON: (guildId, icon) =>
+    `${baseEndpoints.CDN_URL}/icons/${guildId}/${icon}`,
+  GUILD_INTEGRATION: (guildId, integrationId) =>
+    `${GUILDS_BASE(guildId)}/integrations/${integrationId}`,
+  GUILD_INTEGRATION_SYNC: (guildId, integrationId) =>
+    `${GUILDS_BASE(guildId)}/integrations/${integrationId}/sync`,
+  GUILD_INTEGRATIONS: (guildId) =>
+    `${GUILDS_BASE(guildId)}/integrations?include_applications=true`,
+  GUILD_INVITES: (guildId) => `${GUILDS_BASE(guildId)}/invites`,
+  GUILD_LEAVE: (guildId) =>
+    `${baseEndpoints.BASE_URL}/users/@me/guilds/${guildId}`,
+  GUILD_MEMBER: (guildId, userId) =>
+    `${GUILDS_BASE(guildId)}/members/${userId}`,
+  GUILD_MEMBERS: (guildId) => `${GUILDS_BASE(guildId)}/members`,
+  GUILD_MEMBER_ROLE: (guildId, memberId, roleId) =>
+    `${GUILDS_BASE(guildId)}/members/${memberId}/roles/${roleId}`,
+  GUILD_MEMBERS_SEARCH: (guildId) => `${GUILDS_BASE(guildId)}/members/search`,
+  GUILD_PRUNE: (guildId) => `${GUILDS_BASE(guildId)}/prune`,
+  GUILD_REGIONS: (guildId) => `${GUILDS_BASE(guildId)}/regions`,
+  GUILD_ROLE: (guildId, roleId) => `${GUILDS_BASE(guildId)}/roles/${roleId}`,
+  GUILD_ROLES: (guildId) => `${GUILDS_BASE(guildId)}/roles`,
+  GUILD_SPLASH: (guildId, icon) =>
+    `${baseEndpoints.CDN_URL}/splashes/${guildId}/${icon}`,
+  GUILD_VANITY_URL: (guildId) => `${GUILDS_BASE(guildId)}/vanity-url`,
+  GUILD_WEBHOOKS: (guildId) => `${GUILDS_BASE(guildId)}/webhooks`,
+  GUILD_TEMPLATE: (code) =>
+    `${baseEndpoints.BASE_URL}/guilds/templates/${code}`,
+  GUILD_TEMPLATES: (guildId) => `${GUILDS_BASE(guildId)}/templates`,
+  GUILD_PREVIEW: (guildId) => `${GUILDS_BASE(guildId)}/preview`,
+  UPDATE_VOICE_STATE: (guildId, userId) =>
+    `${GUILDS_BASE(guildId)}/voice-states/${userId ?? "@me"}`,
+  GUILD_WELCOME_SCREEN: (guildId) => `${GUILDS_BASE(guildId)}/welcome-screen`,
+  // Voice
+  VOICE_REGIONS: `${baseEndpoints.BASE_URL}/voice/regions`,
+  INVITE: (inviteCode) => `${baseEndpoints.BASE_URL}/invites/${inviteCode}`,
+  WEBHOOK: (webhookId, token) =>
+    `${baseEndpoints.BASE_URL}/webhooks/${webhookId}/${token}`,
+  WEBHOOK_ID: (webhookId) => `${baseEndpoints.BASE_URL}/webhooks/${webhookId}`,
+  WEBHOOK_MESSAGE: (webhookId, token, messageId) =>
+    `${baseEndpoints.BASE_URL}/webhooks/${webhookId}/${token}/messages/${messageId}`,
+  WEBHOOK_MESSAGE_ORIGINAL: (webhookId, token) =>
+    `${baseEndpoints.BASE_URL}/webhooks/${webhookId}/${token}/messages/@original`,
+  WEBHOOK_SLACK: (webhookId, token) =>
+    `${baseEndpoints.BASE_URL}/webhooks/${webhookId}/${token}/slack`,
+  WEBHOOK_GITHUB: (webhookId, token) =>
+    `${baseEndpoints.BASE_URL}/webhooks/${webhookId}/${token}/github`,
+  // Application Endpoints
+  COMMANDS: (applicationId) =>
+    `${baseEndpoints.BASE_URL}/applications/${applicationId}/commands`,
+  COMMANDS_GUILD: (applicationId, guildId) =>
+    `${baseEndpoints.BASE_URL}/applications/${applicationId}/guilds/${guildId}/commands`,
+  COMMANDS_PERMISSIONS: (applicationId, guildId) =>
+    `${endpoints.COMMANDS_GUILD(applicationId, guildId)}/permissions`,
+  COMMANDS_PERMISSION: (applicationId, guildId, commandId) =>
+    `${
+      endpoints.COMMANDS_GUILD(applicationId, guildId)
+    }/${commandId}/permissions`,
+  COMMANDS_ID: (applicationId, commandId) =>
+    `${baseEndpoints.BASE_URL}/applications/${applicationId}/commands/${commandId}`,
+  COMMANDS_GUILD_ID: (applicationId, guildId, commandId) =>
+    `${baseEndpoints.BASE_URL}/applications/${applicationId}/guilds/${guildId}/commands/${commandId}`,
+  // Interaction Endpoints
+  INTERACTION_ID_TOKEN: (interactionId, token) =>
+    `${baseEndpoints.BASE_URL}/interactions/${interactionId}/${token}/callback`,
+  INTERACTION_ORIGINAL_ID_TOKEN: (interactionId, token) =>
+    `${baseEndpoints.BASE_URL}/webhooks/${interactionId}/${token}/messages/@original`,
+  INTERACTION_ID_TOKEN_MESSAGE_ID: (applicationId, token, messageId) =>
+    `${baseEndpoints.BASE_URL}/webhooks/${applicationId}/${token}/messages/${messageId}`,
+  // User endpoints
+  USER: (userId) => `${baseEndpoints.BASE_URL}/users/${userId}`,
+  USER_BOT: `${baseEndpoints.BASE_URL}/users/@me`,
+  USER_GUILDS: `${baseEndpoints.BASE_URL}/@me/guilds`,
+  USER_AVATAR: (userId, icon) =>
+    `${baseEndpoints.CDN_URL}/avatars/${userId}/${icon}`,
+  USER_DEFAULT_AVATAR: (icon) =>
+    `${baseEndpoints.CDN_URL}/embed/avatars/${icon}.png`,
+  USER_DM: `${baseEndpoints.BASE_URL}/users/@me/channels`,
+  USER_CONNECTIONS: `${baseEndpoints.BASE_URL}/users/@me/connections`,
+  USER_NICK: (guildId) => `${GUILDS_BASE(guildId)}/members/@me/nick`,
+  // Discovery Endpoints
+  DISCOVERY_CATEGORIES: `${baseEndpoints.BASE_URL}/discovery/categories`,
+  DISCOVERY_VALID_TERM: `${baseEndpoints.BASE_URL}/discovery/valid-term`,
+  DISCOVERY_MODIFY: (guildId) => `${GUILDS_BASE(guildId)}/discovery-metadata`,
+  DISCOVERY_SUBCATEGORY: (guildId, categoryId) =>
+    `${GUILDS_BASE(guildId)}/discovery-categories/${categoryId}`,
+  // OAuth2
+  OAUTH2_APPLICATION: `${baseEndpoints.BASE_URL}/oauth2/applications/@me`,
+  // Stage instances
+  STAGE_INSTANCES: `${baseEndpoints.BASE_URL}/stage-instances`,
+  STAGE_INSTANCE: (channelId) =>
+    `${baseEndpoints.BASE_URL}/stage-instances/${channelId}`,
 };
 export const SLASH_COMMANDS_NAME_REGEX = /^[\w-]{1,32}$/;
 export const CHANNEL_MENTION_REGEX = /<#[0-9]+>/g;

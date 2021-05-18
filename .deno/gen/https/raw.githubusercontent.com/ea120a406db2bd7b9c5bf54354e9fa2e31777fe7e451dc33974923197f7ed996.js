@@ -1,13 +1,20 @@
 import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotChannelPermissions } from "../../util/permissions.ts";
-/** Follow a News Channel to send messages to a target channel. Requires the `MANAGE_WEBHOOKS` permission in the target channel. Returns the webhook id. */ export async function followChannel(sourceChannelId, targetChannelId) {
-    await requireBotChannelPermissions(targetChannelId, [
-        "MANAGE_WEBHOOKS"
-    ]);
-    const data = await rest.runMethod("post", endpoints.CHANNEL_FOLLOW(sourceChannelId), {
-        webhook_channel_id: targetChannelId
-    });
-    return data.webhookId;
+/** Follow a News Channel to send messages to a target channel. Requires the `MANAGE_WEBHOOKS` permission in the target channel. Returns the webhook id. */ export async function followChannel(
+  sourceChannelId,
+  targetChannelId,
+) {
+  await requireBotChannelPermissions(targetChannelId, [
+    "MANAGE_WEBHOOKS",
+  ]);
+  const data = await rest.runMethod(
+    "post",
+    endpoints.CHANNEL_FOLLOW(sourceChannelId),
+    {
+      webhook_channel_id: targetChannelId,
+    },
+  );
+  return data.webhookId;
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvY2hhbm5lbHMvZm9sbG93X2NoYW5uZWwudHM+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHJlc3QgfSBmcm9tIFwiLi4vLi4vcmVzdC9yZXN0LnRzXCI7XG5pbXBvcnQgdHlwZSB7IEZvbGxvd2VkQ2hhbm5lbCB9IGZyb20gXCIuLi8uLi90eXBlcy9jaGFubmVscy9mb2xsb3dlZF9jaGFubmVsLnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcbmltcG9ydCB7IHJlcXVpcmVCb3RDaGFubmVsUGVybWlzc2lvbnMgfSBmcm9tIFwiLi4vLi4vdXRpbC9wZXJtaXNzaW9ucy50c1wiO1xuXG4vKiogRm9sbG93IGEgTmV3cyBDaGFubmVsIHRvIHNlbmQgbWVzc2FnZXMgdG8gYSB0YXJnZXQgY2hhbm5lbC4gUmVxdWlyZXMgdGhlIGBNQU5BR0VfV0VCSE9PS1NgIHBlcm1pc3Npb24gaW4gdGhlIHRhcmdldCBjaGFubmVsLiBSZXR1cm5zIHRoZSB3ZWJob29rIGlkLiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGZvbGxvd0NoYW5uZWwoXG4gIHNvdXJjZUNoYW5uZWxJZDogYmlnaW50LFxuICB0YXJnZXRDaGFubmVsSWQ6IGJpZ2ludCxcbikge1xuICBhd2FpdCByZXF1aXJlQm90Q2hhbm5lbFBlcm1pc3Npb25zKHRhcmdldENoYW5uZWxJZCwgW1wiTUFOQUdFX1dFQkhPT0tTXCJdKTtcblxuICBjb25zdCBkYXRhID0gYXdhaXQgcmVzdC5ydW5NZXRob2Q8Rm9sbG93ZWRDaGFubmVsPihcbiAgICBcInBvc3RcIixcbiAgICBlbmRwb2ludHMuQ0hBTk5FTF9GT0xMT1coc291cmNlQ2hhbm5lbElkKSxcbiAgICB7XG4gICAgICB3ZWJob29rX2NoYW5uZWxfaWQ6IHRhcmdldENoYW5uZWxJZCxcbiAgICB9LFxuICApO1xuXG4gIHJldHVybiBkYXRhLndlYmhvb2tJZDtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiU0FBUyxJQUFJLFNBQVEsa0JBQW9CO1NBRWhDLFNBQVMsU0FBUSx1QkFBeUI7U0FDMUMsNEJBQTRCLFNBQVEseUJBQTJCO0FBRXhFLEVBQTJKLEFBQTNKLHVKQUEySixBQUEzSixFQUEySix1QkFDckksYUFBYSxDQUNqQyxlQUF1QixFQUN2QixlQUF1QjtVQUVqQiw0QkFBNEIsQ0FBQyxlQUFlO1NBQUcsZUFBaUI7O1VBRWhFLElBQUksU0FBUyxJQUFJLENBQUMsU0FBUyxFQUMvQixJQUFNLEdBQ04sU0FBUyxDQUFDLGNBQWMsQ0FBQyxlQUFlO1FBRXRDLGtCQUFrQixFQUFFLGVBQWU7O1dBSWhDLElBQUksQ0FBQyxTQUFTIn0=

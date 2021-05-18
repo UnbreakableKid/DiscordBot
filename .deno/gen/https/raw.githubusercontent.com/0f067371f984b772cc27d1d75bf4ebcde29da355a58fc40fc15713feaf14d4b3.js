@@ -1,10 +1,16 @@
 import { rest } from "../../rest/rest.ts";
 import { endpoints } from "../../util/constants.ts";
 import { requireBotGuildPermissions } from "../../util/permissions.ts";
-/** Removes a discovery subcategory from the guild. Requires the MANAGE_GUILD permission. Returns a 204 No Content on success. */ export async function removeDiscoverySubcategory(guildId, categoryId) {
-    await requireBotGuildPermissions(guildId, [
-        "MANAGE_GUILD"
-    ]);
-    return await rest.runMethod("delete", endpoints.DISCOVERY_SUBCATEGORY(guildId, categoryId));
+/** Removes a discovery subcategory from the guild. Requires the MANAGE_GUILD permission. Returns a 204 No Content on success. */ export async function removeDiscoverySubcategory(
+  guildId,
+  categoryId,
+) {
+  await requireBotGuildPermissions(guildId, [
+    "MANAGE_GUILD",
+  ]);
+  return await rest.runMethod(
+    "delete",
+    endpoints.DISCOVERY_SUBCATEGORY(guildId, categoryId),
+  );
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL2hlbHBlcnMvZGlzY292ZXJ5L3JlbW92ZV9kaXNjb3Zlcnlfc3ViY2F0ZWdvcnkudHM+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHJlc3QgfSBmcm9tIFwiLi4vLi4vcmVzdC9yZXN0LnRzXCI7XG5pbXBvcnQgeyBlbmRwb2ludHMgfSBmcm9tIFwiLi4vLi4vdXRpbC9jb25zdGFudHMudHNcIjtcbmltcG9ydCB7IHJlcXVpcmVCb3RHdWlsZFBlcm1pc3Npb25zIH0gZnJvbSBcIi4uLy4uL3V0aWwvcGVybWlzc2lvbnMudHNcIjtcblxuLyoqIFJlbW92ZXMgYSBkaXNjb3Zlcnkgc3ViY2F0ZWdvcnkgZnJvbSB0aGUgZ3VpbGQuIFJlcXVpcmVzIHRoZSBNQU5BR0VfR1VJTEQgcGVybWlzc2lvbi4gUmV0dXJucyBhIDIwNCBObyBDb250ZW50IG9uIHN1Y2Nlc3MuICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gcmVtb3ZlRGlzY292ZXJ5U3ViY2F0ZWdvcnkoXG4gIGd1aWxkSWQ6IGJpZ2ludCxcbiAgY2F0ZWdvcnlJZDogbnVtYmVyLFxuKSB7XG4gIGF3YWl0IHJlcXVpcmVCb3RHdWlsZFBlcm1pc3Npb25zKGd1aWxkSWQsIFtcIk1BTkFHRV9HVUlMRFwiXSk7XG5cbiAgcmV0dXJuIGF3YWl0IHJlc3QucnVuTWV0aG9kPHVuZGVmaW5lZD4oXG4gICAgXCJkZWxldGVcIixcbiAgICBlbmRwb2ludHMuRElTQ09WRVJZX1NVQkNBVEVHT1JZKGd1aWxkSWQsIGNhdGVnb3J5SWQpLFxuICApO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLElBQUksU0FBUSxrQkFBb0I7U0FDaEMsU0FBUyxTQUFRLHVCQUF5QjtTQUMxQywwQkFBMEIsU0FBUSx5QkFBMkI7QUFFdEUsRUFBaUksQUFBakksNkhBQWlJLEFBQWpJLEVBQWlJLHVCQUMzRywwQkFBMEIsQ0FDOUMsT0FBZSxFQUNmLFVBQWtCO1VBRVosMEJBQTBCLENBQUMsT0FBTztTQUFHLFlBQWM7O2lCQUU1QyxJQUFJLENBQUMsU0FBUyxFQUN6QixNQUFRLEdBQ1IsU0FBUyxDQUFDLHFCQUFxQixDQUFDLE9BQU8sRUFBRSxVQUFVIn0=

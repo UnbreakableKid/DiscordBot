@@ -1,17 +1,21 @@
 export var DiscordGatewayOpcodes;
-(function(DiscordGatewayOpcodes) {
-    DiscordGatewayOpcodes[DiscordGatewayOpcodes["Dispatch"] = 0] = "Dispatch";
-    DiscordGatewayOpcodes[DiscordGatewayOpcodes["Heartbeat"] = 1] = "Heartbeat";
-    DiscordGatewayOpcodes[DiscordGatewayOpcodes["Identify"] = 2] = "Identify";
-    DiscordGatewayOpcodes[DiscordGatewayOpcodes["StatusUpdate"] = 3] = "StatusUpdate";
-    DiscordGatewayOpcodes[DiscordGatewayOpcodes["VoiceStateUpdate"] = 4] = "VoiceStateUpdate";
-    DiscordGatewayOpcodes[DiscordGatewayOpcodes["Resume"] = 6] = "Resume";
-    DiscordGatewayOpcodes[DiscordGatewayOpcodes["Reconnect"] = 7] = "Reconnect";
-    DiscordGatewayOpcodes[DiscordGatewayOpcodes["RequestGuildMembers"] = 8] = "RequestGuildMembers";
-    DiscordGatewayOpcodes[DiscordGatewayOpcodes["InvalidSession"] = 9] = "InvalidSession";
-    DiscordGatewayOpcodes[DiscordGatewayOpcodes["Hello"] = 10] = "Hello";
-    DiscordGatewayOpcodes[DiscordGatewayOpcodes["HeartbeatACK"] = 11] = "HeartbeatACK";
-})(DiscordGatewayOpcodes || (DiscordGatewayOpcodes = {
-}));
+(function (DiscordGatewayOpcodes) {
+  DiscordGatewayOpcodes[DiscordGatewayOpcodes["Dispatch"] = 0] = "Dispatch";
+  DiscordGatewayOpcodes[DiscordGatewayOpcodes["Heartbeat"] = 1] = "Heartbeat";
+  DiscordGatewayOpcodes[DiscordGatewayOpcodes["Identify"] = 2] = "Identify";
+  DiscordGatewayOpcodes[DiscordGatewayOpcodes["StatusUpdate"] = 3] =
+    "StatusUpdate";
+  DiscordGatewayOpcodes[DiscordGatewayOpcodes["VoiceStateUpdate"] = 4] =
+    "VoiceStateUpdate";
+  DiscordGatewayOpcodes[DiscordGatewayOpcodes["Resume"] = 6] = "Resume";
+  DiscordGatewayOpcodes[DiscordGatewayOpcodes["Reconnect"] = 7] = "Reconnect";
+  DiscordGatewayOpcodes[DiscordGatewayOpcodes["RequestGuildMembers"] = 8] =
+    "RequestGuildMembers";
+  DiscordGatewayOpcodes[DiscordGatewayOpcodes["InvalidSession"] = 9] =
+    "InvalidSession";
+  DiscordGatewayOpcodes[DiscordGatewayOpcodes["Hello"] = 10] = "Hello";
+  DiscordGatewayOpcodes[DiscordGatewayOpcodes["HeartbeatACK"] = 11] =
+    "HeartbeatACK";
+})(DiscordGatewayOpcodes || (DiscordGatewayOpcodes = {}));
 export const GatewayOpcodes = DiscordGatewayOpcodes;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL2NvZGVzL2dhdGV3YXlfb3Bjb2Rlcy50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiLyoqIGh0dHBzOi8vZGlzY29yZC5jb20vZGV2ZWxvcGVycy9kb2NzL3RvcGljcy9vcGNvZGVzLWFuZC1zdGF0dXMtY29kZXMjZ2F0ZXdheS1nYXRld2F5LW9wY29kZXMgKi9cbmV4cG9ydCBlbnVtIERpc2NvcmRHYXRld2F5T3Bjb2RlcyB7XG4gIERpc3BhdGNoLFxuICBIZWFydGJlYXQsXG4gIElkZW50aWZ5LFxuICBTdGF0dXNVcGRhdGUsXG4gIFZvaWNlU3RhdGVVcGRhdGUsXG4gIFJlc3VtZSA9IDYsXG4gIFJlY29ubmVjdCxcbiAgUmVxdWVzdEd1aWxkTWVtYmVycyxcbiAgSW52YWxpZFNlc3Npb24sXG4gIEhlbGxvLFxuICBIZWFydGJlYXRBQ0ssXG59XG5cbmV4cG9ydCB0eXBlIEdhdGV3YXlPcGNvZGVzID0gRGlzY29yZEdhdGV3YXlPcGNvZGVzO1xuZXhwb3J0IGNvbnN0IEdhdGV3YXlPcGNvZGVzID0gRGlzY29yZEdhdGV3YXlPcGNvZGVzO1xuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7VUFDWSxxQkFBcUI7SUFBckIscUJBQXFCLENBQXJCLHFCQUFxQixFQUMvQixRQUFRLEtBQVIsQ0FBUSxLQUFSLFFBQVE7SUFERSxxQkFBcUIsQ0FBckIscUJBQXFCLEVBRS9CLFNBQVMsS0FBVCxDQUFTLEtBQVQsU0FBUztJQUZDLHFCQUFxQixDQUFyQixxQkFBcUIsRUFHL0IsUUFBUSxLQUFSLENBQVEsS0FBUixRQUFRO0lBSEUscUJBQXFCLENBQXJCLHFCQUFxQixFQUkvQixZQUFZLEtBQVosQ0FBWSxLQUFaLFlBQVk7SUFKRixxQkFBcUIsQ0FBckIscUJBQXFCLEVBSy9CLGdCQUFnQixLQUFoQixDQUFnQixLQUFoQixnQkFBZ0I7SUFMTixxQkFBcUIsQ0FBckIscUJBQXFCLEVBTS9CLE1BQU0sS0FBRyxDQUFDLEtBQVYsTUFBTTtJQU5JLHFCQUFxQixDQUFyQixxQkFBcUIsRUFPL0IsU0FBUyxLQUFULENBQVMsS0FBVCxTQUFTO0lBUEMscUJBQXFCLENBQXJCLHFCQUFxQixFQVEvQixtQkFBbUIsS0FBbkIsQ0FBbUIsS0FBbkIsbUJBQW1CO0lBUlQscUJBQXFCLENBQXJCLHFCQUFxQixFQVMvQixjQUFjLEtBQWQsQ0FBYyxLQUFkLGNBQWM7SUFUSixxQkFBcUIsQ0FBckIscUJBQXFCLEVBVS9CLEtBQUssS0FBTCxFQUFLLEtBQUwsS0FBSztJQVZLLHFCQUFxQixDQUFyQixxQkFBcUIsRUFXL0IsWUFBWSxLQUFaLEVBQVksS0FBWixZQUFZO0dBWEYscUJBQXFCLEtBQXJCLHFCQUFxQjs7YUFlcEIsY0FBYyxHQUFHLHFCQUFxQiJ9

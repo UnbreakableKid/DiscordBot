@@ -9,43 +9,44 @@ import { processRequestHeaders } from "./process_request_headers.ts";
 import { runMethod } from "./run_method.ts";
 import { simplifyUrl } from "./simplify_url.ts";
 export const rest = {
-    /** The bot token for this rest client. */ token: "",
-    /** The maximum amount of retries allowed */ maxRetryCount: 10,
-    apiVersion: "9",
-    /** The secret authorization key to confirm that this was a request made by you and not a DDOS attack. */ authorization: "discordeno_best_lib_ever",
-    pathQueues: new Map(),
-    processingQueue: false,
-    processingRateLimitedPaths: false,
-    globallyRateLimited: false,
-    ratelimitedPaths: new Map(),
-    eventHandlers: {
-        // BY DEFAULT WE WILL LOG ALL ERRORS TO CONSOLE. USER CAN CHOOSE TO OVERRIDE
-        error: function(...args) {
-        },
-        // PLACEHOLDERS TO ALLOW USERS TO CUSTOMIZE
-        debug: function(type, error) {
-        },
-        fetching (payload) {
-        },
-        fetched (payload) {
-        },
-        fetchSuccess (payload) {
-        },
-        fetchFailed (payload, error) {
-        },
-        globallyRateLimited (url, resetsAt) {
-        },
-        retriesMaxed (payload) {
-        }
+  /** The bot token for this rest client. */ token: "",
+  /** The maximum amount of retries allowed */ maxRetryCount: 10,
+  apiVersion: "9",
+  /** The secret authorization key to confirm that this was a request made by you and not a DDOS attack. */ authorization:
+    "discordeno_best_lib_ever",
+  pathQueues: new Map(),
+  processingQueue: false,
+  processingRateLimitedPaths: false,
+  globallyRateLimited: false,
+  ratelimitedPaths: new Map(),
+  eventHandlers: {
+    // BY DEFAULT WE WILL LOG ALL ERRORS TO CONSOLE. USER CAN CHOOSE TO OVERRIDE
+    error: function (...args) {
     },
-    /** Handler function for every request. Converts to json, verified authorization & requirements and begins processing the request */ checkRateLimits,
-    cleanupQueues,
-    processQueue,
-    processRateLimitedPaths,
-    processRequestHeaders,
-    processRequest,
-    createRequestBody,
-    runMethod,
-    simplifyUrl
+    // PLACEHOLDERS TO ALLOW USERS TO CUSTOMIZE
+    debug: function (type, error) {
+    },
+    fetching(payload) {
+    },
+    fetched(payload) {
+    },
+    fetchSuccess(payload) {
+    },
+    fetchFailed(payload, error) {
+    },
+    globallyRateLimited(url, resetsAt) {
+    },
+    retriesMaxed(payload) {
+    },
+  },
+  /** Handler function for every request. Converts to json, verified authorization & requirements and begins processing the request */ checkRateLimits,
+  cleanupQueues,
+  processQueue,
+  processRateLimitedPaths,
+  processRequestHeaders,
+  processRequest,
+  createRequestBody,
+  runMethod,
+  simplifyUrl,
 };
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3Jlc3QvcmVzdC50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZGVuby1saW50LWlnbm9yZS1maWxlIG5vLXVudXNlZC12YXJzXG5pbXBvcnQgeyBjaGVja1JhdGVMaW1pdHMgfSBmcm9tIFwiLi9jaGVja19yYXRlX2xpbWl0cy50c1wiO1xuaW1wb3J0IHsgY2xlYW51cFF1ZXVlcyB9IGZyb20gXCIuL2NsZWFudXBfcXVldWVzLnRzXCI7XG5pbXBvcnQgeyBjcmVhdGVSZXF1ZXN0Qm9keSB9IGZyb20gXCIuL2NyZWF0ZV9yZXF1ZXN0X2JvZHkudHNcIjtcbmltcG9ydCB7IHByb2Nlc3NRdWV1ZSB9IGZyb20gXCIuL3Byb2Nlc3NfcXVldWUudHNcIjtcbmltcG9ydCB7IHByb2Nlc3NSYXRlTGltaXRlZFBhdGhzIH0gZnJvbSBcIi4vcHJvY2Vzc19yYXRlX2xpbWl0ZWRfcGF0aHMudHNcIjtcbmltcG9ydCB7IHByb2Nlc3NSZXF1ZXN0IH0gZnJvbSBcIi4vcHJvY2Vzc19yZXF1ZXN0LnRzXCI7XG5pbXBvcnQgeyBwcm9jZXNzUmVxdWVzdEhlYWRlcnMgfSBmcm9tIFwiLi9wcm9jZXNzX3JlcXVlc3RfaGVhZGVycy50c1wiO1xuaW1wb3J0IHsgcnVuTWV0aG9kIH0gZnJvbSBcIi4vcnVuX21ldGhvZC50c1wiO1xuaW1wb3J0IHsgc2ltcGxpZnlVcmwgfSBmcm9tIFwiLi9zaW1wbGlmeV91cmwudHNcIjtcblxuZXhwb3J0IGNvbnN0IHJlc3QgPSB7XG4gIC8qKiBUaGUgYm90IHRva2VuIGZvciB0aGlzIHJlc3QgY2xpZW50LiAqL1xuICB0b2tlbjogXCJcIixcbiAgLyoqIFRoZSBtYXhpbXVtIGFtb3VudCBvZiByZXRyaWVzIGFsbG93ZWQgKi9cbiAgbWF4UmV0cnlDb3VudDogMTAsXG4gIGFwaVZlcnNpb246IFwiOVwiLFxuICAvKiogVGhlIHNlY3JldCBhdXRob3JpemF0aW9uIGtleSB0byBjb25maXJtIHRoYXQgdGhpcyB3YXMgYSByZXF1ZXN0IG1hZGUgYnkgeW91IGFuZCBub3QgYSBERE9TIGF0dGFjay4gKi9cbiAgYXV0aG9yaXphdGlvbjogXCJkaXNjb3JkZW5vX2Jlc3RfbGliX2V2ZXJcIixcbiAgcGF0aFF1ZXVlczogbmV3IE1hcDxcbiAgICBzdHJpbmcsXG4gICAge1xuICAgICAgcmVxdWVzdDogUmVzdFJlcXVlc3Q7XG4gICAgICBwYXlsb2FkOiBSZXN0UGF5bG9hZDtcbiAgICB9W11cbiAgPigpLFxuICBwcm9jZXNzaW5nUXVldWU6IGZhbHNlLFxuICBwcm9jZXNzaW5nUmF0ZUxpbWl0ZWRQYXRoczogZmFsc2UsXG4gIGdsb2JhbGx5UmF0ZUxpbWl0ZWQ6IGZhbHNlLFxuICByYXRlbGltaXRlZFBhdGhzOiBuZXcgTWFwPHN0cmluZywgUmVzdFJhdGVMaW1pdGVkUGF0aD4oKSxcbiAgZXZlbnRIYW5kbGVyczoge1xuICAgIC8vIEJZIERFRkFVTFQgV0UgV0lMTCBMT0cgQUxMIEVSUk9SUyBUTyBDT05TT0xFLiBVU0VSIENBTiBDSE9PU0UgVE8gT1ZFUlJJREVcbiAgICBlcnJvcjogZnVuY3Rpb24gKC4uLmFyZ3M6IHVua25vd25bXSkge30sXG4gICAgLy8gUExBQ0VIT0xERVJTIFRPIEFMTE9XIFVTRVJTIFRPIENVU1RPTUlaRVxuICAgIGRlYnVnOiBmdW5jdGlvbiAodHlwZTogc3RyaW5nLCBlcnJvcjogc3RyaW5nIHwgUmVjb3JkPHN0cmluZywgdW5rbm93bj4pIHt9LFxuICAgIGZldGNoaW5nKHBheWxvYWQ6IFJlc3RQYXlsb2FkKSB7fSxcbiAgICBmZXRjaGVkKHBheWxvYWQ6IFJlc3RQYXlsb2FkKSB7fSxcbiAgICBmZXRjaFN1Y2Nlc3MocGF5bG9hZDogUmVzdFBheWxvYWQpIHt9LFxuICAgIGZldGNoRmFpbGVkKHBheWxvYWQ6IFJlc3RQYXlsb2FkLCBlcnJvcjogdW5rbm93bikge30sXG4gICAgZ2xvYmFsbHlSYXRlTGltaXRlZCh1cmw6IHN0cmluZywgcmVzZXRzQXQ6IG51bWJlcikge30sXG4gICAgcmV0cmllc01heGVkKHBheWxvYWQ6IFJlc3RQYXlsb2FkKSB7fSxcbiAgfSxcbiAgLyoqIEhhbmRsZXIgZnVuY3Rpb24gZm9yIGV2ZXJ5IHJlcXVlc3QuIENvbnZlcnRzIHRvIGpzb24sIHZlcmlmaWVkIGF1dGhvcml6YXRpb24gJiByZXF1aXJlbWVudHMgYW5kIGJlZ2lucyBwcm9jZXNzaW5nIHRoZSByZXF1ZXN0ICovXG4gIGNoZWNrUmF0ZUxpbWl0cyxcbiAgY2xlYW51cFF1ZXVlcyxcbiAgcHJvY2Vzc1F1ZXVlLFxuICBwcm9jZXNzUmF0ZUxpbWl0ZWRQYXRocyxcbiAgcHJvY2Vzc1JlcXVlc3RIZWFkZXJzLFxuICBwcm9jZXNzUmVxdWVzdCxcbiAgY3JlYXRlUmVxdWVzdEJvZHksXG4gIHJ1bk1ldGhvZCxcbiAgc2ltcGxpZnlVcmwsXG59O1xuXG5leHBvcnQgaW50ZXJmYWNlIFJlc3RSZXF1ZXN0IHtcbiAgdXJsOiBzdHJpbmc7XG4gIG1ldGhvZDogc3RyaW5nO1xuICByZXNwb25kOiAocGF5bG9hZDogeyBzdGF0dXM6IG51bWJlcjsgYm9keT86IHN0cmluZyB9KSA9PiB1bmtub3duO1xuICByZWplY3Q/OiAoZXJyb3I6IHVua25vd24pID0+IHVua25vd247XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgUmVzdFBheWxvYWQge1xuICBidWNrZXRJZD86IHN0cmluZztcbiAgYm9keT86IFJlY29yZDxzdHJpbmcsIHVua25vd24+O1xuICByZXRyeUNvdW50OiBudW1iZXI7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgUmVzdFJhdGVMaW1pdGVkUGF0aCB7XG4gIHVybDogc3RyaW5nO1xuICByZXNldFRpbWVzdGFtcDogbnVtYmVyO1xuICBidWNrZXRJZD86IHN0cmluZztcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxFQUF1QyxBQUF2QyxxQ0FBdUM7U0FDOUIsZUFBZSxTQUFRLHNCQUF3QjtTQUMvQyxhQUFhLFNBQVEsbUJBQXFCO1NBQzFDLGlCQUFpQixTQUFRLHdCQUEwQjtTQUNuRCxZQUFZLFNBQVEsa0JBQW9CO1NBQ3hDLHVCQUF1QixTQUFRLCtCQUFpQztTQUNoRSxjQUFjLFNBQVEsb0JBQXNCO1NBQzVDLHFCQUFxQixTQUFRLDRCQUE4QjtTQUMzRCxTQUFTLFNBQVEsZUFBaUI7U0FDbEMsV0FBVyxTQUFRLGlCQUFtQjthQUVsQyxJQUFJO0lBQ2YsRUFBMEMsQUFBMUMsc0NBQTBDLEFBQTFDLEVBQTBDLENBQzFDLEtBQUs7SUFDTCxFQUE0QyxBQUE1Qyx3Q0FBNEMsQUFBNUMsRUFBNEMsQ0FDNUMsYUFBYSxFQUFFLEVBQUU7SUFDakIsVUFBVSxHQUFFLENBQUc7SUFDZixFQUF5RyxBQUF6RyxxR0FBeUcsQUFBekcsRUFBeUcsQ0FDekcsYUFBYSxHQUFFLHdCQUEwQjtJQUN6QyxVQUFVLE1BQU0sR0FBRztJQU9uQixlQUFlLEVBQUUsS0FBSztJQUN0QiwwQkFBMEIsRUFBRSxLQUFLO0lBQ2pDLG1CQUFtQixFQUFFLEtBQUs7SUFDMUIsZ0JBQWdCLE1BQU0sR0FBRztJQUN6QixhQUFhO1FBQ1gsRUFBNEUsQUFBNUUsMEVBQTRFO1FBQzVFLEtBQUssY0FBZSxJQUFJOztRQUN4QixFQUEyQyxBQUEzQyx5Q0FBMkM7UUFDM0MsS0FBSyxXQUFZLElBQVksRUFBRSxLQUF1Qzs7UUFDdEUsUUFBUSxFQUFDLE9BQW9COztRQUM3QixPQUFPLEVBQUMsT0FBb0I7O1FBQzVCLFlBQVksRUFBQyxPQUFvQjs7UUFDakMsV0FBVyxFQUFDLE9BQW9CLEVBQUUsS0FBYzs7UUFDaEQsbUJBQW1CLEVBQUMsR0FBVyxFQUFFLFFBQWdCOztRQUNqRCxZQUFZLEVBQUMsT0FBb0I7OztJQUVuQyxFQUFvSSxBQUFwSSxnSUFBb0ksQUFBcEksRUFBb0ksQ0FDcEksZUFBZTtJQUNmLGFBQWE7SUFDYixZQUFZO0lBQ1osdUJBQXVCO0lBQ3ZCLHFCQUFxQjtJQUNyQixjQUFjO0lBQ2QsaUJBQWlCO0lBQ2pCLFNBQVM7SUFDVCxXQUFXIn0=

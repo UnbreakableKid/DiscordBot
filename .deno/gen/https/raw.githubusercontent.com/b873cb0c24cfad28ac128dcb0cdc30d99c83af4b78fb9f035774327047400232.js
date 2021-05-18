@@ -1,10 +1,23 @@
 export var DiscordInteractionResponseTypes;
-(function(DiscordInteractionResponseTypes) {
-    DiscordInteractionResponseTypes[DiscordInteractionResponseTypes[/** ACK a `Ping` */ "Pong"] = 1] = "Pong";
-    DiscordInteractionResponseTypes[DiscordInteractionResponseTypes[/** Respond to an interaction with a message */ "ChannelMessageWithSource"] = 4] = "ChannelMessageWithSource";
-    DiscordInteractionResponseTypes[DiscordInteractionResponseTypes[/** ACK an interaction and edit a response later, the user sees a loading state */ "DeferredChannelMessageWithSource"] = 5] = "DeferredChannelMessageWithSource";
-    DiscordInteractionResponseTypes[DiscordInteractionResponseTypes[/** It has no data fields. You can send this type **only in response to a button interaction .** It will acknowledge the interaction and update the button to a loading state. */ "DeferredMessageUpdate"] = 6] = "DeferredMessageUpdate";
-})(DiscordInteractionResponseTypes || (DiscordInteractionResponseTypes = {
-}));
+(function (DiscordInteractionResponseTypes) {
+  DiscordInteractionResponseTypes[
+    DiscordInteractionResponseTypes[/** ACK a `Ping` */ "Pong"] = 1
+  ] = "Pong";
+  DiscordInteractionResponseTypes[
+    DiscordInteractionResponseTypes[
+      /** Respond to an interaction with a message */ "ChannelMessageWithSource"
+    ] = 4
+  ] = "ChannelMessageWithSource";
+  DiscordInteractionResponseTypes[
+    DiscordInteractionResponseTypes[
+      /** ACK an interaction and edit a response later, the user sees a loading state */ "DeferredChannelMessageWithSource"
+    ] = 5
+  ] = "DeferredChannelMessageWithSource";
+  DiscordInteractionResponseTypes[
+    DiscordInteractionResponseTypes[
+      /** It has no data fields. You can send this type **only in response to a button interaction .** It will acknowledge the interaction and update the button to a loading state. */ "DeferredMessageUpdate"
+    ] = 6
+  ] = "DeferredMessageUpdate";
+})(DiscordInteractionResponseTypes || (DiscordInteractionResponseTypes = {}));
 export const InteractionResponseTypes = DiscordInteractionResponseTypes;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3R5cGVzL2ludGVyYWN0aW9ucy9pbnRlcmFjdGlvbl9yZXNwb25zZV90eXBlcy50cz4iXSwic291cmNlc0NvbnRlbnQiOlsiLyoqIGh0dHBzOi8vZGlzY29yZC5jb20vZGV2ZWxvcGVycy9kb2NzL2ludGVyYWN0aW9ucy9zbGFzaC1jb21tYW5kcyNpbnRlcmFjdGlvbi1yZXNwb25zZS1pbnRlcmFjdGlvbnJlc3BvbnNldHlwZSAqL1xuZXhwb3J0IGVudW0gRGlzY29yZEludGVyYWN0aW9uUmVzcG9uc2VUeXBlcyB7XG4gIC8qKiBBQ0sgYSBgUGluZ2AgKi9cbiAgUG9uZyA9IDEsXG4gIC8qKiBSZXNwb25kIHRvIGFuIGludGVyYWN0aW9uIHdpdGggYSBtZXNzYWdlICovXG4gIENoYW5uZWxNZXNzYWdlV2l0aFNvdXJjZSA9IDQsXG4gIC8qKiBBQ0sgYW4gaW50ZXJhY3Rpb24gYW5kIGVkaXQgYSByZXNwb25zZSBsYXRlciwgdGhlIHVzZXIgc2VlcyBhIGxvYWRpbmcgc3RhdGUgKi9cbiAgRGVmZXJyZWRDaGFubmVsTWVzc2FnZVdpdGhTb3VyY2UgPSA1LFxuICAvKiogSXQgaGFzIG5vIGRhdGEgZmllbGRzLiBZb3UgY2FuIHNlbmQgdGhpcyB0eXBlICoqb25seSBpbiByZXNwb25zZSB0byBhIGJ1dHRvbiBpbnRlcmFjdGlvbiAuKiogSXQgd2lsbCBhY2tub3dsZWRnZSB0aGUgaW50ZXJhY3Rpb24gYW5kIHVwZGF0ZSB0aGUgYnV0dG9uIHRvIGEgbG9hZGluZyBzdGF0ZS4gKi9cbiAgRGVmZXJyZWRNZXNzYWdlVXBkYXRlLFxufVxuXG5leHBvcnQgdHlwZSBJbnRlcmFjdGlvblJlc3BvbnNlVHlwZXMgPSBEaXNjb3JkSW50ZXJhY3Rpb25SZXNwb25zZVR5cGVzO1xuZXhwb3J0IGNvbnN0IEludGVyYWN0aW9uUmVzcG9uc2VUeXBlcyA9IERpc2NvcmRJbnRlcmFjdGlvblJlc3BvbnNlVHlwZXM7XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtVQUNZLCtCQUErQjtJQUEvQiwrQkFBK0IsQ0FBL0IsK0JBQStCLENBQ3pDLEVBQW1CLEFBQW5CLGVBQW1CLEFBQW5CLEVBQW1CLEVBQ25CLElBQUksS0FBRyxDQUFDLEtBQVIsSUFBSTtJQUZNLCtCQUErQixDQUEvQiwrQkFBK0IsQ0FHekMsRUFBK0MsQUFBL0MsMkNBQStDLEFBQS9DLEVBQStDLEVBQy9DLHdCQUF3QixLQUFHLENBQUMsS0FBNUIsd0JBQXdCO0lBSmQsK0JBQStCLENBQS9CLCtCQUErQixDQUt6QyxFQUFrRixBQUFsRiw4RUFBa0YsQUFBbEYsRUFBa0YsRUFDbEYsZ0NBQWdDLEtBQUcsQ0FBQyxLQUFwQyxnQ0FBZ0M7SUFOdEIsK0JBQStCLENBQS9CLCtCQUErQixDQU96QyxFQUFpTCxBQUFqTCw2S0FBaUwsQUFBakwsRUFBaUwsRUFDakwscUJBQXFCLEtBQXJCLENBQXFCLEtBQXJCLHFCQUFxQjtHQVJYLCtCQUErQixLQUEvQiwrQkFBK0I7O2FBWTlCLHdCQUF3QixHQUFHLCtCQUErQiJ9

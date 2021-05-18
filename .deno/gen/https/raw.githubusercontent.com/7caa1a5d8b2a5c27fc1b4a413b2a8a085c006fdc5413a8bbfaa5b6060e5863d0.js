@@ -5,29 +5,33 @@ import { ws } from "./ws.ts";
  * Starts the standalone gateway.
  * This will require starting the bot separately.
  */ export async function startGateway(options) {
-    ws.identifyPayload.token = `Bot ${options.token}`;
-    ws.secretKey = options.secretKey;
-    ws.firstShardId = options.firstShardId;
-    ws.url = options.url;
-    if (options.shardsPerCluster) ws.shardsPerCluster = options.shardsPerCluster;
-    if (options.maxClusters) ws.maxClusters = options.maxClusters;
-    if (options.compress) {
-        ws.identifyPayload.compress = options.compress;
-    }
-    if (options.reshard) ws.reshard = options.reshard;
-    // Once an hour check if resharding is necessary
-    setInterval(ws.resharder, 1000 * 60 * 60);
-    ws.identifyPayload.intents = options.intents.reduce((bits, next)=>bits |= typeof next === "string" ? DiscordGatewayIntents[next] : next
-    , 0);
-    ws.botGatewayData = camelize(await fetch(`https://discord.com/api/gateway/bot`, {
-        headers: {
-            Authorization: ws.identifyPayload.token
-        }
-    }).then((res)=>res.json()
-    ));
-    ws.maxShards = options.maxShards || ws.botGatewayData.shards;
-    ws.lastShardId = options.lastShardId || ws.botGatewayData.shards - 1;
-    ws.spawnShards(ws.firstShardId);
-    await ws.cleanupLoadingShards();
+  ws.identifyPayload.token = `Bot ${options.token}`;
+  ws.secretKey = options.secretKey;
+  ws.firstShardId = options.firstShardId;
+  ws.url = options.url;
+  if (options.shardsPerCluster) ws.shardsPerCluster = options.shardsPerCluster;
+  if (options.maxClusters) ws.maxClusters = options.maxClusters;
+  if (options.compress) {
+    ws.identifyPayload.compress = options.compress;
+  }
+  if (options.reshard) ws.reshard = options.reshard;
+  // Once an hour check if resharding is necessary
+  setInterval(ws.resharder, 1000 * 60 * 60);
+  ws.identifyPayload.intents = options.intents.reduce(
+    (bits, next) =>
+      bits |= typeof next === "string" ? DiscordGatewayIntents[next] : next,
+    0,
+  );
+  ws.botGatewayData = camelize(
+    await fetch(`https://discord.com/api/gateway/bot`, {
+      headers: {
+        Authorization: ws.identifyPayload.token,
+      },
+    }).then((res) => res.json()),
+  );
+  ws.maxShards = options.maxShards || ws.botGatewayData.shards;
+  ws.lastShardId = options.lastShardId || ws.botGatewayData.shards - 1;
+  ws.spawnShards(ws.firstShardId);
+  await ws.cleanupLoadingShards();
 }
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIjxodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGlzY29yZGVuby9kaXNjb3JkZW5vL21haW4vc3JjL3dzL3N0YXJ0X2dhdGV3YXkudHM+Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IERpc2NvcmRHYXRld2F5SW50ZW50cyB9IGZyb20gXCIuLi90eXBlcy9nYXRld2F5L2dhdGV3YXlfaW50ZW50cy50c1wiO1xuaW1wb3J0IHR5cGUgeyBHZXRHYXRld2F5Qm90IH0gZnJvbSBcIi4uL3R5cGVzL2dhdGV3YXkvZ2V0X2dhdGV3YXlfYm90LnRzXCI7XG5pbXBvcnQgeyBjYW1lbGl6ZSB9IGZyb20gXCIuLi91dGlsL3V0aWxzLnRzXCI7XG5pbXBvcnQgeyBTdGFydEdhdGV3YXlPcHRpb25zIH0gZnJvbSBcIi4vc3RhcnRfZ2F0ZXdheV9vcHRpb25zLnRzXCI7XG5pbXBvcnQgeyB3cyB9IGZyb20gXCIuL3dzLnRzXCI7XG5cbi8qKiBBRFZBTkNFRCBERVZTIE9OTFkhISEhISFcbiAqIFN0YXJ0cyB0aGUgc3RhbmRhbG9uZSBnYXRld2F5LlxuICogVGhpcyB3aWxsIHJlcXVpcmUgc3RhcnRpbmcgdGhlIGJvdCBzZXBhcmF0ZWx5LlxuICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gc3RhcnRHYXRld2F5KG9wdGlvbnM6IFN0YXJ0R2F0ZXdheU9wdGlvbnMpIHtcbiAgd3MuaWRlbnRpZnlQYXlsb2FkLnRva2VuID0gYEJvdCAke29wdGlvbnMudG9rZW59YDtcbiAgd3Muc2VjcmV0S2V5ID0gb3B0aW9ucy5zZWNyZXRLZXk7XG4gIHdzLmZpcnN0U2hhcmRJZCA9IG9wdGlvbnMuZmlyc3RTaGFyZElkO1xuICB3cy51cmwgPSBvcHRpb25zLnVybDtcbiAgaWYgKG9wdGlvbnMuc2hhcmRzUGVyQ2x1c3Rlcikgd3Muc2hhcmRzUGVyQ2x1c3RlciA9IG9wdGlvbnMuc2hhcmRzUGVyQ2x1c3RlcjtcbiAgaWYgKG9wdGlvbnMubWF4Q2x1c3RlcnMpIHdzLm1heENsdXN0ZXJzID0gb3B0aW9ucy5tYXhDbHVzdGVycztcblxuICBpZiAob3B0aW9ucy5jb21wcmVzcykge1xuICAgIHdzLmlkZW50aWZ5UGF5bG9hZC5jb21wcmVzcyA9IG9wdGlvbnMuY29tcHJlc3M7XG4gIH1cbiAgaWYgKG9wdGlvbnMucmVzaGFyZCkgd3MucmVzaGFyZCA9IG9wdGlvbnMucmVzaGFyZDtcbiAgLy8gT25jZSBhbiBob3VyIGNoZWNrIGlmIHJlc2hhcmRpbmcgaXMgbmVjZXNzYXJ5XG4gIHNldEludGVydmFsKHdzLnJlc2hhcmRlciwgMTAwMCAqIDYwICogNjApO1xuXG4gIHdzLmlkZW50aWZ5UGF5bG9hZC5pbnRlbnRzID0gb3B0aW9ucy5pbnRlbnRzLnJlZHVjZShcbiAgICAoXG4gICAgICBiaXRzLFxuICAgICAgbmV4dCxcbiAgICApID0+IChiaXRzIHw9IHR5cGVvZiBuZXh0ID09PSBcInN0cmluZ1wiXG4gICAgICA/IERpc2NvcmRHYXRld2F5SW50ZW50c1tuZXh0XVxuICAgICAgOiBuZXh0KSxcbiAgICAwLFxuICApO1xuXG4gIHdzLmJvdEdhdGV3YXlEYXRhID0gY2FtZWxpemUoXG4gICAgYXdhaXQgZmV0Y2goYGh0dHBzOi8vZGlzY29yZC5jb20vYXBpL2dhdGV3YXkvYm90YCwge1xuICAgICAgaGVhZGVyczogeyBBdXRob3JpemF0aW9uOiB3cy5pZGVudGlmeVBheWxvYWQudG9rZW4gfSxcbiAgICB9KS50aGVuKChyZXMpID0+IHJlcy5qc29uKCkpLFxuICApIGFzIEdldEdhdGV3YXlCb3Q7XG5cbiAgd3MubWF4U2hhcmRzID0gb3B0aW9ucy5tYXhTaGFyZHMgfHwgd3MuYm90R2F0ZXdheURhdGEuc2hhcmRzO1xuICB3cy5sYXN0U2hhcmRJZCA9IG9wdGlvbnMubGFzdFNoYXJkSWQgfHwgd3MuYm90R2F0ZXdheURhdGEuc2hhcmRzIC0gMTtcblxuICB3cy5zcGF3blNoYXJkcyh3cy5maXJzdFNoYXJkSWQpO1xuICBhd2FpdCB3cy5jbGVhbnVwTG9hZGluZ1NoYXJkcygpO1xufVxuIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJTQUFTLHFCQUFxQixTQUFRLG1DQUFxQztTQUVsRSxRQUFRLFNBQVEsZ0JBQWtCO1NBRWxDLEVBQUUsU0FBUSxPQUFTO0FBRTVCLEVBR0csQUFISDs7O0NBR0csQUFISCxFQUdHLHVCQUNtQixZQUFZLENBQUMsT0FBNEI7SUFDN0QsRUFBRSxDQUFDLGVBQWUsQ0FBQyxLQUFLLElBQUksSUFBSSxFQUFFLE9BQU8sQ0FBQyxLQUFLO0lBQy9DLEVBQUUsQ0FBQyxTQUFTLEdBQUcsT0FBTyxDQUFDLFNBQVM7SUFDaEMsRUFBRSxDQUFDLFlBQVksR0FBRyxPQUFPLENBQUMsWUFBWTtJQUN0QyxFQUFFLENBQUMsR0FBRyxHQUFHLE9BQU8sQ0FBQyxHQUFHO1FBQ2hCLE9BQU8sQ0FBQyxnQkFBZ0IsRUFBRSxFQUFFLENBQUMsZ0JBQWdCLEdBQUcsT0FBTyxDQUFDLGdCQUFnQjtRQUN4RSxPQUFPLENBQUMsV0FBVyxFQUFFLEVBQUUsQ0FBQyxXQUFXLEdBQUcsT0FBTyxDQUFDLFdBQVc7UUFFekQsT0FBTyxDQUFDLFFBQVE7UUFDbEIsRUFBRSxDQUFDLGVBQWUsQ0FBQyxRQUFRLEdBQUcsT0FBTyxDQUFDLFFBQVE7O1FBRTVDLE9BQU8sQ0FBQyxPQUFPLEVBQUUsRUFBRSxDQUFDLE9BQU8sR0FBRyxPQUFPLENBQUMsT0FBTztJQUNqRCxFQUFnRCxBQUFoRCw4Q0FBZ0Q7SUFDaEQsV0FBVyxDQUFDLEVBQUUsQ0FBQyxTQUFTLEVBQUUsSUFBSSxHQUFHLEVBQUUsR0FBRyxFQUFFO0lBRXhDLEVBQUUsQ0FBQyxlQUFlLENBQUMsT0FBTyxHQUFHLE9BQU8sQ0FBQyxPQUFPLENBQUMsTUFBTSxFQUUvQyxJQUFJLEVBQ0osSUFBSSxHQUNBLElBQUksV0FBVyxJQUFJLE1BQUssTUFBUSxJQUNsQyxxQkFBcUIsQ0FBQyxJQUFJLElBQzFCLElBQUk7TUFDUixDQUFDO0lBR0gsRUFBRSxDQUFDLGNBQWMsR0FBRyxRQUFRLE9BQ3BCLEtBQUssRUFBRSxtQ0FBbUM7UUFDOUMsT0FBTztZQUFJLGFBQWEsRUFBRSxFQUFFLENBQUMsZUFBZSxDQUFDLEtBQUs7O09BQ2pELElBQUksRUFBRSxHQUFHLEdBQUssR0FBRyxDQUFDLElBQUk7O0lBRzNCLEVBQUUsQ0FBQyxTQUFTLEdBQUcsT0FBTyxDQUFDLFNBQVMsSUFBSSxFQUFFLENBQUMsY0FBYyxDQUFDLE1BQU07SUFDNUQsRUFBRSxDQUFDLFdBQVcsR0FBRyxPQUFPLENBQUMsV0FBVyxJQUFJLEVBQUUsQ0FBQyxjQUFjLENBQUMsTUFBTSxHQUFHLENBQUM7SUFFcEUsRUFBRSxDQUFDLFdBQVcsQ0FBQyxFQUFFLENBQUMsWUFBWTtVQUN4QixFQUFFLENBQUMsb0JBQW9CIn0=
