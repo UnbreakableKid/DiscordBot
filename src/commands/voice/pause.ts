@@ -1,6 +1,7 @@
 import { bot } from "../../../cache.ts";
 import { createCommand } from "../../utils/helpers.ts";
 import { checkIfUserInMusicChannel } from "../../utils/voice.ts";
+import { sendInteractionResponse, snowflakeToBigint, DiscordenoInteractionResponse } from "../../../deps.ts";
 
 createCommand({
   name: "pause",
@@ -9,7 +10,8 @@ createCommand({
     enabled: true,
     guild: true,
     execute: (message) => {
-      return "Pong";
+      var data: DiscordenoInteractionResponse = {data:{content:"ping"}, type:4};
+      return sendInteractionResponse(snowflakeToBigint(message.id), message.token, data);
     },
   },
   async execute(message) {
