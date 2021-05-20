@@ -1,5 +1,13 @@
 import { bot } from "../../../cache.ts";
-import { DiscordenoInteractionResponse, sendInteractionResponse, snowflakeToBigint, cache, DiscordApplicationCommandOptionTypes, DiscordenoMessage, DiscordMessageTypes } from "../../../deps.ts";
+import {
+  cache,
+  DiscordApplicationCommandOptionTypes,
+  DiscordenoInteractionResponse,
+  DiscordenoMessage,
+  DiscordMessageTypes,
+  sendInteractionResponse,
+  snowflakeToBigint,
+} from "../../../deps.ts";
 import { createCommand } from "../../utils/helpers.ts";
 import {
   addPlaylistToQueue,
@@ -13,7 +21,7 @@ createCommand({
   guildOnly: true,
   slash: {
     enabled: true,
-    guild: true, 
+    guild: true,
     options: [
       {
         required: true,
@@ -23,77 +31,72 @@ createCommand({
       },
     ],
     execute: async (data, member) => {
-    
       var payload;
 
       const arg = data.data?.options?.[0];
-      
-      if(arg?.type !== DiscordApplicationCommandOptionTypes.String)
+
+      if (arg?.type !== DiscordApplicationCommandOptionTypes.String) {
         return;
+      }
 
       const player = bot.lavadenoManager.players.get(
         data.guildId!.toString(),
-        );
-        
-        var toSend: DiscordenoInteractionResponse = {
-          data: { content: payload },
-          type: 4,
-        };
-    
-      if (!player || !player.connected) {
+      );
 
+      var toSend: DiscordenoInteractionResponse = {
+        data: { content: payload },
+        type: 4,
+      };
+
+      if (!player || !player.connected) {
         const guild = cache.guilds.get(BigInt(data.guildId));
         const voiceState = guild!.voiceStates.get(BigInt(member?.id));
         if (!voiceState?.channelId) {
           payload = (`You first need to join a voice channel!`);
-        }
-        else{
-  
-        if (player) {
-          player.connect(voiceState.channelId.toString(), {
-            selfDeaf: true,
-          });
         } else {
-          const newPlayer = bot.lavadenoManager.create(
-            data.guildId!.toString(),
-          );
-          newPlayer.connect(voiceState.channelId.toString(), {
-            selfDeaf: true,
-          });
+          if (player) {
+            player.connect(voiceState.channelId.toString(), {
+              selfDeaf: true,
+            });
+          } else {
+            const newPlayer = bot.lavadenoManager.create(
+              data.guildId!.toString(),
+            );
+            newPlayer.connect(voiceState.channelId.toString(), {
+              selfDeaf: true,
+            });
+          }
+
+          payload = (`Successfully joined the channel!`);
         }
-  
-        payload = (`Successfully joined the channel!`);
-      }
-  
-      const trackSearch = validURL(arg.value)
-        ? arg.value
-        : `ytsearch:${arg.value}`;
-      const result = await bot.lavadenoManager.search(trackSearch);
 
-  
-      // switch (result.loadType) {
-      //   case "TRACK_LOADED":
-      //   case "SEARCH_RESULT": {
-      //     addSoundToQueue(bla, result.tracks[0]);
-      //     break;
-      //   }
-      //   case "PLAYLIST_LOADED": {
-      //     addPlaylistToQueue(
-      //       bla,
-      //       result.playlistInfo!.name,
-      //       result.tracks,
-      //     );
-      //     break;
-      //   }
-      //   default:
-      //     payload = (`Could not find any song with that name!`);
-      // }
+        const trackSearch = validURL(arg.value)
+          ? arg.value
+          : `ytsearch:${arg.value}`;
+        const result = await bot.lavadenoManager.search(trackSearch);
 
+        // switch (result.loadType) {
+        //   case "TRACK_LOADED":
+        //   case "SEARCH_RESULT": {
+        //     addSoundToQueue(bla, result.tracks[0]);
+        //     break;
+        //   }
+        //   case "PLAYLIST_LOADED": {
+        //     addPlaylistToQueue(
+        //       bla,
+        //       result.playlistInfo!.name,
+        //       result.tracks,
+        //     );
+        //     break;
+        //   }
+        //   default:
+        //     payload = (`Could not find any song with that name!`);
+        // }
 
-      return sendInteractionResponse(
-        snowflakeToBigint(data.id),
-        data.token,
-        toSend,
+        return sendInteractionResponse(
+          snowflakeToBigint(data.id),
+          data.token,
+          toSend,
         );
       }
     },
