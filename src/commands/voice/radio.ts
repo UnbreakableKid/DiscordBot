@@ -1,7 +1,9 @@
-import { DiscordenoMessage, Player } from "../../../deps.ts";
+import { DiscordenoMessage } from "../../../deps.ts";
 import { createCommand } from "../../utils/helpers.ts";
 import { sortWordByMinDistance } from "https://deno.land/x/damerau_levenshtein@v0.1.0/mod.ts";
 import { bot } from "../../../cache.ts";
+import { addSoundToQueue } from "../../utils/voice.ts";
+import { addPlaylistToQueue } from "../../utils/voice.ts";
 
 createCommand({
   name: "radio",
@@ -21,10 +23,6 @@ createCommand({
       return message.reply("Join a voice channel you dweeb");
     }
 
-    // if (!args.length) return message.reply('Wrong number of args');
-
-    // console.log(video.url);
-
     let radio: IRadio | null = null;
 
     let closestMatch: string = args.query.toUpperCase();
@@ -38,7 +36,7 @@ createCommand({
     radio = data[closestMatch];
     radiolink = radio!.link;
 
-    message.reply(radio!.id);
+    message.reply(radiolink);
 
     // break;
     // }
@@ -53,50 +51,37 @@ createCommand({
         player.connect(voiceState.channelId.toString(), {
           selfDeaf: true,
         });
-        const results = await player.manager.search("bka");
-        const { track, info } = results.tracks[0];
-        player.play("https://www.youtube.com/watch?v=rixsfO9WkbM");
       } else {
-        // player doesn't exist, create one and connect
         const newPlayer = bot.lavadenoManager.create(
           message.guildId.toString(),
         );
         newPlayer.connect(voiceState.channelId.toString(), {
           selfDeaf: true,
         });
-
-        (await newPlayer.play(radio.link)).on(
-          "error",
-          () => message.reply(":("),
-        );
       }
 
-      //     const connection = await voiceState?.channelId.;
-      //     connection
-      //         .play(radiolink, { seek: 0, volume: 1, bitrate: 'auto' })
-      //         .on('finish', () => {
-      //             voiceState.leave();
-      //         });
+      await message.reply(`Successfully joined the channel!`);
+    }
 
-      //     await message.reply(`Radio ${closestMatch} is playing`);
-      // }
+    const result = await bot.lavadenoManager.search(radiolink);
+
+    switch (result.loadType) {
+      case "TRACK_LOADED":
+      case "SEARCH_RESULT": {
+        return addSoundToQueue(message, result.tracks[0]);
+      }
+      case "PLAYLIST_LOADED": {
+        return addPlaylistToQueue(
+          message,
+          result.playlistInfo!.name,
+          result.tracks,
+        );
+      }
+      default:
+        return message.reply(`Could not find any song with that name!`);
     }
   },
 });
-
-const isLink = (link: string) => {
-  var pattern = new RegExp(
-    "^(https?:\\/\\/)?" + // protocol
-      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
-      "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
-      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
-      "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
-      "(\\#[-a-z\\d_]*)?$",
-    "i",
-  ); // fragment locator
-
-  return !!pattern.test(link);
-};
 
 export interface IRadio {
   name: string;
@@ -106,15 +91,3 @@ export interface IRadio {
 interface IRadios {
   radios: IRadio[];
 }
-
-// export abstract class Radios {
-//     async radios(message: CommandMessage) {
-//         const da = data;
-//         var str = '';
-
-//         for (let radio in da) {
-//             str += radio + '\n';
-//         }
-//         message.channel.send(str);
-//     }
-// }
