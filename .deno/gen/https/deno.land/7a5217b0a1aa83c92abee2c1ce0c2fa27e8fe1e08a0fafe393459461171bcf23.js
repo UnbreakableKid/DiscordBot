@@ -1178,7 +1178,8 @@ export function deflate(strm, flush) {
           s,
           (s.gzhead.text ? 1 : 0) + (s.gzhead.hcrc ? 2 : 0) + (!s.gzhead.extra
             ? 0
-            : 4) + (!s.gzhead.name ? 0 : 8) + (!s.gzhead.comment ? 0 : 16),
+            : 4) +
+            (!s.gzhead.name ? 0 : 8) + (!s.gzhead.comment ? 0 : 16),
         );
         put_byte(s, s.gzhead.time & 255);
         put_byte(s, s.gzhead.time >> 8 & 255);

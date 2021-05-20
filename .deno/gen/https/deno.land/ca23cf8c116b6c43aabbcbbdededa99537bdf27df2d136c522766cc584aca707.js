@@ -860,11 +860,10 @@ export function inflate(strm, flush) {
       case CODELENS:
         while (state.have < state.nlen + state.ndist) {
           for (;;) {
-            here =
-              state
-                .lencode[
-                  hold & (1 << state.lenbits) - 1
-                ]; /*BITS(state.lenbits)*/
+            here = state
+              .lencode[
+                hold & (1 << state.lenbits) - 1
+              ]; /*BITS(state.lenbits)*/
             here_bits = here >>> 24;
             here_op = here >>> 16 & 255;
             here_val = here & 65535;
@@ -1054,9 +1053,8 @@ export function inflate(strm, flush) {
         }
         state.back = 0;
         for (;;) {
-          here =
-            state
-              .lencode[hold & (1 << state.lenbits) - 1]; /*BITS(state.lenbits)*/
+          here = state
+            .lencode[hold & (1 << state.lenbits) - 1]; /*BITS(state.lenbits)*/
           here_bits = here >>> 24;
           here_op = here >>> 16 & 255;
           here_val = here & 65535;
@@ -1073,12 +1071,11 @@ export function inflate(strm, flush) {
           last_op = here_op;
           last_val = here_val;
           for (;;) {
-            here =
-              state
-                .lencode[
-                  last_val +
-                  ((hold & (1 << last_bits + last_op) - 1) >> last_bits)
-                ];
+            here = state
+              .lencode[
+                last_val +
+                ((hold & (1 << last_bits + last_op) - 1) >> last_bits)
+              ];
             here_bits = here >>> 24;
             here_op = here >>> 16 & 255;
             here_val = here & 65535;
@@ -1147,11 +1144,10 @@ export function inflate(strm, flush) {
       /* falls through */
       case DIST:
         for (;;) {
-          here =
-            state
-              .distcode[
-                hold & (1 << state.distbits) - 1
-              ]; /*BITS(state.distbits)*/
+          here = state
+            .distcode[
+              hold & (1 << state.distbits) - 1
+            ]; /*BITS(state.distbits)*/
           here_bits = here >>> 24;
           here_op = here >>> 16 & 255;
           here_val = here & 65535;
@@ -1168,12 +1164,11 @@ export function inflate(strm, flush) {
           last_op = here_op;
           last_val = here_val;
           for (;;) {
-            here =
-              state
-                .distcode[
-                  last_val +
-                  ((hold & (1 << last_bits + last_op) - 1) >> last_bits)
-                ];
+            here = state
+              .distcode[
+                last_val +
+                ((hold & (1 << last_bits + last_op) - 1) >> last_bits)
+              ];
             here_bits = here >>> 24;
             here_op = here >>> 16 & 255;
             here_val = here & 65535;

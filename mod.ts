@@ -1,21 +1,23 @@
 import { bot } from "./cache.ts";
 import { configs } from "./configs.ts";
-import { camelize,
+import {
+  camelize,
   DiscordInteractionResponseTypes,
   Interaction,
   InteractionResponseTypes,
   InteractionTypes,
   json,
   serve,
+  startBot,
   validateRequest,
-  verifySignature, startBot } from "./deps.ts";
+  verifySignature,
+} from "./deps.ts";
 import { fileLoader, importDirectory } from "./src/utils/helpers.ts";
 import { loadLanguages, translate } from "./src/utils/i18next.ts";
 import { log } from "./src/utils/logger.ts";
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 import "https://deno.land/x/dotenv/load.ts";
 import keepAlive from "./server.ts";
-
 
 log.info(
   "Beginning Bot Startup Process. This can take a little bit depending on your system. Loading now...",
@@ -39,7 +41,6 @@ await fileLoader();
 // Loads languages
 await loadLanguages();
 await import("./src/database/database.ts");
-
 
 startBot({
   token: Deno.env.get("TOKEN")!,
@@ -118,31 +119,31 @@ async function main(request: Request) {
 
     // Make sure the user has the permission to run this command.
     // if (!(await hasPermissionLevel(command, payload))) {
-      // return json({
-      //   type: InteractionResponseTypes.ChannelMessageWithSource,
-      //   data: {
-      //     content: translate(
-      //       payload.guildId!,
-      //       "MISSING_PERM_LEVEL",
-      //     ),
-      //   },
-      // });
+    // return json({
+    //   type: InteractionResponseTypes.ChannelMessageWithSource,
+    //   data: {
+    //     content: translate(
+    //       payload.guildId!,
+    //       "MISSING_PERM_LEVEL",
+    //     ),
+    //   },
+    // });
     // }
 
-    if(typeof command !== 'undefined' ){
-    const result = await command.execute(payload);
-    // if (!isInteractionResponse(result)) {
-    //   await logWebhook(payload).catch(console.error);
-    //   return json({
-    //     data: result,
-    //     type: DiscordInteractionResponseTypes.ChannelMessageWithSource,
-    //   });
-    // }
+    if (typeof command !== "undefined") {
+      const result = await command.execute(payload);
+      // if (!isInteractionResponse(result)) {
+      //   await logWebhook(payload).catch(console.error);
+      //   return json({
+      //     data: result,
+      //     type: DiscordInteractionResponseTypes.ChannelMessageWithSource,
+      //   });
+      // }
 
-    // DENO/TS BUG DOESNT LET US SEND A OBJECT WITHOUT THIS OVERRIDE
-    return json(result as unknown as { [key: string]: unknown });
+      // DENO/TS BUG DOESNT LET US SEND A OBJECT WITHOUT THIS OVERRIDE
+      return json(result as unknown as { [key: string]: unknown });
+    }
   }
-}
 
   return json({ error: "Bad request" }, { status: 400 });
 }

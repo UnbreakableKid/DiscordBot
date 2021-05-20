@@ -22,9 +22,8 @@ export async function handleVoiceStateUpdate(data) {
   );
   await cacheHandlers.set("guilds", guild.id, guild);
   if (
-    cachedState?.channelId !== (payload.channelId
-      ? snowflakeToBigint(payload.channelId)
-      : null)
+    cachedState?.channelId !==
+      (payload.channelId ? snowflakeToBigint(payload.channelId) : null)
   ) {
     // Either joined or moved channels
     if (payload.channelId) {

@@ -46,13 +46,12 @@ import { rest } from "./rest.ts";
     if (bucketResetIn) continue;
     // EXECUTE THE REQUEST
     // IF THIS IS A GET REQUEST, CHANGE THE BODY TO QUERY PARAMETERS
-    const query =
-      queuedRequest.request.method.toUpperCase() === "GET" &&
+    const query = queuedRequest.request.method.toUpperCase() === "GET" &&
         queuedRequest.payload.body
-        ? Object.entries(queuedRequest.payload.body).map(([key, value]) =>
-          `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-        ).join("&")
-        : "";
+      ? Object.entries(queuedRequest.payload.body).map(([key, value]) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+      ).join("&")
+      : "";
     const urlToUse =
       queuedRequest.request.method.toUpperCase() === "GET" && query
         ? `${queuedRequest.request.url}?${query}`

@@ -1,7 +1,11 @@
 import { bot } from "../../../cache.ts";
 import { createCommand } from "../../utils/helpers.ts";
 import { checkIfUserInMusicChannel } from "../../utils/voice.ts";
-import { sendInteractionResponse, snowflakeToBigint, DiscordenoInteractionResponse } from "../../../deps.ts";
+import {
+  DiscordenoInteractionResponse,
+  sendInteractionResponse,
+  snowflakeToBigint,
+} from "../../../deps.ts";
 
 createCommand({
   name: "pause",
@@ -10,8 +14,15 @@ createCommand({
     enabled: true,
     guild: true,
     execute: (message) => {
-      var data: DiscordenoInteractionResponse = {data:{content:"ping"}, type:4};
-      return sendInteractionResponse(snowflakeToBigint(message.id), message.token, data);
+      var data: DiscordenoInteractionResponse = {
+        data: { content: "ping" },
+        type: 4,
+      };
+      return sendInteractionResponse(
+        snowflakeToBigint(message.id),
+        message.token,
+        data,
+      );
     },
   },
   async execute(message) {

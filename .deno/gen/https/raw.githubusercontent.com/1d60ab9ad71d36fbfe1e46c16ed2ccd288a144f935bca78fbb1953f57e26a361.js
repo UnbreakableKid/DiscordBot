@@ -17,9 +17,10 @@ import { ws } from "./ws.ts";
   // If more than 100K servers, begin switching to 16x sharding
   if (ws.maxShards && ws.useOptimalLargeBotSharding) {
     ws.maxShards = Math.ceil(
-      ws.maxShards / (ws.botGatewayData.sessionStartLimit.maxConcurrency === 1
-        ? 16
-        : ws.botGatewayData.sessionStartLimit.maxConcurrency),
+      ws.maxShards /
+        (ws.botGatewayData.sessionStartLimit.maxConcurrency === 1
+          ? 16
+          : ws.botGatewayData.sessionStartLimit.maxConcurrency),
     );
   }
   ws.spawnShards(ws.firstShardId);

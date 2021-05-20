@@ -431,7 +431,9 @@ function send_code(s, c, tree) {
   }
   //Assert (dist == 256, "tr_static_init: 256+dist != 512");
   /* Construct the codes of the static literal tree */ for (
-    bits = 0; bits <= MAX_BITS; bits++
+    bits = 0;
+    bits <= MAX_BITS;
+    bits++
   ) {
     bl_count[bits] = 0;
   }
@@ -851,7 +853,9 @@ function send_code(s, c, tree) {
    */ let black_mask = 4093624447;
   let n;
   /* Check for non-textual ("black-listed") bytes. */ for (
-    n = 0; n <= 31; n++, black_mask >>>= 1
+    n = 0;
+    n <= 31;
+    n++, black_mask >>>= 1
   ) {
     if (black_mask & 1 && s.dyn_ltree[n * 2] !== 0) {
       return Z_BINARY;

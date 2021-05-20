@@ -63,12 +63,10 @@ export function distanceDamerau(string, compared) {
   list,
 ) {
   const arrayStrings = distanceList(string, list);
-  return arrayStrings.length === 0
-    ? string.length
-    : arrayStrings.reduce(
-      (min, b) => Math.min(min, b.distance),
-      arrayStrings[0].distance,
-    );
+  return arrayStrings.length === 0 ? string.length : arrayStrings.reduce(
+    (min, b) => Math.min(min, b.distance),
+    arrayStrings[0].distance,
+  );
 }
 export function sortByMinDistance(list) {
   return list.concat().sort(compareDistance);
