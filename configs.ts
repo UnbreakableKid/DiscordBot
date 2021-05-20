@@ -31,7 +31,7 @@ export const configs = {
     // The user ids for the other devs on your team
     botDevs: [] as string[],
     // The user ids who have complete 100% access to your bot
-    botOwners: [] as string[],
+    botOwners: ["122651398616776704", "166640057904660491"],
   },
   webhooks: {
     // the webhook to use when the bot finds a missing translation
