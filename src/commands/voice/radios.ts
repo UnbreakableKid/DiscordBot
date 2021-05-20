@@ -15,18 +15,18 @@ createCommand({
     enabled: true,
     guild: true,
     execute: (message) => {
-        const payload = new Embed();
-        let str = "";
+      const payload = new Embed();
+      let str = "";
 
-        const radios = JSON.parse(
-            Deno.readTextFileSync("./src/commands/voice/radios.json"),
-        );
+      const radios = JSON.parse(
+        Deno.readTextFileSync("./src/commands/voice/radios.json"),
+      );
 
-        payload.setTitle("Radio Stations");
+      payload.setTitle("Radio Stations");
       for (let radio in radios) {
-          str += radio + '\n'
+        str += radio + "\n";
       }
-      
+
       payload.setDescription(str);
 
       var data: DiscordenoInteractionResponse = {
@@ -40,14 +40,14 @@ createCommand({
       );
     },
   },
-   execute(message) {
+  execute(message) {
     const radios = JSON.parse(
-        Deno.readTextFileSync("./src/commands/voice/radios.json"),
+      Deno.readTextFileSync("./src/commands/voice/radios.json"),
     );
-    var str = '';
+    var str = "";
 
     for (let radio in radios) {
-        str += radio + '\n';
+      str += radio + "\n";
     }
     message.reply(str);
   },
