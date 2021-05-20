@@ -21,7 +21,7 @@ createCommand({
   guildOnly: true,
   // slash: {
   //   enabled: true,
-  //   guild: true, 
+  //   guild: true,
   //   options: [
   //     {
   //       required: true,
@@ -31,23 +31,23 @@ createCommand({
   //     },
   //   ],
   //   execute: (data, member) => {
-    
+
   //     var payload;
 
   //     const arg = data.data?.options?.[0];
-      
+
   //     if(arg?.type !== DiscordApplicationCommandOptionTypes.String)
   //       return;
 
   //     const player = bot.lavadenoManager.players.get(
   //       data.guildId!.toString(),
   //       );
-        
+
   //       var toSend: DiscordenoInteractionResponse = {
   //         data: { content: payload },
   //         type: 4,
   //       };
-    
+
   //     if (!player || !player.connected) {
 
   //       const guild = cache.guilds.get(BigInt(data.guildId));
@@ -56,7 +56,7 @@ createCommand({
   //         payload = (`You first need to join a voice channel!`);
   //       }
   //       else{
-  
+
   //       if (player) {
   //         player.connect(voiceState.channelId.toString(), {
   //           selfDeaf: true,
@@ -69,10 +69,10 @@ createCommand({
   //           selfDeaf: true,
   //         });
   //       }
-  
+
   //       payload = (`Successfully joined the channel!`);
   //     }
-  
+
   //     return sendInteractionResponse(
   //       snowflakeToBigint(data.id),
   //       data.token,
