@@ -1,4 +1,5 @@
 import { bot } from "../../../cache.ts";
+import { DiscordenoInteractionResponse, sendInteractionResponse, snowflakeToBigint } from "../../../deps.ts";
 import { createCommand } from "../../utils/helpers.ts";
 import { checkIfUserInMusicChannel } from "../../utils/voice.ts";
 
@@ -7,9 +8,28 @@ createCommand({
   guildOnly: true,
   slash: {
     enabled: true,
-    guild: true,
-    execute: (message) => {
-      return "Pong";
+    guild: true, 
+    execute: async (message) => {
+      var payload;
+
+      const player = bot.lavadenoManager.players.get(message.guildId!.toString());
+
+      if (!player) {
+      payload = (`The bot is not playing right now`);
+      }else{
+      await player.pause();
+      payload = "Paused!"
+      }
+  
+      var data: DiscordenoInteractionResponse = {
+        data: { content: payload },
+        type: 4,
+      };
+      return sendInteractionResponse(
+        snowflakeToBigint(message.id),
+        message.token,
+        data,
+      );
     },
   },
   async execute(message) {

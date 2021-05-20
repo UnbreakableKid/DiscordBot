@@ -3,6 +3,8 @@ import {
   cache,
   DiscordActivityTypes,
   editBotStatus,
+sendWebhook,
+snowflakeToBigint,
   upsertSlashCommands,
 } from "../../deps.ts";
 import { Command } from "../types/commands.ts";
@@ -12,14 +14,19 @@ import { registerTasks } from "./../utils/task_helper.ts";
 import { sweepInactiveGuildsCache } from "./dispatch_requirements.ts";
 import { bot } from "../../cache.ts";
 import { log } from "../utils/logger.ts";
+import {cron, daily, monthly, weekly} from 'https://deno.land/x/deno_cron/cron.ts';
+import { configs } from "../../configs.ts";
+import axiod from "https://deno.land/x/axiod/mod.ts";
+
+
 
 bot.eventHandlers.ready = async function () {
   editBotStatus({
     status: "dnd",
     activities: [
       {
-        name: "Discordeno Best Lib",
-        type: DiscordActivityTypes.Game,
+        name: "Gohan 👀",
+        type: DiscordActivityTypes.Watching,
         createdAt: Date.now(),
       },
     ],
@@ -110,4 +117,40 @@ bot.eventHandlers.ready = async function () {
   );
 
   log.info(`[READY] Slash Commands loaded successfully!`);
+
+  log.info("Loading the bois");
+
+  function sendMufasa(){
+    const fridays = [
+      'https://www.youtube.com/watch?v=kL62pCZ4I3k', //yakuza
+      ' https://www.youtube.com/watch?v=1AnG04qnLqI', //mufasa
+      'https://www.youtube.com/watch?v=UjJY8X7d9ZY', // mufasa
+      'https://cdn.discordapp.com/attachments/381520882608373761/824981469591634020/friday.mp4', //big boi tommy
+  ];
+      sendWebhook(snowflakeToBigint( configs.webhooks.mufasa.id!), configs.webhooks.mufasa.token!, {content:`It's friday! ${fridays[Math.floor(Math.random() * fridays.length)]}`});
+  }
+
+  async function sendAOTD(){
+    const { data } = await axiod.get(
+      'https://1001albumsgenerator.com/api/v1/groups/pepegas-do-preco-certo'
+  );
+
+  let stuff = data.currentAlbum;
+  let album: string = `https://open.spotify.com/album/${stuff.spotifyId}`;
+  sendWebhook(snowflakeToBigint( configs.webhooks.AOTD.id!), configs.webhooks.AOTD.token!, {content:`@here Today's album of the day is ${stuff.name} by ${stuff.artists[0].name}! ${album}`});
+
+  sendWebhook(snowflakeToBigint( configs.webhooks.AOTD.id!), configs.webhooks.AOTD.token!, {content:`Don't forget to rate the previous one!`});
+}
+
+  cron('00 00 11 * * 5', () => {
+    sendMufasa();
+  });
+
+  cron('00 00 8 * * *', () => {
+    sendAOTD();
+  });
+  
+  log.info("[READY] Bois are ready!");
+
+
 };
