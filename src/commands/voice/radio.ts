@@ -1,28 +1,45 @@
-import { cache, DiscordApplicationCommandOptionTypes, DiscordenoInteractionResponse, DiscordenoMessage, sendInteractionResponse, snowflakeToBigint } from "../../../deps.ts";
+import {
+  cache,
+  DiscordApplicationCommandOptionTypes,
+  DiscordenoInteractionResponse,
+  DiscordenoMessage,
+  sendInteractionResponse,
+  snowflakeToBigint,
+} from "../../../deps.ts";
 import { createCommand } from "../../utils/helpers.ts";
 import { sortWordByMinDistance } from "https://deno.land/x/damerau_levenshtein@v0.1.0/mod.ts";
 import { bot } from "../../../cache.ts";
-import { addSoundToQueue, addSoundToQueueInteraction } from "../../utils/voice.ts";
+import {
+  addSoundToQueue,
+  addSoundToQueueInteraction,
+} from "../../utils/voice.ts";
 import { addPlaylistToQueue } from "../../utils/voice.ts";
 
 createCommand({
   name: "radio",
   aliases: ["r"],
   guildOnly: true,
-  slash:{ 
-    enabled:true,
-    guild:true,
-    options:[{required:true, name:"radio_name", description:"radio_desc", type:DiscordApplicationCommandOptionTypes.String, choices:[{name:"Bob", value:"BOB"}, {name:"Antena 3", value:"Antena 3"}]}],
-    execute: async (message, member)=>{
-
-      let payload = '';
+  slash: {
+    enabled: true,
+    guild: true,
+    options: [{
+      required: true,
+      name: "radio_name",
+      description: "radio_desc",
+      type: DiscordApplicationCommandOptionTypes.String,
+      choices: [{ name: "Bob", value: "BOB" }, {
+        name: "Antena 3",
+        value: "Antena 3",
+      }],
+    }],
+    execute: async (message, member) => {
+      let payload = "";
 
       const guild = cache.guilds.get(snowflakeToBigint(message.guildId!));
 
-     
-      
-      if(typeof guild === 'undefined' || typeof member === 'undefined')
-      return;
+      if (typeof guild === "undefined" || typeof member === "undefined") {
+        return;
+      }
       const userID = ((member.id));
 
       const voiceState = guild.voiceStates.get((userID));
@@ -32,21 +49,20 @@ createCommand({
       );
 
       if (!voiceState?.channelId) {
-       payload = ("Join a voice channel you dweeb");
+        payload = ("Join a voice channel you dweeb");
       }
       let radio: IRadio | null = null;
-      
+
       // if(typeof args === 'undefined')
       // return;
 
-      let closestMatch: string = '';
+      let closestMatch: string = "";
 
+      if (
+        message.data && message.data.options && message.data.options.length > 0
+      ) {
+        const { value } = message.data!.options![0];
 
-      if(message.data &&  message.data.options && message.data.options.length > 0){
-
-
-        const {value}= message.data!.options![0];
-      
         closestMatch = value;
       }
 
@@ -77,7 +93,6 @@ createCommand({
             selfDeaf: true,
           });
         }
-
       }
 
       const result = await bot.lavadenoManager.search(radiolink);
@@ -85,15 +100,15 @@ createCommand({
       switch (result.loadType) {
         case "TRACK_LOADED":
         case "SEARCH_RESULT": {
-          payload = result.tracks[0].info.title
+          payload = result.tracks[0].info.title;
           addSoundToQueueInteraction(message, result.tracks[0]);
           break;
         }
-        
+
         default:
           payload = (`Could not find any song with that name!`);
       }
-      
+
       var test: DiscordenoInteractionResponse = {
         data: { content: payload },
         type: 4,
@@ -103,7 +118,7 @@ createCommand({
         message.token,
         test,
       );
-    }
+    },
   },
   arguments: [{ type: "...strings", name: "query", required: true }],
   userServerPermissions: ["SPEAK", "CONNECT"],

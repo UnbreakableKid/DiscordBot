@@ -1,5 +1,12 @@
 import { bot } from "../../cache.ts";
-import { cache, DiscordenoMessage, Interaction, Player, snowflakeToBigint, Track } from "../../deps.ts";
+import {
+  cache,
+  DiscordenoMessage,
+  Interaction,
+  Player,
+  snowflakeToBigint,
+  Track,
+} from "../../deps.ts";
 
 /** Convert milliseconds to MM:SS */
 export function getMusicLength(milliseconds: number) {
@@ -7,7 +14,6 @@ export function getMusicLength(milliseconds: number) {
     ? new Date(milliseconds).toISOString().substr(11, 8)
     : new Date(milliseconds).toISOString().substr(14, 5);
 }
-
 
 function execQueue(message: DiscordenoMessage, player: Player) {
   if (!message.guildId) return;
@@ -59,7 +65,7 @@ export async function addSoundToQueue(
   }
 }
 export async function addSoundToQueueInteraction(
-  message:  Omit<Interaction, "member">,
+  message: Omit<Interaction, "member">,
   track: Track,
 ) {
   if (!message.guildId) return;
@@ -82,7 +88,10 @@ export async function addSoundToQueueInteraction(
   }
 }
 
-function execQueueInteraction(message:  Omit<Interaction, "member">, player: Player) {
+function execQueueInteraction(
+  message: Omit<Interaction, "member">,
+  player: Player,
+) {
   if (!message.guildId) return;
 
   const queue = bot.musicQueues.get(snowflakeToBigint(message.guildId));
