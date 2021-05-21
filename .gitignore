@@ -4,3 +4,4 @@ fileloader.ts
 node_modules
 Lavalink/
 configs.ts
+.deno/
