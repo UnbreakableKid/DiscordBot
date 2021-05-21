@@ -51,7 +51,7 @@ startBot({
   eventHandlers: bot.eventHandlers,
 });
 
-keepAlive();
+// keepAlive();
 
 serve({
   "/": main,
