@@ -56,7 +56,7 @@ createCommand({
       // if(typeof args === 'undefined')
       // return;
 
-      let closestMatch: string = "";
+      let closestMatch = "";
 
       if (
         message.data && message.data.options && message.data.options.length > 0

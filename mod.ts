@@ -4,6 +4,7 @@ import { fileLoader, importDirectory } from "./src/utils/helpers.ts";
 import { loadLanguages } from "./src/utils/i18next.ts";
 import { log } from "./src/utils/logger.ts";
 import "https://deno.land/x/dotenv/load.ts";
+import keepAlive from "./server.ts";
 
 log.info(
   "Beginning Bot Startup Process. This can take a little bit depending on your system. Loading now...",
