@@ -40,4 +40,4 @@ startBot({
   eventHandlers: bot.eventHandlers,
 });
 
-keepAlive();
+// keepAlive();
