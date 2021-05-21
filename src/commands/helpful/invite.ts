@@ -1,5 +1,5 @@
-import { botId } from "../../deps.ts";
-import { createCommand } from "../utils/helpers.ts";
+import { botId } from "../../../deps.ts";
+import { createCommand } from "../../utils/helpers.ts";
 
 createCommand({
   name: `invite`,

@@ -1,7 +1,7 @@
-import { createCommand } from "../utils/helpers.ts";
-import { deleteMessages, getMessages } from "../../deps.ts";
-import { Embed } from "../utils/Embed.ts";
-import { log } from "../utils/logger.ts";
+import { createCommand } from "../../utils/helpers.ts";
+import { deleteMessages, getMessages } from "../../../deps.ts";
+import { Embed } from "../../utils/Embed.ts";
+import { log } from "../../utils/logger.ts";
 
 createCommand({
   name: "purge",

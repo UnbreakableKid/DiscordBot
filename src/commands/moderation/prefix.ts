@@ -1,9 +1,9 @@
-import { bot } from "../../cache.ts";
-import { PermissionLevels } from "../types/commands.ts";
-import { createCommand, createSubcommand } from "../utils/helpers.ts";
-import { parsePrefix } from "../monitors/command_handler.ts";
-import { Embed } from "../utils/Embed.ts";
-import { db } from "../database/database.ts";
+import { bot } from "../../../cache.ts";
+import { PermissionLevels } from "../../types/commands.ts";
+import { createCommand, createSubcommand } from "../../utils/helpers.ts";
+import { parsePrefix } from "../../monitors/command_handler.ts";
+import { Embed } from "../../utils/Embed.ts";
+import { db } from "../../database/database.ts";
 
 // This command will only execute if there was no valid sub command: !prefix
 createCommand({

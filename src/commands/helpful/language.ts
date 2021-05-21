@@ -1,13 +1,13 @@
-import { bot } from "../../cache.ts";
-import { PermissionLevels } from "../types/commands.ts";
+import { bot } from "../../../cache.ts";
+import { PermissionLevels } from "../../types/commands.ts";
 import {
   createCommand,
   createSubcommand,
   getCurrentLanguage,
-} from "../utils/helpers.ts";
-import { Embed } from "../utils/Embed.ts";
-import { db } from "../database/database.ts";
-import { log } from "../utils/logger.ts";
+} from "../../utils/helpers.ts";
+import { Embed } from "../../utils/Embed.ts";
+import { db } from "../../database/database.ts";
+import { log } from "../../utils/logger.ts";
 
 const allowedLanguages = [
   { id: "en_US", flag: ":flag_us:", name: "English" },

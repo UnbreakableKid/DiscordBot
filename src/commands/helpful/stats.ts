@@ -1,6 +1,6 @@
-import { Embed } from "./../utils/Embed.ts";
-import { cache } from "../../deps.ts";
-import { createCommand } from "../utils/helpers.ts";
+import { Embed } from "./../../utils/Embed.ts";
+import { cache } from "../../../deps.ts";
+import { createCommand } from "../../utils/helpers.ts";
 
 createCommand({
   name: `stats`,

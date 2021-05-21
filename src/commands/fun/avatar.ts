@@ -4,9 +4,9 @@ import {
   DiscordInteractionResponseTypes,
   sendInteractionResponse,
   snowflakeToBigint,
-} from "../../deps.ts";
-import { createCommand } from "../utils/helpers.ts";
-import { log } from "../utils/logger.ts";
+} from "../../../deps.ts";
+import { createCommand } from "../../utils/helpers.ts";
+import { log } from "../../utils/logger.ts";
 
 createCommand({
   name: `avatar`,

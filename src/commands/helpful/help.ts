@@ -1,7 +1,7 @@
-import { bot } from "../../cache.ts";
-import { translate } from "../utils/i18next.ts";
-import { Embed } from "../utils/Embed.ts";
-import { createCommand } from "../utils/helpers.ts";
+import { bot } from "../../../cache.ts";
+import { translate } from "../../utils/i18next.ts";
+import { Embed } from "../../utils/Embed.ts";
+import { createCommand } from "../../utils/helpers.ts";
 
 createCommand({
   name: `help`,
