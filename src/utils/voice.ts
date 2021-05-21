@@ -1,5 +1,5 @@
 import { bot } from "../../cache.ts";
-import { cache, DiscordenoMessage, Player, Track } from "../../deps.ts";
+import { cache, DiscordenoMessage, Interaction, Player, snowflakeToBigint, Track } from "../../deps.ts";
 
 /** Convert milliseconds to MM:SS */
 export function getMusicLength(milliseconds: number) {
@@ -7,6 +7,7 @@ export function getMusicLength(milliseconds: number) {
     ? new Date(milliseconds).toISOString().substr(11, 8)
     : new Date(milliseconds).toISOString().substr(14, 5);
 }
+
 
 function execQueue(message: DiscordenoMessage, player: Player) {
   if (!message.guildId) return;
@@ -56,6 +57,55 @@ export async function addSoundToQueue(
   if (player && !player.playing) {
     await execQueue(message, player);
   }
+}
+export async function addSoundToQueueInteraction(
+  message:  Omit<Interaction, "member">,
+  track: Track,
+) {
+  if (!message.guildId) return;
+
+  const player = bot.lavadenoManager.players.get(message.guildId.toString());
+  if (bot.musicQueues.has(snowflakeToBigint(message.guildId))) {
+    bot.musicQueues.get(snowflakeToBigint(message.guildId))?.push(track);
+    // await message.reply(
+    //   `Added ${track.info.title} to the queue! Position in queue: ${bot
+    //     .musicQueues.get(message.guildId)!.length - 1}`,
+    // );
+  } else {
+    bot.musicQueues.set(snowflakeToBigint(message.guildId!), [track]);
+    // await message.reply(
+    //   `Added ${track.info.title} to Now playing - ${track.info.title}.`,
+    // );
+  }
+  if (player && !player.playing) {
+    await execQueueInteraction(message, player);
+  }
+}
+
+function execQueueInteraction(message:  Omit<Interaction, "member">, player: Player) {
+  if (!message.guildId) return;
+
+  const queue = bot.musicQueues.get(snowflakeToBigint(message.guildId));
+  if (!queue || queue.length === 0) {
+    return;
+  }
+
+  player.play(queue[0]);
+
+  player.once("end", async () => {
+    if (!bot.loopingMusics.has(snowflakeToBigint(message.guildId!))) {
+      bot.musicQueues.get(snowflakeToBigint(message.guildId!))?.shift();
+    }
+    if (bot.musicQueues.get(snowflakeToBigint(message.guildId!))!.length > 0) {
+      setTimeout(() => {
+        execQueueInteraction(message, player);
+      }, 1000);
+    } else {
+      await bot.lavadenoManager.destroy(message.guildId!.toString());
+      bot.musicQueues.delete(snowflakeToBigint(message.guildId!));
+      // await message.send(`Queue is now empty! Leaving the voice channel.`);
+    }
+  });
 }
 
 export async function addPlaylistToQueue(
