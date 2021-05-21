@@ -1,12 +1,9 @@
 import { bot } from "./cache.ts";
-import { configs } from "./configs.ts";
 import { startBot } from "./deps.ts";
 import { fileLoader, importDirectory } from "./src/utils/helpers.ts";
 import { loadLanguages } from "./src/utils/i18next.ts";
 import { log } from "./src/utils/logger.ts";
-import { config } from "https://deno.land/x/dotenv/mod.ts";
 import "https://deno.land/x/dotenv/load.ts";
-import keepAlive from "./server.ts";
 
 log.info(
   "Beginning Bot Startup Process. This can take a little bit depending on your system. Loading now...",
