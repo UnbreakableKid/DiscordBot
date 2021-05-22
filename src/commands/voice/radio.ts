@@ -14,7 +14,7 @@ import {
   addSoundToQueueInteraction,
 } from "../../utils/voice.ts";
 import { addPlaylistToQueue } from "../../utils/voice.ts";
-import {Radios, Try} from "../../utils/constants/radios.ts";
+import { Radios, Try } from "../../utils/constants/radios.ts";
 
 createCommand({
   name: "radio",
@@ -29,7 +29,6 @@ createCommand({
       description: "radio_desc",
       type: DiscordApplicationCommandOptionTypes.String,
       choices: Try,
-     
     }],
     execute: async (message, member) => {
       let payload = "";
