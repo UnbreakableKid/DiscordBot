@@ -1,7 +1,7 @@
 export const Radios = {
   ANTENA_3: {
     value: "antena3",
-    name: "ANTENA 3"
+    name: "ANTENA 3",
   },
   BOB: {
     value: "radiobob",
