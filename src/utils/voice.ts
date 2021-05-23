@@ -163,8 +163,10 @@ export async function checkIfUserInMusicChannel(
     }
   }
   const voiceStates = cache.guilds.get(message.guildId)?.voiceStates;
-  if (!voiceStates?.has(message.authorId) || player.channel !==
-    voiceStates?.get(message.authorId)?.channelId?.toString()) {
+  if (
+    !voiceStates?.has(message.authorId) || player.channel !==
+      voiceStates?.get(message.authorId)?.channelId?.toString()
+  ) {
     await message.reply(`You need to be in the same voice channel as the bot!`);
     return false;
   }
