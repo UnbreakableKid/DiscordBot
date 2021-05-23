@@ -15,6 +15,7 @@ import {
 } from "../../utils/voice.ts";
 import { addPlaylistToQueue } from "../../utils/voice.ts";
 import { Radios, Try } from "../../utils/constants/radios.ts";
+import { byString } from "../../utils/object_by_string.ts";
 
 createCommand({
   name: "radio",
@@ -42,17 +43,11 @@ createCommand({
 
       const voiceState = guild.voiceStates.get((userID));
 
-      const data = JSON.parse(
-        Deno.readTextFileSync("./src/commands/voice/radios.json"),
-      );
-
+  
       if (!voiceState?.channelId) {
         payload = ("Join a voice channel you dweeb");
       }
       let radio: IRadio | null = null;
-
-      // if(typeof args === 'undefined')
-      // return;
 
       let closestMatch = "";
 
@@ -67,10 +62,9 @@ createCommand({
       var radiolink: string;
 
       var keys = [];
-      for (var k in data) keys.push(k);
-      closestMatch = sortWordByMinDistance(closestMatch, keys)[0].string;
-      console.log(closestMatch);
-      radio = data[closestMatch];
+      for (var k in Radios) keys.push(k);
+      closestMatch = sortWordByMinDistance(closestMatch, keys)[0].compared;
+      radio = byString(Radios, closestMatch);
       radiolink = radio!.link;
 
       if (radio) {
@@ -124,10 +118,6 @@ createCommand({
   async execute(message: DiscordenoMessage, args) {
     const voiceState = message.guild?.voiceStates.get(message.authorId);
 
-    const data = JSON.parse(
-      Deno.readTextFileSync("./src/commands/voice/radios.json"),
-    );
-
     if (!voiceState?.channelId) {
       return message.reply("Join a voice channel you dweeb");
     }
@@ -139,10 +129,10 @@ createCommand({
     var radiolink: string;
 
     var keys = [];
-    for (var k in data) keys.push(k);
+    for (var k in Radios) keys.push(k);
 
     closestMatch = sortWordByMinDistance(closestMatch, keys)[0].string;
-    radio = data[closestMatch];
+    radio = byString(Radios, closestMatch);
     radiolink = radio!.link;
 
     message.reply(radiolink);
