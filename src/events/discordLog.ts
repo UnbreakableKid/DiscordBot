@@ -4,12 +4,13 @@ import { snowflakeToBigint } from "../../deps.ts";
 import { Embed } from "../utils/Embed.ts";
 import { sendEmbed } from "../utils/helpers.ts";
 
-bot.eventHandlers.discordLog = function (error:Error) {
+bot.eventHandlers.discordLog = function (error: Error) {
   // Your code goes here
 
-  const embed = new Embed().setDescription(["```ts", error, "```" ].join("\n")).setTimestamp();
+  const embed = new Embed().setDescription(["```ts", error, "```"].join("\n"))
+    .setTimestamp();
 
-  if(!configs.channelIDs.errorChannelID) return;
+  if (!configs.channelIDs.errorChannelID) return;
 
   return sendEmbed(snowflakeToBigint(configs.channelIDs.errorChannelID), embed);
 };
