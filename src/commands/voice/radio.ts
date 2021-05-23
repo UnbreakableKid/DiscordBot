@@ -43,7 +43,6 @@ createCommand({
 
       const voiceState = guild.voiceStates.get((userID));
 
-  
       if (!voiceState?.channelId) {
         payload = ("Join a voice channel you dweeb");
       }
