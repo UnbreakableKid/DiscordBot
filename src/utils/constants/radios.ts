@@ -1,26 +1,26 @@
 export const Radios = {
   ANTENA_3: {
-    value: "antena3",
+    value: "ANTENA 3",
     name: "ANTENA 3",
   },
   BOB: {
-    value: "radiobob",
+    value: "RADIO BOB",
     name: "BOB",
   },
   BOB_BEST_OF_ROCK: {
-    value: "radiobobbestofrock",
+    value: "RADIO BOB ROCK",
     name: "BOB ROCK",
   },
   BOB_CLASSIC_ROCK: {
-    value: "radiobobclassicrock",
+    value: "RADIO BOB CLASSIC ROCK",
     name: "BOB CLASSIC ROCK",
   },
   BOB_METAL: {
-    value: "radiobobmetal",
+    value: "RADIO BOB METAL",
     name: "BOB METAL",
   },
   BOB_ALTERNATIVE: {
-    value: "radiobobalternative",
+    value: "RADIO BOB ALTERNATIVE",
     name: "BOB ALTERNATIVE",
   },
 };
