@@ -1,98 +1,98 @@
-import { bot } from "../../cache.ts";
+import { bot } from '../../cache.ts';
 import {
-  botId,
-  cache,
-  delay,
-  getChannels,
-  getGuild,
-  getMember,
-  Guild,
-  snowflakeToBigint,
-  structures,
-} from "../../deps.ts";
-import { log } from "../utils/logger.ts";
+    botId,
+    cache,
+    delay,
+    getChannels,
+    getGuild,
+    getMember,
+    Guild,
+    snowflakeToBigint,
+    structures,
+} from '../../deps.ts';
+import { log } from '../utils/logger.ts';
 
 const processing = new Set<bigint>();
 
 bot.eventHandlers.dispatchRequirements = async function (data, shardID) {
-  if (!bot.fullyReady) return;
+    if (!bot.fullyReady) return;
 
-  // DELETE MEANS WE DONT NEED TO FETCH. CREATE SHOULD HAVE DATA TO CACHE
-  if (data.t && ["GUILD_CREATE", "GUILD_DELETE"].includes(data.t)) return;
+    // DELETE MEANS WE DONT NEED TO FETCH. CREATE SHOULD HAVE DATA TO CACHE
+    if (data.t && ['GUILD_CREATE', 'GUILD_DELETE'].includes(data.t)) return;
 
-  const id = snowflakeToBigint(
-    (data.t && ["GUILD_UPDATE"].includes(data.t)
-      ? // deno-lint-ignore no-explicit-any
-        (data.d as any)?.id
-      : // deno-lint-ignore no-explicit-any
-        (data.d as any)?.guild_id) ?? ""
-  );
+    const id = snowflakeToBigint(
+        (data.t && ['GUILD_UPDATE'].includes(data.t)
+            ? // deno-lint-ignore no-explicit-any
+              (data.d as any)?.id
+            : // deno-lint-ignore no-explicit-any
+              (data.d as any)?.guild_id) ?? ''
+    );
 
-  if (!id || bot.activeGuildIDs.has(id)) return;
+    if (!id || bot.activeGuildIDs.has(id)) return;
 
-  // If this guild is in cache, it has not been swept and we can cancel
-  if (cache.guilds.has(id)) {
-    bot.activeGuildIDs.add(id);
-    return;
-  }
+    // If this guild is in cache, it has not been swept and we can cancel
+    if (cache.guilds.has(id)) {
+        bot.activeGuildIDs.add(id);
+        return;
+    }
 
-  if (processing.has(id)) {
-    log.info(`[DISPATCH] New Guild ID already being processed: ${id} in ${data.t} event`);
+    if (processing.has(id)) {
+        log.info(`[DISPATCH] New Guild ID already being processed: ${id} in ${data.t} event`);
 
-    let runs = 0;
-    do {
-      await delay(500);
-      ++runs;
-    } while (processing.has(id) && runs < 40);
+        let runs = 0;
+        do {
+            await delay(500);
+            ++runs;
+        } while (processing.has(id) && runs < 40);
 
-    if (!processing.has(id)) return;
+        if (!processing.has(id)) return;
 
-    return log.info(`[DISPATCH] Already processed guild was not successfully fetched:  ${id} in ${data.t} event`);
-  }
+        return log.info(`[DISPATCH] Already processed guild was not successfully fetched:  ${id} in ${data.t} event`);
+    }
 
-  processing.add(id);
+    processing.add(id);
 
-  // New guild id has appeared, fetch all relevant data
-  log.info(`[DISPATCH] New Guild ID has appeared: ${id} in ${data.t} event`);
+    // New guild id has appeared, fetch all relevant data
+    log.info(`[DISPATCH] New Guild ID has appeared: ${id} in ${data.t} event`);
 
-  const rawGuild = (await getGuild(id, {
-    counts: true,
-    addToCache: false,
-  }).catch(log.info)) as Guild | undefined;
+    const rawGuild = (await getGuild(id, {
+        counts: true,
+        addToCache: false,
+    }).catch(log.info)) as Guild | undefined;
 
-  if (!rawGuild) {
+    if (!rawGuild) {
+        processing.delete(id);
+        return log.info(`[DISPATCH] Guild ID ${id} failed to fetch.`);
+    }
+
+    log.info(`[DISPATCH] Guild ID ${id} has been found. ${rawGuild.name}`);
+
+    const [channels, botMember] = await Promise.all([
+        getChannels(id, false),
+        getMember(id, botId, { force: true }),
+    ]).catch((error) => {
+        log.info(error);
+        return [];
+    });
+
+    if (!botMember || !channels) {
+        processing.delete(id);
+        return log.info(`[DISPATCH] Guild ID ${id} Name: ${rawGuild.name} failed. Unable to get botMember or channels`);
+    }
+
+    const guild = await structures.createDiscordenoGuild(rawGuild, shardID);
+
+    // Add to cache
+    cache.guilds.set(id, guild);
+    bot.dispatchedGuildIDs.delete(id);
+    channels.forEach((channel) => {
+        bot.dispatchedChannelIDs.delete(channel.id);
+        cache.channels.set(channel.id, channel);
+    });
+
     processing.delete(id);
-    return log.info(`[DISPATCH] Guild ID ${id} failed to fetch.`);
-  }
 
-  log.info(`[DISPATCH] Guild ID ${id} has been found. ${rawGuild.name}`);
-
-  const [channels, botMember] = await Promise.all([
-    getChannels(id, false),
-    getMember(id, botId, { force: true }),
-  ]).catch((error) => {
-    log.info(error);
-    return [];
-  });
-
-  if (!botMember || !channels) {
-    processing.delete(id);
-    return log.info(`[DISPATCH] Guild ID ${id} Name: ${rawGuild.name} failed. Unable to get botMember or channels`);
-  }
-
-  const guild = await structures.createDiscordenoGuild(rawGuild, shardID);
-
-  // Add to cache
-  cache.guilds.set(id, guild);
-  bot.dispatchedGuildIDs.delete(id);
-  channels.forEach((channel) => {
-    bot.dispatchedChannelIDs.delete(channel.id);
-    cache.channels.set(channel.id, channel);
-  });
-
-  processing.delete(id);
-
-  log.info(`[DISPATCH] Guild ID ${id} Name: ${guild.name} completely loaded.`);
+    log.info(`[DISPATCH] Guild ID ${id} Name: ${guild.name} completely loaded.`);
 };
 
 // Events that have
@@ -137,23 +137,23 @@ bot.eventHandlers.dispatchRequirements = async function (data, shardID) {
  */
 
 export function sweepInactiveGuildsCache() {
-  for (const guild of cache.guilds.values()) {
-    if (bot.activeGuildIDs.has(guild.id)) continue;
+    for (const guild of cache.guilds.values()) {
+        if (bot.activeGuildIDs.has(guild.id)) continue;
 
-    // This is inactive guild. Not a single thing has happened for atleast 30 minutes.
-    // Not a reaction, not a message, not any event!
-    cache.guilds.delete(guild.id);
-    bot.dispatchedGuildIDs.add(guild.id);
-  }
+        // This is inactive guild. Not a single thing has happened for atleast 30 minutes.
+        // Not a reaction, not a message, not any event!
+        cache.guilds.delete(guild.id);
+        bot.dispatchedGuildIDs.add(guild.id);
+    }
 
-  // Remove all channel if they were dispatched
-  cache.channels.forEach((channel) => {
-    if (!bot.dispatchedGuildIDs.has(channel.guildId)) return;
+    // Remove all channel if they were dispatched
+    cache.channels.forEach((channel) => {
+        if (!bot.dispatchedGuildIDs.has(channel.guildId)) return;
 
-    cache.channels.delete(channel.id);
-    bot.dispatchedChannelIDs.add(channel.id);
-  });
+        cache.channels.delete(channel.id);
+        bot.dispatchedChannelIDs.add(channel.id);
+    });
 
-  // Reset activity for next interval
-  bot.activeGuildIDs.clear();
+    // Reset activity for next interval
+    bot.activeGuildIDs.clear();
 }
