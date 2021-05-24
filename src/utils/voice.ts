@@ -1,12 +1,5 @@
 import { bot } from "../../cache.ts";
-import {
-  cache,
-  DiscordenoMessage,
-  Interaction,
-  Player,
-  snowflakeToBigint,
-  Track,
-} from "../../deps.ts";
+import { cache, DiscordenoMessage, Interaction, Player, snowflakeToBigint, Track } from "../../deps.ts";
 
 /** Convert milliseconds to MM:SS */
 export function getMusicLength(milliseconds: number) {
@@ -58,10 +51,7 @@ export async function addSoundToQueue(message: DiscordenoMessage, track: Track) 
     await execQueue(message, player);
   }
 }
-export async function addSoundToQueueInteraction(
-  message: Omit<Interaction, "member">,
-  track: Track,
-) {
+export async function addSoundToQueueInteraction(message: Omit<Interaction, "member">, track: Track) {
   if (!message.guildId) return;
 
   const player = bot.lavadenoManager.players.get(message.guildId.toString());
@@ -82,10 +72,7 @@ export async function addSoundToQueueInteraction(
   }
 }
 
-function execQueueInteraction(
-  message: Omit<Interaction, "member">,
-  player: Player,
-) {
+function execQueueInteraction(message: Omit<Interaction, "member">, player: Player) {
   if (!message.guildId) return;
 
   const queue = bot.musicQueues.get(snowflakeToBigint(message.guildId));

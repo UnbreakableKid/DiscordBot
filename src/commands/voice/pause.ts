@@ -1,9 +1,5 @@
 import { bot } from "../../../cache.ts";
-import {
-  DiscordenoInteractionResponse,
-  sendInteractionResponse,
-  snowflakeToBigint,
-} from "../../../deps.ts";
+import { DiscordenoInteractionResponse, sendInteractionResponse, snowflakeToBigint } from "../../../deps.ts";
 import { createCommand } from "../../utils/helpers.ts";
 import { checkIfUserInMusicChannel } from "../../utils/voice.ts";
 
@@ -16,12 +12,10 @@ createCommand({
     execute: async (message) => {
       var payload;
 
-      const player = bot.lavadenoManager.players.get(
-        message.guildId!.toString(),
-      );
+      const player = bot.lavadenoManager.players.get(message.guildId!.toString());
 
       if (!player) {
-        payload = (`The bot is not playing right now`);
+        payload = `The bot is not playing right now`;
       } else {
         await player.pause();
         payload = "Paused!";
@@ -31,11 +25,7 @@ createCommand({
         data: { content: payload },
         type: 4,
       };
-      return sendInteractionResponse(
-        snowflakeToBigint(message.id),
-        message.token,
-        data,
-      );
+      return sendInteractionResponse(snowflakeToBigint(message.id), message.token, data);
     },
   },
   async execute(message) {

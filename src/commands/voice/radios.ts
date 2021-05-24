@@ -1,9 +1,5 @@
 import { bot } from "../../../cache.ts";
-import {
-  DiscordenoInteractionResponse,
-  sendInteractionResponse,
-  snowflakeToBigint,
-} from "../../../deps.ts";
+import { DiscordenoInteractionResponse, sendInteractionResponse, snowflakeToBigint } from "../../../deps.ts";
 import { Embed } from "../../utils/Embed.ts";
 import { createCommand } from "../../utils/helpers.ts";
 import { checkIfUserInMusicChannel } from "../../utils/voice.ts";
@@ -18,9 +14,7 @@ createCommand({
       const payload = new Embed();
       let str = "";
 
-      const radios = JSON.parse(
-        Deno.readTextFileSync("./src/commands/voice/radios.json"),
-      );
+      const radios = JSON.parse(Deno.readTextFileSync("./src/commands/voice/radios.json"));
 
       payload.setTitle("Radio Stations");
       for (let radio in radios) {
@@ -33,17 +27,11 @@ createCommand({
         data: { embeds: [payload] },
         type: 4,
       };
-      return sendInteractionResponse(
-        snowflakeToBigint(message.id),
-        message.token,
-        data,
-      );
+      return sendInteractionResponse(snowflakeToBigint(message.id), message.token, data);
     },
   },
   execute(message) {
-    const radios = JSON.parse(
-      Deno.readTextFileSync("./src/commands/voice/radios.json"),
-    );
+    const radios = JSON.parse(Deno.readTextFileSync("./src/commands/voice/radios.json"));
     var str = "";
 
     for (let radio in radios) {
