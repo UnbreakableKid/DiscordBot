@@ -9,10 +9,7 @@ import {
 import { createCommand } from "../../utils/helpers.ts";
 import { sortWordByMinDistance } from "https://deno.land/x/damerau_levenshtein@v0.1.0/mod.ts";
 import { bot } from "../../../cache.ts";
-import {
-  addSoundToQueue,
-  addSoundToQueueInteraction,
-} from "../../utils/voice.ts";
+import { addSoundToQueue, addSoundToQueueInteraction } from "../../utils/voice.ts";
 import { addPlaylistToQueue } from "../../utils/voice.ts";
 import { Radios, Try } from "../../utils/constants/radios.ts";
 import { byString } from "../../utils/object_by_string.ts";
@@ -24,13 +21,15 @@ createCommand({
   slash: {
     enabled: true,
     guild: true,
-    options: [{
-      required: true,
-      name: "radio_name",
-      description: "radio_desc",
-      type: DiscordApplicationCommandOptionTypes.String,
-      choices: Try,
-    }],
+    options: [
+      {
+        required: true,
+        name: "radio_name",
+        description: "radio_desc",
+        type: DiscordApplicationCommandOptionTypes.String,
+        choices: Try,
+      },
+    ],
     execute: async (message, member) => {
       let payload = "";
 
@@ -39,20 +38,18 @@ createCommand({
       if (typeof guild === "undefined" || typeof member === "undefined") {
         return;
       }
-      const userID = ((member.id));
+      const userID = member.id;
 
-      const voiceState = guild.voiceStates.get((userID));
+      const voiceState = guild.voiceStates.get(userID);
 
       if (!voiceState?.channelId) {
-        payload = ("Join a voice channel you dweeb");
+        payload = "Join a voice channel you dweeb";
       }
       let radio: IRadio | null = null;
 
       let closestMatch = "";
 
-      if (
-        message.data && message.data.options && message.data.options.length > 0
-      ) {
+      if (message.data && message.data.options && message.data.options.length > 0) {
         const { value } = message.data!.options![0];
 
         closestMatch = value;
@@ -68,18 +65,14 @@ createCommand({
 
       if (radio) {
         // Get player from map (Might not exist)
-        const player = bot.lavadenoManager.players.get(
-          message.guildId!.toString(),
-        );
+        const player = bot.lavadenoManager.players.get(message.guildId!.toString());
 
         if (player) {
           player.connect(voiceState!.channelId!.toString(), {
             selfDeaf: true,
           });
         } else {
-          const newPlayer = bot.lavadenoManager.create(
-            message.guildId!.toString(),
-          );
+          const newPlayer = bot.lavadenoManager.create(message.guildId!.toString());
           newPlayer.connect(voiceState!.channelId!.toString(), {
             selfDeaf: true,
           });
@@ -97,18 +90,14 @@ createCommand({
         }
 
         default:
-          payload = (`Could not find any song with that name!`);
+          payload = `Could not find any song with that name!`;
       }
 
       var test: DiscordenoInteractionResponse = {
         data: { content: payload },
         type: 4,
       };
-      return sendInteractionResponse(
-        snowflakeToBigint(message.id),
-        message.token,
-        test,
-      );
+      return sendInteractionResponse(snowflakeToBigint(message.id), message.token, test);
     },
   },
   arguments: [{ type: "...strings", name: "query", required: true }],
@@ -141,18 +130,14 @@ createCommand({
 
     if (radio) {
       // Get player from map (Might not exist)
-      const player = bot.lavadenoManager.players.get(
-        message.guildId.toString(),
-      );
+      const player = bot.lavadenoManager.players.get(message.guildId.toString());
 
       if (player) {
         player.connect(voiceState.channelId.toString(), {
           selfDeaf: true,
         });
       } else {
-        const newPlayer = bot.lavadenoManager.create(
-          message.guildId.toString(),
-        );
+        const newPlayer = bot.lavadenoManager.create(message.guildId.toString());
         newPlayer.connect(voiceState.channelId.toString(), {
           selfDeaf: true,
         });
@@ -169,11 +154,7 @@ createCommand({
         return addSoundToQueue(message, result.tracks[0]);
       }
       case "PLAYLIST_LOADED": {
-        return addPlaylistToQueue(
-          message,
-          result.playlistInfo!.name,
-          result.tracks,
-        );
+        return addPlaylistToQueue(message, result.playlistInfo!.name, result.tracks);
       }
       default:
         return message.reply(`Could not find any song with that name!`);
