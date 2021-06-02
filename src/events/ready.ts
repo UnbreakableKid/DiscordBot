@@ -14,7 +14,7 @@ import { registerTasks } from "./../utils/task_helper.ts";
 import { sweepInactiveGuildsCache } from "./dispatch_requirements.ts";
 import { bot } from "../../cache.ts";
 import { log } from "../utils/logger.ts";
-import { cron, daily, monthly, weekly } from "https://deno.land/x/deno_cron/cron.ts";
+import { cron } from "https://deno.land/x/deno_cron/cron.ts";
 import { configs } from "../../configs.ts";
 import axiod from "https://deno.land/x/axiod/mod.ts";
 
@@ -26,6 +26,7 @@ bot.eventHandlers.ready = async function () {
         name: "Gohan 👀",
         type: DiscordActivityTypes.Watching,
         createdAt: Date.now(),
+        
       },
     ],
   });
