@@ -13,8 +13,8 @@ bot.eventHandlers.interactionCreate = function (data, member) {
         command.slash?.execute(data as SlashCommandInteraction, member);
     }
 
-  // A BUTTON WAS CLICKED
-  if (data.type === DiscordInteractionTypes.MessageComponent) {
-    processButtonCollectors(data as ComponentInteraction, member);
-  }
+    // A BUTTON WAS CLICKED
+    if (data.type === DiscordInteractionTypes.MessageComponent) {
+        processButtonCollectors(data as ComponentInteraction, member);
+    }
 };

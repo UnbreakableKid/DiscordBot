@@ -32,6 +32,6 @@ createSubcommand('volume', {
 
         player.setVolume(args.value);
 
-    return message.reply(`Player volume successfully set to ${player.volume}.`);
-  },
+        return message.reply(`Player volume successfully set to ${player.volume}.`);
+    },
 });
