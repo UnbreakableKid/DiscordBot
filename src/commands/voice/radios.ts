@@ -1,8 +1,6 @@
-import { bot } from '../../../cache.ts';
 import { DiscordenoInteractionResponse, sendInteractionResponse, snowflakeToBigint } from '../../../deps.ts';
 import { Embed } from '../../utils/Embed.ts';
 import { createCommand } from '../../utils/helpers.ts';
-import { checkIfUserInMusicChannel } from '../../utils/voice.ts';
 
 createCommand({
     name: 'radios',

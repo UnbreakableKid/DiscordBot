@@ -1,17 +1,17 @@
 // This task will help remove un-used collectors to help keep our cache optimized.
-import { bot } from '../../cache.ts';
-import { Milliseconds } from '../utils/constants/time.ts';
+import { bot } from "../../cache.ts";
+import { Milliseconds } from "../utils/constants/time.ts";
 
 bot.tasks.set(`collectors`, {
-    name: `collectors`,
-    // Runs this function once a minute
-    interval: Milliseconds.MINUTE,
-    execute: function () {
-        const now = Date.now();
+  name: `collectors`,
+  // Runs this function once a minute
+  interval: Milliseconds.MINUTE,
+  execute: function () {
+    const now = Date.now();
 
-        bot.messageCollectors.forEach((collector, key) => {
-            // This collector has not finished yet.
-            if (collector.createdAt + collector.duration > now) return;
+    bot.messageCollectors.forEach((collector, key) => {
+      // This collector has not finished yet.
+      if (collector.createdAt + collector.duration > now) return;
 
       // Remove the collector
       bot.messageCollectors.delete(key);
@@ -19,9 +19,9 @@ bot.tasks.set(`collectors`, {
       return collector.reject("User did not send a message in time.");
     });
 
-        bot.reactionCollectors.forEach((collector, key) => {
-            // This collector has not finished yet.
-            if (collector.createdAt + collector.duration > now) return;
+    bot.reactionCollectors.forEach((collector, key) => {
+      // This collector has not finished yet.
+      if (collector.createdAt + collector.duration > now) return;
 
       // Remove the collector
       bot.reactionCollectors.delete(key);

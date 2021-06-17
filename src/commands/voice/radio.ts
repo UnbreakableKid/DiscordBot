@@ -50,6 +50,7 @@ createCommand({
             let closestMatch = '';
 
             if (message.data && message.data.options && message.data.options.length > 0) {
+                
                 const { value } = message.data!.options![0];
 
                 closestMatch = value;
