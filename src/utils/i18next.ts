@@ -55,24 +55,24 @@ export async function loadLanguages() {
 
         if (!configs.webhooks.missingTranslation.id) return;
 
-        await sendWebhook(
-          snowflakeToBigint(configs.webhooks.missingTranslation.id),
-          configs.webhooks.missingTranslation.token,
-          { content: response }
-        ).catch(log.error);
-      },
-      preload: languageFolder
-        .map((file) => (file.isDirectory ? file.name : undefined))
-        // Removes any non directory names(language names)
-        .filter((name) => name),
-      ns: namespaces,
-      backend: {
-        loadPath: `${Deno.realPathSync("./src/languages")}/{{lng}}/{{ns}}.json`,
-      },
-      // Silly bug in i18next needs a second param when unnecessary
-    },
-    undefined
-  );
+                await sendWebhook(
+                    snowflakeToBigint(configs.webhooks.missingTranslation.id),
+                    configs.webhooks.missingTranslation.token,
+                    { content: response }
+                ).catch(log.error);
+            },
+            preload: languageFolder
+                .map((file) => (file.isDirectory ? file.name : undefined))
+                // Removes any non directory names(language names)
+                .filter((name) => name),
+            ns: namespaces,
+            backend: {
+                loadPath: `${Deno.realPathSync('./src/languages')}/{{lng}}/{{ns}}.json`,
+            },
+            // Silly bug in i18next needs a second param when unnecessary
+        },
+        undefined
+    );
 }
 
 export async function reloadLang(language?: string[]) {

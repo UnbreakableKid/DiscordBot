@@ -1,5 +1,5 @@
-import { bot } from "../../cache.ts";
-import { configs } from "../../configs.ts";
+import { bot } from '../../cache.ts';
+import { configs } from '../../configs.ts';
 import {
   bgBlack,
   bgGreen,
@@ -26,9 +26,9 @@ export function parsePrefix(guildId: bigint | undefined) {
 }
 
 export function parseCommand(commandName: string) {
-  commandName = commandName.toLowerCase();
-  const command = bot.commands.get(commandName);
-  if (command) return command;
+    commandName = commandName.toLowerCase();
+    const command = bot.commands.get(commandName);
+    if (command) return command;
 
   // Check aliases if the command wasn't found
   return bot.commands.find((cmd) => Boolean(cmd.aliases?.includes(commandName)));
