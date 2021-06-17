@@ -192,7 +192,7 @@ export function sendEmbed(channelId: bigint, embed: Embed, content?: string) {
 
 /** Use this function to edit an embed with ease. */
 export function editEmbed(message: DiscordenoMessage, embed: Embed, content?: string) {
-    return editMessage(message, { content, embed });
+  return editMessage(message.channelId, message.id, { content, embed });
 }
 
 // Very important to make sure files are reloaded properly
@@ -404,96 +404,60 @@ export async function createEmbedsButtonsPagination(
 
     if (!embedMessage) return;
 
-    if (embeds.length <= 1) return;
+  while (true) {
+    const collectedButton = await needButton(authorId, messageId, {
+      duration: buttonTimeout,
+    });
 
-    let isEnded = false;
-
-    while (!isEnded) {
-        if (!embedMessage) {
-            isEnded = true;
-            break;
-        }
-
-        const collectedButton = await needButton(authorId, embedMessage.channelId, {
-            duration: buttonTimeout,
-        });
-
-        console.log(collectedButton);
+    if (!collectedButton || !collectedButton.customId.startsWith(messageId.toString())) {
+      return;
+    }
 
         if (!collectedButton || !collectedButton.customId.startsWith(messageId.toString())) {
             return;
         }
 
-        const action = collectedButton.customId.split('-')[1];
+        currentPage = newPageNumber;
 
-        switch (action) {
-            case 'Next':
-                currentPage += 1;
-                break;
-            // deno-lint-ignore no-case-declarations
-            case 'Jump':
-                await sendInteractionResponse(
-                    snowflakeToBigint(collectedButton.interaction.id),
-                    collectedButton.interaction.token,
-                    {
-                        type: 6,
-                    }
-                );
+        editWebhookMessage(
+          snowflakeToBigint(collectedButton.interaction.applicationId),
+          collectedButton.interaction.token,
+          {
+            messageId: embedMessage.id,
+            embeds: [embeds[currentPage - 1]],
+            components: createComponents(),
+          }
+        );
 
-                const question = await sendMessage(
-                    channelId,
-                    'To what page would you like to jump? Say `cancel` or `0` to cancel the prompt.'
-                );
-                const answer = await needMessage(authorId, channelId);
-                await deleteMessages(channelId, [question.id, answer.id]).catch(log.error);
-
-                const newPageNumber = Math.ceil(Number(answer.content));
-
-                if (isNaN(newPageNumber) || newPageNumber < 1 || newPageNumber > embeds.length) {
-                    await sendMessage(channelId, 'This is not a valid number!');
-                    continue;
-                }
-
-                currentPage = newPageNumber;
-
-                editWebhookMessage(
-                    snowflakeToBigint(collectedButton.interaction.applicationId),
-                    collectedButton.interaction.token,
-                    {
-                        messageId: embedMessage.id,
-                        embeds: [embeds[currentPage - 1]],
-                        components: createComponents(),
-                    }
-                );
-
-                continue;
-            case 'Previous':
-                currentPage -= 1;
-                break;
-            case 'Delete':
-                deleteMessage(channelId, embedMessage.id);
-                isEnded = true;
-                break;
-        }
-
-        if (
-            isEnded ||
-            !embedMessage ||
-            !(await sendInteractionResponse(
-                snowflakeToBigint(collectedButton.interaction.id),
-                collectedButton.interaction.token,
-                {
-                    type: 7,
-                    data: {
-                        embeds: [embeds[currentPage - 1]],
-                        components: createComponents(),
-                    },
-                }
-            ).catch(log.error))
-        ) {
-            return;
-        }
+        continue;
+      case "Previous":
+        currentPage -= 1;
+        break;
+      case "Delete":
+        deleteMessage(channelId, embedMessage.id);
+        return;
     }
+
+    if (currentPage < 0) {
+      currentPage = 0;
+    }
+
+    if (currentPage > embeds.length) {
+      currentPage = embeds.length - 1;
+    }
+
+    await sendInteractionResponse(
+      snowflakeToBigint(collectedButton.interaction.id),
+      collectedButton.interaction.token,
+      {
+        type: 7,
+        data: {
+          embeds: [embeds[currentPage - 1]],
+          components: createComponents(),
+        },
+      }
+    ).catch(log.error);
+  }
 }
 
 export function emojiUnicode(emoji: Emoji) {

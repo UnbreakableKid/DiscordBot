@@ -37,20 +37,15 @@ function execQueue(message: DiscordenoMessage, player: Player) {
 export async function addSoundToQueue(message: DiscordenoMessage, track: Track) {
     if (!message.guildId) return;
 
-    const player = bot.lavadenoManager.players.get(message.guildId.toString());
-    if (bot.musicQueues.has(message.guildId)) {
-        bot.musicQueues.get(message.guildId)?.push(track);
-        await message.reply(
-            `Added ${track.info.title} to the queue! Position in queue: ${
-                bot.musicQueues.get(message.guildId)!.length - 1
-            }`
-        );
-    } else {
-        bot.musicQueues.set(message.guildId!, [track]);
-        await message.reply(`Added ${track.info.title} to Now playing - ${track.info.title}.`);
-    }
-    if (player && !player.playing) {
-        await execQueue(message, player);
+  // Handle if bot gets kicked from the voice channel
+  player.once("closed", async () => {
+    await bot.lavadenoManager.destroy(message.guildId.toString());
+    await message.send("I have been disconnected from the channel.");
+  });
+
+  player.once("end", async () => {
+    if (!bot.loopingMusics.has(message.guildId)) {
+      bot.musicQueues.get(message.guildId)?.shift();
     }
 }
 export async function addSoundToQueueInteraction(message: Omit<Interaction, 'member'>, track: Track) {

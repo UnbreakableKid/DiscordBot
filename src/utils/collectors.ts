@@ -1,13 +1,13 @@
 import { bot } from '../../cache.ts';
 import {
-    botId,
-    DiscordenoMember,
-    DiscordenoMessage,
-    Emoji,
-    Interaction,
-    snowflakeToBigint,
-    structures,
-} from '../../deps.ts';
+  botId,
+  ComponentInteraction,
+  DiscordenoMember,
+  DiscordenoMessage,
+  Emoji,
+  snowflakeToBigint,
+  structures,
+} from "../../deps.ts";
 import {
     ButtonCollectorOptions,
     ButtonCollectorReturn,
@@ -167,36 +167,27 @@ export function collectButtons(options: CollectButtonOptions): Promise<ButtonCol
     });
 }
 
-export async function processButtonCollectors(data: Omit<Interaction, 'member'>, member?: DiscordenoMember) {
-    // All buttons will require a message
-    if (!data.message) return;
+export async function processButtonCollectors(data: Omit<ComponentInteraction, "member">, member?: DiscordenoMember) {
+  // All buttons will require a message
+  if (!data.message) return;
 
-    // If this message is not pending a button response, we can ignore
-    const collector = bot.buttonCollectors.get(member ? member.id : snowflakeToBigint(data.message.id));
-    if (!collector) return;
+  // If this message is not pending a button response, we can ignore
+  const collector = bot.buttonCollectors.get(member ? member.id : snowflakeToBigint(data.message.id));
+  if (!collector) return;
 
-    // This message is a response to a collector. Now running the filter function.
-    if (!collector.filter(await structures.createDiscordenoMessage(data.message), member)) {
-        return;
-    }
+  // This message is a response to a collector. Now running the filter function.
+  if (!collector.filter(await structures.createDiscordenoMessage(data.message), member)) {
+    return;
+  }
 
-    // If the necessary amount has been collected
-    if (collector.amount === 1 || collector.amount === collector.buttons.length + 1) {
-        // Remove the collector
-        bot.buttonCollectors.delete(snowflakeToBigint(data.message.id));
-        // Resolve the collector
-        return collector.resolve([
-            ...collector.buttons,
-            {
-                customId: data.data?.customId || `No customId provided for this button.`,
-                interaction: data,
-                member,
-            },
-        ]);
-    }
-
-    // More buttons still need to be collected
-    collector.buttons.push({
+  // If the necessary amount has been collected
+  if (collector.amount === 1 || collector.amount === collector.buttons.length + 1) {
+    // Remove the collector
+    bot.buttonCollectors.delete(snowflakeToBigint(data.message.id));
+    // Resolve the collector
+    return collector.resolve([
+      ...collector.buttons,
+      {
         customId: data.data?.customId || `No customId provided for this button.`,
         interaction: data,
         member,
